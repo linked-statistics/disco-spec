@@ -1,0 +1,253 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ddionto: <http://ddialliance.org/def#> .
+
+#################################################################
+# Ontology
+#
+# Notes :
+#  - review naming style (eg "has" or not for properties) 
+#################################################################
+
+<http://ddialliance.org/def> a owl:Ontology ;
+dc:title "DDI model ontology"@en, "Ontologie pour le modèle DDI"@fr ;
+owl:versionInfo "Version 0.1 - 2011-12-01" .
+
+#################################################################
+# Classes
+#################################################################
+
+# DescriptiveStatistic class
+
+ddionto:DescriptiveStatistic a rdfs:Class, owl:Class ;
+rdfs:label "Descriptive statistic"@en, "Statistique descriptive"@fr ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# Coverage class
+
+ddionto:Coverage a rdfs:Class, owl:Class ;
+rdfs:label "Coverage"@en, "Couverture"@fr ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# Coverage class
+
+ddionto:Coverage a rdfs:Class, owl:Class ;
+rdfs:label "Coverage"@en, "Couverture"@fr ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# Datafile class
+
+ddionto:Datafile a rdfs:Class, owl:Class ;
+rdfs:label "Data file"@en, "Fichier de données"@fr ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# Instrument class
+
+ddionto:Instrument a rdfs:Class, owl:Class ;
+rdfs:label "Survey instrument"@en, "Instument de collecte"@fr ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# LogicalDataset class
+
+ddionto:LogicalDataset a rdfs:Class, owl:Class ;
+rdfs:label "LogicalDataset"@en, "Ensemble de données"@fr ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# Representation class. Abstract class to be subclassed (SKOS concept scheme, XML data type, etc.)
+
+ddionto:Representation a rdfs:Class, owl:Class ;
+rdfs:label "Representation"@en, "Représentation"@fr ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# Question class
+
+ddionto:Question a rdfs:Class, owl:Class ;
+rdfs:label "Question"@en, "Question"@fr ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# Study class
+
+ddionto:Study a rdfs:Class, owl:Class ;
+rdfs:label "Study"@en, "Étude"@fr ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# Variable class
+
+ddionto:Variable a rdfs:Class, owl:Class ;
+rdfs:label "Variable"@en, "Variable"@fr ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# Universe class
+
+ddionto:Universe a rdfs:Class, owl:Class ;
+rdfs:label "Universe"@en, "Univers"@fr ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+#################################################################
+# Data properties
+#################################################################
+
+# caseQuantity property
+
+ddionto:caseQuantity a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "number of cases"@en, "nombre d'observations"@fr ;
+rdfs:domain ddionto:Datafile ;
+rdfs:range xsd:nonNegativeInteger ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# frequency property
+
+ddionto:frequency a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "frequency"@en, "fréquence"@fr ;
+rdfs:domain ddionto:Variable ;
+# Check if it is really an integer
+rdfs:range xsd:integer ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# literalText property
+
+ddionto:literalText a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "literal text"@en, "texte littéral"@fr ;
+rdfs:domain ddionto:Question ;
+rdfs:range xsd:string ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# percentage property
+
+ddionto:percentage a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "percentage"@en, "pourcentage"@fr ;
+rdfs:domain ddionto:Variable ;
+rdfs:range xsd:float ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+#################################################################
+# Object properties
+#################################################################
+
+# hasConcept property
+
+ddionto:hasConcept a rdf:Property, owl:ObjectProperty ;
+rdfs:label "has concept"@en, "a pour concept"@fr ;
+rdfs:domain ddionto:Variable ;
+rdfs:range skos:Concept ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# hasCoverage property
+
+ddionto:hasCoverage a rdf:Property, owl:ObjectProperty ;
+rdfs:label "has coverage"@en, "a pour couverture"@fr ;
+# Domain should be union of Study and StudyGroup and LogicalDataset and Datafile
+rdfs:domain [ owl:unionOf (ddionto:Study ddionto:LogicalDataset ddionto:Datafile)] ;
+rdfs:range ddionto:Coverage ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# hasDatafile property
+
+ddionto:hasDatafile a rdf:Property, owl:ObjectProperty ;
+rdfs:label "has data file"@en, "a pour fichier de données"@fr ;
+rdfs:domain ddionto:LogicalDataset ;
+rdfs:range ddionto:Datafile ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# hasInstrument property
+
+ddionto:hasInstrument a rdf:Property, owl:ObjectProperty ;
+rdfs:label "has instrument"@en, "a comme instrument"@fr ;
+# Domain should be union of Study and StudyGroup
+rdfs:domain ddionto:Study ;
+rdfs:range ddionto:Instrument ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# hasQuestion property
+
+ddionto:hasQuestion a rdf:Property, owl:ObjectProperty ;
+rdfs:label "has question"@en, "a comme question"@fr ;
+rdfs:domain ddionto:Variable ;
+rdfs:range ddionto:Question ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# hasRepresentation property
+
+ddionto:hasRepresentation a rdf:Property, owl:ObjectProperty ;
+rdfs:label "has representation"@en, "a pour représentation"@fr ;
+rdfs:domain ddionto:Variable ;
+rdfs:range ddionto:Representation ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# hasResponseDomain property
+
+ddionto:hasResponseDomain a rdf:Property, owl:ObjectProperty ;
+rdfs:label "has response domain"@en, "a pour domaine de réponse"@fr ;
+rdfs:domain ddionto:Question ;
+rdfs:range ddionto:Representation ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# hasStatisticsCategory property
+
+ddionto:hasStatisticsCategory a rdf:Property, owl:ObjectProperty ;
+rdfs:label "has statistics category"@en, "a pour concept statistique"@fr ;
+rdfs:domain ddionto:DescriptiveStatistic ;
+rdfs:range skos:Concept ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# hasStatisticsDatafile property
+
+ddionto:hasStatisticsDatafile a rdf:Property, owl:ObjectProperty ;
+rdfs:label "has statistics datafile"@en, "a pour fichier statistique"@fr ;
+rdfs:domain ddionto:DescriptiveStatistic ;
+rdfs:range skos:Datafile ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# hasStatisticsVariable property
+
+ddionto:hasStatisticsVariable a rdf:Property, owl:ObjectProperty ;
+rdfs:label "has statistics variable"@en, "a pour variable statistique"@fr ;
+rdfs:domain ddionto:DescriptiveStatistic ;
+rdfs:range ddionto:Variable ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# holdsMeasurementOf property (or holdsMeasurementFor, or universe ?)
+
+ddionto:holdsMeasurementOf a rdf:Property, owl:ObjectProperty ;
+rdfs:label "holds measurement of"@en, "contient une mesure de"@fr ;
+rdfs:domain ddionto:Variable ;
+rdfs:range ddionto:Universe ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# Add a property representing coverage "specialization" ?
+
+# isMeasureOf property
+
+ddionto:isMeasureOf a rdf:Property, owl:ObjectProperty ;
+rdfs:label "is measure of"@en, "mesure"@fr ;
+# Domain should be union of Study and StudyGroup
+rdfs:domain ddionto:Study ;
+rdfs:range ddionto:Universe ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# isPopulatedBy property (check if this one is necessary)
+
+ddionto:isPopulatedBy a rdf:Property, owl:ObjectProperty ;
+rdfs:label "is populated by"@en, "est peuplée par"@fr ;
+rdfs:domain ddionto:Variable ;
+rdfs:range ddionto:Instrument ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# usesQuestion property
+
+ddionto:usesQuestion a rdf:Property, owl:ObjectProperty ;
+rdfs:label "uses question"@en, "utilise une question"@fr ;
+rdfs:domain ddionto:Instrument ;
+rdfs:range ddionto:Question ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# weightedBy property
+
+ddionto:weightedBy a rdf:Property, owl:ObjectProperty ;
+rdfs:label "weighted"@en, "pondéré par"@fr ;
+rdfs:domain ddionto:Variable ;
+rdfs:range ddionto:Variable ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
