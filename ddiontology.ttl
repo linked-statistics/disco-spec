@@ -185,6 +185,14 @@ rdfs:domain ddionto:Study ;
 rdfs:range ddionto:Instrument ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
+# hasNCube property
+
+ddionto:hasNCube a rdf:Property, owl:ObjectProperty ;
+rdfs:label "has NCube"@en, "a pour NCube"@fr ;
+rdfs:domain ddionto:LogicalDataset ;
+rdfs:range qb:Dataset ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
 # hasQuestion property
 
 ddionto:hasQuestion a rdf:Property, owl:ObjectProperty ;
