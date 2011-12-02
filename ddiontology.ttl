@@ -2,6 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix ddionto: <http://ddialliance.org/def#> .
 
@@ -136,6 +137,14 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 # Object properties
 #################################################################
 
+# containsVariable property
+
+ddionto:containsVariable a rdf:Property, owl:ObjectProperty ;
+rdfs:label "contains variable"@en, "contient la variable"@fr ;
+rdfs:domain ddionto:LogicalDataset ;
+rdfs:range ddionto:Variable ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
 # hasConcept property
 
 ddionto:hasConcept a rdf:Property, owl:ObjectProperty ;
@@ -243,6 +252,14 @@ ddionto:isPopulatedBy a rdf:Property, owl:ObjectProperty ;
 rdfs:label "is populated by"@en, "est peuplée par"@fr ;
 rdfs:domain ddionto:Variable ;
 rdfs:range ddionto:Instrument ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# sourceVariable property (links Datacube components to DDI variables)
+
+ddionto:sourceVariable a rdf:Property, owl:ObjectProperty ;
+rdfs:label "source variable"@en, "variable source"@fr ;
+rdfs:domain qb:ComponentSpecification ;
+rdfs:range ddionto:Variable ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 # usesQuestion property
