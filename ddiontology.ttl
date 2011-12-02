@@ -123,6 +123,15 @@ rdfs:domain ddionto:Variable ;
 rdfs:range xsd:float ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
+# weightedFrequency property
+
+ddionto:weightedFrequency a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "weighted frequency"@en, "fréquence pondérée"@fr ;
+rdfs:domain ddionto:Variable ;
+# Check if it is really an integer
+rdfs:range xsd:integer ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
 #################################################################
 # Object properties
 #################################################################
