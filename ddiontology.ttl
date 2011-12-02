@@ -249,6 +249,14 @@ rdfs:domain [ owl:unionOf (ddionto:DataElement ddionto:Variable)] ;
 rdfs:range ddionto:Universe ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
+# inputVariable property (links Datacube Datasets to DDI variables)
+
+ddionto:inputVariable a rdf:Property, owl:ObjectProperty ;
+rdfs:label "input variable"@en, "variable en entrée"@fr ;
+rdfs:domain qb:Dataset ;
+rdfs:range ddionto:Variable ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
 # Add a property representing coverage "specialization" ?
 
 # isMeasureOf property
@@ -266,14 +274,6 @@ ddionto:isPopulatedBy a rdf:Property, owl:ObjectProperty ;
 rdfs:label "is populated by"@en, "est peuplée par"@fr ;
 rdfs:domain ddionto:Variable ;
 rdfs:range ddionto:Instrument ;
-rdfs:isDefinedBy <http://ddialliance.org/def> .
-
-# sourceVariable property (links Datacube components to DDI variables)
-
-ddionto:sourceVariable a rdf:Property, owl:ObjectProperty ;
-rdfs:label "source variable"@en, "variable source"@fr ;
-rdfs:domain qb:ComponentSpecification ;
-rdfs:range ddionto:Variable ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 # usesQuestion property
