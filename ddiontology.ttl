@@ -20,9 +20,9 @@ owl:versionInfo "Version 0.1 - 2011-12-01" .
 # Classes
 #################################################################
 
-# DescriptiveStatistic class
+# DescriptiveStatistics class
 
-ddionto:DescriptiveStatistic a rdfs:Class, owl:Class ;
+ddionto:DescriptiveStatistics a rdfs:Class, owl:Class ;
 rdfs:label "Descriptive statistic"@en, "Statistique descriptive"@fr ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
@@ -198,7 +198,7 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 ddionto:hasStatisticsCategory a rdf:Property, owl:ObjectProperty ;
 rdfs:label "has statistics category"@en, "a pour concept statistique"@fr ;
-rdfs:domain ddionto:DescriptiveStatistic ;
+rdfs:domain ddionto:DescriptiveStatistics ;
 rdfs:range skos:Concept ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
@@ -206,7 +206,7 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 ddionto:hasStatisticsDatafile a rdf:Property, owl:ObjectProperty ;
 rdfs:label "has statistics datafile"@en, "a pour fichier statistique"@fr ;
-rdfs:domain ddionto:DescriptiveStatistic ;
+rdfs:domain ddionto:DescriptiveStatistics ;
 rdfs:range skos:Datafile ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
@@ -214,7 +214,7 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 ddionto:hasStatisticsVariable a rdf:Property, owl:ObjectProperty ;
 rdfs:label "has statistics variable"@en, "a pour variable statistique"@fr ;
-rdfs:domain ddionto:DescriptiveStatistic ;
+rdfs:domain ddionto:DescriptiveStatistics ;
 rdfs:range ddionto:Variable ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
