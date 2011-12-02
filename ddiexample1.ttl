@@ -18,9 +18,9 @@ ddi:ARG_1908_PHC_v01_A_IPUMS-example a ddionto:Study , ddionto:LogicalDataset ;
    ] ;
    ddionto:hasCoverage _:coverage ;
    ddionto:hasDatafile _:datafile ;
-   ddionto:hasInstrument _:instument .
+   ddionto:hasInstrument _:instrument .
 
-_:instrument a ddionto:Instument ;
+_:instrument a ddionto:Instrument ;
    ddionto:usesQuestion _:question .
 
 _:question a ddionto:Question ;
@@ -56,13 +56,13 @@ _:dstat1 a ddionto:DescriptiveStatistic ;
    ddi:percentage 49.97 ;
    ddionto:hasStatisticsVariable ddi:AR80A401 ;
    ddionto:hasStatisticsCategory _:sexC1 ;
-   ddionto:hasStatisticsCategory _:datafile .
+   ddionto:hasStatisticsDatafile _:datafile .
 
 _:dstat2 a ddionto:DescriptiveStatistic ;
    ddi:frequency 1336270 ;
    ddionto:hasStatisticsVariable ddi:AR80A401 ;
    ddionto:hasStatisticsCategory _:sexC2 ;
-   ddionto:hasStatisticsCategory _:datafile .
+   ddionto:hasStatisticsDatafile _:datafile .
 
 _:sexCS a skos:ConceptScheme, ddionto:Representation ;
    skos:hasTopConcept _:sexC1 , _:sexC2 .
