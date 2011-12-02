@@ -284,6 +284,14 @@ rdfs:domain ddionto:Instrument ;
 rdfs:range ddionto:Question ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
+# usesDataElement property
+
+ddionto:usesDataElement a rdf:Property, owl:ObjectProperty ;
+rdfs:label "uses data element"@en, "utilise l'élément de donnée"@fr ;
+rdfs:domain ddionto:Variable ;
+rdfs:range ddionto:DataElement ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
 # weightedBy property
 
 ddionto:weightedBy a rdf:Property, owl:ObjectProperty ;
