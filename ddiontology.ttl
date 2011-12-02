@@ -230,7 +230,7 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 ddionto:hasStatisticsDatafile a rdf:Property, owl:ObjectProperty ;
 rdfs:label "has statistics datafile"@en, "a pour fichier statistique"@fr ;
 rdfs:domain ddionto:DescriptiveStatistics ;
-rdfs:range skos:Datafile ;
+rdfs:range ddionto:Datafile ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 # hasStatisticsVariable property
