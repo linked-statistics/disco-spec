@@ -39,13 +39,17 @@ ddi:AR80A401 a ddionto:Variable ;
    dc:identifier "AR80A401" ;
    skos:prefLabel "Sex"@en , "Sexe"@fr ;
    ddionto:isPopulatedBy _:instrument ;
-   ddionto:holdsMeasurementOf [ 
+   ddionto:hasDataElement _:sexDE ;
+   ddionto:hasQuestion _:question .
+
+_:sexDE a ddionto:DataElement ;
+   ddionto:universe [ 
       a ddionto:Universe ;
 	  skos:definition "All persons"@en
    ] ;
-   ddionto:hasRepresentation _:sex:CS ;
-   ddionto:hasConcept _:sex:CS ;
-   ddionto:hasQuestion _:qestion .
+   ddionto:hasRepresentation _:sexCS ;
+   ddionto:hasConcept _:ipumsC1 ;
+   skos:prefLabel "Sex"@en , "Sexe"@fr .
 
 _:dstat1 a ddionto:DescriptiveStatistic ;
    ddi:frequency 13314444 ;
