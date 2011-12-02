@@ -21,18 +21,6 @@ owl:versionInfo "Version 0.1 - 2011-12-01" .
 # Classes
 #################################################################
 
-# DescriptiveStatistics class
-
-ddionto:DescriptiveStatistics a rdfs:Class, owl:Class ;
-rdfs:label "Descriptive statistic"@en, "Statistique descriptive"@fr ;
-rdfs:isDefinedBy <http://ddialliance.org/def> .
-
-# Coverage class
-
-ddionto:Coverage a rdfs:Class, owl:Class ;
-rdfs:label "Coverage"@en, "Couverture"@fr ;
-rdfs:isDefinedBy <http://ddialliance.org/def> .
-
 # Coverage class
 
 ddionto:Coverage a rdfs:Class, owl:Class ;
@@ -49,6 +37,12 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 ddionto:Datafile a rdfs:Class, owl:Class ;
 rdfs:label "Data file"@en, "Fichier de données"@fr ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
+# DescriptiveStatistics class
+
+ddionto:DescriptiveStatistics a rdfs:Class, owl:Class ;
+rdfs:label "Descriptive statistic"@en, "Statistique descriptive"@fr ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 # Instrument class
