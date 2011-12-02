@@ -12,19 +12,21 @@
 
 ddi:ARG_1908_PHC_v01_A_IPUMS-example a ddionto:Study , ddionto:LogicalDataset ;
    dc:title "National Population and Housing Census 1980"@en ;
-   ddionto:isMeasureOf [
-      a ddionto:Universe ;
-      skos:definition "All the population... carried out."@en
-   ] ;
+   ddionto:isMeasureOf _:universe ;
    ddionto:hasCoverage _:coverage ;
    ddionto:hasDatafile _:datafile ;
-   ddionto:hasInstrument _:instrument .
+   ddionto:hasInstrument _:instrument ;
+   ddionto:containsVariable ddi:AR80A401 , ddi:AR80A402 , ddi:AR80A404 , ddi:AR80A407 , ddi:AR80A411.
+
+_:universe a ddionto:Universe ;
+      skos:definition "All the population... carried out."@en .
 
 _:instrument a ddionto:Instrument ;
    ddionto:usesQuestion _:question .
 
 _:question a ddionto:Question ;
-   ddionto:literalText "blabla"@en .
+   ddionto:literalText "blabla"@en ;
+   ddionto:hasResponseDomain _:sexCS .
 
 _:datafile a ddionto:Datafile ;
 	  dc:identifier "ARG1900-P-H.dat" ;
@@ -38,18 +40,17 @@ _:datafile a ddionto:Datafile ;
 ddi:AR80A401 a ddionto:Variable ;
    dc:identifier "AR80A401" ;
    skos:prefLabel "Sex"@en , "Sexe"@fr ;
+   dc:description "This variable indicates..."@en ;
    ddionto:isPopulatedBy _:instrument ;
-   ddionto:hasDataElement _:sexDE ;
+   ddionto:usesDataElement _:sexDE ;
    ddionto:hasQuestion _:question .
 
 _:sexDE a ddionto:DataElement ;
-   ddionto:universe [ 
-      a ddionto:Universe ;
-	  skos:definition "All persons"@en
-   ] ;
+   ddionto:hasUniverse _:universe ;
    ddionto:hasRepresentation _:sexCS ;
    ddionto:hasConcept _:ipumsC1 ;
-   skos:prefLabel "Sex"@en , "Sexe"@fr .
+   skos:prefLabel "Sex"@en , "Sexe"@fr ;
+   dc:description "Sex data element"@en .
 
 _:dstat1 a ddionto:DescriptiveStatistic ;
    ddi:frequency 13314444 ;
