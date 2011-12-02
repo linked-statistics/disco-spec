@@ -39,6 +39,12 @@ ddionto:Coverage a rdfs:Class, owl:Class ;
 rdfs:label "Coverage"@en, "Couverture"@fr ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
+# DataElement class
+
+ddionto:DataElement a rdfs:Class, owl:Class ;
+rdfs:label "Data element"@en, "Élément de donnée"@fr ;
+rdfs:isDefinedBy <http://ddialliance.org/def> .
+
 # Datafile class
 
 ddionto:Datafile a rdfs:Class, owl:Class ;
@@ -149,7 +155,7 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 ddionto:hasConcept a rdf:Property, owl:ObjectProperty ;
 rdfs:label "has concept"@en, "a pour concept"@fr ;
-rdfs:domain ddionto:Variable ;
+rdfs:domain [ owl:unionOf (ddionto:DataElement ddionto:Variable)] ;
 rdfs:range skos:Concept ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
@@ -191,7 +197,7 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 ddionto:hasRepresentation a rdf:Property, owl:ObjectProperty ;
 rdfs:label "has representation"@en, "a pour représentation"@fr ;
-rdfs:domain ddionto:Variable ;
+rdfs:domain [ owl:unionOf (ddionto:DataElement ddionto:Variable)] ;
 rdfs:range ddionto:Representation ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
@@ -227,11 +233,11 @@ rdfs:domain ddionto:DescriptiveStatistics ;
 rdfs:range ddionto:Variable ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
-# holdsMeasurementOf property (or holdsMeasurementFor, or universe ?)
+# hasUniverse property
 
 ddionto:holdsMeasurementOf a rdf:Property, owl:ObjectProperty ;
-rdfs:label "holds measurement of"@en, "contient une mesure de"@fr ;
-rdfs:domain ddionto:Variable ;
+rdfs:label "has universe"@en, "a comme univers"@fr ;
+rdfs:domain [ owl:unionOf (ddionto:DataElement ddionto:Variable)] ;
 rdfs:range ddionto:Universe ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
