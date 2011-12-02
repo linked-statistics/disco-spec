@@ -10,7 +10,7 @@
 @prefix ddionto: <http://ddialliance.org/def#> .
 @prefix ddi: <http://ddialliance.org/data/> .
 
-ddi:ARG_1908_PHC_v01_A_IPUMS a ddionto:Study , ddionto:LogicalDataset ;
+ddi:ARG_1908_PHC_v01_A_IPUMS-example a ddionto:Study , ddionto:LogicalDataset ;
    dc:title "National Population and Housing Census 1980"@en ;
    ddionto:isMeasureOf [
       a ddionto:Universe ;
