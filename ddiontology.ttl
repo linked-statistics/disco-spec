@@ -15,7 +15,7 @@
 
 <http://ddialliance.org/def> a owl:Ontology ;
 dc:title "DDI model ontology"@en, "Ontologie pour le modèle DDI"@fr ;
-owl:versionInfo "Version 0.1 - 2011-12-01" .
+owl:versionInfo "Version 0.1.1 - 2011-12-31" .
 
 #################################################################
 # Classes
@@ -25,18 +25,21 @@ owl:versionInfo "Version 0.1 - 2011-12-01" .
 
 ddionto:Coverage a rdfs:Class, owl:Class ;
 rdfs:label "Coverage"@en, "Couverture"@fr ;
+rdfs:comment "Dublin Core terms (spatial, temporal, etc.) may be used to speficy the coverage."@en ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 # DataElement class
 
 ddionto:DataElement a rdfs:Class, owl:Class ;
 rdfs:label "Data element"@en, "Élément de donnée"@fr ;
+rdfs:comment "It is recommended to use Dublin Core terms (identifier, description) and SKOS labels to describe the data element."@en ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 # Datafile class
 
 ddionto:Datafile a rdfs:Class, owl:Class ;
 rdfs:label "Data file"@en, "Fichier de données"@fr ;
+rdfs:comment "It is recommended to use Dublin Core terms (identifier, description, provenance, format) to describe the file ; owl:versionInfo can also be used."@en ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 # DescriptiveStatistics class
@@ -55,6 +58,7 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 ddionto:LogicalDataset a rdfs:Class, owl:Class ;
 rdfs:label "LogicalDataset"@en, "Ensemble de données"@fr ;
+rdfs:comment "It is recommended to use Dublin Core term hasPart to express that a logical dataset belongs to a study."@en ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 # Representation class. Abstract class to be subclassed (SKOS concept scheme, XML data type, etc.)
@@ -79,6 +83,7 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 ddionto:Variable a rdfs:Class, owl:Class ;
 rdfs:label "Variable"@en, "Variable"@fr ;
+rdfs:comment "It is recommended to use Dublin Core terms (identifier, description) and SKOS labels to describe the variable."@en ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 # Universe class
@@ -184,7 +189,7 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 ddionto:hasNCube a rdf:Property, owl:ObjectProperty ;
 rdfs:label "has NCube"@en, "a pour NCube"@fr ;
 rdfs:domain ddionto:LogicalDataset ;
-rdfs:range qb:Dataset ;
+rdfs:range qb:DataSet ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 # hasQuestion property
@@ -247,7 +252,7 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 ddionto:inputVariable a rdf:Property, owl:ObjectProperty ;
 rdfs:label "input variable"@en, "variable en entrée"@fr ;
-rdfs:domain qb:Dataset ;
+rdfs:domain qb:DataSet ;
 rdfs:range ddionto:Variable ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
