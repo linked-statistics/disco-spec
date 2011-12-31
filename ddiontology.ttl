@@ -1,5 +1,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
@@ -15,7 +16,10 @@
 
 <http://ddialliance.org/def> a owl:Ontology ;
 dc:title "DDI model ontology"@en, "Ontologie pour le modèle DDI"@fr ;
-owl:versionInfo "Version 0.1.1 - 2011-12-31" .
+rdfs:comment "This ontology is based on the Data Documentation Initiative model, especially the elements useful for data discovery"@en ;
+dc:contributor "Thomas Bosch", "Franck Cotton", "Richard Cyganiak", "Arofan Gregory", "Larry Hoyle", "Olof Olsson", "Dan Smith", "Wendy Thomas", "Johanna Vompras", "Joachim Wackerow", "Benjamin Zapilko" ;
+dc:creator "Franck Cotton" ;
+owl:versionInfo "Version 0.2 - 2011-12-31" .
 
 #################################################################
 # Classes
@@ -108,7 +112,7 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 ddionto:frequency a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "frequency"@en, "fréquence"@fr ;
-rdfs:domain ddionto:Variable ;
+rdfs:domain ddionto:DescriptiveStatistics ;
 # Check if it is really an integer
 rdfs:range xsd:integer ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
@@ -125,7 +129,7 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 ddionto:percentage a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "percentage"@en, "pourcentage"@fr ;
-rdfs:domain ddionto:Variable ;
+rdfs:domain ddionto:DescriptiveStatistics ;
 rdfs:range xsd:float ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
 
@@ -133,7 +137,7 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 ddionto:weightedFrequency a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "weighted frequency"@en, "fréquence pondérée"@fr ;
-rdfs:domain ddionto:Variable ;
+rdfs:domain ddionto:DescriptiveStatistics ;
 # Check if it is really an integer
 rdfs:range xsd:integer ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
@@ -295,6 +299,6 @@ rdfs:isDefinedBy <http://ddialliance.org/def> .
 
 ddionto:weightedBy a rdf:Property, owl:ObjectProperty ;
 rdfs:label "weighted"@en, "pondéré par"@fr ;
-rdfs:domain ddionto:Variable ;
+rdfs:domain ddionto:DescriptiveStatistics ;
 rdfs:range ddionto:Variable ;
 rdfs:isDefinedBy <http://ddialliance.org/def> .
