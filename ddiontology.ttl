@@ -193,6 +193,14 @@ rdfs:domain disco:LogicalDataSet ;
 rdfs:range disco:DataFile ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
+# dataSetUniverse
+
+disco:dataSetUniverse a rdf:Property, owl:ObjectProperty ;
+rdfs:label "data set universe"@en, "Datensatzuniversum"@de ;
+rdfs:domain disco:LogicalDataSet ;
+rdfs:range disco:Universe ;
+rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+
 # instrument property
 
 disco:instrument a rdf:Property, owl:ObjectProperty ;
@@ -208,6 +216,14 @@ disco:dataCube a rdf:Property, owl:ObjectProperty ;
 rdfs:label "data cube"@en, "a pour data cube"@fr ;
 rdfs:domain disco:LogicalDataSet ;
 rdfs:range qb:DataSet ;
+rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+
+# product property
+
+disco:product a rdf:Property, owl:ObjectProperty ;
+rdfs:label "product"@en, "Produkt"@de ;
+rdfs:domain disco:Study ;
+rdfs:range qb:LogicalDataSet ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 # question property
@@ -292,12 +308,19 @@ rdfs:domain disco:Questionnaire ;
 rdfs:range disco:Question ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# usesDataElement property
+# basedOn property
 
-disco:usesDataElement a rdf:Property, owl:ObjectProperty ;
-rdfs:label "uses data element"@en, "utilise l'élément de donnée"@fr ;
+disco:basedOn a rdf:Property, owl:ObjectProperty ;
+rdfs:label "based on"@en, "utilise l'élément de donnée"@fr ;
 rdfs:domain disco:Variable ;
 rdfs:range disco:DataElement ;
+rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+
+# variable property
+disco:variable a rdf:Property, owl:ObjectProperty ;
+rdfs:label "variable"@en, "Variable"@de ;
+rdfs:domain disco:Study ;
+rdfs:range disco:Variable ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 # weightedBy property
