@@ -19,7 +19,7 @@ dc:title "DDI model ontology"@en, "Ontologie pour le modèle DDI"@fr ;
 rdfs:comment "This ontology is based on the Data Documentation Initiative model, especially the elements useful for data discovery"@en ;
 dc:contributor "Thomas Bosch", "Franck Cotton", "Richard Cyganiak", "Arofan Gregory", "Larry Hoyle", "Olof Olsson", "Dan Smith", "Wendy Thomas", "Johanna Vompras", "Joachim Wackerow", "Benjamin Zapilko" ;
 dc:creator "Franck Cotton" ;
-owl:versionInfo "Version 0.2 - 2011-12-31" .
+owl:versionInfo "Version 0.3 - 2012-10-17" .
 
 #################################################################
 # Classes
