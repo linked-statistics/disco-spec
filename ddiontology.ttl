@@ -14,7 +14,6 @@
 # - See comment: Domain should be union of Study and StudyGroup
 #################################################################
 
-# Should be short. 
 <http://vocab.ddialliance.org/discovery> a owl:Ontology ;
 dc:title "DDI model ontology"@en, "Ontologie pour le modèle DDI"@fr ;
 rdfs:comment "This ontology is based on the Data Documentation Initiative model, especially the elements useful for data discovery"@en ;
@@ -81,7 +80,7 @@ rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 # Questionnaire class
 disco:Questionnaire a rdfs:Class, owl:Class ;
 rdfs:label "Questionnaire"@en, "Fragebogen"@de ;
-rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> ;
 rdfs:subClassOf disco:Instrument .
 
 # Study class
