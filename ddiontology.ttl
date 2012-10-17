@@ -10,8 +10,8 @@
 #################################################################
 # Ontology
 #
-# Notes :
-#  - review naming style (eg "has" or not for properties) 
+# Notes
+# - See comment: Domain should be union of Study and StudyGroup
 #################################################################
 
 # Should be short. 
@@ -53,10 +53,10 @@ disco:DescriptiveStatistics a rdfs:Class, owl:Class ;
 rdfs:label "Descriptive statistic"@en, "Statistique descriptive"@fr ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# Instrument class
+# Instrument class (e.g., questionnaire, sensors, registers)
 
 disco:Instrument a rdfs:Class, owl:Class ;
-rdfs:label "Survey instrument"@en, "Instument de collecte"@fr ;
+rdfs:label "Survey instrument"@en, "Instrument de collecte"@fr ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 # LogicalDataSet class
@@ -77,6 +77,12 @@ rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 disco:Question a rdfs:Class, owl:Class ;
 rdfs:label "Question"@en, "Question"@fr ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+
+# Questionnaire class
+disco:Questionnaire a rdfs:Class, owl:Class ;
+rdfs:label "Questionnaire"@en, "Fragebogen"@de ;
+rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+rdfs:subClassOf disco:Instrument .
 
 # Study class
 
@@ -105,7 +111,7 @@ rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 disco:caseQuantity a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "number of cases"@en, "nombre d'observations"@fr ;
-rdfs:domain disco:Datafile ;
+rdfs:domain disco:DataFile ;
 rdfs:range xsd:nonNegativeInteger ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
@@ -113,7 +119,7 @@ rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 disco:fileType a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "file type"@en, "Dateityp"@de ;
-rdfs:domain disco:Datafile ;
+rdfs:domain disco:DataFile ;
 rdfs:range xsd:string ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
@@ -163,101 +169,100 @@ rdfs:domain disco:LogicalDataSet ;
 rdfs:range disco:Variable ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# hasConcept property
+# concept property
 
-disco:hasConcept a rdf:Property, owl:ObjectProperty ;
-rdfs:label "has concept"@en, "a pour concept"@fr ;
+disco:concept a rdf:Property, owl:ObjectProperty ;
+rdfs:label "concept"@en, "a pour concept"@fr ;
 rdfs:domain [ owl:unionOf (disco:DataElement disco:Variable)] ;
 rdfs:range skos:Concept ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# hasCoverage property
+# coverage property
 
-disco:hasCoverage a rdf:Property, owl:ObjectProperty ;
-rdfs:label "has coverage"@en, "a pour couverture"@fr ;
-# Domain should be union of Study and StudyGroup and LogicalDataSet and Datafile
-rdfs:domain [ owl:unionOf (disco:Study disco:LogicalDataSet disco:Datafile)] ;
+disco:coverage a rdf:Property, owl:ObjectProperty ;
+rdfs:label "coverage"@en, "a pour couverture"@fr ;
+# Domain should be union of Study and StudyGroup and LogicalDataSet and DataFile
+rdfs:domain [ owl:unionOf (disco:Study disco:LogicalDataSet disco:DataFile)] ;
 rdfs:range disco:Coverage ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# hasDatafile property
+# dataFile property
 
-disco:hasDatafile a rdf:Property, owl:ObjectProperty ;
-rdfs:label "has data file"@en, "a pour fichier de données"@fr ;
+disco:dataFile a rdf:Property, owl:ObjectProperty ;
+rdfs:label "data file"@en, "a pour fichier de données"@fr ;
 rdfs:domain disco:LogicalDataSet ;
-rdfs:range disco:Datafile ;
+rdfs:range disco:DataFile ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# hasInstrument property
+# instrument property
 
-disco:hasInstrument a rdf:Property, owl:ObjectProperty ;
-rdfs:label "has instrument"@en, "a comme instrument"@fr ;
+disco:instrument a rdf:Property, owl:ObjectProperty ;
+rdfs:label "instrument"@en, "a comme instrument"@fr ;
 # Domain should be union of Study and StudyGroup
 rdfs:domain disco:Study ;
 rdfs:range disco:Instrument ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# hasNCube property
+# dataCube property
 
-disco:hasNCube a rdf:Property, owl:ObjectProperty ;
-rdfs:label "has NCube"@en, "a pour NCube"@fr ;
+disco:dataCube a rdf:Property, owl:ObjectProperty ;
+rdfs:label "data cube"@en, "a pour data cube"@fr ;
 rdfs:domain disco:LogicalDataSet ;
 rdfs:range qb:DataSet ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# hasQuestion property
+# question property
 
-disco:hasQuestion a rdf:Property, owl:ObjectProperty ;
-rdfs:label "has question"@en, "a comme question"@fr ;
+disco:question a rdf:Property, owl:ObjectProperty ;
+rdfs:label "question"@en, "a comme question"@fr ;
 rdfs:domain disco:Variable ;
 rdfs:range disco:Question ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# hasRepresentation property
+# representation property
 
-disco:hasRepresentation a rdf:Property, owl:ObjectProperty ;
-rdfs:label "has representation"@en, "a pour représentation"@fr ;
+disco:representation a rdf:Property, owl:ObjectProperty ;
+rdfs:label "representation"@en, "a pour représentation"@fr ;
 rdfs:domain [ owl:unionOf (disco:DataElement disco:Variable)] ;
 rdfs:range disco:Representation ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# hasResponseDomain property
+# responseDomain property
 
-disco:hasResponseDomain a rdf:Property, owl:ObjectProperty ;
-rdfs:label "has response domain"@en, "a pour domaine de réponse"@fr ;
+disco:responseDomain a rdf:Property, owl:ObjectProperty ;
+rdfs:label "response domain"@en, "a pour domaine de réponse"@fr ;
 rdfs:domain disco:Question ;
 rdfs:range disco:Representation ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# hasStatisticsCategory property
+# statisticsCategory property
 
-disco:hasStatisticsCategory a rdf:Property, owl:ObjectProperty ;
-rdfs:label "has statistics category"@en, "a pour concept statistique"@fr ;
+disco:statisticsCategory a rdf:Property, owl:ObjectProperty ;
+rdfs:label "statistics category"@en, "a pour concept statistique"@fr ;
 rdfs:domain disco:DescriptiveStatistics ;
 rdfs:range skos:Concept ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# hasStatisticsDatafile property
+# statisticsDataFile property
 
-disco:hasStatisticsDatafile a rdf:Property, owl:ObjectProperty ;
-rdfs:label "has statistics datafile"@en, "a pour fichier statistique"@fr ;
+disco:statisticsDataFile a rdf:Property, owl:ObjectProperty ;
+rdfs:label "statistics data file"@en, "a pour fichier statistique"@fr ;
 rdfs:domain disco:DescriptiveStatistics ;
-rdfs:range disco:Datafile ;
+rdfs:range disco:DataFile ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# hasStatisticsVariable property
+# statisticsVariable property
 
-disco:hasStatisticsVariable a rdf:Property, owl:ObjectProperty ;
-rdfs:label "has statistics variable"@en, "a pour variable statistique"@fr ;
+disco:statisticsVariable a rdf:Property, owl:ObjectProperty ;
+rdfs:label "statistics variable"@en, "a pour variable statistique"@fr ;
 rdfs:domain disco:DescriptiveStatistics ;
 rdfs:range disco:Variable ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# hasUniverse property
-
-disco:holdsMeasurementOf a rdf:Property, owl:ObjectProperty ;
-rdfs:label "has universe"@en, "a comme univers"@fr ;
-rdfs:domain [ owl:unionOf (disco:DataElement disco:Variable)] ;
+# universe property
+disco:universe a rdf:Property, owl:ObjectProperty ;
+rdfs:label "universe"@en, "a comme univers"@fr ;
+rdfs:domain [ owl:unionOf (disco:DataElement disco:Variable disco:Question)] ;
 rdfs:range disco:Universe ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
@@ -271,28 +276,20 @@ rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 # Add a property representing coverage "specialization" ?
 
-# isMeasureOf property
+# studyUniverse property
 
-disco:isMeasureOf a rdf:Property, owl:ObjectProperty ;
-rdfs:label "is measure of"@en, "mesure"@fr ;
+disco:studyUniverse a rdf:Property, owl:ObjectProperty ;
+rdfs:label "study universe"@en, "mesure"@fr ;
 # Domain should be union of Study and StudyGroup
 rdfs:domain disco:Study ;
 rdfs:range disco:Universe ;
-rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
-
-# isPopulatedBy property (check if this one is necessary)
-
-disco:isPopulatedBy a rdf:Property, owl:ObjectProperty ;
-rdfs:label "is populated by"@en, "est peuplée par"@fr ;
-rdfs:domain disco:Variable ;
-rdfs:range disco:Instrument ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 # usesQuestion property
 
 disco:usesQuestion a rdf:Property, owl:ObjectProperty ;
 rdfs:label "uses question"@en, "utilise une question"@fr ;
-rdfs:domain disco:Instrument ;
+rdfs:domain disco:Questionnaire ;
 rdfs:range disco:Question ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
