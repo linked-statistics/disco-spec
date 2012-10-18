@@ -1,1 +1,2 @@
-Redirect / http://vocab.ddialliance.org/discovery
+RewriteEngine On
+RewriteRule ^/$ http://vocab.ddialliance.org/discovery [R=302]
