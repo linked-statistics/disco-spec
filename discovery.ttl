@@ -117,7 +117,7 @@ rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 disco:Universe a rdfs:Class, owl:Class ;
 rdfs:label "Universe"@en, "Univers"@fr ;
-rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> ;
 rdfs:subClassOf skos:Concept .
 
 #################################################################
