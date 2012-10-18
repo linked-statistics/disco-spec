@@ -330,3 +330,13 @@ rdfs:label "weighted"@en, "pondéré par"@fr ;
 rdfs:domain disco:DescriptiveStatistics ;
 rdfs:range disco:Variable ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+
+# kindOfData property
+
+disco:kindOfData a rdf:Property, owl:ObjectProperty ;
+rdfs:label "kind of data"@en ;
+rdfs:domain disco:Study ;
+rdfs:range skos:Concept ;
+rdfs:comment "The general kind of data (e.g., geospatial, register, survey) collected in this study, given either as a skos:Concept, or as a blank node with attached free-text rdfs:label." ;
+rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+
