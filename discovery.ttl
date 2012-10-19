@@ -119,6 +119,8 @@ rdfs:comment "It is recommended to use Dublin Core terms (identifier, descriptio
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 # Universe class
+# skos:Concept/skos:notation represents universe name
+# skos:Concept/skos:prefLabel represents universe label
 
 disco:Universe a rdfs:Class, owl:Class ;
 rdfs:label "Universe"@en, "Univers"@fr ;
