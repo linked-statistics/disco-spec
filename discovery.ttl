@@ -71,7 +71,21 @@ rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 # DescriptiveStatistics class
 
 disco:DescriptiveStatistics a rdfs:Class, owl:Class ;
-rdfs:label "Descriptive statistic"@en, "Statistique descriptive"@fr ;
+rdfs:label "Descriptive statistics"@en, "Statistique descriptive"@fr ;
+rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+
+# SummaryStatistics class
+
+disco:SummaryStatistics a rdfs:Class, owl:Class ;
+rdfs:label "Summary statistics"@en ;
+rdfs:subClassOf disco:DescriptiveStatistics ;
+rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+
+# CategoryStatistics class
+
+disco:CategoryStatistics a rdfs:Class, owl:Class ;
+rdfs:label "Category statistics"@en ;
+rdfs:subClassOf disco:DescriptiveStatistics ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 # Instrument class (e.g., questionnaire, sensors, registers)
@@ -88,14 +102,8 @@ rdfs:label "LogicalDataSet"@en, "Ensemble de données"@fr ;
 rdfs:comment "It is recommended to use Dublin Core term hasPart to express that a logical dataset belongs to a study."@en ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-# Representation class. Abstract class to be subclassed (SKOS concept scheme, XML data type, etc.)
-
-disco:Representation a rdfs:Class, owl:Class ;
-rdfs:label "Representation"@en, "Représentation"@fr ;
-rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
-
 # Question class
-# rdfs:label represents question name
+# skos:prefLabel represents question name
 
 disco:Question a rdfs:Class, owl:Class ;
 rdfs:label "Question"@en, "Question"@fr ;
@@ -198,13 +206,12 @@ rdfs:domain rdf:Ressource ;
 rdfs:range xsd:anyURI ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
-
 # frequency property
 
 disco:frequency a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "frequency"@en, "fréquence"@fr ;
-rdfs:domain disco:DescriptiveStatistics ;
-rdfs:range xsd:integer ;
+rdfs:domain disco:CategoryStatistics ;
+rdfs:range xsd:nonNegativeInteger ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 # isPublic property
@@ -219,15 +226,39 @@ rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 disco:questionText a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "question text"@en, "Fragetext"@de ;
 rdfs:domain disco:Question ;
-rdfs:range xsd:string ;
+rdfs:range rdf:langString ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 # percentage property
 
 disco:percentage a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "percentage"@en, "pourcentage"@fr ;
-rdfs:domain disco:DescriptiveStatistics ;
-rdfs:range xsd:float ;
+rdfs:domain disco:CategoryStatistics ;
+rdfs:range xsd:decimal ;
+rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+
+# cumulativePercentage property
+
+disco:cumulativePercentage a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "cumulative percentage"@en ;
+rdfs:domain disco:CategoryStatistics ;
+rdfs:range xsd:decimal ;
+rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+
+# weightedCumulativePercentage property
+
+disco:weightedCumulativePercentage a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "weighted cumulative percentage"@en ;
+rdfs:domain disco:CategoryStatistics ;
+rdfs:range xsd:decimal ;
+rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+
+# weightedPercentage property
+
+disco:weightedPercentage a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "weighted percentage"@en ;
+rdfs:domain disco:CategoryStatistics ;
+rdfs:range xsd:decimal ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 # purpose property
@@ -235,7 +266,7 @@ rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 disco:purpose a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "purpose"@en, "Grund"@de ;
 rdfs:domain disco:Study ;
-rdfs:range xsd:string ;
+rdfs:range rdf:langString ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 # subtitle property
@@ -243,17 +274,100 @@ rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 disco:subtitle a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "subtitle"@en, "Untertitel"@de ;
 rdfs:domain disco:Study ;
-rdfs:range xsd:string ;
+rdfs:range rdf:langString ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 # weightedFrequency property
 
 disco:weightedFrequency a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "weighted frequency"@en, "fréquence pondérée"@fr ;
-rdfs:domain disco:DescriptiveStatistics ;
-# Check if it is really an integer
-rdfs:range xsd:integer ;
+rdfs:domain disco:CategoryStatistics ;
+rdfs:range xsd:nonNegativeInteger ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
+
+# validCases property
+
+disco:validCases a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "valid cases"@en ;
+rdfs:domain disco:SummaryStatistics ;
+rdfs:range xsd:nonNegativeInteger ;
+
+# weightedValidCases property
+
+disco:weightedValidCases a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "weighted valid cases"@en ;
+rdfs:domain disco:SummaryStatistics ;
+rdfs:range xsd:nonNegativeInteger ;
+
+# invalidCases property
+
+disco:invalidCases a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "invalid cases"@en ;
+rdfs:domain disco:SummaryStatistics ;
+rdfs:range xsd:nonNegativeInteger ;
+
+# weightedInvalidCases property
+
+disco:weightedInvalidCases a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "weighted invalid cases"@en ;
+rdfs:domain disco:SummaryStatistics ;
+rdfs:range xsd:nonNegativeInteger ;
+
+# maximum property
+
+disco:maximum a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "maximum"@en ;
+rdfs:domain disco:SummaryStatistics ;
+rdfs:range xsd:decimal ;
+
+# mean property
+
+disco:mean a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "mean"@en ;
+rdfs:domain disco:SummaryStatistics ;
+rdfs:range xsd:decimal ;
+
+# weightedMean property
+
+disco:weightedMean a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "weighted mean"@en ;
+rdfs:domain disco:SummaryStatistics ;
+rdfs:range xsd:decimal ;
+
+# median property
+
+disco:median a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "median"@en ;
+rdfs:domain disco:SummaryStatistics ;
+rdfs:range xsd:decimal ;
+
+# weightedMedian property
+
+disco:weightedMedian a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "weighted median"@en ;
+rdfs:domain disco:SummaryStatistics ;
+rdfs:range xsd:decimal ;
+
+# minimum property
+
+disco:minimum a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "minimum"@en ;
+rdfs:domain disco:SummaryStatistics ;
+rdfs:range xsd:decimal ;
+
+# mode property
+
+disco:mode a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "mode"@en ;
+rdfs:domain disco:SummaryStatistics ;
+rdfs:range xsd:decimal ;
+
+# weightedMode property
+
+disco:weightedMode a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "weighted mode"@en ;
+rdfs:domain disco:SummaryStatistics ;
+rdfs:range xsd:decimal ;
 
 #################################################################
 # Object properties
@@ -420,16 +534,7 @@ rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 disco:representation a rdf:Property, owl:ObjectProperty ;
 rdfs:label "representation"@en, "a pour représentation"@fr ;
 rdfs:domain [ owl:unionOf (disco:DataElement disco:Variable)] ;
-rdfs:range disco:Representation ;
-rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
-
-# responseDomain property
-# * Question -> Representation 1,...,n / 0,...,n
-
-disco:responseDomain a rdf:Property, owl:ObjectProperty ;
-rdfs:label "response domain"@en, "a pour domaine de réponse"@fr ;
-rdfs:domain disco:Question ;
-rdfs:range [ owl:unionOf (disco:Representation skos:ConceptScheme)] ;
+rdfs:range [ owl:unionOf (skos:ConceptScheme rdfs:Datatype)] ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 
 # statisticsCategory property
@@ -488,14 +593,5 @@ rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
 disco:variable a rdf:Property, owl:ObjectProperty ;
 rdfs:label "variable"@en, "Variable"@de ;
 rdfs:domain disco:Study ;
-rdfs:range disco:Variable ;
-rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
-
-# weightedBy property
-# * DescriptiveStatistics -> Variable 0,...,n / 0,...,n
-
-disco:weightedBy a rdf:Property, owl:ObjectProperty ;
-rdfs:label "weighted"@en, "pondéré par"@fr ;
-rdfs:domain disco:DescriptiveStatistics ;
 rdfs:range disco:Variable ;
 rdfs:isDefinedBy <http://vocab.ddialliance.org/discovery> .
