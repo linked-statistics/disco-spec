@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule ^$ http://vocab.ddialliance.org/discovery [R=302]
+RewriteRule ^$ http://rdf-vocabulary.ddialliance.org/discovery [R=302]
