@@ -39,14 +39,6 @@ rdfs:label "analysis unit"@en, "Analyseeinheit"@de ;
 rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
 rdfs:subClassOf skos:Concept .
 
-# Coverage class 
-# Coverage may in DDI mean spatial, temporal or topical coverage
-
-disco:Coverage a rdfs:Class, owl:Class ;
-rdfs:label "Coverage"@en, "Couverture"@fr ;
-rdfs:comment "Dublin Core terms (spatial, temporal, etc.) may be used to specify the coverage."@en ;
-rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
-
 # DataDiscoveryDocument class
 
 disco:DataDiscoveryDocument a rdfs:Class, owl:Class ;
@@ -369,6 +361,16 @@ rdfs:label "weighted mode"@en ;
 rdfs:domain disco:SummaryStatistics ;
 rdfs:range xsd:decimal ;
 
+disco:startDate a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "Start Date"@en ;
+rdfs:domain dcterms:PeriodOfTime ;
+rdfs:range xsd:date ;
+
+disco:endDate a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "End Date"@en ;
+rdfs:domain dcterms:PeriodOfTime ;
+rdfs:range xsd:date ;
+
 #################################################################
 # Object properties
 #
@@ -422,18 +424,6 @@ disco:concept a rdf:Property, owl:ObjectProperty ;
 rdfs:label "concept"@en, "a pour concept"@fr ;
 rdfs:domain [ owl:unionOf (disco:DataElement disco:Question disco:Variable)] ;
 rdfs:range skos:Concept ;
-rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
-
-# coverage property
-# * Study -> Coverage 1 / 0,...,n
-# * LogicalDataSet -> Coverage 1 / 0,...n
-# * DataFile -> Coverage 1 / 0,...,n
-
-disco:coverage a rdf:Property, owl:ObjectProperty ;
-rdfs:label "coverage"@en, "a pour couverture"@fr ;
-# Domain should be union of Study and StudyGroup and LogicalDataSet and DataFile
-rdfs:domain [ owl:unionOf (disco:Study disco:LogicalDataSet disco:DataFile)] ;
-rdfs:range disco:Coverage ;
 rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # dataCube property
@@ -563,8 +553,6 @@ rdfs:label "statistics variable"@en, "a pour variable statistique"@fr ;
 rdfs:domain disco:DescriptiveStatistics ;
 rdfs:range disco:Variable ;
 rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
-
-# Add a property representing coverage "specialization" ?
 
 # universe property
 # * DataElement -> Universe 0,...,n / 0,...,n (Note: DataElement and Variable are the same thing in different states)
