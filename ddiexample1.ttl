@@ -1,71 +1,89 @@
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix skosclass: <http://ddialliance.org/ontologies/skosclass#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ddionto: <http://ddialliance.org/def#> .
-@prefix ddi: <http://ddialliance.org/data/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix disco: <http://rdf-vocabulary.ddialliance.org/discovery#> .
+@prefix ddi: <http://rdf-vocabulary.ddialliance.org/> .
+@prefix foaf: <http://xmlns.com/foaf/spec/#> .
 
-ddi:ARG_1908_PHC_v01_A_IPUMS-example a ddionto:Study , ddionto:LogicalDataset ;
-   dc:title "National Population and Housing Census 1980"@en ;
-   ddionto:isMeasureOf _:universe ;
-   ddionto:hasCoverage _:coverage ;
-   ddionto:hasDatafile _:datafile ;
-   ddionto:hasInstrument _:instrument ;
-   ddionto:containsVariable ddi:AR80A401 , ddi:AR80A402 , ddi:AR80A404 , ddi:AR80A407 , ddi:AR80A411.
+#################################################################
+# DDI RDF Example
+#
+# Notes
+# 
+#################################################################
 
-_:universe a ddionto:Universe ;
-      skos:definition "All the population... carried out."@en .
+ddi:ARG_1908_PHC_v01_A_IPUMS-example a disco:Study , disco:LogicalDataset ;
+	dc:title "National Population and Housing Census 1980"@en ;
+	disco:isMeasureOf _:universe ;
+	dcterms:spatial [
+		# This is the DC-strictly compatible way to do it
+		a dcterms:Location ;
+		rdfs:label "Argentina, national coverage"@en
+	] ;
+	dcterms:temporal "PeriodOfTime"@en ;
+	dcterms:subject "To be defined"@en .
+	disco:hasDatafile _:datafile ;
+	disco:hasInstrument _:instrument ;
+	disco:containsVariable ddi:AR80A401 , ddi:AR80A402 , ddi:AR80A404 , ddi:AR80A407 , ddi:AR80A411.
 
-_:instrument a ddionto:Instrument ;
-   ddionto:usesQuestion _:question .
+_:universe a disco:Universe ;
+	skos:definition "All the population... carried out."@en .
 
-_:question a ddionto:Question ;
-   ddionto:literalText "blabla"@en ;
-   ddionto:hasResponseDomain _:sexCS .
+_:instrument a disco:Instrument ;
+	disco:usesQuestion _:question .
 
-_:datafile a ddionto:Datafile ;
-	  dc:identifier "ARG1900-P-H.dat" ;
-	  dc:description "Person records"@en ;
-	  ddionto:caseQuantity 2667714 ;
-	  dc:format "ascii" ;
-	  dc:provenance "Minnesota Population Center"@en ;
-	  owl:versionInfo "Version 1.0, IPUMS sample"@en ;
-	  ddionto:hasCoverage _:coverage .
+_:question a disco:Question ;
+	disco:literalText "blabla"@en ;
+	disco:hasResponseDomain _:sexCS .
 
-ddi:AR80A401 a ddionto:Variable ;
+_:datafile a disco:Datafile ;
+	dc:identifier "ARG1900-P-H.dat" ;
+	dc:description "Person records"@en ;
+	disco:caseQuantity 2667714 ;
+	dc:format "ascii" ;
+	dc:provenance "Minnesota Population Center"@en ;
+	owl:versionInfo "Version 1.0, IPUMS sample"@en ;
+	dcterms:spatial [
+		# This is the DC-strictly compatible way to do it
+		a dcterms:Location ;
+		rdfs:label "Argentina, national coverage"@en
+	] ;
+	dcterms:temporal "PeriodOfTime"@en ;
+	dcterms:subject "To be defined"@en .
+
+ddi:AR80A401 a disco:Variable ;
    dc:identifier "AR80A401" ;
    skos:prefLabel "Sex"@en , "Sexe"@fr ;
    dc:description "This variable indicates..."@en ;
-   ddionto:isPopulatedBy _:instrument ;
-   ddionto:usesDataElement _:sexDE ;
-   ddionto:hasQuestion _:question .
+   disco:isPopulatedBy _:instrument ;
+   disco:usesDataElement _:sexDE ;
+   disco:hasQuestion _:question .
 
-_:sexDE a ddionto:DataElement ;
-   ddionto:hasUniverse _:universe ;
-   ddionto:hasRepresentation _:sexCS ;
-   ddionto:hasConcept _:ipumsC1 ;
+_:sexDE a disco:DataElement ;
+   disco:hasUniverse _:universe ;
+   disco:hasRepresentation _:sexCS ;
+   disco:hasConcept _:ipumsC1 ;
    skos:prefLabel "Sex"@en , "Sexe"@fr ;
    dc:description "Sex data element"@en .
 
-_:dstat1 a ddionto:DescriptiveStatistic ;
+_:dstat1 a disco:DescriptiveStatistic ;
    ddi:frequency 13314444 ;
    ddi:percentage 49.97 ;
-   ddionto:hasStatisticsVariable ddi:AR80A401 ;
-   ddionto:hasStatisticsCategory _:sexC1 ;
-   ddionto:hasStatisticsDatafile _:datafile .
+   disco:hasStatisticsVariable ddi:AR80A401 ;
+   disco:hasStatisticsCategory _:sexC1 ;
+   disco:hasStatisticsDatafile _:datafile .
 
-_:dstat2 a ddionto:DescriptiveStatistic ;
+_:dstat2 a disco:DescriptiveStatistic ;
    ddi:frequency 1336270 ;
-   ddionto:hasStatisticsVariable ddi:AR80A401 ;
-   ddionto:hasStatisticsCategory _:sexC2 ;
-   ddionto:hasStatisticsDatafile _:datafile .
+   disco:hasStatisticsVariable ddi:AR80A401 ;
+   disco:hasStatisticsCategory _:sexC2 ;
+   disco:hasStatisticsDatafile _:datafile .
 
-_:sexCS a skos:ConceptScheme, ddionto:Representation ;
+_:sexCS a skos:ConceptScheme, disco:Representation ;
    skos:hasTopConcept _:sexC1 , _:sexC2 .
 
 _:sexC1 a skos:Concept ;
@@ -85,31 +103,23 @@ _:ipumsC1 a skos:Concept ;
    skos:prefLabel "Demographic Variables - PERSON"@en, "Variables démographiques - PERSONNE"@fr ;
    skos:inScheme _:ipumsCS .
 
-ddi:AR80A402 a ddionto:Variable ;
+ddi:AR80A402 a disco:Variable ;
    dc:identifier "AR80A402" ;
    skos:prefLabel "Age"@en , "Âge"@fr ;
    .
 
-ddi:AR80A404 a ddionto:Variable ;
+ddi:AR80A404 a disco:Variable ;
    dc:identifier "AR80A404" ;
    skos:prefLabel "Place of residence"@en , "Lieu de résidence"@fr ;
    .
 
-ddi:AR80A407 a ddionto:Variable ;
+ddi:AR80A407 a disco:Variable ;
    dc:identifier "AR80A407" ;
    skos:prefLabel "Citizenship"@en , "Citoyenneté"@fr ;
    .
 
-ddi:AR80A411 a ddionto:Variable ;
+ddi:AR80A411 a disco:Variable ;
    dc:identifier "AR80A411" ;
    skos:prefLabel "Completed highest level of education"@en , "Plus haut niveau d'études terminé"@fr ;
    .
 
-_:coverage a ddionto:Coverage ;
-   dcterms:spatial [
-      # This is the DC-strictly compatible way to do it
-	  a dcterms:Location ;
-	  rdfs:label "Argentina, national coverage"@en
-   ] ;
-   dcterms:temporal "To be defined"@en ;
-   dcterms:subject "To be defined"@en .
