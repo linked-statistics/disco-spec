@@ -349,6 +349,68 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
     <section class='appendix'>
       <h2>Example queries</h2>
+
+      <p>Find studies from years 2000 and after about climate change.</p>
+      <pre>
+SELECT ?studyTitle ?abstract ?logicalDataSetTitle
+WHERE {
+  ?study a disco:Study ;
+    dcterms:title ?studyTitle ;
+    dcterms:abstract ?abstract ;
+    dcterms:subject [ skos:prefLabel “Climate Change” ] ;
+    dcterms:temporal [ disco:startDate ?date ] ;
+    disco:product ?logicalDataSet .
+
+  ?logicalDataSet a disco:LogicalDataSet ;
+    dcterms:title ?logicalDataSetTitle .
+
+  FILTER (?date >= 2000)
+}
+      </pre>
+
+      <p>Find titles of data sets which are publicly available under the Canadian Data Liberation Initiative Community policy. Optionally give links to the rights statement and the license.</p>
+      <pre>
+SELECT ?logicalDataSetTitle
+WHERE {
+  ?logicalDataSet a disco:LogicalDataSet ;
+    dcterms:title ?logicalDataSetTitle ;
+    disco:isPublic ?isPublic ;
+    dcterms:accessRights ?rightsStatement .
+
+  ?rightsStatement skos:prefLabel ?rightsStatementLabel .
+
+  FILTER (
+    ?isPublic = "true" &&
+    ?rightsStatementLabel = "Data Liberation Initiative Community"
+  )
+  
+  OPTIONAL {
+    ?rightsStatement rdfs:seeAlso ?rightsStatementURL .
+  }
+  OPTIONAL {
+    ?logicalDataSet dcterms:license ?licenseDocument .
+  }
+}
+      </pre>
+
+
+    <p>Find all studies with questions about commuting to work.</p>
+    <pre>
+SELECT ?studyTitle ?studyAbstract
+WHERE {
+  ?study a disco:Study ;
+    disco:instrument ?instrument ;
+    dcterms:title ?studyTitle ;
+    dcterms:abstract ?studyAbstract .
+  ?instrument disco:questionnaire ?questionnaire .
+  ?questionnaire disco:question ?question .
+  ?question disco:questionText ?questionText .
+
+  FILTER (regex(?questionText, "commut.*work"))
+}
+    </pre>
+
+    <p>XXX: Seems to be that a simple question turns out to have a long way to query (too much jumping around). Perhaps we should take some of this into account. - Sarven</p>
     </section>
 
     <section class='appendix'>
