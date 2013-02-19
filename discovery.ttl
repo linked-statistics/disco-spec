@@ -274,6 +274,13 @@ rdfs:domain [ owl:unionOf (disco:Study disco:StudyGroup)] ;
 rdfs:range rdf:langString ;
 rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
+# standardDeviation property
+
+disco:standardDeviation a rdf:Property, owl:DatatypeProperty ;
+rdfs:label "standard deviation"@en ;
+rdfs:domain disco:SummaryStatistics ;
+rdfs:range xsd:decimal ;
+
 # weightedFrequency property
 
 disco:weightedFrequency a rdf:Property, owl:DatatypeProperty ;
@@ -474,6 +481,15 @@ disco:externalDocumentation a rdf:Property, owl:ObjectProperty ;
 rdfs:label "external documentation"@en, "externe Dokumentation"@de ;
 rdfs:domain disco:Instrument ;
 rdfs:range foaf:Document ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
+
+# fundedBy property
+
+disco:fundedBy a rdf:Property, owl:ObjectProperty ;
+rdfs:label "funded by"@en ;
+rdfs:domain Study ;
+rdfs:range foaf:Agent ;
+rdfs:subPropertyOf dcterms:contributor .
 rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # inGroup property
