@@ -375,8 +375,9 @@ WHERE {
   ?logicalDataSet a disco:LogicalDataSet ;
     dcterms:title ?logicalDataSetTitle ;
     disco:isPublic ?isPublic ;
-    dcterms:accessRights ?rightsStatement ;
-    ?rightsStatement skos:prefLabel ?rightsStatementLabel ;
+    dcterms:accessRights ?rightsStatement .
+
+  ?rightsStatement skos:prefLabel ?rightsStatementLabel .
 
   FILTER (
     ?isPublic = "true" &&
