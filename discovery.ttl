@@ -2,6 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -115,7 +116,7 @@ rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 # Study group class
 
 disco:StudyGroup a rdfs:Class, owl:Class ;
-rdfs:label "Study Group"@en "Studiengruppe"@de;
+rdfs:label "Study Group"@en, "Studiengruppe"@de;
 rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # Variable class
@@ -280,6 +281,7 @@ disco:standardDeviation a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "standard deviation"@en ;
 rdfs:domain disco:SummaryStatistics ;
 rdfs:range xsd:decimal ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # weightedFrequency property
 
@@ -295,6 +297,7 @@ disco:validCases a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "valid cases"@en ;
 rdfs:domain disco:SummaryStatistics ;
 rdfs:range xsd:nonNegativeInteger ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # weightedValidCases property
 
@@ -302,6 +305,7 @@ disco:weightedValidCases a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "weighted valid cases"@en ;
 rdfs:domain disco:SummaryStatistics ;
 rdfs:range xsd:nonNegativeInteger ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # invalidCases property
 
@@ -309,6 +313,7 @@ disco:invalidCases a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "invalid cases"@en ;
 rdfs:domain disco:SummaryStatistics ;
 rdfs:range xsd:nonNegativeInteger ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # weightedInvalidCases property
 
@@ -316,6 +321,7 @@ disco:weightedInvalidCases a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "weighted invalid cases"@en ;
 rdfs:domain disco:SummaryStatistics ;
 rdfs:range xsd:nonNegativeInteger ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # maximum property
 
@@ -323,6 +329,7 @@ disco:maximum a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "maximum"@en ;
 rdfs:domain disco:SummaryStatistics ;
 rdfs:range xsd:decimal ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # mean property
 
@@ -330,6 +337,7 @@ disco:mean a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "mean"@en ;
 rdfs:domain disco:SummaryStatistics ;
 rdfs:range xsd:decimal ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # weightedMean property
 
@@ -337,6 +345,7 @@ disco:weightedMean a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "weighted mean"@en ;
 rdfs:domain disco:SummaryStatistics ;
 rdfs:range xsd:decimal ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # median property
 
@@ -344,6 +353,7 @@ disco:median a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "median"@en ;
 rdfs:domain disco:SummaryStatistics ;
 rdfs:range xsd:decimal ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # weightedMedian property
 
@@ -351,6 +361,7 @@ disco:weightedMedian a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "weighted median"@en ;
 rdfs:domain disco:SummaryStatistics ;
 rdfs:range xsd:decimal ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # minimum property
 
@@ -358,6 +369,7 @@ disco:minimum a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "minimum"@en ;
 rdfs:domain disco:SummaryStatistics ;
 rdfs:range xsd:decimal ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # mode property
 
@@ -365,6 +377,7 @@ disco:mode a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "mode"@en ;
 rdfs:domain disco:SummaryStatistics ;
 rdfs:range xsd:decimal ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # weightedMode property
 
@@ -372,16 +385,19 @@ disco:weightedMode a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "weighted mode"@en ;
 rdfs:domain disco:SummaryStatistics ;
 rdfs:range xsd:decimal ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 disco:startDate a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "Start Date"@en ;
 rdfs:domain dcterms:PeriodOfTime ;
 rdfs:range xsd:date ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 disco:endDate a rdf:Property, owl:DatatypeProperty ;
 rdfs:label "End Date"@en ;
 rdfs:domain dcterms:PeriodOfTime ;
 rdfs:range xsd:date ;
+rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 #################################################################
 # Object properties
@@ -487,17 +503,17 @@ rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 disco:fundedBy a rdf:Property, owl:ObjectProperty ;
 rdfs:label "funded by"@en ;
-rdfs:domain Study ;
+rdfs:domain disco:Study ;
 rdfs:range foaf:Agent ;
-rdfs:subPropertyOf dcterms:contributor .
+rdfs:subPropertyOf dcterms:contributor ;
 rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # inGroup property
 # Study -> StudyGroup 0,1 / 0...*
 disco:inGroup a rdf:Property, owl:ObjectProperty ;
 rdfs:label "in group"@en ;
-rdfs:domain Study ;
-rdfs:range StudyGroup ;
+rdfs:domain disco:Study ;
+rdfs:range disco:StudyGroup ;
 rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # inputVariable property (links Datacube DataSets to DDI variables)
