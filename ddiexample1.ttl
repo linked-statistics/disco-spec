@@ -2,6 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix qb: <http://purl.org/linked-data/cube#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
@@ -13,12 +14,12 @@
 # DDI RDF Example
 #
 # Notes
-# 
+#
 #################################################################
 
 # General document metadata
 # from codeBook/docDscr/citation
-<>
+<#DDI_ARG_1980_PHC_v01_A_IPUMS>
     dc:title "National Population and Housing Census, 1980"@en;
     dc:identifier "DDI_ARG_1980_PHC_v01_A_IPUMS";
     dc:creator [
@@ -32,42 +33,84 @@
     disco:fundedBy [
         rdfs:label "Organization for Economic Co-operation and Development, Development Co-operation Directorate";
         skos:notation "OECD/DCD-PARIS21";
+    # We don't have a translation of grantNo
     ].
 # We don't translate prodStmt/producer/@role
 # We don't translate verStmt/version
+# XXX: Why do we not use owl:versionOf "Version 1.0. Documentation ... the metadata."
 # We don't translate prodStmt/fundArg and prodStmt/grantNo because
 # for our use case we don't care who paid for encoding the metadata.
 
 <#study> a disco:Study;
     dc:title "National Population and Housing Census, 1980"@en;
+    dcterms:abstract "IPUMS-International is an effort to inventory, preserve, harmonize, and disseminate census microdata from around the world. The project has collected the world's largest archive of publicly available census samples. The data are coded and documented consistently across countries and over time to facillitate comparative research. IPUMS-International makes these data available to qualified researchers free of charge through a web dissemination system. The IPUMS project is a collaboration of the Minnesota Population Center, National Statistical Offices, and international data archives. Major funding is provided by the U.S. National Science Foundation and the Demographic and Behavioral Sciences Branch of the National Institute of Child Health and Human Development. Additional support is provided by the University of Minnesota Office of the Vice President for Research, the Minnesota Population Center, and Sun Microsystems.";
     dc:identifier "ARG_1980_PHC_v01_A_IPUMS";
     dc:spatial [
         # This is the DC-strictly compatible way to do it
         a dc:Location;
-        rdfs:label "Argentina, national coverage"@en
+        rdfs:label "Argentina, national coverage"@en;
+	# sumDscr/geogCover and sumDscr/geogUnit not represented
+	# one could link to a Linked Data representation of ARGENTINA
     ];
-    dc:temporal "1980-10-22"^^xsd:dateTime;
-    dc:subject "To be defined"@en;
-
+    dc:temporal [
+	a dcterms:PeriodOfTime ;
+	disco:startDate "1980-10-22"^^xsd:date;
+	disco:endDate "1980-10-22"^^xsd:date;
+	rdfs:comment "The interviews take place on the expected census day.  In some areas the enumeration took place the following day because of access problems due to heavy rains.";
+    ] ;
+    dcterms:subject [
+	skos:definition "Technical Variables -- HOUSEHOLD"@en ;
+    ] ;
+    dcterms:subject [
+	skos:definition "Group Quarters Variables -- HOUSEHOLD"@en ;
+    ] ;
+    disco:analysisUnit <#analysisUnit>;
     disco:studyUniverse <#universe>;
+    disco:kindOfData <#kindOfData> ;
+    # method, e.g., method/dataColl/sampProc not represented since not relevant for discovery 
+    # XXX dataAccs, e.g., dataAccs/useStmt/confDec,contact,citReq,conditions,disclaimer not represented, yet. 
+    # XXX how to link othrStdyMat?
+    dcterms:relation <documents/enum_form_ar1980_long.pdf>;
     disco:product <#dataset>;
     disco:instrument <#instrument>;
+    # stdyInfo/notes currently not represented. 
     disco:variable <#AR80A401>, <#AR80A402>, <#AR80A404>, <#AR80A407>, <#AR80A411>.
 
 <#dataset> a disco:LogicalDataset;
+    dcterms:accessRights <accessRights>;
     disco:dataFile <#datafile>;
     disco:instrument <#instrument>;
     disco:containsVariable <#AR80A401>, <#AR80A402>, <#AR80A404>, <#AR80A407>, <#AR80A411>.
 
+<accessRights> dcterms:description "IPUMS-International distributes integrated microdata of individuals and households only by agreement ... designed to extend this record.";
+    rdfs:seeAlso <http://microdata.worldbank.org/index.php/catalog/442/accesspolicy>.
+
+<#analysisUnit> a disco:AnalysisUnit ;
+    skos:definition "Dwelling, quarter dwelling, census household, and population"@en .
+
 <#universe> a disco:Universe;
-    skos:definition "All the population... carried out."@en.
+    skos:definition "All the population in the national territory at the moment the census is carried out."@en .
+
+<#kindOfData> a skos:Concept ;
+	rdfs:label "Census/enumeration data [cen]"@en .
 
 <#instrument> a disco:Instrument;
-    disco:usesQuestion <#question>.
+    disco:usesQuestion <#questionGender>;
+    disco:usesQuestion <#questionAge>;
+    disco:usesQuestion <#questionCitizenship>;
+    disco:usesQuestion <#questionEducation>;
 
-<#question> a disco:Question;
-    disco:literalText "blabla"@en;
-    disco:hasResponseDomain <#sexCS>.
+<#questionGender> a disco:Question;
+    disco:literalText "2. Is the person a man or a woman? [] Man, [] Woman"@en;
+    disco:hasResponseDomain <#sexRepr>.
+
+<#questionAge> a disco:Question;
+    disco:literalText "3. What is his or her age? _ _ Mark the age in completed years at the date of the census for those younger than one year old mark 00. For those younger than 10 years old, mark 01, 02, 03, etc. For those older than 99 years old, mark 99."@en;
+    disco:hasResponseDomain <#ageRepr>.
+
+<#questionCitizenship> a disco:Question;
+    disco:literalText "6. [Immigration status] Only for persons who have usual residence in Argentina and were born in another country. [Questions 6A and 6B asked only of persons born outside Argentina and who currently reside in Argentina.] B. Are you a naturalized citizen of Argentina? [] Yes [] No [] Unanswered"@en;
+    disco:hasResponseDomain <#citizenshipRepr>.
 
 <#datafile> a disco:Datafile;
     dc:identifier "ARG1900-P-H.dat";
@@ -87,43 +130,126 @@
 <#AR80A401> a disco:Variable;
     dc:identifier "AR80A401";
     skos:prefLabel "Sex"@en, "Sexe"@fr;
-    dc:description "This variable indicates..."@en;
+    dc:description "This variable indicates the person's gender."@en;
     disco:isPopulatedBy <#instrument>;
     disco:usesDataElement <#sexDE>;
-    disco:hasQuestion <#question>.
+    disco:hasQuestion <#questionGender>.
+
+<#AR80A402> a disco:Variable;
+    dc:identifier "AR80A402";
+    dc:description "This variable indicates the person's age in years."@en;
+    skos:prefLabel "Age"@en, "Âge"@fr.
+    disco:isPopulatedBy <#instrument>;
+    disco:usesDataElement <#ageDE>;
+    disco:hasQuestion <#questionAge>.   
+
+<#AR80A407> a disco:Variable;
+    dc:identifier "AR80A407";
+    dc:description "This variable indicates whether or not the person is a naturalized citizen of Argentina."@en;
+    skos:prefLabel "Citizenship"@en, "Citoyenneté"@fr.
+
+<#AR80A411> a disco:Variable;
+    dc:identifier "AR80A411";
+    dc:description "This variable indicates whether the person completed the highest educational level."@en;
+    skos:prefLabel "Completed highest level of education"@en, "Plus haut niveau d'études terminé"@fr.
+
+<#universePerson> a disco:Universe;
+    skos:definition "All persons."@en .
+
+<#universeNonArgentines> a disco:Universe;
+    skos:definition "Foreign-born persons who reside in Argentina."@en .
 
 <#sexDE> a disco:DataElement;
-    disco:hasUniverse <#universe>;
-    disco:hasRepresentation <#sexCS>;
+    disco:hasUniverse <#universePerson>;
+    disco:hasRepresentation <#sexRepr>;
     disco:hasConcept <#ipumsC1>;
     skos:prefLabel "Sex"@en, "Sexe"@fr;
     dc:description "Sex data element"@en.
 
+<#sexRepr> a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept <#sexM>, <#sexF>.
+
+<#sexM> a skos:Concept;
+    skos:notation "1";
+    skos:prefLabel "Male"@en, "Homme"@fr;
+    skos:inScheme <#sexRepr>.
+
+<#sexF> a skos:Concept;
+    skos:notation "2";
+    skos:prefLabel "Female"@en, "Femme"@fr;
+    skos:inScheme <#sexRepr>.
+
 <#dstat1> a disco:DescriptiveStatistic;
     disco:frequency 13314444;
+    # is that correct? 
     disco:percentage 49.97;
     disco:hasStatisticsVariable <#AR80A401>;
-    disco:hasStatisticsCategory <#sexC1>;
+    disco:hasStatisticsCategory <#sexM>;
     disco:hasStatisticsDatafile <#datafile>.
 
 <#dstat2> a disco:DescriptiveStatistic;
     disco:frequency 1336270;
     disco:hasStatisticsVariable <#AR80A401>;
-    disco:hasStatisticsCategory <#sexC2>;
+    disco:hasStatisticsCategory <#sexF>;
     disco:hasStatisticsDatafile <#datafile>.
 
-<#sexCS> a skos:ConceptScheme, disco:Representation;
-    skos:hasTopConcept <#sexC1>, <#sexC2>.
+<#ageDE> a disco:DataElement;
+    disco:hasUniverse <#universePerson>;
+    disco:hasRepresentation <#ageRepr>;
+    disco:hasConcept <#ipumsC1>;
+    skos:prefLabel "Age"@en, "Sexe"@fr;
+    dc:description "Age data element"@en.
 
-<#sexC1> a skos:Concept;
+# XXX: Is it possible and does it make sense here to just state an Integer?
+<#ageRepr> a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept <#age0>, <#age1>, <#age99>.
+
+<#age0> a skos:Concept;
+    skos:notation "0";
+    skos:prefLabel "0";
+    skos:inScheme <#ageRepr>.
+
+<#age1> a skos:Concept;
     skos:notation "1";
-    skos:prefLabel "Male"@en, "Homme"@fr;
-    skos:inScheme <#sexCS>.
+    skos:prefLabel "1";
+    skos:inScheme <#ageRepr>.
 
-<#sexC2> a skos:Concept;
+# ...
+
+<#age99> a skos:Concept;
+    skos:notation "99";
+    skos:prefLabel "99";
+    skos:inScheme <#ageRepr>.
+
+<#citizenshipDE> a disco:DataElement;
+    disco:hasUniverse <#universeNonArgentines>;
+    disco:hasRepresentation <#ageRepr>;
+    disco:hasConcept <#ipumsC2>;
+    skos:prefLabel "Citizenship"@en;
+    dc:description "Citizenship data element"@en.
+
+<#citizenshipRepr> a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept <#cYes>, <#cNo>, <#cUnknown>, <#NIU>.
+
+<#cYes> a skos:Concept;
+    skos:notation "1";
+    skos:prefLabel "Yes";
+    skos:inScheme <#citizenshipRepr>.
+
+<#cNo> a skos:Concept;
     skos:notation "2";
-    skos:prefLabel "Female"@en, "Femme"@fr;
-    skos:inScheme <#sexCS>.
+    skos:prefLabel "No";
+    skos:inScheme <#citizenshipRepr>.
+
+<#cUnknown> a skos:Concept;
+    skos:notation "8";
+    skos:prefLabel "Unknown";
+    skos:inScheme <#citizenshipRepr>.
+
+<#cNIU> a skos:Concept;
+    skos:notation "9";
+    skos:prefLabel "NIU (not in universe)";
+    skos:inScheme <#citizenshipRepr>.
 
 <#ipumsCS> a skos:ConceptScheme;
     skos:hasTopConcept <#ipumsC1>.
@@ -132,18 +258,6 @@
     skos:prefLabel "Demographic Variables - PERSON"@en, "Variables démographiques - PERSONNE"@fr;
     skos:inScheme <#ipumsCS>.
 
-<#AR80A402> a disco:Variable;
-    dc:identifier "AR80A402";
-    skos:prefLabel "Age"@en, "Âge"@fr.
-
-<#AR80A404> a disco:Variable;
-    dc:identifier "AR80A404";
-    skos:prefLabel "Place of residence"@en, "Lieu de résidence"@fr.
-
-<#AR80A407> a disco:Variable;
-    dc:identifier "AR80A407";
-    skos:prefLabel "Citizenship"@en, "Citoyenneté"@fr.
-
-<#AR80A411> a disco:Variable;
-    dc:identifier "AR80A411";
-    skos:prefLabel "Completed highest level of education"@en, "Plus haut niveau d'études terminé"@fr.
+<#ipumsC2> a skos:Concept;
+    skos:prefLabel "Nativity and Birthplace Variables -- PERSON"@en;
+    skos:inScheme <#ipumsCS>.
