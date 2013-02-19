@@ -459,6 +459,7 @@ rdfs:range disco:Universe ;
 rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # ddifile property
+# (disco:Study disco:StudyGroup) -> foaf:Document 0,* / 0,*
 
 disco:ddifile a rdf:Property, owl:ObjectProperty ;
 rdfs:label "DDI file"@en, "DDI-Datei"@de ;
@@ -502,7 +503,7 @@ rdfs:range disco:Instrument ;
 rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> .
 
 # kindOfData property
-# XXX: Check cardinalities
+# (disco:Study disco:StudyGroup) -> skos:Concept 0,* / 0,1
 
 disco:kindOfData a rdf:Property, owl:ObjectProperty ;
 rdfs:label "kind of data"@en ;
