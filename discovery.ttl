@@ -45,8 +45,6 @@
 # Classes
 # 
 # Possibly additional classes to be used: org:Organisation, foaf:Agent
-# 
-# 
 #################################################################
 
 # AnalysisUnit class
