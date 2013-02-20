@@ -59,8 +59,8 @@ disco:DataDiscoveryDocument a rdfs:Class, owl:Class;
     rdfs:comment "Data discovery document in DDI. Dct:publisher is used for the agency."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
-# DataElement class
-disco:DataElement a rdfs:Class, owl:Class;
+# VariableDefinition class
+disco:VariableDefinition a rdfs:Class, owl:Class;
     rdfs:label "Data element"@en, "Élément de donnée"@fr;
     rdfs:comment "It is recommended to use Dublin Core terms (identifier, description) and SKOS labels to describe the data element."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
@@ -393,11 +393,11 @@ disco:analysisUnit a rdf:Property, owl:ObjectProperty;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # basedOn property
-# * Variable -> DataElement 0,1 / 0,...,n
+# * Variable -> VariableDefinition 0,1 / 0,...,n
 disco:basedOn a rdf:Property, owl:ObjectProperty;
     rdfs:label "based on"@en, "utilise l'élément de donnée"@fr;
     rdfs:domain disco:Variable;
-    rdfs:range disco:DataElement;
+    rdfs:range disco:VariableDefinition;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # collectionMode property
@@ -416,12 +416,12 @@ disco:containsVariable a rdf:Property, owl:ObjectProperty;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # concept property
-# * DataElement -> Concept 1 / 0,...,n
+# * VariableDefinition -> Concept 1 / 0,...,n
 # * Question -> Concept 1,...,n / 0,...,n
 # * Variable -> Concept 1 / 0,...,n
 disco:concept a rdf:Property, owl:ObjectProperty;
     rdfs:label "concept"@en, "a pour concept"@fr;
-    rdfs:domain [ owl:unionOf (disco:DataElement disco:Question disco:Variable)];
+    rdfs:domain [ owl:unionOf (disco:VariableDefinition disco:Question disco:Variable)];
     rdfs:range skos:Concept;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
@@ -527,7 +527,7 @@ disco:question a rdf:Property, owl:ObjectProperty;
 # * Variable -> Representation 1 / 0,...,n
 disco:representation a rdf:Property, owl:ObjectProperty;
     rdfs:label "representation"@en, "a pour représentation"@fr;
-    rdfs:domain [ owl:unionOf (disco:DataElement disco:Variable)];
+    rdfs:domain [ owl:unionOf (disco:VariableDefinition disco:Variable)];
     rdfs:range [ owl:unionOf (skos:ConceptScheme rdfs:Datatype)];
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
@@ -556,12 +556,12 @@ disco:statisticsVariable a rdf:Property, owl:ObjectProperty;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # universe property
-# * DataElement -> Universe 0,...,n / 0,...,n (Note: DataElement and Variable are the same thing in different states)
+# * VariableDefinition -> Universe 0,...,n / 0,...,n (Note: VariableDefinition and Variable are the same thing in different states)
 # * Variable -> Universe 1 / 0,...,n
 # * Question -> Universe 1 / 0,...,n
 disco:universe a rdf:Property, owl:ObjectProperty;
     rdfs:label "universe"@en, "a comme univers"@fr;
-    rdfs:domain [ owl:unionOf (disco:DataElement disco:Variable disco:Question)];
+    rdfs:domain [ owl:unionOf (disco:VariableDefinition disco:Variable disco:Question)];
     rdfs:range disco:Universe;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
