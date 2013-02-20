@@ -25,13 +25,6 @@
     rdfs:seeAlso <http://microdata.worldbank.org/index.php/catalog/442>; 
     # We have our own version on the RDF representation of the DDI XML file
     owl:versionInfo "Mannheim Working Meeting Version (2013-02-20)";
-    dc:creator [
-        rdfs:label "Minnesota Population Center"@en;
-        skos:notation "MPC";
-        org:memberOf [
-            rdfs:label "University of Minnesota"@en;
-        ];
-    ];
     dc:created "2010-12-09"^^xsd:date;
     disco:fundedBy [
         rdfs:label "Organization for Economic Co-operation and Development, Development Co-operation Directorate";
@@ -44,9 +37,13 @@
 
 <#study> a disco:Study;
     dc:title "National Population and Housing Census, 1980"@en;
-    owl:versionInfo "Version 1.0. This version contains selected variables from the original census micro data plus harmonized variables from the IPUMS International data base."@en; 
-    dcterms:abstract "IPUMS-International is an effort to inventory, preserve, harmonize, and disseminate census microdata from around the world. The project has collected the world's largest archive of publicly available census samples. The data are coded and documented consistently across countries and over time to facillitate comparative research. IPUMS-International makes these data available to qualified researchers free of charge through a web dissemination system. The IPUMS project is a collaboration of the Minnesota Population Center, National Statistical Offices, and international data archives. Major funding is provided by the U.S. National Science Foundation and the Demographic and Behavioral Sciences Branch of the National Institute of Child Health and Human Development. Additional support is provided by the University of Minnesota Office of the Vice President for Research, the Minnesota Population Center, and Sun Microsystems.";
     dc:identifier "ARG_1980_PHC_v01_A_IPUMS";
+    dc:temporal [
+	a dcterms:PeriodOfTime ;
+	disco:startDate "1980-10-22"^^xsd:date;
+	disco:endDate "1980-10-22"^^xsd:date;
+	rdfs:comment "The interviews take place on the expected census day.  In some areas the enumeration took place the following day because of access problems due to heavy rains.";
+    ];
     dc:spatial [
         # This is the DC-strictly compatible way to do it
         a dc:Location;
@@ -54,12 +51,6 @@
 	# sumDscr/geogCover and sumDscr/geogUnit not represented
 	# one could link to a Linked Data representation of ARGENTINA
     ];
-    dc:temporal [
-	a dcterms:PeriodOfTime ;
-	disco:startDate "1980-10-22"^^xsd:date;
-	disco:endDate "1980-10-22"^^xsd:date;
-	rdfs:comment "The interviews take place on the expected census day.  In some areas the enumeration took place the following day because of access problems due to heavy rains.";
-    ] ;
     # Only a subset of subjects mentioned in the original file
     dcterms:subject [
 	skos:definition "Technical Variables -- HOUSEHOLD"@en ;
@@ -67,6 +58,21 @@
     dcterms:subject [
 	skos:definition "Group Quarters Variables -- HOUSEHOLD"@en ;
     ] ;
+    dc:creator [
+        rdfs:label "Minnesota Population Center"@en;
+        skos:notation "MPC";
+        org:memberOf [
+            rdfs:label "University of Minnesota"@en;
+        ];
+    ];
+    dc:creator [
+        rdfs:label "Argentine National institute of Statistics and Censuses"@en;
+    ];
+
+    owl:versionInfo "Version 1.0. This version contains selected variables from the original census micro data plus harmonized variables from the IPUMS International data base."@en; 
+    
+    dcterms:abstract "IPUMS-International is an effort to inventory, preserve, harmonize, and disseminate census microdata from around the world. The project has collected the world's largest archive of publicly available census samples. The data are coded and documented consistently across countries and over time to facillitate comparative research. IPUMS-International makes these data available to qualified researchers free of charge through a web dissemination system. The IPUMS project is a collaboration of the Minnesota Population Center, National Statistical Offices, and international data archives. Major funding is provided by the U.S. National Science Foundation and the Demographic and Behavioral Sciences Branch of the National Institute of Child Health and Human Development. Additional support is provided by the University of Minnesota Office of the Vice President for Research, the Minnesota Population Center, and Sun Microsystems.";
+
     disco:analysisUnit <#analysisUnit>;
     disco:universe <#universe>;
     disco:kindOfData <#kindOfData> ;
@@ -75,14 +81,14 @@
     # XXX how to link othrStdyMat?
     dcterms:relation <documents/enum_form_ar1980_long.pdf>;
     disco:product <#dataset>;
-    disco:instrument <#instrument>;
+    disco:instrument <#questionnaire>;
     # stdyInfo/notes currently not represented. 
     disco:variable <#AR80A401>, <#AR80A402>, <#AR80A404>, <#AR80A407>, <#AR80A411>.
 
 <#dataset> a disco:LogicalDataset;
     dcterms:accessRights <accessRights>;
     disco:dataFile <#datafile>;
-    disco:instrument <#instrument>;
+    disco:instrument <#questionnaire>;
     disco:containsVariable <#AR80A401>, <#AR80A402>, <#AR80A404>, <#AR80A407>, <#AR80A411>.
 
 <accessRights> dcterms:description "IPUMS-International distributes integrated microdata of individuals and households only by agreement ... designed to extend this record.";
@@ -97,72 +103,42 @@
 <#kindOfData> a skos:Concept ;
 	rdfs:label "Census/enumeration data [cen]"@en .
 
-<#instrument> a disco:Instrument;
-    disco:usesQuestion <#questionGender>;
-    disco:usesQuestion <#questionAge>;
-    disco:usesQuestion <#questionCitizenship>;
-    disco:usesQuestion <#questionEducation>;
+<#questionnaire> a disco:Questionnaire;
+    disco:question <#questionGender>;
+    disco:question <#questionAge>;
+    disco:question <#questionCitizenship>;
 
 <#questionGender> a disco:Question;
-    disco:literalText "2. Is the person a man or a woman? [] Man, [] Woman"@en;
-    disco:hasResponseDomain <#sexRepr>.
+    disco:questionText "2. Is the person a man or a woman? [] Man, [] Woman"@en.
 
 <#questionAge> a disco:Question;
-    disco:literalText "3. What is his or her age? _ _ Mark the age in completed years at the date of the census for those younger than one year old mark 00. For those younger than 10 years old, mark 01, 02, 03, etc. For those older than 99 years old, mark 99."@en;
-    disco:hasResponseDomain <#ageRepr>.
+    disco:questionText "3. What is his or her age? _ _ Mark the age in completed years at the date of the census for those younger than one year old mark 00. For those younger than 10 years old, mark 01, 02, 03, etc. For those older than 99 years old, mark 99."@en.
 
 <#questionCitizenship> a disco:Question;
-    disco:literalText "6. [Immigration status] Only for persons who have usual residence in Argentina and were born in another country. [Questions 6A and 6B asked only of persons born outside Argentina and who currently reside in Argentina.] B. Are you a naturalized citizen of Argentina? [] Yes [] No [] Unanswered"@en;
-    disco:hasResponseDomain <#citizenshipRepr>.
-
-<#datafile> a disco:Datafile;
-    dc:identifier "ARG1900-P-H.dat";
-    dc:description "Person records"@en;
-    disco:caseQuantity 2667714;
-    dc:format "ascii";
-    dc:provenance "Minnesota Population Center"@en;
-    owl:versionInfo "Version 1.0, IPUMS sample"@en;
-    dc:spatial [
-        # This is the DC-strictly compatible way to do it
-        a dc:Location;
-        rdfs:label "Argentina, national coverage"@en
-    ];
-    dc:temporal "PeriodOfTime"@en;
-    dc:subject "To be defined"@en.
+    disco:questionText "6. [Immigration status] Only for persons who have usual residence in Argentina and were born in another country. [Questions 6A and 6B asked only of persons born outside Argentina and who currently reside in Argentina.] B. Are you a naturalized citizen of Argentina? [] Yes [] No [] Unanswered"@en.
 
 <#AR80A401> a disco:Variable;
     dc:identifier "AR80A401";
     skos:prefLabel "Sex"@en, "Sexe"@fr;
     dc:description "This variable indicates the person's gender."@en;
-    disco:isPopulatedBy <#instrument>;
-    disco:basedOn <#sexDE>;
+    disco:basedOn <#sexVD>;
     disco:hasQuestion <#questionGender>.
 
 <#AR80A402> a disco:Variable;
     dc:identifier "AR80A402";
     dc:description "This variable indicates the person's age in years."@en;
     skos:prefLabel "Age"@en, "Âge"@fr.
-    disco:isPopulatedBy <#instrument>;
-    disco:basedOn <#ageDE>;
+    disco:basedOn <#ageVD>;
     disco:hasQuestion <#questionAge>.   
 
 <#AR80A407> a disco:Variable;
     dc:identifier "AR80A407";
     dc:description "This variable indicates whether or not the person is a naturalized citizen of Argentina."@en;
-    skos:prefLabel "Citizenship"@en, "Citoyenneté"@fr.
+    skos:prefLabel "Citizenship"@en, "Citoyenneté"@fr;
+    disco:basedOn <#citizenshipVD>;
+    disco:hasQuestion <#questionCitizenship>.
 
-<#AR80A411> a disco:Variable;
-    dc:identifier "AR80A411";
-    dc:description "This variable indicates whether the person completed the highest educational level."@en;
-    skos:prefLabel "Completed highest level of education"@en, "Plus haut niveau d'études terminé"@fr.
-
-<#universePerson> a disco:Universe;
-    skos:definition "All persons."@en .
-
-<#universeNonArgentines> a disco:Universe;
-    skos:definition "Foreign-born persons who reside in Argentina."@en .
-
-<#sexDE> a disco:VariableDefinition;
+<#sexVD> a disco:VariableDefinition;
     disco:universe <#universePerson>;
     disco:representation <#sexRepr>;
     disco:concept <#ipumsC1>;
@@ -196,7 +172,7 @@
     disco:hasStatisticsCategory <#sexF>;
     disco:hasStatisticsDatafile <#datafile>.
 
-<#ageDE> a disco:VariableDefinition;
+<#ageVD> a disco:VariableDefinition;
     disco:universe <#universePerson>;
     disco:representation <#ageRepr>;
     disco:concept <#ipumsC1>;
@@ -224,9 +200,9 @@
     skos:prefLabel "99";
     skos:inScheme <#ageRepr>.
 
-<#citizenshipDE> a disco:VariableDefinition;
+<#citizenshipVD> a disco:VariableDefinition;
     disco:universe <#universeNonArgentines>;
-    disco:representation <#ageRepr>;
+    disco:representation <#citizenshipRepr>;
     disco:concept <#ipumsC2>;
     skos:prefLabel "Citizenship"@en;
     dc:description "Citizenship data element"@en.
@@ -264,3 +240,27 @@
 <#ipumsC2> a skos:Concept;
     skos:prefLabel "Nativity and Birthplace Variables -- PERSON"@en;
     skos:inScheme <#ipumsCS>.
+
+<#universePerson> a disco:Universe;
+    skos:definition "All persons."@en ;
+    skos:narrower <#universe>.
+
+<#universeNonArgentines> a disco:Universe;
+    skos:definition "Foreign-born persons who reside in Argentina."@en ;
+    skos:narrower <#universe>; 
+    skos:narrower <#universePerson>.
+
+<#datafile> a disco:Datafile;
+    dc:identifier "ARG1900-P-H.dat";
+    dc:description "Person records"@en;
+    disco:caseQuantity 2667714;
+    dc:format "ascii";
+    dc:provenance "Minnesota Population Center"@en;
+    owl:versionInfo "Version 1.0, IPUMS sample"@en;
+    dc:spatial [
+        # This is the DC-strictly compatible way to do it
+        a dc:Location;
+        rdfs:label "Argentina, national coverage"@en
+    ];
+    dc:temporal "PeriodOfTime"@en;
+    dc:subject "To be defined"@en.
