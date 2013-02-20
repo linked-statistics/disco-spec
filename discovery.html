@@ -250,7 +250,51 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
     <section>
       <h2>Overview</h2>
+
+      <p>To understand the DDI Discovery Vocabulary, there are a few
+      central classes, which can serve as entry points. The first of
+      these is the Study class, A Study in our model represents the
+      process by which a data set was generated or collected. Literal
+      properties include information about the funding, organizational
+      affiliation, abstract, title, version, and other such high-level
+      information. In some cases, where data collection is cyclic or
+      on-going, data sets may be relleased as a StudyGroup, where each
+      cycle or "wave" of the data collection activity produces one or
+      more data sets. This is typical for longitudinal studies, panel
+      studies, and other types of "series" (to use the DDI term). In
+      this case, a number of Study objects would be collected into a
+      single StudyGroup.</p>
+ 
+      <p>Data sets have two representations in our model: a logical
+      representation, which describes the contents of the data set,
+      and a physical representation, which is a distribuited file
+      holding that data. It is possible to format data files in many
+      different ways, even if the ogical content is the same. In our
+      model the LogicalDataSet represents the content of the file
+      (its organization into a set of Variables). The LogicalDataSet
+      is an extension of the dact:DataSet class. Physical, distributed
+      files are represented by the class DataFile, which is itself an
+      extension of the dcat:Distribution.</p>
+ 
+      <p>When it comes to understanding the contents of the data set,
+      this is done using the Variable class. Variables provide a
+      definition of the column in a rectangular data files, and can
+      associate it with a Concept, and a Question (the Question in the
+      Questionnaire which was used to collect the data). Variables are
+      related to a representation of some form, which may be aa set of
+      codes and categories (a "codelist") or may be one of other
+      normal data types (dateTime, numeric, textual, etc.) Codes and
+      Categories are represented using SKOS concepts and concept
+      schemes.</p>
+ 
+      <p>Data is collected about a specific phenomenon, typically
+      involving some target population, and focusing on the analysis
+      of a particular type of subject. These are respectively
+      represented by the Universe class and the AnalysisUnit class.
+      If, for example, the adult population of Finland is being
+      studied, the AnalysisUnit would be individuals pr persons.</p>
     </section>
+
 
     <section id='example'>
       <h2>A worked example</h2>
