@@ -106,7 +106,7 @@
 <#questionnaire> a disco:Questionnaire;
     disco:question <#questionGender>;
     disco:question <#questionAge>;
-    disco:question <#questionCitizenship>;
+    disco:question <#questionCitizenship>.
 
 <#questionGender> a disco:Question;
     disco:questionText "2. Is the person a man or a woman? [] Man, [] Woman"@en.
@@ -179,7 +179,6 @@
     skos:prefLabel "Age"@en, "Sexe"@fr;
     dc:description "Age data element"@en.
 
-# XXX: Is it possible and does it make sense here to just state an Integer?
 <#ageRepr> a skos:ConceptScheme, disco:Representation;
     skos:hasTopConcept <#age0>, <#age1>, <#age99>.
 
