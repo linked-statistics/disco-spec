@@ -33,7 +33,7 @@
     disco:fundedBy [
         rdfs:label "Organization for Economic Co-operation and Development, Development Co-operation Directorate";
         skos:notation "OECD/DCD-PARIS21";
-    # We don't have a translation of grantNo
+	# We don't have a translation of grantNo
     ].
 # We don't translate prodStmt/producer/@role
 # We don't translate verStmt/version
@@ -65,7 +65,7 @@
 	skos:definition "Group Quarters Variables -- HOUSEHOLD"@en ;
     ] ;
     disco:analysisUnit <#analysisUnit>;
-    disco:studyUniverse <#universe>;
+    disco:universe <#universe>;
     disco:kindOfData <#kindOfData> ;
     # method, e.g., method/dataColl/sampProc not represented since not relevant for discovery 
     # XXX dataAccs, e.g., dataAccs/useStmt/confDec,contact,citReq,conditions,disclaimer not represented, yet. 
@@ -132,7 +132,7 @@
     skos:prefLabel "Sex"@en, "Sexe"@fr;
     dc:description "This variable indicates the person's gender."@en;
     disco:isPopulatedBy <#instrument>;
-    disco:usesDataElement <#sexDE>;
+    disco:basedOn <#sexDE>;
     disco:hasQuestion <#questionGender>.
 
 <#AR80A402> a disco:Variable;
@@ -140,7 +140,7 @@
     dc:description "This variable indicates the person's age in years."@en;
     skos:prefLabel "Age"@en, "Âge"@fr.
     disco:isPopulatedBy <#instrument>;
-    disco:usesDataElement <#ageDE>;
+    disco:basedOn <#ageDE>;
     disco:hasQuestion <#questionAge>.   
 
 <#AR80A407> a disco:Variable;
@@ -159,10 +159,10 @@
 <#universeNonArgentines> a disco:Universe;
     skos:definition "Foreign-born persons who reside in Argentina."@en .
 
-<#sexDE> a disco:DataElement;
-    disco:hasUniverse <#universePerson>;
-    disco:hasRepresentation <#sexRepr>;
-    disco:hasConcept <#ipumsC1>;
+<#sexDE> a disco:VariableDefinition;
+    disco:universe <#universePerson>;
+    disco:representation <#sexRepr>;
+    disco:concept <#ipumsC1>;
     skos:prefLabel "Sex"@en, "Sexe"@fr;
     dc:description "Sex data element"@en.
 
@@ -193,10 +193,10 @@
     disco:hasStatisticsCategory <#sexF>;
     disco:hasStatisticsDatafile <#datafile>.
 
-<#ageDE> a disco:DataElement;
-    disco:hasUniverse <#universePerson>;
-    disco:hasRepresentation <#ageRepr>;
-    disco:hasConcept <#ipumsC1>;
+<#ageDE> a disco:VariableDefinition;
+    disco:universe <#universePerson>;
+    disco:representation <#ageRepr>;
+    disco:concept <#ipumsC1>;
     skos:prefLabel "Age"@en, "Sexe"@fr;
     dc:description "Age data element"@en.
 
@@ -221,10 +221,10 @@
     skos:prefLabel "99";
     skos:inScheme <#ageRepr>.
 
-<#citizenshipDE> a disco:DataElement;
-    disco:hasUniverse <#universeNonArgentines>;
-    disco:hasRepresentation <#ageRepr>;
-    disco:hasConcept <#ipumsC2>;
+<#citizenshipDE> a disco:VariableDefinition;
+    disco:universe <#universeNonArgentines>;
+    disco:representation <#ageRepr>;
+    disco:concept <#ipumsC2>;
     skos:prefLabel "Citizenship"@en;
     dc:description "Citizenship data element"@en.
 
