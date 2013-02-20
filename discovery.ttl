@@ -212,6 +212,7 @@ disco:frequency a rdf:Property, owl:DatatypeProperty;
 disco:isPublic a rdf:Property, owl:DatatypeProperty;
     rdfs:label "is public"@en, "ist öffentlich"@de;
     rdfs:domain disco:LogicalDataSet;
+    rdfs:comment "The value true indicates that the dataset can be accessed (usually downloaded) by anyone."@en;
     rdfs:range xsd:boolean;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
