@@ -22,6 +22,9 @@
 <#DDI_ARG_1980_PHC_v01_A_IPUMS>
     dc:title "National Population and Housing Census, 1980"@en;
     dc:identifier "DDI_ARG_1980_PHC_v01_A_IPUMS";
+    rdfs:seeAlso <http://microdata.worldbank.org/index.php/catalog/442>; 
+    # We have our own version on the RDF representation of the DDI XML file
+    owl:versionInfo "Mannheim Working Meeting Version (2013-02-20)";
     dc:creator [
         rdfs:label "Minnesota Population Center"@en;
         skos:notation "MPC";
@@ -36,13 +39,12 @@
 	# We don't have a translation of grantNo
     ].
 # We don't translate prodStmt/producer/@role
-# We don't translate verStmt/version
-# XXX: Why do we not use owl:versionOf "Version 1.0. Documentation ... the metadata."
 # We don't translate prodStmt/fundArg and prodStmt/grantNo because
 # for our use case we don't care who paid for encoding the metadata.
 
 <#study> a disco:Study;
     dc:title "National Population and Housing Census, 1980"@en;
+    owl:versionInfo "Version 1.0. This version contains selected variables from the original census micro data plus harmonized variables from the IPUMS International data base."@en; 
     dcterms:abstract "IPUMS-International is an effort to inventory, preserve, harmonize, and disseminate census microdata from around the world. The project has collected the world's largest archive of publicly available census samples. The data are coded and documented consistently across countries and over time to facillitate comparative research. IPUMS-International makes these data available to qualified researchers free of charge through a web dissemination system. The IPUMS project is a collaboration of the Minnesota Population Center, National Statistical Offices, and international data archives. Major funding is provided by the U.S. National Science Foundation and the Demographic and Behavioral Sciences Branch of the National Institute of Child Health and Human Development. Additional support is provided by the University of Minnesota Office of the Vice President for Research, the Minnesota Population Center, and Sun Microsystems.";
     dc:identifier "ARG_1980_PHC_v01_A_IPUMS";
     dc:spatial [
@@ -58,6 +60,7 @@
 	disco:endDate "1980-10-22"^^xsd:date;
 	rdfs:comment "The interviews take place on the expected census day.  In some areas the enumeration took place the following day because of access problems due to heavy rains.";
     ] ;
+    # Only a subset of subjects mentioned in the original file
     dcterms:subject [
 	skos:definition "Technical Variables -- HOUSEHOLD"@en ;
     ] ;
