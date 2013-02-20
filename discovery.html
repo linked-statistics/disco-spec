@@ -712,11 +712,11 @@ ex:study1 dcterms:subject [
 
       <p>Find studies from years 2000 and after about climate change.</p>
       <pre>
-SELECT ?studyTitle ?abstract ?logicalDataSetTitle
+SELECT ?studyTitle ?studyAbstract ?logicalDataSetTitle
 WHERE {
   ?study a disco:Study ;
     dcterms:title ?studyTitle ;
-    dcterms:abstract ?abstract ;
+    dcterms:abstract ?studyAbstract ;
     dcterms:subject [ skos:prefLabel “Climate Change” ] ;
     dcterms:temporal [ disco:startDate ?date ] ;
     disco:product ?logicalDataSet .
@@ -762,6 +762,7 @@ WHERE {
     disco:instrument ?instrument ;
     dcterms:title ?studyTitle ;
     dcterms:abstract ?studyAbstract .
+
   ?instrument disco:questionnaire ?questionnaire .
   ?questionnaire disco:question ?question .
   ?question disco:questionText ?questionText .
@@ -770,7 +771,26 @@ WHERE {
 }
     </pre>
 
-    <p>XXX: Seems to be that a simple question turns out to have a long way to query (too much jumping around). Perhaps we should take some of this into account. - Sarven</p>
+
+    <p>Find study groups where the study uses the species variable and has a variable defined as Bufo alvarius</p>
+    <pre>
+SELECT ?studyGroupTitle ?studyGroupAbstract
+WHERE {
+  ?study a disco:Study ;
+    disco:inGroup ?studyGroup ;
+    disco:variable ?variable .
+
+  ?studyGroup dcterms:title ?studyGroupTitle .
+  ?studyGroup dcterms:title ?studyGroupAbstract .
+
+  ?variable disco:concept ?variableConcept .
+  FILTER (regex(?variableConcept, "species", "i"))
+
+  ?variable disco:baseOn ?variableDefinition .
+  ?variableDefinition disco:concept ?variableDefinitionConcept .
+  FILTER (regex(?variableDefinitionConcept, "Bufo alvarius", "i"))
+}
+    </pre>
     </section>
 
     <section class="appendix">
