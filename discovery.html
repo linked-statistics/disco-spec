@@ -251,6 +251,10 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
     <section>
       <h2>Overview</h2>
 
+      <div class="figure">
+        <img src="diagrams/overview.jpg" alt="Vocabulary overview">
+      </div>
+
       <p>To understand the DDI Discovery Vocabulary, there are a few
       central classes, which can serve as entry points. The first of
       these is the Study class, A Study in our model represents the
@@ -408,7 +412,13 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       which are either foaf:Persons or org:Organizations whose members
       are foaf:Persons.</p>
 
-      <p>Figure XXXXX. Study</p>
+      <div class="figure">
+        <img src="diagrams/study-metadata.jpg" alt="Study and StudyGroup with general metadata">
+      </div>
+
+      <div class="figure">
+        <img src="diagrams/study-agent.jpg" alt="Study and StudyGroup with related Agents (people and organizations)">
+      </div>
 
       <p>Studies may have multiple instrument relationships to
       Instruments and may have at least 1 associated universe
@@ -419,6 +429,14 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       LogicalProducts using the property product. Studies must have
       exactly 1 coverage which may contain the 3 dimensions spatial,
       temporal, and subject.</p>
+
+    <section>
+      <h3>Analysis units and universes</h3>
+
+      <div class="figure">
+        <img src="diagrams/study-universe.jpg" alt="Study, Universe and AnalysisUnit">
+      </div>
+    </section>
 
     <section id='coverage'>
       <h3>Coverage - note: this is outdated!</h3>
@@ -437,10 +455,18 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
     <section id='metadata'>
       <h2>General metadata</h2>
+
+      <div class="figure">
+        <img src="diagrams/rdfs-resource.jpg" alt="rdfs:Resource">
+      </div>
     </section>
 
     <section id='dataset'>
       <h2>Data sets, data files, and descriptive statistics</h2>
+
+      <div class="figure">
+        <img src="diagrams/overview-data-set.jpg" alt="Overview: Data sets, data files, descriptive statistcs">
+      </div>
 
     <section>
       <h3>LogicalDataSet</h3>
@@ -457,7 +483,9 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       rights and license statements can be retrieved from documents
       (rdfs:seeAlso).</p>
 
-      <p>Figure XXXXX. LogicalDataSet</p>
+      <div class="figure">
+        <img src="diagrams/logical-data-set.jpg" alt="LogicalDataSet">
+      </div>
 
       <p>Microdata datasets may have associations to multiple
       instruments (instrument), to 1 coverage (coverage), to 1
@@ -480,7 +508,9 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       (dcterms:format) using the datatype properties of
       dcterms:MediaTypeOrExtent or skos:Concept.</p>
 
-      <p>Figure XXXXX. DataFile</p>
+      <div class="figure">
+        <img src="diagrams/data-file.jpg" alt="DataFile">
+      </div>
     </section>
 
     <section>
@@ -495,13 +525,23 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       DataFile as range (statisticsDataFile) to assign both summary
       statistics and category statistics to data files.</p>
 
-      <p>Figure XXXXX. DescriptiveStatistics</p>
+      <div class="figure">
+        <img src="diagrams/descriptive-statistics.jpg" alt="DescriptiveStatistics">
+      </div>
     </section>
 
     </section>
 
     <section id='variable'>
       <h2>Variables, data elements, representations, and contents</h2>
+
+    <section>
+      <h3>Variable</h3>
+
+      <div class="figure">
+        <img src="diagrams/variable.jpg" alt="Variable">
+      </div>
+    </section>
 
     <section>
       <h3>skos:Concept</h3>
@@ -513,7 +553,9 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       You can describe code values (skos:notation) and category labels
       (skos:prefLabel).</p>
 
-      <p>Figure XXXXX. skos:Concept</p>
+      <div class="figure">
+        <img src="diagrams/concept.jpg" alt="skos:Concept and skos:ConceptScheme">
+      </div>
     </section>
 
     <section>
@@ -529,6 +571,10 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       response domain (skos:ConceptScheme). Skos:ConceptScheme
       (representing code schemes) may contain skos:Concepts
       (representing codes) using the object property skos:inScheme.</p>
+
+      <div class="figure">
+        <img src="diagrams/representation.jpg" alt="Representation">
+      </div>
     </section>
 
     </section>
@@ -545,7 +591,9 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       least 1 collection mode, which is a skos:Concept, and including
       at least 1 question.</p>
 
-      <p>Figure XXXXX. Instrument</p>
+      <div class="figure">
+        <img src="diagrams/data-collection.jpg" alt="DataCollection">
+      </div>
     </section>
 
     <section>
@@ -632,6 +680,14 @@ WHERE {
     </pre>
 
     <p>XXX: Seems to be that a simple question turns out to have a long way to query (too much jumping around). Perhaps we should take some of this into account. - Sarven</p>
+    </section>
+
+    <section class="appendix">
+      <h2>Combined UML Diagram</h2>
+
+      <div class="figure">
+        <img src="diagrams/object-properties.jpg" alt="Combined UML Diagram (object properties only)">
+      </div>
     </section>
 
     <section class='appendix'>
