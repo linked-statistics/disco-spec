@@ -109,12 +109,10 @@
     disco:question <#questionCitizenship>;
 
 <#questionGender> a disco:Question;
-    disco:questionText "2. Is the person a man or a woman? [] Man, [] Woman"@en;
-    disco:hasResponseDomain <#sexRepr>.
+    disco:questionText "2. Is the person a man or a woman? [] Man, [] Woman"@en.
 
 <#questionAge> a disco:Question;
-    disco:questionText "3. What is his or her age? _ _ Mark the age in completed years at the date of the census for those younger than one year old mark 00. For those younger than 10 years old, mark 01, 02, 03, etc. For those older than 99 years old, mark 99."@en;
-    disco:hasResponseDomain <#ageRepr>.
+    disco:questionText "3. What is his or her age? _ _ Mark the age in completed years at the date of the census for those younger than one year old mark 00. For those younger than 10 years old, mark 01, 02, 03, etc. For those older than 99 years old, mark 99."@en.
 
 <#questionCitizenship> a disco:Question;
     disco:questionText "6. [Immigration status] Only for persons who have usual residence in Argentina and were born in another country. [Questions 6A and 6B asked only of persons born outside Argentina and who currently reside in Argentina.] B. Are you a naturalized citizen of Argentina? [] Yes [] No [] Unanswered"@en;
