@@ -441,14 +441,6 @@ disco:dataFile a rdf:Property, owl:ObjectProperty;
     rdfs:range disco:DataFile;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
-# dataSetUniverse property
-# * LogicalDataSet -> Universe 1 / 0,...,n (Property: dataSetUniverse)
-disco:dataSetUniverse a rdf:Property, owl:ObjectProperty;
-    rdfs:label "data set universe"@en, "Datensatzuniversum"@de;
-    rdfs:domain disco:LogicalDataSet;
-    rdfs:range disco:Universe;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
 # ddifile property
 # (disco:Study disco:StudyGroup) -> foaf:Document 0,* / 0,*
 disco:ddifile a rdf:Property, owl:ObjectProperty;
@@ -556,17 +548,27 @@ disco:statisticsVariable a rdf:Property, owl:ObjectProperty;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # universe property
+# * Study/Study -> Universe 1,...,n / 0,...,n
 # * VariableDefinition -> Universe 0,...,n / 0,...,n (Note: VariableDefinition and Variable are the same thing in different states)
 # * Variable -> Universe 1 / 0,...,n
 # * Question -> Universe 1 / 0,...,n
+# * LogicalDataSet -> Universe 1 / 0,...,n (Property: dataSetUniverse)
 disco:universe a rdf:Property, owl:ObjectProperty;
     rdfs:label "universe"@en, "a comme univers"@fr;
-    rdfs:domain [ owl:unionOf (disco:VariableDefinition disco:Variable disco:Question)];
+    rdfs:domain [ owl:unionOf (disco:Study disco:StudyGroup disco:VariableDefinition disco:Variable disco:Question disco:LogicalDataSet)];
+    rdfs:range disco:Universe;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+
+# dataSetUniverse property
+
+disco:dataSetUniverse a rdf:Property, owl:ObjectProperty;
+    rdfs:label "data set universe"@en, "Datensatzuniversum"@de;
+    rdfs:domain ;
     rdfs:range disco:Universe;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # studyUniverse property
-# * Study -> Universe 1,...,n / 0,...,n
+
 disco:studyUniverse a rdf:Property, owl:ObjectProperty;
     rdfs:label "study universe"@en, "mesure"@fr;
     rdfs:domain [ owl:unionOf (disco:Study disco:StudyGroup)];
