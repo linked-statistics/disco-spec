@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DDI Data Discovery Vocabulary</title>
+    <title>DDI Discovery Vocabulary</title>
     <meta charset='utf-8'>
     <script src='http://darobin.github.com/respec/builds/respec-w3c-common.js' class='remove'></script>
     <script class='remove'>
@@ -75,6 +75,20 @@
 This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats.
     </section>
     
+    <section id="sotd">
+      <p>This document is a Working Draft produced by the
+      <a href="http://www.ddialliance.org/alliance/working-groups#RDF">RDF Vocabularies Working Group</a>,
+      a working group at the <a href="http://www.ddialliance.org/">DDI Alliance</a>.</p>
+
+      <p>Development resources:</p>
+
+      <ul>
+        <li><a href="https://groups.google.com/group/ddi-rdf-vocabulary">Google Group</a></li>
+        <li><a href="https://github.com/linked-statistics/disco-spec/issues">Issue tracker</a></li>
+        <li><a href="https://github.com/linked-statistics/disco-spec/">GitHub repository</a></li>
+      </ul>
+    </section>
+
     <section>
       <h2>Introduction</h2>
       <p>
@@ -172,7 +186,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
     
 
     <section>
-      <h2>Relationship to Data Cube and DCAT</h2>
+      <h2>Relationship to Data Cube, DCAT and XKOS</h2>
 
       <p>The Discovery Vocabulary is aligned to several other metadata
       vocabularies used in the RDF community.</p>
@@ -218,13 +232,73 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       assumed to sit in a data file (e.g., a CSV file, or in a
       proprietary stats package file format) that is not represented
       in RDF.</p>
+
+      <p>The use of formal statistical classifications is very common
+      in research data sets—these are treated in our vocabulary as
+      SKOS concepts, but in some cases those working with formal
+      statistical classifications may desire more expressive
+      capability than SKOS provides. To support such users, the DDI
+      Alliance also publishes
+      <a href="http://purl.org/linked-data/xkos">XKOS</a>, a
+      vocabulary which extends SKOS
+      to allow for a more complete description of such
+      classifications. While the use of XKOS is not required by this
+      vocabulary, the two are designed to work in complementary fashion.</p>
     </section>
 
     </section>
 
     <section>
       <h2>Overview</h2>
+
+      <div class="figure">
+        <img src="diagrams/overview.jpg" alt="Vocabulary overview">
+      </div>
+
+      <p>To understand the DDI Discovery Vocabulary, there are a few
+      central classes, which can serve as entry points. The first of
+      these is the Study class, A Study in our model represents the
+      process by which a data set was generated or collected. Literal
+      properties include information about the funding, organizational
+      affiliation, abstract, title, version, and other such high-level
+      information. In some cases, where data collection is cyclic or
+      on-going, data sets may be relleased as a StudyGroup, where each
+      cycle or "wave" of the data collection activity produces one or
+      more data sets. This is typical for longitudinal studies, panel
+      studies, and other types of "series" (to use the DDI term). In
+      this case, a number of Study objects would be collected into a
+      single StudyGroup.</p>
+ 
+      <p>Data sets have two representations in our model: a logical
+      representation, which describes the contents of the data set,
+      and a physical representation, which is a distribuited file
+      holding that data. It is possible to format data files in many
+      different ways, even if the ogical content is the same. In our
+      model the LogicalDataSet represents the content of the file
+      (its organization into a set of Variables). The LogicalDataSet
+      is an extension of the dact:DataSet class. Physical, distributed
+      files are represented by the class DataFile, which is itself an
+      extension of the dcat:Distribution.</p>
+ 
+      <p>When it comes to understanding the contents of the data set,
+      this is done using the Variable class. Variables provide a
+      definition of the column in a rectangular data files, and can
+      associate it with a Concept, and a Question (the Question in the
+      Questionnaire which was used to collect the data). Variables are
+      related to a representation of some form, which may be aa set of
+      codes and categories (a "codelist") or may be one of other
+      normal data types (dateTime, numeric, textual, etc.) Codes and
+      Categories are represented using SKOS concepts and concept
+      schemes.</p>
+ 
+      <p>Data is collected about a specific phenomenon, typically
+      involving some target population, and focusing on the analysis
+      of a particular type of subject. These are respectively
+      represented by the Universe class and the AnalysisUnit class.
+      If, for example, the adult population of Finland is being
+      studied, the AnalysisUnit would be individuals pr persons.</p>
     </section>
+
 
     <section id='example'>
       <h2>A worked example</h2>
@@ -638,38 +712,324 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
     <section id='study'>
       <h2>Studies</h2>
+
+      <p>Studies may have an abstract (dcterms:abstract), a title
+      (dcterms:title), a subtitle (subtitle), an alternate title
+      (dcterms:alternate), a purpose (purpose), and information about
+      the date and the time since when the study is publicly available
+      (dcterms:available). The object properties kindOfData and
+      dcterms:subject guide to skos:Concepts. The DDI file (property
+      DDIFile) containing the study is of the type foaf:Document.
+      Creators (dcterms:creator), contributors (dcterms:contributor),
+      and publishers (dcterms:publisher) of studies are foaf:Agents
+      which are either foaf:Persons or org:Organizations whose members
+      are foaf:Persons.</p>
+
+      <div class="figure">
+        <img src="diagrams/study-metadata.jpg" alt="Study and StudyGroup with general metadata">
+      </div>
+
+      <div class="figure">
+        <img src="diagrams/study-agent.jpg" alt="Study and StudyGroup with related Agents (people and organizations)">
+      </div>
+
+      <p>Studies may have multiple instrument relationships to
+      Instruments and may have at least 1 associated universe
+      (studyUniverse). Studies have at most 1 AnalysisUnit which is
+      also a skos:Concept. The connection to the data files is brought
+      by the object property dataFile. Studies may have at most
+      infinite variables associated (variable). Studies reach their
+      LogicalProducts using the property product. Studies must have
+      exactly 1 coverage which may contain the 3 dimensions spatial,
+      temporal, and subject.</p>
+
+    <section>
+      <h3>Analysis units and universes</h3>
+
+      <div class="figure">
+        <img src="diagrams/study-universe.jpg" alt="Study, Universe and AnalysisUnit">
+      </div>
+    </section>
+
+    <section id='coverage'>
+      <h3>Coverage - note: this is outdated!</h3>
+
+      <p>Studies, logical datasets, and data files have exactly 1
+      associated coverage. The coverage is partitioned into the 3
+      dimensions subject (dcterms:subject), temporal
+      (dcterms:temporal), and spatial (dcterms:spatial). The subject
+      coverage points to skos:Concepts which can be used to describe
+      subjects and keywords (skos:definition).</p>
+
+      <p>Figure XXXXX. Coverage</p>
+    </section>
+
     </section>
 
     <section id='metadata'>
       <h2>General metadata</h2>
+
+      <div class="figure">
+        <img src="diagrams/rdfs-resource.jpg" alt="rdfs:Resource">
+      </div>
+
+    <section>
+	  <h3>DDI-RDF Identifiers</h3>
+	  
+	  <p>Every entity defined in DDI-RDF is an rdfs:resource. General metadata elements which can be used on every resource in a DDI-RDF description include:</p>
+	  
+	  <ul>
+		<li>skos:prefLabel (rdf:langString): the preferred label of this element</li>
+		<li>disco:ddi2_1identifier (xsd:anyURI): the unique identifier in DDI 2.1</li>
+		<li>disco:ddi2_5identifier (xsd:anyURI): the unique identifier in DDI 2.5</li>
+		<li>disco:ddi3_0identifier (xsd:anyURI): the unique identifier in DDI 3.0</li>
+		<li>disco:ddi3_1identifier (xsd:anyURI): the unique identifier in DDI 3.1</li>
+		<li>disco:ddi3_2identifier (xsd:anyURI): the unique identifier in DDI 3.2</li>
+	  </ul>
+
+	  <p>Note that in RDF, the unique identifier of a resource is its URI. The identifier properties are only used for easing the linkage between DDI-RDF metadata and the original DDI files.</p>
+
+	  <p>Furthermore, every element can be related to any foaf:document using dcterms:relation.</p>
+	  </section>
+	  
+	  <section>
+		<h3>Versioning Information</h3>
+		<p>Use of the owl:versionInfo property is recommended to indicate the version number and/or additional versioning text of entities.</p>
+
+		<p>Any entity can have version information; however, the most typical cases are:</p>
+
+		<ul>
+			<li>Version of the metadata (e.g., DDI file or RDF file), where the subject is the URL of the file</li>
+			<li>Version of the study (e.g., as a study goes through the life cycle from conception through data collection, etc.), where the subject is a disco:Study</li>
+			<li>Version of the data files, where the subject is a disco:DataFile.</li>
+		</ul>
+	  </section>
+	  
+	  <section>
+	  <h3>Access Rights Statements and Licenses</h3>
+	  <p>Every logical dataset may have access rights statements and licensing information attached to it. For those purposes, the dublin core properties dcterms:accessRights and dcterms:license are used.</p>
+	  
+	  <p>Access rights are defined in a dcterms:RightsStatements object, which may reference an external document stating the access rights in more detail:</p>
+	  <pre>
+ex:dataset1 a disco:LogicalDataset ;
+  dcterms:accessRights ex:accessRights1 .
+ex:accessRights1 dcterms:description "Everybody may see access this document." ;
+  rdfs:seeAlso &lt;http://www.example.org/access.html&gt; . 
+	  </pre>
+	  <p>License information is captured in a dcterms:LicenseDocument, which is a subtype of dcterms:RightsStatements:</p>
+	  <pre>
+ex:dataset1 a disco:LogicalDataset ;
+  dcterms:license ex:license1 .
+ex:license1 dcterms:description "Published under Open Content License." ;
+  skos:prefLabel "OCL 1.0" ;
+  rdfs:seeAlso &lt;http://opencontent.org/opl.shtml&gt; .	  
+	  </pre>
+	  </section>
+	  <section>
+	    <h3>Coverage of Studies, Logical Datasets, and Data Files</h3>
+		<p>Studies, logical datasets, and data files may have a spatial, temporal, and topical coverage. Unlike in DDI XML, there is no dedicated Coverage type in DDI-RDF. In contrast, spatial, temporal, and topical coverage are directly attached to the respective study, logical dataset, and datafile.</p>
+		<p>For spatial coverage, dcterms:spatial is used, pointing to any geographic location:</p>
+		<pre>
+ex:study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .		
+		</pre>
+		<p>In this example, <a href="http://www.geonames.org/">Geonames</a> is used to refer to a spatial region, in this case, the country Germany. Geonames provides URIs for continents, countries, regions, and cities, among others, and is therefore a possible option to use for describing spatial coverage.</p>
+        <p>For temporal coverage, dcterms:temporal is used. A possible way to describe temporal coverage is the use of the <a href="http://www.w3.org/TR/owl-time/">W3C time ontology</a>:</p>
+		<pre>
+ex:study1 dcterms:temporal [
+  a time:Interval ;
+  time:hasBeginning [ time:inXSDDateTime
+    "2012-01-01T00:00:00+01:00"^^xsd:dateTime ];
+  time:hasEnd [ time:inXSDDateTime
+    "2012-01-31T23:59:59+01:00"^^xsd:dateTime ] ] .		
+		</pre>
+		<p>This example describes a study that has been conducted between January 1st and January 31st.</p>
+		<p>Topical coverage can be expressed using dcterms:subject. DDI-RDF foresees the use skos:Concept for the description of topical coverage:</p>
+		<pre>
+ex:study1 dcterms:subject [
+  a skos:Concept ;
+  skos:prefLabel "Alcohol consumption" ] .
+		</pre>
+		</section>
+		<section>
+			<h3>Other General Dublin Core Metadata Properties</h3>
+			<p>The following elements from Dublin Core may be used to describe general metadata of DDI-RDF elements (see the DC definitions for more detailed descriptions):</p>
+			<ul>
+				<li>dcterms:abstract (used with disco:Study): an abstract of the study</li>
+				<li>dcterms:alternative (used with disco:Study): an alternative name for the study</li>
+				<li>dcterms:available (used with disco:Study): the date (or date range) at which this study has or will become available</li>
+				<li>dcterms:title (used with disco:Study, disco:LogicalDataSet): the element’s title</li>
+				<li>dcterms:description (used with disco:DataElement, disco:DataFile, disco:Instrument, disco:Variable, dcterms:RightsStatement): a human readable description of the element</li>
+				<li>dcterms:provenance (used with disco:DataFile): defines the provenance information for the data file. The object is a dcterms:ProvenanceStatement.</li>
+			</ul>
+		</section>
+
     </section>
 
     <section id='dataset'>
       <h2>Data sets, data files, and descriptive statistics</h2>
+
+      <div class="figure">
+        <img src="diagrams/overview-data-set.jpg" alt="Overview: Data sets, data files, descriptive statistcs">
+      </div>
+
+    <section>
+      <h3>LogicalDataSet</h3>
+
+      <p>LogicalDataSet represents the microdata dataset. You can
+      state a title (dcterms:title) and a flag indicating if the
+      microdata dataset is publicly available (isPublic). You can
+      specify access rights (dcterms:accessRights) and license
+      statements (dcterms:license) for microdata datasets.
+      Dcterms:LicenseDocuments, which are also
+      dcterms:RightsStatements, define license statements. You can
+      describe and label access rights, represented by
+      dcterms:RightsStatements. Further information about access
+      rights and license statements can be retrieved from documents
+      (rdfs:seeAlso).</p>
+
+      <div class="figure">
+        <img src="diagrams/logical-data-set.jpg" alt="LogicalDataSet">
+      </div>
+
+      <p>Microdata datasets may have associations to multiple
+      instruments (instrument), to 1 coverage (coverage), to 1
+      universe (dataSetUniverse), to multiple variables
+      (containsVariable), to more than 1 DataSet (dataCube), to
+      multiple data files (dataFile), and to exactly 1 coverage
+      (coverage). The class DataSet is defined in the RDF Data Cube
+      Vocabulary and may point to multiple variables
+      (inputVariable).</p>
+    </section>
+
+    <section>
+      <h3>DataFile</h3>
+
+      <p>The class DataFile, which is also a dcterms:Dataset,
+      represents all the data files containing the microdata datasets.
+      You can describe data files (dcterms:description) and you can
+      specify data files’ case quantities, provenance information, and
+      versions. You can further define the data files’ format
+      (dcterms:format) using the datatype properties of
+      dcterms:MediaTypeOrExtent or skos:Concept.</p>
+
+      <div class="figure">
+        <img src="diagrams/data-file.jpg" alt="DataFile">
+      </div>
+    </section>
+
+    <section>
+      <h3>DescriptiveStatistics</h3>
+
+      <p>SummaryStatistics pointing to variables and
+      CategoryStatistics pointing to categories and codes are both
+      descriptive statistics. You can state maximum, minimum values,
+      standard deviations, etc. for summary statistics. You can give
+      frequencies, percentages, weighted percentages, etc. for
+      category statistics. Descriptive statistics can also have
+      DataFile as range (statisticsDataFile) to assign both summary
+      statistics and category statistics to data files.</p>
+
+      <div class="figure">
+        <img src="diagrams/descriptive-statistics.jpg" alt="DescriptiveStatistics">
+      </div>
+    </section>
+
     </section>
 
     <section id='variable'>
       <h2>Variables, data elements, representations, and contents</h2>
+
+    <section>
+      <h3>Variable</h3>
+
+      <div class="figure">
+        <img src="diagrams/variable.jpg" alt="Variable">
+      </div>
+    </section>
+
+    <section>
+      <h3>skos:Concept</h3>
+
+      <p>We reuse skos:Concept to a large extent to represent DDI
+      concepts, codes, and categories (see next figure). You can
+      describe DDI concepts (skos:definition) and you can define
+      hierarchies of DDI concepts (skos:broader and skos:narrower).
+      You can describe code values (skos:notation) and category labels
+      (skos:prefLabel).</p>
+
+      <div class="figure">
+        <img src="diagrams/concept.jpg" alt="skos:Concept and skos:ConceptScheme">
+      </div>
+    </section>
+
+    <section>
+      <h3>Representation</h3>
+
+      <p>Questions (object property responseDomain), variables
+      (representation), and data elements (representation) may have
+      representations. We defined the class Representation as union of
+      individuals of the classes rdfs:Datatype (e.g. numeric or
+      textual values) and skos:ConceptScheme, as for example questions
+      may have as response domain a mixture of a numeric response
+      domain containing numeric values (rdfs:Datatype) and a code
+      response domain (skos:ConceptScheme). Skos:ConceptScheme
+      (representing code schemes) may contain skos:Concepts
+      (representing codes) using the object property skos:inScheme.</p>
+
+      <div class="figure">
+        <img src="diagrams/representation.jpg" alt="Representation">
+      </div>
+    </section>
+
     </section>
 
     <section id='collection'>
       <h2>Data collection instruments</h2>
+
+    <section>
+      <h3>Instrument</h3>
+
+      <p>You can describe (dcterms:description) and associate labels
+      (skos:prefLabel) to instruments. Instruments may have external
+      documentations. Questionnaires are special instruments having at
+      least 1 collection mode, which is a skos:Concept, and including
+      at least 1 question.</p>
+
+      <div class="figure">
+        <img src="diagrams/data-collection.jpg" alt="DataCollection">
+      </div>
     </section>
+
+    <section>
+      <h3>Question</h3>
+
+      <p>Questions have a question text (questionText), a label
+      (skos:prefLabel), exactly 1 universe (universe), multiple
+      concepts (concept), and at least 1 response domain
+      (responseDomain).</p>
+    </section>
+
+    </section>
+
 
     <section id='literals-to-identifiers'>
       <h2>From literals to globally unique identifiers</h2>
+
+      <p class="issue">This section should talk about
+      <a href="https://github.com/linked-statistics/disco-spec/issues/27">Issue #27</a>.</p>
     </section>
+
 
     <section class='appendix'>
       <h2>Example queries</h2>
 
       <p>Find studies from years 2000 and after about climate change.</p>
       <pre>
-SELECT ?studyTitle ?abstract ?logicalDataSetTitle
+SELECT ?studyTitle ?studyAbstract ?logicalDataSetTitle
 WHERE {
   ?study a disco:Study ;
     dcterms:title ?studyTitle ;
-    dcterms:abstract ?abstract ;
+    dcterms:abstract ?studyAbstract ;
     dcterms:subject [ skos:prefLabel “Climate Change” ] ;
     dcterms:temporal [ disco:startDate ?date ] ;
     disco:product ?logicalDataSet .
@@ -715,6 +1075,7 @@ WHERE {
     disco:instrument ?instrument ;
     dcterms:title ?studyTitle ;
     dcterms:abstract ?studyAbstract .
+
   ?instrument disco:questionnaire ?questionnaire .
   ?questionnaire disco:question ?question .
   ?question disco:questionText ?questionText .
@@ -723,27 +1084,54 @@ WHERE {
 }
     </pre>
 
-    <p>XXX: Seems to be that a simple question turns out to have a long way to query (too much jumping around). Perhaps we should take some of this into account. - Sarven</p>
+
+    <p>Find study groups where the study uses the species variable and has a variable defined as Bufo alvarius</p>
+    <pre>
+SELECT ?studyGroupTitle ?studyGroupAbstract
+WHERE {
+  ?study a disco:Study ;
+    disco:inGroup ?studyGroup ;
+    disco:variable ?variable .
+
+  ?studyGroup dcterms:title ?studyGroupTitle .
+  ?studyGroup dcterms:title ?studyGroupAbstract .
+
+  ?variable disco:concept ?variableConcept .
+  FILTER (regex(?variableConcept, "species", "i"))
+
+  ?variable disco:baseOn ?variableDefinition .
+  ?variableDefinition disco:concept ?variableDefinitionConcept .
+  FILTER (regex(?variableDefinitionConcept, "Bufo alvarius", "i"))
+}
+    </pre>
+    </section>
+
+    <section class="appendix">
+      <h2>Combined UML Diagram</h2>
+
+      <div class="figure">
+        <img src="diagrams/object-properties.jpg" alt="Combined UML Diagram (object properties only)">
+      </div>
     </section>
 
     <section class='appendix'>
       <h2>Acknowledgements</h2>
 
-      <p>This work has been started at the first workshop on
+      <p>This work has been started at the <a href="http://www.dagstuhl.de/11372">first workshop on
       “Semantic Statistics for Social, Behavioural, and Economic
-      Sciences: Leveraging the DDI Model for the Linked Data Web” at
+      Sciences: Leveraging the DDI Model for the Linked Data Web”</a> at
       Schloss Dagstuhl - Leibniz Center for Informatics, Germany in
       September 2011 organized by Richard Cyganiak, Arofan Gregory,
       Wendy Thomas, and Joachim Wackerow. This work has been continued
       at these three meetings:</p>
 
       <ul>
-        <li>Follow-up working meeting in the course of the 3rd Annual
-        European DDI Users Group Meeting (EDDI11) in Gothenburg, Sweden
+        <li>Follow-up working meeting in the course of the <a href="http://www.iza.org/eddi11">3rd Annual
+        European DDI Users Group Meeting (EDDI11)</a> in Gothenburg, Sweden
         in December 2011</li>
-        <li>Second workshop on “Semantic Statistics for Social,
+        <li><a href="http://www.dagstuhl.de/12422">Second workshop on “Semantic Statistics for Social,
         Behavioural, and Economic Sciences: Leveraging the DDI Model
-        for the Linked Data Web” at Schloss Dagstuhl - Leibniz Center
+        for the Linked Data Web”</a> at Schloss Dagstuhl - Leibniz Center
         for Informatics, Germany in October 2012</li>
         <li>Follow-up working meeting at GESIS - Leibniz Institute for
         the Social Sciences in Mannheim, Germany in February 2013</li>
@@ -768,7 +1156,7 @@ WHERE {
         <li>Stefan Kramer (CISER - Cornell Institute for Social and Economic Research, USA)</li>
         <li>Amber Leahey (Scholars Portal Project - University of Toronto, Canada)</li>
         <li>Olof Olsson (SND - Swedish National Data Service)</li>
-        <li>Heiko Paulheim (Technical University Darmstadt, Germany)</li>
+        <li>Heiko Paulheim (University of Mannheim, Germany)</li>
         <li>Abdul Rahim (Metadata Technologies Inc., USA)</li>
         <li>John Shepherdson (UK Data Archive)</li>
         <li>Dan Smith (Algenta Technologies Inc., USA)</li>
