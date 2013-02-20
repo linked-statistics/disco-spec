@@ -437,6 +437,95 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
     <section id='metadata'>
       <h2>General metadata</h2>
+    <section>
+	  <h3>DDI-RDF Identifiers</h3>
+	  
+	  <p>Every entity defined in DDI-RDF is an rdfs:resource. General metadata elements which can be used on every resource in a DDI-RDF description include:</p>
+	  
+	  <ul>
+		<li>skos:prefLabel (rdf:langString): the preferred label of this element</li>
+		<li>disco:ddi2_1identifier (xsd:anyURI): the unique identifier in DDI 2.1</li>
+		<li>disco:ddi2_5identifier (xsd:anyURI): the unique identifier in DDI 2.5</li>
+		<li>disco:ddi3_0identifier (xsd:anyURI): the unique identifier in DDI 3.0</li>
+		<li>disco:ddi3_1identifier (xsd:anyURI): the unique identifier in DDI 3.1</li>
+		<li>disco:ddi3_2identifier (xsd:anyURI): the unique identifier in DDI 3.2</li>
+	  </ul>
+
+	  <p>Note that in RDF, the unique identifier of a resource is its URI. The identifier properties are only used for easing the linkage between DDI-RDF metadata and the original DDI files.</p>
+
+	  <p>Furthermore, every element can be related to any foaf:document using dcterms:relation.</p>
+	  </section>
+	  
+	  <section>
+		<h3>Versioning Information</h3>
+		<p>Use of the owl:versionInfo property is recommended to indicate the version number and/or additional versioning text of entities.</p>
+
+		<p>Any entity can have version information; however, the most typical cases are:</p>
+
+		<ul>
+			<li>Version of the metadata (e.g., DDI file or RDF file), where the subject is the URL of the file</li>
+			<li>Version of the study (e.g., as a study goes through the life cycle from conception through data collection, etc.), where the subject is a disco:Study</li>
+			<li>Version of the data files, where the subject is a disco:DataFile.</li>
+		</ul>
+	  </section>
+	  
+	  <section>
+	  <h3>Access Rights Statements and Licenses</h3>
+	  <p>Every logical dataset may have access rights statements and licensing information attached to it. For those purposes, the dublin core properties dcterms:accessRights and dcterms:license are used.</p>
+	  
+	  <p>Access rights are defined in a dcterms:RightsStatements object, which may reference an external document stating the access rights in more detail:</p>
+	  <pre>
+ex:dataset1 a disco:LogicalDataset ;
+  dcterms:accessRights ex:accessRights1 .
+ex:accessRights1 dcterms:description "Everybody may see access this document." ;
+  rdfs:seeAlso &lt;http://www.example.org/access.html&gt; . 
+	  </pre>
+	  <p>License information is captured in a dcterms:LicenseDocument, which is a subtype of dcterms:RightsStatements:</p>
+	  <pre>
+ex:dataset1 a disco:LogicalDataset ;
+  dcterms:license ex:license1 .
+ex:license1 dcterms:description "Published under Open Content License." ;
+  skos:prefLabel "OCL 1.0" ;
+  rdfs:seeAlso &lt;http://opencontent.org/opl.shtml&gt; .	  
+	  </pre>
+	  </section>
+	  <section>
+	    <h3>Coverage of Studies, Logical Datasets, and Data Files</h3>
+		<p>Studies, logical datasets, and data files may have a spatial, temporal, and topical coverage. Unlike in DDI XML, there is no dedicated Coverage type in DDI-RDF. In contrast, spatial, temporal, and topical coverage are directly attached to the respective study, logical dataset, and datafile.</p>
+		<p>For spatial coverage, dcterms:spatial is used, pointing to any geographic location:</p>
+		<pre>
+ex:study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .		
+		</pre>
+		<p>In this example, <a href="http://www.geonames.org/">Geonames</a> is used to refer to a spatial region, in this case, the country Germany. Geonames provides URIs for continents, countries, regions, and cities, among others, and is therefore a possible option to use for describing spatial coverage.</p>
+        <p>For temporal coverage, dcterms:temporal is used. A possible way to describe temporal coverage is the use of the <a href="http://www.w3.org/TR/owl-time/">W3C time ontology</a>:</p>
+		<pre>
+ex:study1 dcterms:temporal [
+  a time:Interval ;
+  time:hasBeginning [ time:inXSDDateTime
+    "2012-01-01T00:00:00+01:00"^^xsd:dateTime ];
+  time:hasEnd [ time:inXSDDateTime
+    "2012-01-31T23:59:59+01:00"^^xsd:dateTime ] ] .		
+		</pre>
+		<p>This example describes a study that has been conducted between January 1st and January 31st.</p>
+		<p>Topical coverage can be expressed using dcterms:subject. DDI-RDF foresees the use skos:Concept for the description of topical coverage:</p>
+		<pre>
+ex:study1 dcterms:subject [
+  a skos:Concept ;
+  skos:prefLabel "Alcohol consumption" ] .
+		</pre>
+		</section>
+		<section>
+			<h3>Other General Dublin Core Metadata Properties</h3>
+			<p>The following elements from Dublin Core may be used to describe general metadata of DDI-RDF elements (see the DC definitions for more detailed descriptions):</p>
+			<ul>
+				<li>dcterms:abstract (used with disco:Study): an abstract of the study</li>
+				<li>dcterms:alternative (used with disco:Study): an alternative name for the study</li>
+				<li>dcterms:available (used with disco:Study): the date (or date range) at which this study has or will become available</li>
+				<li>dcterms:title (used with disco:Study, disco:LogicalDataSet): the element’s title</li>
+				<li>dcterms:description (used with disco:DataElement, disco:DataFile, disco:Instrument, disco:Variable, dcterms:RightsStatement): a human readable description of the element</li>
+				<li>dcterms:provenance (used with disco:DataFile): defines the provenance information for the data file. The object is a dcterms:ProvenanceStatement.</li>
+			</ul>
+		</section>
     </section>
 
     <section id='dataset'>
@@ -676,7 +765,7 @@ WHERE {
         <li>Stefan Kramer (CISER - Cornell Institute for Social and Economic Research, USA)</li>
         <li>Amber Leahey (Scholars Portal Project - University of Toronto, Canada)</li>
         <li>Olof Olsson (SND - Swedish National Data Service)</li>
-        <li>Heiko Paulheim (Technical University Darmstadt, Germany)</li>
+        <li>Heiko Paulheim (University of Mannheim, Germany)</li>
         <li>Abdul Rahim (Metadata Technologies Inc., USA)</li>
         <li>John Shepherdson (UK Data Archive)</li>
         <li>Dan Smith (Algenta Technologies Inc., USA)</li>
