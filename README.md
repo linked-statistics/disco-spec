@@ -6,4 +6,6 @@ The latest published version of this vocabulary can be viewed here:
 
     http://rdf-vocabulary.ddialliance.org/discovery
 
+Mailing-list: [google groups](https://groups.google.com/forum/#!forum/ddi-rdf-vocabulary)
+
 Contributors are listed in the [Acknowledgements](http://rdf-vocabulary.ddialliance.org/discovery#acknowledgements).
