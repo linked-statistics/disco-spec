@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DDI Data Discovery Vocabulary</title>
+    <title>DDI Discovery Vocabulary</title>
     <meta charset='utf-8'>
     <script src='http://darobin.github.com/respec/builds/respec-w3c-common.js' class='remove'></script>
     <script class='remove'>
@@ -75,6 +75,20 @@
 This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats.
     </section>
     
+    <section id="sotd">
+      <p>This document is a Working Draft produced by the
+      <a href="http://www.ddialliance.org/alliance/working-groups#RDF">RDF Vocabularies Working Group</a>,
+      a working group at the <a href="http://www.ddialliance.org/">DDI Alliance</a>.</p>
+
+      <p>Development resources:</p>
+
+      <ul>
+        <li><a href="https://groups.google.com/group/ddi-rdf-vocabulary">Google Group</a></li>
+        <li><a href="https://github.com/linked-statistics/disco-spec/issues">Issue tracker</a></li>
+        <li><a href="https://github.com/linked-statistics/disco-spec/">GitHub repository</a></li>
+      </ul>
+    </section>
+
     <section>
       <h2>Introduction</h2>
       <p>
@@ -172,7 +186,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
     
 
     <section>
-      <h2>Relationship to Data Cube and DCAT</h2>
+      <h2>Relationship to Data Cube, DCAT and XKOS</h2>
 
       <p>The Discovery Vocabulary is aligned to several other metadata
       vocabularies used in the RDF community.</p>
@@ -218,6 +232,18 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       assumed to sit in a data file (e.g., a CSV file, or in a
       proprietary stats package file format) that is not represented
       in RDF.</p>
+
+      <p>The use of formal statistical classifications is very common
+      in research data sets—these are treated in our vocabulary as
+      SKOS concepts, but in some cases those working with formal
+      statistical classifications may desire more expressive
+      capability than SKOS provides. To support such users, the DDI
+      Alliance also publishes
+      <a href="http://purl.org/linked-data/xkos">XKOS</a>, a
+      vocabulary which extends SKOS
+      to allow for a more complete description of such
+      classifications. While the use of XKOS is not required by this
+      vocabulary, the two are designed to work in complementary fashion.</p>
     </section>
 
     </section>
@@ -325,6 +351,44 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
     <section id='study'>
       <h2>Studies</h2>
+
+      <p>Studies may have an abstract (dcterms:abstract), a title
+      (dcterms:title), a subtitle (subtitle), an alternate title
+      (dcterms:alternate), a purpose (purpose), and information about
+      the date and the time since when the study is publicly available
+      (dcterms:available). The object properties kindOfData and
+      dcterms:subject guide to skos:Concepts. The DDI file (property
+      DDIFile) containing the study is of the type foaf:Document.
+      Creators (dcterms:creator), contributors (dcterms:contributor),
+      and publishers (dcterms:publisher) of studies are foaf:Agents
+      which are either foaf:Persons or org:Organizations whose members
+      are foaf:Persons.</p>
+
+      <p>Figure XXXXX. Study</p>
+
+      <p>Studies may have multiple instrument relationships to
+      Instruments and may have at least 1 associated universe
+      (studyUniverse). Studies have at most 1 AnalysisUnit which is
+      also a skos:Concept. The connection to the data files is brought
+      by the object property dataFile. Studies may have at most
+      infinite variables associated (variable). Studies reach their
+      LogicalProducts using the property product. Studies must have
+      exactly 1 coverage which may contain the 3 dimensions spatial,
+      temporal, and subject.</p>
+
+    <section id='coverage'>
+      <h3>Coverage - note: this is outdated!</h3>
+
+      <p>Studies, logical datasets, and data files have exactly 1
+      associated coverage. The coverage is partitioned into the 3
+      dimensions subject (dcterms:subject), temporal
+      (dcterms:temporal), and spatial (dcterms:spatial). The subject
+      coverage points to skos:Concepts which can be used to describe
+      subjects and keywords (skos:definition).</p>
+
+      <p>Figure XXXXX. Coverage</p>
+    </section>
+
     </section>
 
     <section id='metadata'>
@@ -333,19 +397,134 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
     <section id='dataset'>
       <h2>Data sets, data files, and descriptive statistics</h2>
+
+    <section>
+      <h3>LogicalDataSet</h3>
+
+      <p>LogicalDataSet represents the microdata dataset. You can
+      state a title (dcterms:title) and a flag indicating if the
+      microdata dataset is publicly available (isPublic). You can
+      specify access rights (dcterms:accessRights) and license
+      statements (dcterms:license) for microdata datasets.
+      Dcterms:LicenseDocuments, which are also
+      dcterms:RightsStatements, define license statements. You can
+      describe and label access rights, represented by
+      dcterms:RightsStatements. Further information about access
+      rights and license statements can be retrieved from documents
+      (rdfs:seeAlso).</p>
+
+      <p>Figure XXXXX. LogicalDataSet</p>
+
+      <p>Microdata datasets may have associations to multiple
+      instruments (instrument), to 1 coverage (coverage), to 1
+      universe (dataSetUniverse), to multiple variables
+      (containsVariable), to more than 1 DataSet (dataCube), to
+      multiple data files (dataFile), and to exactly 1 coverage
+      (coverage). The class DataSet is defined in the RDF Data Cube
+      Vocabulary and may point to multiple variables
+      (inputVariable).</p>
+    </section>
+
+    <section>
+      <h3>DataFile</h3>
+
+      <p>The class DataFile, which is also a dcterms:Dataset,
+      represents all the data files containing the microdata datasets.
+      You can describe data files (dcterms:description) and you can
+      specify data files’ case quantities, provenance information, and
+      versions. You can further define the data files’ format
+      (dcterms:format) using the datatype properties of
+      dcterms:MediaTypeOrExtent or skos:Concept.</p>
+
+      <p>Figure XXXXX. DataFile</p>
+    </section>
+
+    <section>
+      <h3>DescriptiveStatistics</h3>
+
+      <p>SummaryStatistics pointing to variables and
+      CategoryStatistics pointing to categories and codes are both
+      descriptive statistics. You can state maximum, minimum values,
+      standard deviations, etc. for summary statistics. You can give
+      frequencies, percentages, weighted percentages, etc. for
+      category statistics. Descriptive statistics can also have
+      DataFile as range (statisticsDataFile) to assign both summary
+      statistics and category statistics to data files.</p>
+
+      <p>Figure XXXXX. DescriptiveStatistics</p>
+    </section>
+
     </section>
 
     <section id='variable'>
       <h2>Variables, data elements, representations, and contents</h2>
+
+    <section>
+
+    </section>
+      <h3>Skos:Concept</h3>
+
+      <p>We reuse skos:Concept to a large extent to represent DDI
+      concepts, codes, and categories (see next figure). You can
+      describe DDI concepts (skos:definition) and you can define
+      hierarchies of DDI concepts (skos:broader and skos:narrower).
+      You can describe code values (skos:notation) and category labels
+      (skos:prefLabel).</p>
+
+      <p>Figure XXXXX. skos:Concept</p>
+    </section>
+
+    <section>
+      <h3>Representation</h3>
+
+      <p>Questions (object property responseDomain), variables
+      (representation), and data elements (representation) may have
+      representations. We defined the class Representation as union of
+      individuals of the classes rdfs:Datatype (e.g. numeric or
+      textual values) and skos:ConceptScheme, as for example questions
+      may have as response domain a mixture of a numeric response
+      domain containing numeric values (rdfs:Datatype) and a code
+      response domain (skos:ConceptScheme). Skos:ConceptScheme
+      (representing code schemes) may contain skos:Concepts
+      (representing codes) using the object property skos:inScheme.</p>
+    </section>
+
     </section>
 
     <section id='collection'>
       <h2>Data collection instruments</h2>
+
+    <section>
+      <h3>Instrument</h3>
+
+      <p>You can describe (dcterms:description) and associate labels
+      (skos:prefLabel) to instruments. Instruments may have external
+      documentations. Questionnaires are special instruments having at
+      least 1 collection mode, which is a skos:Concept, and including
+      at least 1 question.</p>
+
+      <p>Figure XXXXX. Instrument</p>
     </section>
+
+    <section>
+      <h3>Question</h3>
+
+      <p>Questions have a question text (questionText), a label
+      (skos:prefLabel), exactly 1 universe (universe), multiple
+      concepts (concept), and at least 1 response domain
+      (responseDomain).</p>
+    </section>
+
+    </section>
+
 
     <section id='literals-to-identifiers'>
       <h2>From literals to globally unique identifiers</h2>
+
+      <p class="issue">This section should talk about
+      <a href="https://github.com/linked-statistics/disco-spec/issues/27">Issue #27</a>.</p>
     </section>
+
 
     <section class='appendix'>
       <h2>Example queries</h2>
