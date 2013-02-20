@@ -240,16 +240,19 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       housed in the University of Minnesota.</p>
 
       <p>To give some idea of what is contained in the metadata set,
-      we will use some screen shots from a portal which indexes the
+      we will use some screen shots from OpenMetadata Survey Catalog, 
+      a portal which indexes the
       DDI files to facilitate searching, and reflects the contents in
-      a fashion which is easy to view.</p>
+      a fashion which is easy to view. Follow this 
+      <a href="http://www.openmetadata.org/surveycatalog/index.php/catalog/996">link</a>
+       for the information about this DDI file at the OpenMetadata Survey Catalog.</p>
 
       <div class="figure">
         <img src="images/example-overview.png">
       </div>
 
       <p>Figure 1 shows us the overview page for this study, giving us
-      some basic information—data producers, title, year, country, and
+      some basic information - title, an identifier for the study, data producers, year, country, and
       a link to the access policies. If we look at the right-hand
       panel, we see an outline of the metadata contents of the file,
       including information about the questionnaire used, sampling
@@ -263,6 +266,316 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       questionnaire is, as is detailed information about the variables
       contained in the files. We will look more closely at the
       metadata of primary interest for our discovery scenario.</p>
+      
+      Using RDF and the DDI Discovery Vocabulary, the study can also be described in triples:
+      
+      An instance of type disco:Study is given the title and the identifier; also, the two 
+      data producers are linked and further described.
+      
+      The year and country are described in the form of a temporal and spatial coverage of the study. 
+      Also, the topics of the study are represented.
+	  
+	  The study instance further contains an abstract.
+	  
+	  Since a study is an versionable object in DDI, we attach a version to it.
+	  
+	  A study further is described using various additional information, described further below. 
+      
+<pre>
+<#study> a disco:Study;
+    dc:title "National Population and Housing Census, 1980"@en;
+    dc:identifier "ARG_1980_PHC_v01_A_IPUMS".
+    dc:creator [
+        rdfs:label "Minnesota Population Center"@en;
+        skos:notation "MPC";
+        org:memberOf [
+            rdfs:label "University of Minnesota"@en;
+        ];
+    ];
+    dc:creator [
+        rdfs:label "Argentine National institute of Statistics and Censuses"@en;
+    ]
+	dc:temporal [
+		a dcterms:PeriodOfTime ;
+		disco:startDate "1980-10-22"^^xsd:date;
+		disco:endDate "1980-10-22"^^xsd:date;
+		rdfs:comment "The interviews take place on the expected census day.  In some areas the enumeration took place the following day because of access problems due to heavy rains.";
+    ];
+    dc:spatial [
+        # This is the DC-strictly compatible way to do it
+        a dc:Location;
+        rdfs:label "Argentina, national coverage"@en;
+    ];
+    # Only a subset of subjects mentioned in the original file
+    dcterms:subject [
+		skos:definition "Technical Variables -- HOUSEHOLD"@en ;
+    ] ;
+    dcterms:subject [
+		skos:definition "Group Quarters Variables -- HOUSEHOLD"@en ;
+    ] ;
+	dcterms:abstract "IPUMS-International is an effort to inventory, preserve, harmonize, and disseminate census microdata from around the world. The project has collected the world's largest archive of publicly available census samples. The data are coded and documented consistently across countries and over time to facillitate comparative research. IPUMS-International makes these data available to qualified researchers free of charge through a web dissemination system. The IPUMS project is a collaboration of the Minnesota Population Center, National Statistical Offices, and international data archives. Major funding is provided by the U.S. National Science Foundation and the Demographic and Behavioral Sciences Branch of the National Institute of Child Health and Human Development. Additional support is provided by the University of Minnesota Office of the Vice President for Research, the Minnesota Population Center, and Sun Microsystems.";    
+
+    owl:versionInfo "Version 1.0. This version contains selected variables from the original census micro data plus harmonized variables from the IPUMS International data base."@en; 
+
+    disco:universe <#universe>;
+    disco:instrument <#questionnaire>;
+    disco:product <#dataset>;
+    
+    disco:analysisUnit <#analysisUnit>;
+    disco:kindOfData <#kindOfData> ;
+
+    # stdyInfo/notes currently not represented. 
+    disco:variable <#AR80A401>, <#AR80A402>, <#AR80A404>, <#AR80A407>, <#AR80A411>.
+</pre>
+	
+	The study refers to a specific universe.
+	 
+<pre>
+<#universe> a disco:Universe;
+    skos:definition "All the population in the national territory at the moment the census is carried out."@en .
+</pre>
+
+	Using a type of instrument - a questionnaire -, the study produced a dataset. The dataset has access rights. 
+	
+	The dataset has a concrete data file that will populate certain variables.
+	
+<pre>
+<#dataset> a disco:LogicalDataset;
+    disco:instrument <#questionnaire>;
+    dcterms:accessRights <accessRights>;
+    disco:dataFile <#datafile>;
+    disco:containsVariable <#AR80A401>, <#AR80A402>, <#AR80A404>, <#AR80A407>, <#AR80A411>.
+
+<accessRights> dcterms:description "IPUMS-International distributes integrated microdata of individuals and households only by agreement ... designed to extend this record.";
+    rdfs:seeAlso <http://microdata.worldbank.org/index.php/catalog/442/accesspolicy>.
+    
+</pre>
+
+	The Units of Analysis and Kind of Data further describe the study.
+
+<pre>
+
+<#analysisUnit> a disco:AnalysisUnit ;
+    skos:definition "Dwelling, quarter dwelling, census household, and population"@en .
+
+<#kindOfData> a skos:Concept ;
+	rdfs:label "Census/enumeration data [cen]"@en .
+	
+</pre>
+	
+	The questionnaire contains several questions; in this example, we represent three of them. Each 
+	question does have a text and a response domain.
+
+<pre>
+<#questionnaire> a disco:Questionnaire;
+    disco:question <#questionGender>;
+    disco:question <#questionAge>;
+    disco:question <#questionCitizenship>;
+
+<#questionGender> a disco:Question;
+    disco:questionText "2. Is the person a man or a woman? [] Man, [] Woman"@en;
+    disco:hasResponseDomain <#sexRepr>.
+
+<#questionAge> a disco:Question;
+    disco:questionText "3. What is his or her age? _ _ Mark the age in completed years at the date of the census for those younger than one year old mark 00. For those younger than 10 years old, mark 01, 02, 03, etc. For those older than 99 years old, mark 99."@en;
+    disco:hasResponseDomain <#ageRepr>.
+
+<#questionCitizenship> a disco:Question;
+    disco:questionText "6. [Immigration status] Only for persons who have usual residence in Argentina and were born in another country. [Questions 6A and 6B asked only of persons born outside Argentina and who currently reside in Argentina.] B. Are you a naturalized citizen of Argentina? [] Yes [] No [] Unanswered"@en;
+    disco:hasResponseDomain <#citizenshipRepr>.
+
+</pre>
+	
+	Any variable has a text and is based on a variable definition.
+
+<pre>
+
+<#AR80A401> a disco:Variable;
+    dc:identifier "AR80A401";
+    skos:prefLabel "Sex"@en, "Sexe"@fr;
+    dc:description "This variable indicates the person's gender."@en;
+    disco:basedOn <#sexVD>;
+    disco:hasQuestion <#questionGender>.
+
+<#AR80A402> a disco:Variable;
+    dc:identifier "AR80A402";
+    dc:description "This variable indicates the person's age in years."@en;
+    skos:prefLabel "Age"@en, "Âge"@fr.
+    disco:basedOn <#ageVD>;
+    disco:hasQuestion <#questionAge>.   
+
+<#AR80A407> a disco:Variable;
+    dc:identifier "AR80A407";
+    dc:description "This variable indicates whether or not the person is a naturalized citizen of Argentina."@en;
+    skos:prefLabel "Citizenship"@en, "Citoyenneté"@fr;
+    disco:basedOn <#citizenshipVD>;
+    disco:hasQuestion <#questionCitizenship>.
+
+</pre>
+
+	Any variable definition has a representation defining the possible values of a variable. 
+	
+	Also, a variable definition has its own universe (possibly the same as the study, possibly a 
+	narrower one) and (DDI) concepts further describing the variable.   
+
+<pre>
+
+<#sexVD> a disco:VariableDefinition;
+    disco:universe <#universePerson>;
+    disco:representation <#sexRepr>;
+    disco:concept <#ipumsC1>;
+    skos:prefLabel "Sex"@en, "Sexe"@fr;
+    dc:description "Sex data element"@en.
+
+<#sexRepr> a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept <#sexM>, <#sexF>.
+
+<#sexM> a skos:Concept;
+    skos:notation "1";
+    skos:prefLabel "Male"@en, "Homme"@fr;
+    skos:inScheme <#sexRepr>.
+
+<#sexF> a skos:Concept;
+    skos:notation "2";
+    skos:prefLabel "Female"@en, "Femme"@fr;
+    skos:inScheme <#sexRepr>.
+    
+<#ageVD> a disco:VariableDefinition;
+    disco:universe <#universePerson>;
+    disco:representation <#ageRepr>;
+    disco:concept <#ipumsC1>;
+    skos:prefLabel "Age"@en, "Sexe"@fr;
+    dc:description "Age data element"@en.
+
+# XXX: Is it possible and does it make sense here to just state an Integer?
+<#ageRepr> a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept <#age0>, <#age1>, <#age99>.
+
+<#age0> a skos:Concept;
+    skos:notation "0";
+    skos:prefLabel "0";
+    skos:inScheme <#ageRepr>.
+
+<#age1> a skos:Concept;
+    skos:notation "1";
+    skos:prefLabel "1";
+    skos:inScheme <#ageRepr>.
+
+# ...
+
+<#age99> a skos:Concept;
+    skos:notation "99";
+    skos:prefLabel "99";
+    skos:inScheme <#ageRepr>.
+    
+<#citizenshipVD> a disco:VariableDefinition;
+    disco:universe <#universeNonArgentines>;
+    disco:representation <#citizenshipRepr>;
+    disco:concept <#ipumsC2>;
+    skos:prefLabel "Citizenship"@en;
+    dc:description "Citizenship data element"@en.
+
+<#citizenshipRepr> a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept <#cYes>, <#cNo>, <#cUnknown>, <#NIU>.
+
+<#cYes> a skos:Concept;
+    skos:notation "1";
+    skos:prefLabel "Yes";
+    skos:inScheme <#citizenshipRepr>.
+
+<#cNo> a skos:Concept;
+    skos:notation "2";
+    skos:prefLabel "No";
+    skos:inScheme <#citizenshipRepr>.
+
+<#cUnknown> a skos:Concept;
+    skos:notation "8";
+    skos:prefLabel "Unknown";
+    skos:inScheme <#citizenshipRepr>.
+
+<#cNIU> a skos:Concept;
+    skos:notation "9";
+    skos:prefLabel "NIU (not in universe)";
+    skos:inScheme <#citizenshipRepr>.
+    
+</pre>
+
+	Any universe of a variable definition is a subset of the universe of the entire study.
+	
+	In our example, two questions are addressing the universe of persons, the third question
+	is addressing a specific subset of the universe of persons.
+
+<pre>
+
+<#universePerson> a disco:Universe;
+    skos:definition "All persons."@en ;
+    skos:narrower <#universe>.
+
+<#universeNonArgentines> a disco:Universe;
+    skos:definition "Foreign-born persons who reside in Argentina."@en ;
+    skos:narrower <#universe>; 
+    skos:narrower <#universePerson>.
+
+</pre>
+	
+	DDI concepts can be hierarchically structured. 
+	
+<pre>
+
+<#ipumsCS> a skos:ConceptScheme;
+    skos:hasTopConcept <#ipumsC1>.
+
+<#ipumsC1> a skos:Concept;
+    skos:prefLabel "Demographic Variables - PERSON"@en, "Variables démographiques - PERSONNE"@fr;
+    skos:inScheme <#ipumsCS>.
+
+<#ipumsC2> a skos:Concept;
+    skos:prefLabel "Nativity and Birthplace Variables -- PERSON"@en;
+    skos:inScheme <#ipumsCS>.
+
+</pre>
+
+	The usage of a variable definition within a data file can be described using statistics. 
+	
+<pre>
+
+<#dstat1> a disco:DescriptiveStatistic;
+    disco:frequency 13314444;
+    # is that correct? 
+    disco:percentage 49.97;
+    disco:hasStatisticsVariable <#AR80A401>;
+    disco:hasStatisticsCategory <#sexM>;
+    disco:hasStatisticsDatafile <#datafile>.
+
+<#dstat2> a disco:DescriptiveStatistic;
+    disco:frequency 1336270;
+    disco:hasStatisticsVariable <#AR80A401>;
+    disco:hasStatisticsCategory <#sexF>;
+    disco:hasStatisticsDatafile <#datafile>.
+
+</pre>
+
+	Finally, the data file more concretely describes the actual physical file. 
+	
+<pre>
+
+<#datafile> a disco:Datafile;
+    dc:identifier "ARG1900-P-H.dat";
+    dc:description "Person records"@en;
+    disco:caseQuantity 2667714;
+    dc:format "ascii";
+    dc:provenance "Minnesota Population Center"@en;
+    owl:versionInfo "Version 1.0, IPUMS sample"@en;
+    dc:spatial [
+        # This is the DC-strictly compatible way to do it
+        a dc:Location;
+        rdfs:label "Argentina, national coverage"@en
+    ];
+    dc:temporal "PeriodOfTime"@en;
+    dc:subject "To be defined"@en.
+
+</pre>
+	
 
       <div class="figure">
         <img src="images/example-access-policy.png" alt="Access policy">
