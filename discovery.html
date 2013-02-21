@@ -257,12 +257,12 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
       <p>To understand the DDI Discovery Vocabulary, there are a few
       central classes, which can serve as entry points. The first of
-      these is the Study class. A Study in our model represents the
+      these is the Study class. A <b>Study</b> in our model represents the
       process by which a data set was generated or collected. Literal
       properties include information about the funding, organizational
       affiliation, abstract, title, version, and other such high-level
       information. In some cases, where data collection is cyclic or
-      on-going, data sets may be released as a StudyGroup, where each
+      on-going, data sets may be released as a <b>StudyGroup</b>, where each
       cycle or "wave" of the data collection activity produces one or
       more data sets. This is typical for longitudinal studies, panel
       studies, and other types of "series" (to use the DDI term). In
@@ -274,17 +274,17 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       and a physical representation, which is a distribuited file
       holding that data. It is possible to format data files in many
       different ways, even if the logical content is the same. In our
-      model the LogicalDataSet represents the content of the file
+      model the <b>LogicalDataSet</b> represents the content of the file
       (its organization into a set of Variables). The LogicalDataSet
       is an extension of the dact:DataSet class. Physical, distributed
-      files are represented by the class DataFile, which is itself an
+      files are represented by the class <b>DataFile</b>, which is itself an
       extension of the dcat:Distribution.</p>
  
       <p>When it comes to understanding the contents of the data set,
-      this is done using the Variable class. Variables provide a
+      this is done using the <b>Variable</b> class. Variables provide a
       definition of the column in a rectangular data file, and can
-      associate it with a Concept, and a Question (the Question in the
-      Questionnaire which was used to collect the data). Variables are
+      associate it with a Concept, and a <b>Question</b> (the Question in the
+      <b>Questionnaire</b> which was used to collect the data). Variables are
       related to a representation of some form, which may be a set of
       codes and categories (a "codelist") or may be one of other
       normal data types (dateTime, numeric, textual, etc.) Codes and
@@ -294,7 +294,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       <p>Data is collected about a specific phenomenon, typically
       involving some target population, and focusing on the analysis
       of a particular type of subject. These are respectively
-      represented by the Universe class and the AnalysisUnit class.
+      represented by the <b>Universe</b> class and the <b>AnalysisUnit</b> class.
       If, for example, the adult population of Finland is being
       studied, the AnalysisUnit would be individuals pr persons.</p>
     </section>
@@ -710,6 +710,25 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
     <section id='study'>
       <h2>Studies</h2>
 
+	  <p>A simple <b>Study</b> supports the stages of the full data lifecycle 
+	  in a modular manner. A Study represents the
+      process by which a data set was generated or collected. Literal
+      properties include information about the funding, organizational
+      affiliation, abstract, title, version, and other such high-level
+      information. The key criteria for a study are: 
+	  a single conceptual model (e.g. survey research concept), 
+	  a single instrument (e.g. questionnaire) made up of one or more parts 
+	  (ex. employer survey, worker survey), and a single logical data structure 
+	  of the initial raw data (multiple data files can be created from this such 
+	  as a public use microdata file or aggregate data files).
+	  In some cases, where data collection is cyclic or
+      on-going, data sets may be released as a <b>StudyGroup</b>, where each
+      cycle or "wave" of the data collection activity produces one or
+      more data sets. This is typical for longitudinal studies, panel
+      studies, and other types of "series" (to use the DDI term). In
+      this case, a number of Study objects would be collected into a
+      single StudyGroup.</p>
+	  
       <p>Studies may have an abstract (dcterms:abstract), a title
       (dcterms:title), a subtitle (subtitle), an alternate title
       (dcterms:alternate), a purpose (purpose), and information about
