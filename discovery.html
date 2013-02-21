@@ -729,13 +729,17 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       this case, a number of Study objects would be collected into a
       single StudyGroup.</p>
 	  
-      <p>Studies may have an abstract (dcterms:abstract), a title
-      (dcterms:title), a subtitle (subtitle), an alternate title
-      (dcterms:alternate), a purpose (purpose), and information about
+      <p>Studies or StudyGroups (the <b>union of Study and StudyGroup</b>) 
+	  may have different datatype properties. 
+	  Studies or groups of studies may have an abstract (dcterms:abstract), a title
+      (dcterms:title), a subtitle (disco:subtitle), an alternative title
+      (dcterms:alternative), a purpose (disco:purpose), and information about
       the date and the time since when the study is publicly available
-      (dcterms:available). The object properties kindOfData and
-      dcterms:subject guide to skos:Concepts. The DDI file (property
-      DDIFile) containing the study is of the type foaf:Document.
+      (dcterms:available). Studies or StudyGroups may have multiple object properties.
+	  The object properties disco:kindOfData and
+      dcterms:subject guide to skos:Concepts. 
+	  <font color="#FF0000">[description of disco:kindOfData]</font>
+	  The DDI XML file (disco:ddiFile) containing the study is of the type foaf:Document.
       Creators (dcterms:creator), contributors (dcterms:contributor),
       and publishers (dcterms:publisher) of studies are foaf:Agents
       which are either foaf:Persons or org:Organizations whose members
