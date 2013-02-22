@@ -1004,14 +1004,28 @@ ex:study1 dcterms:subject [
         <img src="diagrams/logical-data-set.jpg" alt="LogicalDataSet">
       </div>
 
-      <p>Microdata datasets may have associations to multiple
-      instruments (instrument), to 1 coverage (coverage), to 1
-      universe (dataSetUniverse), to multiple variables
-      (containsVariable), to more than 1 DataSet (dataCube), to
-      multiple data files (dataFile), and to exactly 1 coverage
-      (coverage). The class DataSet is defined in the RDF Data Cube
-      Vocabulary and may point to multiple variables
-      (inputVariable).</p>
+      <p>
+	    Microdata datasets may have disco:instrument associations to 
+	    multiple (0 - n) Instruments and instruments are connected with 
+	    multiple (0 - n) LogicalDataSets.
+		Each LogicalDataSet has exactly 1 Universe (disco:universe) and 
+		one specific universe may be in multiple (0 - n) disco:universe 
+		relations to LogicalDataSets.		
+		LogicalDataSets may contain (disco:containsVariable) 0 to n Variables and 
+		Variables must be contained in 1 to n LogicaDataSets.
+		LogicalDataSets can be aggregated (disco:aggregation) to 0 to n DataSets and 
+		DataSets can be aggregations of 0 to n LogicalDataSets. 
+		At last, LogicalDataSets refer to 0 to n DataFiles using the object property 
+		disco:dataFile and DataFiles may be linked to 0 to n LogicalDataSets.
+		The class DataSet is defined in the RDF Data Cube
+        Vocabulary. 0 to n DataSets may point to multiple (0 - n) variables
+        (disco:inputVariable).
+	  </p>
+	  
+	  <ul>
+	    <li></li>
+	  </ul>
+	  
     </section>
 
     <section>
