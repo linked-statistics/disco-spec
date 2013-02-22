@@ -135,6 +135,7 @@ disco:Variable a rdfs:Class, owl:Class;
 # skos:Concept/skos:prefLabel represents universe label
 disco:Universe a rdfs:Class, owl:Class;
     rdfs:label "Universe"@en, "Univers"@fr;
+    rdfs:comment "A Universe is the total membership or population of a defined class of people, objects or events"@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
     rdfs:subClassOf skos:Concept.
 
