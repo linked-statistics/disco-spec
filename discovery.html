@@ -1113,6 +1113,10 @@ ex:study1 dcterms:subject [
         represents all the physical distributed data files containing the microdata datasets.
       </p>
 	  
+	  <div class="figure">
+        <img src="diagrams/data-file.jpg" alt="DataFile">
+      </div>
+	  
 	  <p>
         It is possible to describe data files (dcterms:description).
 		Data files’ case quantities (disco:caseQuantity) and versions (owl:versionInfo) can also be stated. 
@@ -1126,10 +1130,6 @@ ex:study1 dcterms:subject [
         The topical, spatial, and temporal coverage of data files is realized by 
         the object properties dcterms:subject, dcterms:spatial, and dcterms:temporal. 		
       </p>
-
-      <div class="figure">
-        <img src="diagrams/data-file.jpg" alt="DataFile">
-      </div>
 	  
 	  <p>
 	    <font color="#FF0000">[example]</font>
@@ -1155,16 +1155,24 @@ ex:study1 dcterms:subject [
         <b>CategoryStatistics</b> pointing to categories and codes are both
         descriptive statistics.
        </p>
-       <p>	   
-		You can state maximum, minimum values,
-        standard deviations, etc. for summary statistics. You can define
-        frequencies, percentages, weighted percentages, etc. for
-        category statistics.
-	  </p>
-
-      <div class="figure">
+	   
+	   <div class="figure">
         <img src="diagrams/descriptive-statistics.jpg" alt="DescriptiveStatistics">
       </div>
+	   
+       <p>	   
+		You can state maximum (disco:maximum), minimum values (disco:minimum),
+        standard deviations (disco:standardDeviation), etc. for summary statistics. You can define
+        frequencies (disco:frequency), percentages (disco:percentage), weighted percentages 
+		(disco:weightedPercentage), etc. for category statistics.
+		DescriptiveStatistics may have disco:statisticsDataFile relations to 0 to n DataFiles.
+		DataFiles may be in 0 to n disco:statisticsDataFile relations to DescriptiveStatistics individuals.
+		SummaryStatistics point to 0 to n Variables using the object property disco:statisticsVariable.
+		Variables, however, may be in 0 to n such relationships to SummaryStatistics objects.
+		CategoryStatistics may be connected with 0 to n skos:Concepts using the property disco:statisticsCategory
+        and skos:Concepts representing codes (values) and categories (value labels) may be in 0 to n of such
+        relationships. 		
+	  </p>
 	  
 	  <p>
 	    <font color="#FF0000">[example]</font>
