@@ -849,14 +849,18 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  <h3>Access Rights Statements and Licenses</h3>
 	  <p>Every logical dataset may have access rights statements and licensing information attached to it. For those purposes, the dublin core properties dcterms:accessRights and dcterms:license are used.</p>
 	  
-	  <p>Access rights are defined in a dcterms:RightsStatements object, which may reference an external document stating the access rights in more detail:</p>
+	  <p>
+	    Access rights are defined in a <b>dcterms:RightsStatement</b> object, 
+		which may reference an external document stating the access rights in more detail (rdfs:seeAlso).
+		For dcterms:RightsStatements descriptions (dcterms:description) and labels (skos:prefLabel) can be assigned: 
+	  </p>
 	  <pre>
 ex:dataset1 a disco:LogicalDataset ;
   dcterms:accessRights ex:accessRights1 .
 ex:accessRights1 dcterms:description "Everybody may see access this document." ;
   rdfs:seeAlso &lt;http://www.example.org/access.html&gt; . 
 	  </pre>
-	  <p>License information is captured in a dcterms:LicenseDocument, which is a subtype of dcterms:RightsStatements:</p>
+	  <p>License information is captured in a <b>dcterms:LicenseDocument</b>, which is a subtype of dcterms:RightsStatement:</p>
 	  <pre>
 ex:dataset1 a disco:LogicalDataset ;
   dcterms:license ex:license1 .
