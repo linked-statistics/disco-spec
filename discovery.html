@@ -1144,14 +1144,23 @@ ex:study1 dcterms:subject [
     <section>
       <h3>DescriptiveStatistics</h3>
 
-      <p>SummaryStatistics pointing to variables and
-      CategoryStatistics pointing to categories and codes are both
-      descriptive statistics. You can state maximum, minimum values,
-      standard deviations, etc. for summary statistics. You can give
-      frequencies, percentages, weighted percentages, etc. for
-      category statistics. Descriptive statistics can also have
-      DataFile as range (statisticsDataFile) to assign both summary
-      statistics and category statistics to data files.</p>
+      <p>
+	    An overview over the microdata can be given either by the descriptive statistics 
+		or the aggregated data. <b>DescriptiveStatistics</b> may be minimal, maximal, mean values, 
+		and absolute and relative frequencies. qb:<b>DataSet</b> originates from the RDF Data Cube Vocabulary, 
+		an approach to map the SDMX information model to an ontology. A DataSet represents aggregated data 
+		(also known as macrodata) such as multi-dimensional tables. Aggregated data are derived from microdata 
+		by statistics on groups, or aggregates such as counts, means, or frequencies.
+	    <b>SummaryStatistics</b> pointing to variables and
+        <b>CategoryStatistics</b> pointing to categories and codes are both
+        descriptive statistics.
+       </p>
+       <p>	   
+		You can state maximum, minimum values,
+        standard deviations, etc. for summary statistics. You can define
+        frequencies, percentages, weighted percentages, etc. for
+        category statistics.
+	  </p>
 
       <div class="figure">
         <img src="diagrams/descriptive-statistics.jpg" alt="DescriptiveStatistics">
