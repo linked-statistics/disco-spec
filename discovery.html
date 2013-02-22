@@ -877,13 +877,25 @@ ex:license1 dcterms:description "Published under Open Content License." ;
 	  
 	  <section>
 	    <h3>Coverage of Studies, Logical Datasets, and Data Files</h3>
-		<p>Studies, logical datasets, and data files may have a spatial, temporal, and topical coverage. Unlike in DDI XML, there is no dedicated Coverage type in DDI-RDF. In contrast, spatial, temporal, and topical coverage are directly attached to the respective study, logical dataset, and datafile.</p>
-		<p>For spatial coverage, dcterms:spatial is used, pointing to any geographic location:</p>
+		<p>Studies, logical datasets, and data files may have a spatial, temporal, and topical coverage. Unlike in DDI-XML, there is no dedicated Coverage type in DDI-RDF. In contrast, spatial, temporal, and topical coverage are directly attached to the respective study, logical dataset, and datafile.</p>
+		<p>For spatial coverage, <b>dcterms:spatial</b> is used, pointing to any geographic location (dcterms:Location):</p>
 		<pre>
 ex:study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .		
 		</pre>
 		<p>In this example, <a href="http://www.geonames.org/">Geonames</a> is used to refer to a spatial region, in this case, the country Germany. Geonames provides URIs for continents, countries, regions, and cities, among others, and is therefore a possible option to use for describing spatial coverage.</p>
-        <p>For temporal coverage, dcterms:temporal is used. A possible way to describe temporal coverage is the use of the <a href="http://www.w3.org/TR/owl-time/">W3C time ontology</a>:</p>
+        
+		<div class="figure">
+          <img src="diagrams/study-coverage.jpg" alt="Study Coverage">
+        </div>
+		
+		<p>
+		  For temporal coverage, <b>dcterms:temporal</b> is used pointing to dcterms:PeriodOfTime.
+          For time periods, labels can be attachted (skos:prefLabel). It is also possible to define 
+		  start (disco:startDate) and end dates (disco:endDate).  
+		  
+		  A possible way to describe temporal coverage is the use of the <a href="http://www.w3.org/TR/owl-time/">W3C time ontology</a>:
+		</p>
+		
 		<pre>
 ex:study1 dcterms:temporal [
   a time:Interval ;
@@ -893,12 +905,22 @@ ex:study1 dcterms:temporal [
     "2012-01-31T23:59:59+01:00"^^xsd:dateTime ] ] .		
 		</pre>
 		<p>This example describes a study that has been conducted between January 1st and January 31st.</p>
-		<p>Topical coverage can be expressed using dcterms:subject. DDI-RDF foresees the use skos:Concept for the description of topical coverage:</p>
+		
+		<div class="figure">
+          <img src="diagrams/logical-data-set-coverage.jpg" alt="LogicalDataSet Coverage">
+        </div>
+		
+		<p>Topical coverage can be expressed using <b>dcterms:subject</b>. DDI-RDF foresees the use skos:Concept for the description of topical coverage:</p>
 		<pre>
 ex:study1 dcterms:subject [
   a skos:Concept ;
   skos:prefLabel "Alcohol consumption" ] .
 		</pre>
+		
+		<div class="figure">
+          <img src="diagrams/data-file-coverage.jpg" alt="DataFile Coverage">
+        </div>
+		
 		</section>
 		<section>
 			<h3>Other General Dublin Core Metadata Properties</h3>
