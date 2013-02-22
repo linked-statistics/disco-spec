@@ -564,7 +564,7 @@ disco:universe a rdf:Property, owl:ObjectProperty;
 
 disco:dataSetUniverse a rdf:Property, owl:ObjectProperty;
     rdfs:label "data set universe"@en, "Datensatzuniversum"@de;
-    rdfs:domain ;
+    rdfs:domain disco:LogicalDataSet;
     rdfs:range disco:Universe;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
