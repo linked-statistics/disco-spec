@@ -966,17 +966,21 @@ ex:study1 dcterms:subject [
     <section>
       <h3>LogicalDataSet</h3>
 
-      <p>LogicalDataSet represents the microdata dataset. You can
-      state a title (dcterms:title) and a flag indicating if the
-      microdata dataset is publicly available (isPublic). You can
-      specify access rights (dcterms:accessRights) and license
-      statements (dcterms:license) for microdata datasets.
-      Dcterms:LicenseDocuments, which are also
-      dcterms:RightsStatements, define license statements. You can
-      describe and label access rights, represented by
-      dcterms:RightsStatements. Further information about access
-      rights and license statements can be retrieved from documents
-      (rdfs:seeAlso).</p>
+	   
+	  
+      <p> 
+	    Each study has a set of logical metadata (disco:<b>LogicalDataSet</b>) associated with 
+	    the processing of data, at the time of collection or later during cleaning, and re-coding.  
+	    LogicalDataSet represents the microdata dataset. 
+		
+		LogicalDataSet is defined as a sub-class of dcat:Dataset.
+		You can state a title (dcterms:title) and a flag indicating if the
+        microdata dataset is publicly available (isPublic). 
+		You can specify access rights (dcterms:accessRights) and license
+        statements (dcterms:license) for microdata datasets.
+        For logical data sets the three dimensions of coverage can be specified:
+		spatial (dcterms:spatial), temporal (dcterms:temporal), and topical (dcteerms:subject).
+	  </p>
 
       <div class="figure">
         <img src="diagrams/logical-data-set.jpg" alt="LogicalDataSet">
