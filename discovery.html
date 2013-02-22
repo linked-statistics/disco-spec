@@ -1028,29 +1028,40 @@ ex:study1 dcterms:subject [
       <h3>DataFile</h3>
 
 	  <p>
-	    Data sets have two representations in our model: a logical
-        representation, which describes the contents of the data set,
+	    Data sets have a logical representation, which describes the contents of the data set,
         and a physical representation, which is a distribuited file
         holding that data. It is possible to format data files in many
-        different ways, even if the logical content is the same. In our
-        model the <b>LogicalDataSet</b> represents the content of the file
-        (its organization into a set of Variables). The LogicalDataSet
-        is an extension of the dact:DataSet class. Physical, distributed
-        files are represented by the class <b>DataFile</b>, which is itself an
-        extension of the dcat:Distribution.
-	  </p>
+        different ways, even if the logical content is the same. 
+        <b>DataFiles</b>, which are also dcterms:Datasets as well as dcat:Distributions,
+        represents all the physical distributed data files containing the microdata datasets.
+      </p>
 	  
-      <p>The class DataFile, which is also a dcterms:Dataset,
-      represents all the data files containing the microdata datasets.
-      You can describe data files (dcterms:description) and you can
-      specify data files’ case quantities, provenance information, and
-      versions. You can further define the data files’ format
-      (dcterms:format) using the datatype properties of
-      dcterms:MediaTypeOrExtent or skos:Concept.</p>
+	  <p>
+        It is possible to describe data files (dcterms:description).
+		Data files’ case quantities (disco:caseQuantity) and versions (owl:versionInfo) can also be stated. 
+		Using the object property dcterms:format, data files formats can be defined.
+		DataFiles must have exactly 1 dcterms:format relationship to an instance of the class 
+		dcterms:MediaTypeOrExtend which is a sub-class of skos:Concept.
+		Specific formats can be assigned to multiple (0 - n) data files.
+		Provenance information can be assigned to data files. data files may have multiple (0 - n)
+        dcterms:provenance relationships to dcterms:ProvenanceStatements.
+        dcterms:ProvenanceStatements, however, may have 0 to n dcterms:provenance relations to data files.
+        The topical, spatial, and temporal coverage of data files is realized by 
+        the object properties dcterms:subject, dcterms:spatial, and dcterms:temporal. 		
+      </p>
 
       <div class="figure">
         <img src="diagrams/data-file.jpg" alt="DataFile">
       </div>
+	  
+	  <p>
+	    <font color="#FF0000">[example]</font>
+	  </p>
+	  
+	  <p>
+	    <font color="#FF0000">[table with datatype and object properties]</font>
+	  </p>
+	  
     </section>
 
     <section>
