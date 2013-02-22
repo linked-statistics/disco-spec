@@ -729,6 +729,19 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       this case, a number of Study objects would be collected into a
       single StudyGroup.</p>
 	  
+	  <p>
+	    Studies may be contained in at most 1 StudyGroup and groups of studies may include 
+		0 to n studies.
+		Studies may have 0 to n disco:instrument relationships to Instruments.
+		Particular instruments, however, are connected with exactly 1 study via disco:instrument.
+		Studies may have disco:dataFile connections with 0 to n DataFiles and data files must have 
+		1 to n disco:dataFile relationships to studies.  
+		Studies are associated with 0 to n Variables using the object property disco:variable.
+		On the other hand, variables must be related to 1 to n studies using this property.
+		Studies may have 0 to n LogicalDataSets (disco:product) and logical data set must 
+        have 1 to n disco:product relationships to studies.		
+	  </p>
+	  
 	<section>
       <h3>Coverage, References to DDI-XML Files, and Kind of Data</h3>
 	</section>
@@ -794,11 +807,10 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		is specified as a sub-class of skos:Concept. 
 	  </p>
 	  
-	  
-	  
       <div class="figure">
         <img src="diagrams/study-universe.jpg" alt="Study, Universe and AnalysisUnit">
       </div>
+	  
     </section>
 
     </section>
@@ -973,8 +985,6 @@ ex:study1 dcterms:subject [
 
     <section>
       <h3>LogicalDataSet</h3>
-
-	   
 	  
       <p> 
 	    Each study has a set of logical metadata (disco:<b>LogicalDataSet</b>) associated with 
