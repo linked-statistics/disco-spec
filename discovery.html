@@ -729,6 +729,10 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       this case, a number of Study objects would be collected into a
       single StudyGroup.</p>
 	  
+	<section>
+      <h3>Coverage, References to DDI-XML Files, and Kind of Data</h3>
+	</section>
+	  
       <p>Studies or StudyGroups (the <b>union of Study and StudyGroup</b>) 
 	  may have different datatype properties. 
 	  Studies or groups of studies may have an abstract (dcterms:abstract), a title
@@ -745,9 +749,13 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  Use dcterms:temporal for temporal coverages related to the union of studies and study groups.</p>
 
       <div class="figure">
-        <img src="diagrams/study-metadata.jpg" alt="Study and StudyGroup with general metadata">
+        <img src="diagrams/study-metadata.jpg" alt="Coverage, References to DDI-XML Files, and Kind of Data">
       </div>
 
+	<section>
+      <h3>Relationships to Agents</h3>
+	</section>
+	  
 	  <p>Creators (dcterms:creator), contributors (dcterms:contributor),
       and publishers (dcterms:publisher) of studies and study groups are foaf:Agents
       which are either foaf:Persons or org:Organizations whose members
@@ -756,7 +764,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  dcterms:contributor.</p>
 	  
       <div class="figure">
-        <img src="diagrams/study-agent.jpg" alt="Study and StudyGroup with related Agents (people and organizations)">
+        <img src="diagrams/study-agent.jpg" alt="Relationships to Agents">
       </div>
 
     <section>
