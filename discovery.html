@@ -739,33 +739,55 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  The object properties disco:kindOfData and
       dcterms:subject guide to skos:Concepts. 
 	  <font color="#FF0000">[description of disco:kindOfData]</font>
-	  The DDI XML file (disco:ddiFile) containing the study is of the type foaf:Document.
-      Creators (dcterms:creator), contributors (dcterms:contributor),
-      and publishers (dcterms:publisher) of studies are foaf:Agents
-      which are either foaf:Persons or org:Organizations whose members
-      are foaf:Persons.</p>
+	  You can use dcterms:subject to describe the topical coverage of Studies and groups of studies.
+	  Disco:ddiFile leads to foaf:Documents which are the DDI XML files 
+	  containing further descriptions of the study or the study group.
+	  Use dcterms:temporal for temporal coverages related to the union of studies and study groups.</p>
 
       <div class="figure">
         <img src="diagrams/study-metadata.jpg" alt="Study and StudyGroup with general metadata">
       </div>
 
+	  <p>Creators (dcterms:creator), contributors (dcterms:contributor),
+      and publishers (dcterms:publisher) of studies and study groups are foaf:Agents
+      which are either foaf:Persons or org:Organizations whose members
+      are foaf:Persons. Studies and study groups may be funded by (disco:fundedBy) 
+	  foaf:Agents. The object property disco:fundedBy is defined as sub-property of 
+	  dcterms:contributor.</p>
+	  
       <div class="figure">
         <img src="diagrams/study-agent.jpg" alt="Study and StudyGroup with related Agents (people and organizations)">
       </div>
 
-      <p>Studies may have multiple instrument relationships to
-      Instruments and may have at least 1 associated universe
-      (studyUniverse). Studies have at most 1 AnalysisUnit which is
-      also a skos:Concept. The connection to the data files is brought
-      by the object property dataFile. Studies may have at most
-      infinite variables associated (variable). Studies reach their
-      LogicalProducts using the property product. Studies must have
-      exactly 1 coverage which may contain the 3 dimensions spatial,
-      temporal, and subject.</p>
-
     <section>
       <h3>Analysis units and universes</h3>
 
+	  <p>
+		<b>Universe</b> is the total membership or population of a defined class of people, 
+		objects or events. There are two types of population, target population and 
+		survey population. A target population is the population outlined in the survey 
+		objects about which information is to be sought. A survey population (also known
+		as the coverage of the survey) is the population from which information can be 
+		obtained in the survey. 
+
+		Studies and groups of studies must have 1 to n universes and 1 particular 
+		universe may be in a disco:universe relationship with 0 to n unions of 
+		studies and groups of studies. Universes are sub-classes of skos:Concepts. 
+		For universes you can state definitions using skos:definition. 
+	  </p>
+	  <p>
+		<b>AnalysisUnit</b> is defined as follows: The process collecting data is focusing 
+		on the analysis of a particular type of subject. If, for example, the adult population
+		of Finland is being studied, the AnalysisUnit would be individuals or persons.
+
+		The union of Study and StudyGroup may have 0 or 1 AnalysisUnit
+		reached by the object property disco:analysisUnit and a specific analysis unit may be
+		in a disco:analysisUnit relationship to 0 to n studies or study groups. AnalysisUnit 
+		is specified as a sub-class of skos:Concept. 
+	  </p>
+	  
+	  
+	  
       <div class="figure">
         <img src="diagrams/study-universe.jpg" alt="Study, Universe and AnalysisUnit">
       </div>
