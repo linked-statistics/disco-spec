@@ -1256,24 +1256,36 @@ ex:study1 dcterms:subject [
     </section>
 
     <section>
-      <h3>skos:Concept</h3>
+      <h3>skos:Concept and skos:ConceptScheme</h3>
 
 	  <p>
-	    SKOS defines the term ‘Concept’, which is a unit of knowledge created by a unique combination of characteristics (ISO 1087- 1:2000, 2000). In context of statistical (meta)data, concepts are abstract summaries, general notions, knowledge of a whole set of behaviours, attitudes or characteristics which are seen as having something in common. Concepts may be associated with variables and questions. A ‘ConceptScheme’, also defined within the SKOS namespace, is a set of metadata describing statistical concepts. 
-	  </p>
-	  
-      <p>
-	    We reuse skos:Concept to a large extent to represent DDI
-        concepts, codes, and categories (see next figure). You can
-        describe DDI concepts (skos:definition) and you can define
-        hierarchies of DDI concepts (skos:broader and skos:narrower).
-        You can describe code values (skos:notation) and category labels
-        (skos:prefLabel).
+	    SKOS defines the term <b>skos:Concept</b>, which is a unit of knowledge created by a unique 
+		combination of characteristics. In context of statistical (meta)data, concepts 
+		are abstract summaries, general notions, knowledge of a whole set of behaviours, 
+		attitudes or characteristics which are seen as having something in common. 
+		Concepts may be associated with variables and questions. 
+		A <b>skos:ConceptScheme</b>, also defined within the SKOS namespace, is a set of metadata 
+		describing statistical concepts. 
+		Skos:Concept is reused to a large extent to represent DDI concepts, codes, and categories.
 	  </p>
 
       <div class="figure">
         <img src="diagrams/concept.jpg" alt="skos:Concept and skos:ConceptScheme">
       </div>
+	  
+	  <p>
+		DDI concepts can be described using skos:definition.
+		Furthermore, you can describe code values (skos:notation) and category labels
+        (skos:prefLabel).
+        Hierarchies of DDI concepts can be built using the object peoperties skos:broader and skos:narrower.
+		The domains and the ranges of skos:broader and skos:narrower are skos:Concepts.
+        The cardinalities are in both directions 0 to n.
+        Skos.Concepts may be organized in 0 to n skos:ConceptSchemes by means of skos:inScheme.
+        Skos:ConceptSchemes may have multiple (0 - n) skos:Concepts as parts.
+        The top concept in a specific ConceptScheme is indicated by skos:hasTopConcept pointing 
+		to 0 to n top skos:Concept. A specific skos:Concept may be the top concept to multiple
+        (0 - n) skos:ConceptSchemes.		
+	  </p>
 	  
 	  <p>
 	    <font color="#FF0000">[example]</font>
