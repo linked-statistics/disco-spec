@@ -1228,7 +1228,11 @@ ex:study1 dcterms:subject [
 		Variable is a characteristic of a unit being observed. A variable might be the 
 		answer of a question, have an administrative source, or be derived from other variables. 
 	    <b>VariableDefinition</b>s encompasse study-independent, re-usable parts of variables like occupation classification. 
-	 </p>
+	  </p>
+	 
+	  <div class="figure">
+        <img src="diagrams/variable-and-variable-definition.jpg" alt="Variables and VariableDefinitions">
+      </div>
 	  
 	  <p>
 	    Variables can be described (dcterms:description), 
@@ -1237,7 +1241,8 @@ ex:study1 dcterms:subject [
 		VariableDefinitions can also be described using dcterms:description.
 		Labels can be assigned to VariableDefinitions via the datatype property 
 		skos:prefLabel.
-		
+		Variables may be based on (disco:basedOn) 0 to 1 VariableDefinition.
+		Disco:basedOn also connects VariableDefinitions with 0 to n Variables.
 	  </p>
 	  
 	  <p>
