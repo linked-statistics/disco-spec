@@ -1344,26 +1344,36 @@ ex:study1 dcterms:subject [
     </section>
 
     <section id='collection'>
-      <h2>Data Collection Instruments</h2>
+      <h2>Data Collection</h2>
 
+	  <div class="figure">
+        <img src="diagrams/data-collection.jpg" alt="DataCollection">
+      </div>
+	  
     <section>
       <h3>Instrument</h3>
 
 	  <p>
-	    The data for the study are collected by an instrument. The purpose of an ‘Instrument’, i.e. an interview, a questionnaire or another entity used as a means of data collection, is in the case of a survey to record the flow of a questionnaire, its use of questions, and additional component parts (DDI Alliance, Technical Specification, Part II, 2009). A questionnaire contains a flow of questions.
+	    The data for the study are collected by an <b>Instrument</b>. 
+		The purpose of an Instrument, i.e. an interview, a questionnaire or 
+		another entity used as a means of data collection, 
+		is in the case of a survey to record the flow of a questionnaire, 
+		its use of questions, and additional component parts. 
+		A questionnaire contains a flow of questions.
 	  </p>
 	  
-      <p>
-	    You can describe (dcterms:description) and associate labels
-        (skos:prefLabel) to instruments. Instruments may have external
-        documentations. Questionnaires are special instruments having at
-        least 1 collection mode, which is a skos:Concept, and including
-        at least 1 question.
+	  <p>
+	    You can describe (dcterms:description) Instruments and associate labels
+        (skos:prefLabel) to Instruments. 
+		Instruments may have (disco:externalDocumentation)
+		multiple (0 - n) external documentations which are of the type foaf:Document.
+		Foaf:Documents may be external documentations of 0 to n Instruments.
+		Questionnaires are special instruments having at
+        least 1 (1 - n) collection mode (disco:collectionMode), which is a skos:Concept.
+		A specific collection mode can be associated with 0 to n Questionnaires.
+		Questionnaires mut contain 1 to n Questions using the object property disco:question.
+		Particular Questions may be contained in 0 to n Questionnaires.
 	  </p>
-
-      <div class="figure">
-        <img src="diagrams/data-collection.jpg" alt="DataCollection">
-      </div>
 	  
 	  <p>
 	    <font color="#FF0000">[example]</font>
@@ -1379,7 +1389,8 @@ ex:study1 dcterms:subject [
       <h3>Question</h3>
 
 	  <p>
-	    A ‘Question’ is designed to get information upon a subject, or sequence of subjects, from a respondent. 
+	    A <b>Question</b> is designed to get information upon a subject, 
+		or sequence of subjects, from a respondent. 
 	  </p>
 	  
       <p>
