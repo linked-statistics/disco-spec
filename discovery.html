@@ -1224,17 +1224,20 @@ ex:study1 dcterms:subject [
       <h3>Variable and Variable Definition</h3>
 
 	  <p>
-	    Variables provide a definition of the column in a rectangular data file.
-		
-		‘Variable’ is a characteristic of a unit being observed. A variable might be the answer of a question, have an administrative source, or be derived from other variables. 
-	 
-        ‘DataElement’ encompasses study-independent, re-usable parts of variables like occupation classification. 
+	    <b>Variable</b>s provide a definition of the column in a rectangular data file.
+		Variable is a characteristic of a unit being observed. A variable might be the 
+		answer of a question, have an administrative source, or be derived from other variables. 
+	    <b>VariableDefinition</b>s encompasse study-independent, re-usable parts of variables like occupation classification. 
 	 </p>
 	  
 	  <p>
-	    Variables can be described (dcterms:description). 
-		Skos:notation is used to associate names to variables.
-		Labels can be assigned to variables via the datatype property skos:prefLabel.
+	    Variables can be described (dcterms:description), 
+		skos:notation is used to associate names to variables and
+		labels can be assigned to variables via the datatype property skos:prefLabel.
+		VariableDefinitions can also be described using dcterms:description.
+		Labels can be assigned to VariableDefinitions via the datatype property 
+		skos:prefLabel.
+		
 	  </p>
 	  
 	  <p>
