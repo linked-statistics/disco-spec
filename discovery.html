@@ -815,25 +815,26 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		as the coverage of the survey) is the population from which information can be 
 		obtained in the survey. 
 
+		<b>AnalysisUnit</b> is defined as follows: The process collecting data is focusing 
+		on the analysis of a particular type of subject. If, for example, the adult population
+		of Finland is being studied, the AnalysisUnit would be individuals or persons.
+	  </p>
+	  
+      <div class="figure">
+        <img src="diagrams/study-universe.jpg" alt="Study, Universe and AnalysisUnit">
+      </div>
+	  
+	  <p>
 		Studies and groups of studies must have 1 to n universes and 1 particular 
 		universe may be in a disco:universe relationship with 0 to n unions of 
 		studies and groups of studies. Universes are sub-classes of skos:Concepts. 
 		For universes you can state definitions using skos:definition. 
-	  </p>
-	  <p>
-		<b>AnalysisUnit</b> is defined as follows: The process collecting data is focusing 
-		on the analysis of a particular type of subject. If, for example, the adult population
-		of Finland is being studied, the AnalysisUnit would be individuals or persons.
 
 		The union of Study and StudyGroup may have 0 or 1 AnalysisUnit
 		reached by the object property disco:analysisUnit and a specific analysis unit may be
 		in a disco:analysisUnit relationship to 0 to n studies or study groups. AnalysisUnit 
 		is specified as a sub-class of skos:Concept. 
 	  </p>
-	  
-      <div class="figure">
-        <img src="diagrams/study-universe.jpg" alt="Study, Universe and AnalysisUnit">
-      </div>
 	  
 	  <p>
 	    <font color="#FF0000">[example]</font>
@@ -953,7 +954,7 @@ ex:license1 dcterms:description "Published under Open Content License." ;
 	  
 	  <section>
 	    <h3>Coverage of Studies, Logical Datasets, and Data Files</h3>
-		<p>Studies, logical datasets, and data files may have a spatial, temporal, and topical coverage. Unlike in DDI-XML, there is no dedicated Coverage type in DDI-RDF. In contrast, spatial, temporal, and topical coverage are directly attached to the respective study, logical dataset, and datafile.</p>
+		<p>Coverage comprehends the key features of the scope of the data (e.g. geographic product occupation). Studies, logical datasets, and data files may have a spatial, temporal, and topical coverage. Unlike in DDI-XML, there is no dedicated Coverage type in DDI-RDF. In contrast, spatial, temporal, and topical coverage are directly attached to the respective study, logical dataset, and datafile.</p>
 		<p>For spatial coverage, <b>dcterms:spatial</b> is used, pointing to any geographic location (dcterms:Location):</p>
 		<pre>
 ex:study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .		
@@ -1105,11 +1106,12 @@ ex:study1 dcterms:subject [
       <h3>DataFile</h3>
 
 	  <p>
+	    The collected data result in the microdata represented by the <b>DataFile</b>.
 	    Data sets have a logical representation, which describes the contents of the data set,
         and a physical representation, which is a distribuited file
         holding that data. It is possible to format data files in many
         different ways, even if the logical content is the same. 
-        <b>DataFiles</b>, which are also dcterms:Datasets as well as dcat:Distributions,
+        DataFiles, which are also dcterms:Datasets as well as dcat:Distributions,
         represents all the physical distributed data files containing the microdata datasets.
       </p>
 	  
@@ -1189,12 +1191,42 @@ ex:study1 dcterms:subject [
     <section id='variable'>
       <h2>Variables, Variable Definitions, Representations, and Concepts</h2>
 
-    <section>
-      <h3>Variable</h3>
-
-      <div class="figure">
-        <img src="diagrams/variable.jpg" alt="Variable">
+	  <p>
+	    When it comes to understanding the contents of the data set,
+        this is done using the Variable class. Variables provide a
+        definition of the column in a rectangular data file, and can
+        associate it with a Concept, and a Question. Variables are
+        related to a Representation of some form, which may be a set of
+        codes and categories (a "codelist") or may be one of other
+        normal data types (dateTime, numeric, textual, etc.) Codes and
+        Categories are represented using SKOS concepts and concept
+        schemes.
+	  </p>
+	  
+	  <div class="figure">
+        <img src="diagrams/variable.jpg" alt="Variables, Variable Definitions, Representations, and Concepts">
       </div>
+	  
+	  <p>
+	    
+	  </p>
+	  
+    <section>
+      <h3>Variable and Variable Definition</h3>
+
+	  <p>
+	    Variables provide a definition of the column in a rectangular data file.
+		
+		‘Variable’ is a characteristic of a unit being observed. A variable might be the answer of a question, have an administrative source, or be derived from other variables. 
+	 
+        ‘DataElement’ encompasses study-independent, re-usable parts of variables like occupation classification. 
+	 </p>
+	  
+	  <p>
+	    Variables can be described (dcterms:description). 
+		Skos:notation is used to associate names to variables.
+		Labels can be assigned to variables via the datatype property skos:prefLabel.
+	  </p>
 	  
 	  <p>
 	    <font color="#FF0000">[example]</font>
@@ -1209,12 +1241,18 @@ ex:study1 dcterms:subject [
     <section>
       <h3>skos:Concept</h3>
 
-      <p>We reuse skos:Concept to a large extent to represent DDI
-      concepts, codes, and categories (see next figure). You can
-      describe DDI concepts (skos:definition) and you can define
-      hierarchies of DDI concepts (skos:broader and skos:narrower).
-      You can describe code values (skos:notation) and category labels
-      (skos:prefLabel).</p>
+	  <p>
+	    SKOS defines the term ‘Concept’, which is a unit of knowledge created by a unique combination of characteristics (ISO 1087- 1:2000, 2000). In context of statistical (meta)data, concepts are abstract summaries, general notions, knowledge of a whole set of behaviours, attitudes or characteristics which are seen as having something in common. Concepts may be associated with variables and questions. A ‘ConceptScheme’, also defined within the SKOS namespace, is a set of metadata describing statistical concepts. 
+	  </p>
+	  
+      <p>
+	    We reuse skos:Concept to a large extent to represent DDI
+        concepts, codes, and categories (see next figure). You can
+        describe DDI concepts (skos:definition) and you can define
+        hierarchies of DDI concepts (skos:broader and skos:narrower).
+        You can describe code values (skos:notation) and category labels
+        (skos:prefLabel).
+	  </p>
 
       <div class="figure">
         <img src="diagrams/concept.jpg" alt="skos:Concept and skos:ConceptScheme">
@@ -1233,16 +1271,22 @@ ex:study1 dcterms:subject [
     <section>
       <h3>Representation</h3>
 
-      <p>Questions (object property responseDomain), variables
-      (representation), and data elements (representation) may have
-      representations. We defined the class Representation as union of
-      individuals of the classes rdfs:Datatype (e.g. numeric or
-      textual values) and skos:ConceptScheme, as for example questions
-      may have as response domain a mixture of a numeric response
-      domain containing numeric values (rdfs:Datatype) and a code
-      response domain (skos:ConceptScheme). Skos:ConceptScheme
-      (representing code schemes) may contain skos:Concepts
-      (representing codes) using the object property skos:inScheme.</p>
+	  <p>
+	    The ‘Representation’ of a variable is the combination of a value domain, datatype, and, if necessary, a unit of measure or a character set (ISO/IEC, 2004). ‘Representation’ is one of a set of values to which a numerical measure or a category from a classification can be assigned (e.g. income, age, and sex: male coded as 1). 
+	  </p>
+	  
+      <p>
+	    Questions (object property responseDomain), variables
+        (representation), and data elements (representation) may have
+        representations. We defined the class Representation as union of
+        individuals of the classes rdfs:Datatype (e.g. numeric or
+        textual values) and skos:ConceptScheme, as for example questions
+        may have as response domain a mixture of a numeric response
+        domain containing numeric values (rdfs:Datatype) and a code
+        response domain (skos:ConceptScheme). Skos:ConceptScheme
+        (representing code schemes) may contain skos:Concepts
+        (representing codes) using the object property skos:inScheme.
+	  </p>
 
       <div class="figure">
         <img src="diagrams/representation.jpg" alt="Representation">
@@ -1266,11 +1310,17 @@ ex:study1 dcterms:subject [
     <section>
       <h3>Instrument</h3>
 
-      <p>You can describe (dcterms:description) and associate labels
-      (skos:prefLabel) to instruments. Instruments may have external
-      documentations. Questionnaires are special instruments having at
-      least 1 collection mode, which is a skos:Concept, and including
-      at least 1 question.</p>
+	  <p>
+	    The data for the study are collected by an instrument. The purpose of an ‘Instrument’, i.e. an interview, a questionnaire or another entity used as a means of data collection, is in the case of a survey to record the flow of a questionnaire, its use of questions, and additional component parts (DDI Alliance, Technical Specification, Part II, 2009). A questionnaire contains a flow of questions.
+	  </p>
+	  
+      <p>
+	    You can describe (dcterms:description) and associate labels
+        (skos:prefLabel) to instruments. Instruments may have external
+        documentations. Questionnaires are special instruments having at
+        least 1 collection mode, which is a skos:Concept, and including
+        at least 1 question.
+	  </p>
 
       <div class="figure">
         <img src="diagrams/data-collection.jpg" alt="DataCollection">
@@ -1289,10 +1339,16 @@ ex:study1 dcterms:subject [
     <section>
       <h3>Question</h3>
 
-      <p>Questions have a question text (questionText), a label
-      (skos:prefLabel), exactly 1 universe (universe), multiple
-      concepts (concept), and at least 1 response domain
-      (responseDomain).</p>
+	  <p>
+	    A ‘Question’ is designed to get information upon a subject, or sequence of subjects, from a respondent. 
+	  </p>
+	  
+      <p>
+	    Questions have a question text (questionText), a label
+        (skos:prefLabel), exactly 1 universe (universe), multiple
+        concepts (concept), and at least 1 response domain
+        (responseDomain).
+      </p>
 	  
 	  <p>
 	    <font color="#FF0000">[example]</font>
