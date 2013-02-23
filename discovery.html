@@ -1193,14 +1193,15 @@ ex:study1 dcterms:subject [
 
 	  <p>
 	    When it comes to understanding the contents of the data set,
-        this is done using the Variable class. Variables provide a
+        this is done using the Variable class. <b>Variable</b>s provide a
         definition of the column in a rectangular data file, and can
-        associate it with a Concept, and a Question. Variables are
-        related to a Representation of some form, which may be a set of
+        associate it with a <b>Concept</b>, and a Question. Variables are
+        related to a <b>Representation</b> of some form, which may be a set of
         codes and categories (a "codelist") or may be one of other
         normal data types (dateTime, numeric, textual, etc.) Codes and
-        Categories are represented using SKOS concepts and concept
-        schemes.
+        Categories are represented using SKOS <b>Concept</b>s and concept
+        schemes. <b>VariableDefinition</b>s encompasse study-independent, 
+		re-usable parts of variables like occupation classification. 
 	  </p>
 	  
 	  <div class="figure">
@@ -1208,7 +1209,15 @@ ex:study1 dcterms:subject [
       </div>
 	  
 	  <p>
-	    
+	    Vaiables may be based on (disco:basedOn) 0 or 1 VariableDefinition
+		and VariableDefinitions can be in 0 to n disco:basedOn relationships to Variables.
+		Both Variables and VariableDefinitions have disco:rerpesentation object properties 
+		with the class Representation as range. 
+		Variables must have exactly 1 Representation and VariableDefinitions may have 0 to n 
+        disco:representation connections to Representations.
+        On the other hand, representations have 0 to n links to VariableDefibitions and to Variables.	
+        Variables as well as VariableDefinitions have both 1 connection to the concept which should be measured.
+        Concepts have 0 to n relationships to Variables and VariableDefinitions using the object property disco:concept.		
 	  </p>
 	  
     <section>
