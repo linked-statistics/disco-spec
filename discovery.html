@@ -708,7 +708,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
     </section>
 
     <section id='study'>
-      <h2>Studies</h2>
+      <h2>Studies and StudyGroups</h2>
 
 	  <p>A simple <b>Study</b> supports the stages of the full data lifecycle 
 	  in a modular manner. A Study represents the
@@ -730,16 +730,16 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       single StudyGroup.</p>
 	  
 	  <p>
-	    Studies may be contained in at most 1 StudyGroup and groups of studies may include 
+	    Studies may be contained in at most 1 StudyGroup and groups of Studies may include 
 		0 to n studies.
 		Studies may have 0 to n disco:instrument relationships to Instruments.
-		Particular instruments, however, are connected with exactly 1 study via disco:instrument.
-		Studies may have disco:dataFile connections with 0 to n DataFiles and data files must have 
-		1 to n disco:dataFile relationships to studies.  
+		Particular Instruments, however, are connected with exactly 1 Study.
+		Studies may have disco:dataFile connections with 0 to n DataFiles and DataFiles must have 
+		1 to n disco:dataFile relationships to Studies.  
 		Studies are associated with 0 to n Variables using the object property disco:variable.
-		On the other hand, variables must be related to 1 to n studies using this property.
-		Studies may have 0 to n LogicalDataSets (disco:product) and logical data set must 
-        have 1 to n disco:product relationships to studies.		
+		On the other hand, Variables must be related to 1 to n Studies.
+		Studies may have 0 to n LogicalDataSets (disco:product) and LogicalDataSets must 
+        have 1 to n disco:product relationships to Studies.		
 	  </p>
 	  
 	  <p>
@@ -753,25 +753,31 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	<section>
       <h3>Coverage, References to DDI-XML Files, and Kind of Data</h3>
 	</section>
-	  
-      <p>Studies or StudyGroups (the <b>union of Study and StudyGroup</b>) 
-	  may have different datatype properties. 
-	  Studies or groups of studies may have an abstract (dcterms:abstract), a title
-      (dcterms:title), a subtitle (disco:subtitle), an alternative title
-      (dcterms:alternative), a purpose (disco:purpose), and information about
-      the date and the time since when the study is publicly available
-      (dcterms:available). Studies or StudyGroups may have multiple object properties.
-	  The object properties disco:kindOfData and
-      dcterms:subject guide to skos:Concepts. 
-	  <font color="#FF0000">[description of disco:kindOfData]</font>
-	  You can use dcterms:subject to describe the topical coverage of Studies and groups of studies.
-	  Disco:ddiFile leads to foaf:Documents which are the DDI XML files 
-	  containing further descriptions of the study or the study group.
-	  Use dcterms:temporal for temporal coverages related to the union of studies and study groups.</p>
 
       <div class="figure">
         <img src="diagrams/study-metadata.jpg" alt="Coverage, References to DDI-XML Files, and Kind of Data">
       </div>
+	  
+	  <p>
+	    Studies or StudyGroups (the <b>union of Study and StudyGroup</b>) 
+	    may have different datatype properties. 
+	    Studies or groups of Studies may have an abstract (dcterms:abstract), a title
+        (dcterms:title), a subtitle (disco:subtitle), an alternative title
+        (dcterms:alternative), a purpose (disco:purpose), and information about
+        the date and the time since when the Study is publicly available
+        (dcterms:available). Studies or StudyGroups may have multiple object properties.
+	    The object properties disco:kindOfData and
+        dcterms:subject guide to skos:Concepts. 
+	    <font color="#FF0000">[description of disco:kindOfData]</font>
+	    You can use dcterms:subject to describe the topical coverage of Studies and groups of Studies.
+	    Disco:ddiFile leads to foaf:Documents which are the DDI-XML files 
+	    containing further descriptions of the Study or the StudyGroup.
+	    Use dcterms:temporal for temporal coverages related to the union of Studies and StudyGroups.
+		For the spatial coverage use dcterms:spatial.
+		The cardinalities of all the object properties are in both directions 0 to n.
+		The only exception is that Studies and StudyGroups may have 0 or 1 disco:kindOfData 
+		relationships to skos:Concepts.
+	  </p>
 
 	  <p>
 	    <font color="#FF0000">[example]</font>
@@ -785,16 +791,19 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       <h3>Relationships to Agents</h3>
 	</section>
 	  
-	  <p>Creators (dcterms:creator), contributors (dcterms:contributor),
-      and publishers (dcterms:publisher) of studies and study groups are foaf:Agents
-      which are either foaf:Persons or org:Organizations whose members
-      are foaf:Persons. Studies and study groups may be funded by (disco:fundedBy) 
-	  foaf:Agents. The object property disco:fundedBy is defined as sub-property of 
-	  dcterms:contributor.</p>
-	  
       <div class="figure">
         <img src="diagrams/study-agent.jpg" alt="Relationships to Agents">
       </div>
+	  
+	  <p>
+	    Creators (dcterms:creator), contributors (dcterms:contributor),
+        and publishers (dcterms:publisher) of Studies and StudyGroups are foaf:Agents
+        which are either foaf:Persons or org:Organizations whose members
+        are foaf:Persons. Studies and StudyGroups may be funded by (disco:fundedBy) 
+	    foaf:Agents. The object property disco:fundedBy is defined as sub-property of 
+	    dcterms:contributor. The cardinalities of these object properties are in both
+        directions always 0 to n.		
+	  </p>
 
 	  <p>
 	    <font color="#FF0000">[example]</font>
@@ -825,14 +834,14 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       </div>
 	  
 	  <p>
-		Studies and groups of studies must have 1 to n universes and 1 particular 
-		universe may be in a disco:universe relationship with 0 to n unions of 
-		studies and groups of studies. Universes are sub-classes of skos:Concepts. 
-		For universes you can state definitions using skos:definition. 
+		Studies and groups of Studies must have 1 to n Universes and 1 particular 
+		Universe may be in a disco:universe relationship with 0 to n unions of 
+		Studies and groups of Studies. Universes are sub-classes of skos:Concepts. 
+		For Universes you can state definitions using skos:definition. 
 
 		The union of Study and StudyGroup may have 0 or 1 AnalysisUnit
-		reached by the object property disco:analysisUnit and a specific analysis unit may be
-		in a disco:analysisUnit relationship to 0 to n studies or study groups. AnalysisUnit 
+		reached by the object property disco:analysisUnit and a specific AnalysisUnit may be
+		in a disco:analysisUnit relationship to 0 to n Studies or StudyGroups. AnalysisUnit 
 		is specified as a sub-class of skos:Concept. 
 	  </p>
 	  
@@ -872,7 +881,10 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
 	  <p>Note that in RDF, the unique identifier of a resource is its URI. The identifier properties are only used for easing the linkage between DDI-RDF metadata and the original DDI files.</p>
 
-	  <p>Furthermore, every element can be related to any foaf:Document using dcterms:relation.</p>
+	  <p>
+	    Furthermore, every element can be related to any foaf:Document using dcterms:relation.
+		The cardinalities are in both directions 0 to n.
+	  </p>
 	  
 	  <div class="figure">
         <img src="diagrams/rdfs-resource.jpg" alt="DDI-XML Identifiers and Relations to DDI-XML Files">
@@ -943,6 +955,13 @@ ex:license1 dcterms:description "Published under Open Content License." ;
       </div>
 	  
 	  <p>
+	    LogicalDataSets may have dcterms:accessRights relationships to dcterms:RightsStatements
+		and dcterms:license connections with dcterms:LicenseDocument.
+		Dcterms:RightsStatements is associated with foaf:Documents using the object property rdfs:seeAlso. 
+		The multiplicities for these object properties are in any case 0 to n.
+	  </p>
+	  
+	  <p>
 	    <font color="#FF0000">[example]</font>
 	  </p>
 	  
@@ -997,6 +1016,10 @@ ex:study1 dcterms:subject [
 		<div class="figure">
           <img src="diagrams/data-file-coverage.jpg" alt="DataFile Coverage">
         </div>
+		
+		<p>
+		  The multiplicities for each of the three object properties dcterms:subject, dcterms:temporal, and dcterms:spatial are in any case 0 to n.
+		</p>
 	  
 	  <p>
 	    <font color="#FF0000">[table with datatype and object properties]</font>
@@ -1039,19 +1062,25 @@ ex:study1 dcterms:subject [
       (its organization into a set of Variables). The LogicalDataSet
       is an extension of the dact:DataSet class. Physical, distributed
       files are represented by the class <b>DataFile</b>, which is itself an
-      extension of the dcat:Distribution. LogicalDataSets and DataFiles are 
-	  connected using the object property disco:dataFile. A specific LogicalDataSet
-	  may be linked to 0 to n DataFiles and a particular DataFile may be connected
-	  with 0 to n LogicalDataSets via disco:dataFile. <b>DescriptiveStatistics</b>
+      extension of the dcat:Distribution. <b>DescriptiveStatistics</b>
 	  , i.e. SummaryStatistics as well as CategoryStatistics, are accociated with 
-	  DataFiles by the object property disco:statisticsDataFile. A concrete 
-	  DescriptiveStatistics object may have statisticsDataFile relationships 
-	  to Datafiles. DataFiles may have 0 to n statisticsDataFile relations to 
-	  DescriptiveStatistics instances.</p>
+	  DataFiles by the object property disco:statisticsDataFile. </p>
 	  
       <div class="figure">
         <img src="diagrams/overview-data-set.jpg" alt="Overview: Data sets, data files, descriptive statistcs">
       </div>
+	  
+	  <p>
+	    LogicalDataSets and DataFiles are 
+	    connected using the object property disco:dataFile. A specific LogicalDataSet
+	    may be linked to 0 to n DataFiles and a particular DataFile may be connected
+	    with 0 to n LogicalDataSets via disco:dataFile.
+	    DescriptiveStatistics are accociated with 
+	    DataFiles by the object property disco:statisticsDataFile. A concrete 
+	    DescriptiveStatistics object may have disco:statisticsDataFile relationships 
+	    to multiple (0 - n) Datafiles. DataFiles, however, may have 0 to n statisticsDataFile relations to 
+	    DescriptiveStatistics instances.
+	  </p>
 
     <section>
       <h3>LogicalDataSet</h3>
@@ -1060,14 +1089,6 @@ ex:study1 dcterms:subject [
 	    Each study has a set of logical metadata (disco:<b>LogicalDataSet</b>) associated with 
 	    the processing of data, at the time of collection or later during cleaning, and re-coding.  
 	    LogicalDataSet represents the microdata dataset. 
-		
-		LogicalDataSet is defined as a sub-class of dcat:Dataset.
-		You can state a title (dcterms:title) and a flag indicating if the
-        microdata dataset is publicly available (isPublic). 
-		You can specify access rights (dcterms:accessRights) and license
-        statements (dcterms:license) for microdata datasets.
-        For logical data sets the three dimensions of coverage can be specified:
-		spatial (dcterms:spatial), temporal (dcterms:temporal), and topical (dcteerms:subject).
 	  </p>
 
       <div class="figure">
@@ -1075,11 +1096,20 @@ ex:study1 dcterms:subject [
       </div>
 
       <p>
+	    LogicalDataSet is defined as a sub-class of dcat:Dataset.
+		You can state a title (dcterms:title) and a flag indicating if the
+        microdata dataset is publicly available (isPublic). 
+	    You can specify access rights (dcterms:accessRights) and LicenseStatements
+		(dcterms:license) for microdata datasets.
+        For LogicalDataSets the three dimensions of coverage can be specified:
+		spatial (dcterms:spatial), temporal (dcterms:temporal), and topical (dcteerms:subject).
+		The cardinalities of the object properties dcterms:spatial, dcterms:temporal, dcterms:subject,
+		dcterms:accessRights, and dcterms:license are 0 to n.
 	    Microdata datasets may have disco:instrument associations to 
-	    multiple (0 - n) Instruments and instruments are connected with 
+	    multiple (0 - n) Instruments and Instruments are connected with 
 	    multiple (0 - n) LogicalDataSets.
 		Each LogicalDataSet has exactly 1 Universe (disco:universe) and 
-		one specific universe may be in multiple (0 - n) disco:universe 
+		one specific Universe may be in multiple (0 - n) disco:universe 
 		relations to LogicalDataSets.		
 		LogicalDataSets may contain (disco:containsVariable) 0 to n Variables and 
 		Variables must be contained in 1 to n LogicaDataSets.
@@ -1088,7 +1118,7 @@ ex:study1 dcterms:subject [
 		At last, LogicalDataSets refer to 0 to n DataFiles using the object property 
 		disco:dataFile and DataFiles may be linked to 0 to n LogicalDataSets.
 		The class DataSet is defined in the RDF Data Cube
-        Vocabulary. 0 to n DataSets may point to multiple (0 - n) variables
+        Vocabulary. 0 to n DataSets may point to multiple (0 - n) Variables
         (disco:inputVariable).
 	  </p>
 	  
@@ -1120,17 +1150,18 @@ ex:study1 dcterms:subject [
       </div>
 	  
 	  <p>
-        It is possible to describe data files (dcterms:description).
-		Data files’ case quantities (disco:caseQuantity) and versions (owl:versionInfo) can also be stated. 
-		Using the object property dcterms:format, data files formats can be defined.
+        It is possible to describe DataFiles (dcterms:description).
+		DataFiles’ case quantities (disco:caseQuantity) and versions (owl:versionInfo) can also be stated. 
+		Using the object property dcterms:format, DataFiles formats can be defined.
 		DataFiles must have exactly 1 dcterms:format relationship to an instance of the class 
 		dcterms:MediaTypeOrExtend which is a sub-class of skos:Concept.
-		Specific formats can be assigned to multiple (0 - n) data files.
-		Provenance information can be assigned to data files. data files may have multiple (0 - n)
+		Specific formats can be assigned to multiple (0 - n) DataFiles.
+		Provenance information can be assigned to DataFiles. DataFiles may have multiple (0 - n)
         dcterms:provenance relationships to dcterms:ProvenanceStatements.
-        dcterms:ProvenanceStatements, however, may have 0 to n dcterms:provenance relations to data files.
-        The topical, spatial, and temporal coverage of data files is realized by 
-        the object properties dcterms:subject, dcterms:spatial, and dcterms:temporal. 		
+        Dcterms:ProvenanceStatements, however, may have 0 to n dcterms:provenance relations to DataFiles.
+        The topical, spatial, and temporal coverage of DataFiles is realized by 
+        the object properties dcterms:subject, dcterms:spatial, and dcterms:temporal,
+        all with the cardinalities 0 to n on both sides. 		
       </p>
 	  
 	  <p>
