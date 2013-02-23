@@ -1394,10 +1394,13 @@ ex:study1 dcterms:subject [
 	  </p>
 	  
       <p>
-	    Questions have a question text (questionText), a label
-        (skos:prefLabel), exactly 1 universe (universe), multiple
-        concepts (concept), and at least 1 response domain
-        (responseDomain).
+	    Questions have a question text (disco:questionText), a label
+        (skos:prefLabel), exactly 1 universe (disco:universe), multiple (1 - n)
+        concepts (disco:concept), and at least 1 response domain
+        (disco:responseDomain).
+		Representations may have 0 to n disco:respionseDomain relations to Questions.
+		Particular Universes may be connected with 0 to n Questions.
+		Skos:Concepts are associated with 0 to n Questions.
       </p>
 	  
 	  <p>
