@@ -1301,25 +1301,35 @@ ex:study1 dcterms:subject [
       <h3>Representation</h3>
 
 	  <p>
-	    The ‘Representation’ of a variable is the combination of a value domain, datatype, and, if necessary, a unit of measure or a character set (ISO/IEC, 2004). ‘Representation’ is one of a set of values to which a numerical measure or a category from a classification can be assigned (e.g. income, age, and sex: male coded as 1). 
-	  </p>
-	  
-      <p>
-	    Questions (object property responseDomain), variables
-        (representation), and data elements (representation) may have
-        representations. We defined the class Representation as union of
-        individuals of the classes rdfs:Datatype (e.g. numeric or
-        textual values) and skos:ConceptScheme, as for example questions
+	    The <b>Representation</b> of a variable is the combination of a value domain, 
+		datatype, and, if necessary, a unit of measure or a character set. 
+		Representation is one of a set of values to which a numerical measure or a category 
+		from a classification can be assigned (e.g. income, age, and sex: male coded as 1). 
+		Questions (disco:responseDomain), Variables
+        (disoc:representation), and VariableDefinitions (disco:representation) may have
+        representations.
+		Representation is defined as sub-class of the union of <b>rdfs:Datatype</b> (e.g. numeric or
+        textual values) and <b>skos:ConceptScheme</b>, as for example questions
         may have as response domain a mixture of a numeric response
         domain containing numeric values (rdfs:Datatype) and a code
-        response domain (skos:ConceptScheme). Skos:ConceptScheme
-        (representing code schemes) may contain skos:Concepts
-        (representing codes) using the object property skos:inScheme.
+        response domain (skos:ConceptScheme).
 	  </p>
 
       <div class="figure">
         <img src="diagrams/representation.jpg" alt="Representation">
       </div>
+	  
+	  <p>
+	    Questions (disco:responseDomain), 
+		Variables (disoc:representation), and 
+		VariableDefinitions (disco:representation) 
+		may have representations. 
+		Questions must have 1 to n Representations,
+		Variables must have exactly 1 Representation,
+		and VariableDefinitions may have 0 to n Representations.
+		Each Representation can be in 0 to n disco:representation relationships 
+		with Questions, Variables, and VariableDefinitions.
+	  </p>
 	  
 	  <p>
 	    <font color="#FF0000">[example]</font>
@@ -1403,6 +1413,14 @@ ex:study1 dcterms:subject [
     <section class='appendix'>
       <h2>Example Queries</h2>
 
+	  <p>
+	    <font color="#FF0000">[introduction text]</font>
+	  </p>
+	  
+	  <p>
+		<font color="#FF0000">[link to use cases publication]</font>
+	  </p>
+	  
       <p>Find studies from years 2000 and after about climate change.</p>
       <pre>
 SELECT ?studyTitle ?studyAbstract ?logicalDataSetTitle
