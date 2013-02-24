@@ -1194,15 +1194,15 @@ ex:study1 dcterms:subject [
       </div>
 	   
        <p>	   
-		You can state maximum (disco:maximum), minimum values (disco:minimum),
-        standard deviations (disco:standardDeviation), etc. for summary statistics. You can define
-        frequencies (disco:frequency), percentages (disco:percentage), weighted percentages 
-		(disco:weightedPercentage), etc. for category statistics.
-		DescriptiveStatistics may have disco:statisticsDataFile relations to 0 to n DataFiles.
-		DataFiles may be in 0 to n disco:statisticsDataFile relations to DescriptiveStatistics individuals.
-		SummaryStatistics point to 0 to n Variables using the object property disco:statisticsVariable.
-		Variables, however, may be in 0 to n such relationships to SummaryStatistics objects.
-		CategoryStatistics may be connected with 0 to n skos:Concepts using the property disco:statisticsCategory
+		     You can state maximum values (disco:maximum), minimum values (disco:minimum),
+         standard deviations (disco:standardDeviation), etc. for summary statistics and you can define
+         frequencies (disco:frequency), percentages (disco:percentage), weighted percentages 
+		    (disco:weightedPercentage), etc. for category statistics.
+		    DescriptiveStatistics may have disco:statisticsDataFile relations to 0 to n DataFiles and
+		    DataFiles may be in 0 to n disco:statisticsDataFile relations to DescriptiveStatistics individuals.
+		    SummaryStatistics point to 0 to n Variables using the object property disco:statisticsVariable.
+		    Variables, however, may be in 0 to n of such relationships to SummaryStatistics objects.
+		    CategoryStatistics may be connected with 0 to n skos:Concepts using the property disco:statisticsCategory
         and skos:Concepts representing codes (values) and categories (value labels) may be in 0 to n of such
         relationships. 		
 	  </p>
@@ -1242,11 +1242,11 @@ ex:study1 dcterms:subject [
 	  <p>
 	    Vaiables may be based on (disco:basedOn) 0 or 1 VariableDefinition
 		and VariableDefinitions can be in 0 to n disco:basedOn relationships to Variables.
-		Both Variables and VariableDefinitions have disco:rerpesentation object properties 
+		Both Variables and VariableDefinitions have disco:repesentation object properties 
 		with the class Representation as range. 
 		Variables must have exactly 1 Representation and VariableDefinitions may have 0 to n 
         disco:representation connections to Representations.
-        On the other hand, representations have 0 to n links to VariableDefibitions and to Variables.	
+        On the other hand, representations have 0 to n links to VariableDefinitions and to Variables.	
         Variables as well as VariableDefinitions have both 1 connection to the concept which should be measured.
         Concepts have 0 to n relationships to Variables and VariableDefinitions using the object property disco:concept.		
 	  </p>
@@ -1266,7 +1266,7 @@ ex:study1 dcterms:subject [
       </div>
 	  
 	  <p>
-	    Variables can be described (dcterms:description), 
+	  Variables can be described (dcterms:description), 
 		skos:notation is used to associate names to variables and
 		labels can be assigned to variables via the datatype property skos:prefLabel.
 		VariableDefinitions can also be described using dcterms:description.
@@ -1274,6 +1274,13 @@ ex:study1 dcterms:subject [
 		skos:prefLabel.
 		Variables may be based on (disco:basedOn) 0 to 1 VariableDefinition.
 		Disco:basedOn also connects VariableDefinitions with 0 to n Variables.
+		Variables and VariableDefinitions are connected with exactly 1 skos:Concept via disco:concept.
+		Skos:Concepts have this connection to 0 to n Variables and VariableDefinitions.
+		Variables are represented by 1 Representation and VariableDefinitions are represented by multiple (0 - n) Representations.
+		Representations may be linked to 0 to n Variables and their definitions.     
+		Variables may have (disco:queston) 0 or more Questions and Questions may be associated with 0 to n Variables.
+		Disco:universe is used to link 1 Universe to 0 to n Variables and 0 to n Universes to 0 to n VariableDefinitions.
+		  
 	  </p>
 	  
 	  <p>
