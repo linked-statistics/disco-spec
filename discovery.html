@@ -742,14 +742,6 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
         have 1 to n disco:product relationships to Studies.		
 	  </p>
 	  
-	  <p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
-	  </p>
-	  
 	<section>
       <h3>Coverage, References to DDI-XML Files, and Kind of Data</h3>
 	</section>
@@ -780,14 +772,6 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		The only exception is that Studies and StudyGroups may have 0 or 1 disco:kindOfData 
 		relationships to skos:Concepts.
 	  </p>
-
-	  <p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
-	  </p>
 	  
 	<section>
       <h3>Relationships to Agents</h3>
@@ -805,14 +789,6 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	    foaf:Agents. The object property disco:fundedBy is defined as sub-property of 
 	    dcterms:contributor. The cardinalities of these object properties are in both
         directions always 0 to n.		
-	  </p>
-
-	  <p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
 	  </p>
 	  
     <section>
@@ -845,14 +821,6 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		reached by the object property disco:analysisUnit and a specific AnalysisUnit may be
 		in a disco:analysisUnit relationship to 0 to n Studies or StudyGroups. AnalysisUnit 
 		is specified as a sub-class of skos:Concept. 
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
 	  </p>
 	  
     </section>
@@ -892,14 +860,6 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
         <img src="diagrams/rdfs-resource.jpg" alt="DDI-XML Identifiers and Relations to DDI-XML Files">
       </div>
 	  
-	  <p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
-	  </p>
-	  
 	  </section>
 	  
 	  <section>
@@ -917,14 +877,6 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		<div class="figure">
           <img src="diagrams/versioning-information.jpg" alt="Versioning Information">
         </div>
-		
-		<p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
-	  </p>
 		
 	  </section>
 	  
@@ -961,14 +913,6 @@ ex:license1 dcterms:description "Published under Open Content License." ;
 		and dcterms:license connections with dcterms:LicenseDocument.
 		Dcterms:RightsStatements is associated with foaf:Documents using the object property rdfs:seeAlso. 
 		The multiplicities for these object properties are in any case 0 to n.
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
 	  </p>
 	  
 	  </section>
@@ -1022,10 +966,6 @@ ex:study1 dcterms:subject [
 		<p>
 		  The multiplicities for each of the three object properties dcterms:subject, dcterms:temporal, and dcterms:spatial are in any case 0 to n.
 		</p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
-	  </p>
 		
 		</section>
 		<section>
@@ -1039,14 +979,6 @@ ex:study1 dcterms:subject [
 				<li>dcterms:description (used with disco:DataElement, disco:DataFile, disco:Instrument, disco:Variable, dcterms:RightsStatement): a human readable description of the element</li>
 				<li>dcterms:provenance (used with disco:DataFile): defines the provenance information for the data file. The object is a dcterms:ProvenanceStatement.</li>
 			</ul>
-			
-			<p>
-			  <font color="#FF0000">[example]</font>
-		    </p>
-		  
-		    <p>
-			  <font color="#FF0000">[table with datatype and object properties]</font>
-		    </p>
 			
 		</section>
 
@@ -1124,14 +1056,6 @@ ex:study1 dcterms:subject [
         (disco:inputVariable).
 	  </p>
 	  
-	  <p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
-	  </p>
-	  
     </section>
 
     <section>
@@ -1166,14 +1090,6 @@ ex:study1 dcterms:subject [
         all with the cardinalities 0 to n on both sides. 		
       </p>
 	  
-	  <p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
-	  </p>
-	  
     </section>
 
     <section>
@@ -1207,14 +1123,6 @@ ex:study1 dcterms:subject [
 		    CategoryStatistics may be connected with 0 to n skos:Concepts using the property disco:statisticsCategory
         and skos:Concepts representing codes (values) and categories (value labels) may be in 0 to n of such
         relationships. 		
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
 	  </p>
 	  
     </section>
@@ -1285,14 +1193,6 @@ ex:study1 dcterms:subject [
 		  
 	  </p>
 	  
-	  <p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
-	  </p>
-	  
     </section>
 
     <section>
@@ -1325,14 +1225,6 @@ ex:study1 dcterms:subject [
         The top concept in a specific ConceptScheme is indicated by skos:hasTopConcept pointing 
 		to 0 to n top skos:Concept. A specific skos:Concept may be the top concept to multiple
         (0 - n) skos:ConceptSchemes.		
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
 	  </p>
 	  
     </section>
@@ -1371,14 +1263,6 @@ ex:study1 dcterms:subject [
 		with Questions, Variables, and VariableDefinitions.
 	  </p>
 	  
-	  <p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
-	  </p>
-	  
     </section>
 
     </section>
@@ -1415,14 +1299,6 @@ ex:study1 dcterms:subject [
 		Particular Questions may be contained in 0 to n Questionnaires.
 	  </p>
 	  
-	  <p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
-	  </p>
-	  
     </section>
 
     <section>
@@ -1442,14 +1318,6 @@ ex:study1 dcterms:subject [
 		Particular Universes may be connected with 0 to n Questions.
 		Skos:Concepts are associated with 0 to n Questions.
       </p>
-	  
-	  <p>
-	    <font color="#FF0000">[example]</font>
-	  </p>
-	  
-	  <p>
-	    <font color="#FF0000">[table with datatype and object properties]</font>
-	  </p>
 	  
     </section>
 
