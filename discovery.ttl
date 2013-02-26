@@ -50,6 +50,7 @@
 # AnalysisUnit class
 disco:AnalysisUnit a rdfs:Class, owl:Class;
     rdfs:label "analysis unit"@en, "Analyseeinheit"@de;
+	rdfs:comment "The process collecting data is focusing on the analysis of a particular type of subject. If, for example, the adult population of Finland is being studied, the AnalysisUnit would be individuals or persons."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
     rdfs:subClassOf skos:Concept.
 
@@ -62,30 +63,33 @@ disco:DataDiscoveryDocument a rdfs:Class, owl:Class;
 # VariableDefinition class
 disco:VariableDefinition a rdfs:Class, owl:Class;
     rdfs:label "Data element"@en, "Élément de donnée"@fr;
-    rdfs:comment "It is recommended to use Dublin Core terms (identifier, description) and SKOS labels to describe the data element."@en;
+    rdfs:comment "TODO"@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # DataFile class
 disco:DataFile a rdfs:Class, owl:Class;
     rdfs:label "Data file"@en, "Fichier de données"@fr;
-    rdfs:comment "It is recommended to use Dublin Core terms (identifier, description, provenance, format) to describe the file; owl:versionInfo can also be used."@en ;
+    rdfs:comment "The class DataFile, which is also a dcterms:Dataset, represents all the data files containing the microdata datasets."@en ;
     rdfs:subClassOf dcat:Distribution;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # DescriptiveStatistics class
 disco:DescriptiveStatistics a rdfs:Class, owl:Class;
     rdfs:label "Descriptive statistics"@en, "Statistique descriptive"@fr;
+	rdfs:comment "SummaryStatistics pointing to variables and CategoryStatistics pointing to categories and codes are both descriptive statistics."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # SummaryStatistics class
 disco:SummaryStatistics a rdfs:Class, owl:Class;
     rdfs:label "Summary statistics"@en;
+	rdfs:comment "SummaryStatistics pointing to variables."@en;
     rdfs:subClassOf disco:DescriptiveStatistics;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # CategoryStatistics class
 disco:CategoryStatistics a rdfs:Class, owl:Class;
     rdfs:label "Category statistics"@en;
+	rdfs:comment "CategoryStatistics pointing to categories and codes."@en;
     rdfs:subClassOf disco:DescriptiveStatistics;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
@@ -98,7 +102,7 @@ disco:Instrument a rdfs:Class, owl:Class;
 # LogicalDataSet class
 disco:LogicalDataSet a rdfs:Class, owl:Class;
     rdfs:label "LogicalDataSet"@en, "Ensemble de données"@fr;
-    rdfs:comment "It is recommended to use Dublin Core term hasPart to express that a logical dataset belongs to a study."@en;
+    rdfs:comment "Each study has a set of logical metadata associated with the processing of data, at the time of collection or later during cleaning, and re-coding. LogicalDataSet represents the microdata dataset."@en;
     rdfs:subClassOf dcat:Dataset;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
