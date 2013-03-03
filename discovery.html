@@ -1414,7 +1414,7 @@ WHERE {
     disco:variable ?variable .
 
   ?studyGroup dcterms:title ?studyGroupTitle .
-  ?studyGroup dcterms:title ?studyGroupAbstract .
+  ?studyGroup dcterms:abstract ?studyGroupAbstract .
 
   ?variable disco:concept ?variableConcept .
   FILTER (regex(?variableConcept, "species", "i"))
