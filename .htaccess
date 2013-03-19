@@ -3,8 +3,8 @@ RewriteRule ^$ http://rdf-vocabulary.ddialliance.org/discovery [R=302]
 
 #content negotiation for providing RDF or documentation
 DirectoryIndex discovery
-AddType text/html;charset=UTF-8 .html
-AddType application/xhtml+xml;charset=UTF-8 .html
-AddType text/turtle;charset=UTF-8 .ttl
-AddType text/rdf+n3;charset=UTF-8 .n3
+AddType text/html .html
+AddType application/xhtml+xml .html
+AddType text/turtle .ttl
+AddType text/rdf+n3 .n3
 AddType application/rdf+xml .rdf
