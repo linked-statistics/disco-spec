@@ -6,5 +6,6 @@ DirectoryIndex discovery
 AddType text/html .html
 AddType application/xhtml+xml .html
 AddType text/turtle .ttl
+AddType application/x-turtle .ttl
 AddType text/rdf+n3 .n3
 AddType application/rdf+xml .rdf
