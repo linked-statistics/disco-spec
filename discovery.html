@@ -1229,6 +1229,31 @@ ex:study1 dcterms:subject [
         (0 - n) skos:ConceptSchemes.		
 	  </p>
 	  
+	    <section>
+        <h4>uses of skos:Concept</h4>
+        
+        <p>
+          In this sub-section, we will describe all possible uses of the class skos:Concept.
+          <ul>
+            <li><b>Code values: </b>Code values are represented using the datatype property skos:notation with skos:Concept as domain.</li>
+            <li><b>Category labels: </b>Use skos:prefLabel and the domain class skos:Concept to describe category values</li>
+            <li><b>DDI concepts: </b>DDI concepts are described by the property skos:prefLabel pointing from skos:Concept classes.</li>
+            <li><b>Hierarchies of DDI concepts: </b>Hierarchies of DDI concepts can be built using the object peoperties skos:broader and skos:narrower. The domains and the ranges of skos:broader and skos:narrower are skos:Concepts. </li> 
+            <li><b>Organization in skos:ConceptSchemes: </b>Skos.Concepts may be organized in skos:ConceptSchemes by means of skos:inScheme. The top concept in a specific ConceptScheme is indicated by skos:hasTopConcept pointing to top skos:Concepts.</li>
+            <li><b>Topical coverage: </b>Topical coverage can be expressed using dcterms:subject. DDI-RDF foresees the use of skos:Concept for the description of topical coverage. Spatial, temporal, and topical coverage are directly attached to studies, logical datasets, and datafiles.</li>
+            <li><b>Category linked to CategoryStatistics: </b>CategoryStatistics like frequencies and percentages are associated to the respectve Category using the object property statisticsCategory. Skos:Concept represents categories.</li>
+            <li><b>Concepts of questions: </b>Questions are associated with concepts via the object property concept.</li>
+            <li><b>Universe: </b>Each universe is also a skos:Concept. Therefore the porperties defined for skos:Concept can be reused for universes.</li>
+            <li><b>Collection Mode: </b>Questionnaires may have multiple collection modes which are represented by skos:Concepts.</li>
+            <li><b>Concepts of variable definitions: </b>Variable definitions are associated with concepts via the object property concept.</li>
+            <li><b>Concepts of variables: </b>Variables are linked to concepts via the object property concept.</li>
+            <li><b>Kind of data: </b>KindOfData describes, with a string or a term from a controlled vocabulary, the kind of data documented in the logical product(s) of a Study. Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc. The range of kindOfData is skos:Concept</li>
+            <li><b>Format of data files: </b> Using the object property dcterms:format, DataFiles formats can be defined. DataFiles must have exactly 1 dcterms:format relationship to an instance of the class dcterms:MediaTypeOrExtend which is a sub-class of skos:Concept.</li>
+            <li><b>AnalysisUnit: </b>Each analysis unit is also a skos:Concept. Therefore the porperties defined for skos:Concept can be reused for analysis units.</li>
+          </ul>
+        </p>
+      </section>
+	  
     </section>
 
     <section>
