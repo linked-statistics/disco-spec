@@ -1381,7 +1381,10 @@ ex:study1 dcterms:subject [
        <section>
             <h3>Overview of the Mapping from DDI-C and DDI-L to DDI-RDF</h3>
             
-<table id="tableOverviewMapping" style="text-align: left; width: 80%;" alt="Overview of the Mapping from DDI-C to DDI-RDF">
+              <section>
+                <h4>Studies and StudyGroups</h4>
+            
+<table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br></td>
@@ -1392,55 +1395,334 @@ ex:study1 dcterms:subject [
       <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br></td>
     </tr>
     <tr>
-      <td>1<br>
-      </td>
-      <td>variable<br>
-      </td>
-      <td>Study<br>
-      </td>
-      <td>Variable<br>
-      </td>
-      <td> X <br></td>
-      <td> X <br></td>
-    </tr>
+      <td>1</td>
+      <td>universe</td>
+      <td>union of Study and StudyGroup</td>
+      <td>Universe</td>
+      <td></td>
+      <td></td>
+    </tr>    
     <tr>
-      <td>2<br>
-      </td>
-      <td>dcterms:abstract<br>
-      </td>
-      <td>Union of Study and StudyGroup<br>
-      </td>
-      <td>rdf:langString<br>
-      </td>
-      <td> X <br></td>
-      <td> X <br></td>
-    </tr>
+      <td>2</td>
+      <td>dcterms:subject</td>
+      <td>union of Study and StudyGroup</td>
+      <td>skos:Concept</td>
+      <td></td>
+      <td></td>
+    </tr>  
     <tr>
-      <td>3<br>
-      </td>
-      <td>dcterms:alternative<br>
-      </td>
-      <td>Union of Study and StudyGroup<br>
-      </td>
-      <td>rdf:langString<br>
-      </td>
-      <td> X <br></td>
-      <td> X <br></td>
-    </tr>
+      <td>3</td>
+      <td>kindOfData</td>
+      <td>union of Study and StudyGroup</td>
+      <td>skos:Concept</td>
+      <td></td>
+      <td></td>
+    </tr>  
     <tr>
-      <td>4<br>
-      </td>
-      <td>dcterms:available<br>
-      </td>
-      <td>Union of Study and StudyGroup<br>
-      </td>
-      <td>rdf:langString<br>
-      </td>
-      <td> - <br></td>
-      <td> X <br></td>
-    </tr>
+      <td>4</td>
+      <td>analysisUnit</td>
+      <td>union of Study and StudyGroup</td>
+      <td>AnalysisUnit</td>
+      <td></td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>5</td>
+      <td>instrument</td>
+      <td>Study</td>
+      <td>Instrument</td>
+      <td></td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>6</td>
+      <td>inGroup</td>
+      <td>Study</td>
+      <td>StudyGroup</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>dataFile</td>
+      <td>Study</td>
+      <td>DataFile</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>8</td>
+      <td>variable</td>
+      <td>Study</td>
+      <td>Variable</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>9</td>
+      <td>product</td>
+      <td>Study</td>
+      <td>LogicalDataSet</td>
+      <td></td>
+      <td></td>
+    </tr> 
   </tbody>
 </table>
+
+          </section>
+          
+          <section>
+                <h4>Data Sets, Data Files, and Descriptive Statistics</h4>
+                
+<table style="text-align: left; width: 80%;">
+  <tbody>
+    <tr>
+      <td style="font-weight: bold;">#<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br></td>
+    </tr>  
+      <td>17</td>
+      <td>instrument</td>
+      <td>LogicalDataSet</td>
+      <td>Instrument</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>18</td>
+      <td>dataFile</td>
+      <td>LogicalDataSet</td>
+      <td>DataFile</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>19</td>
+      <td>aggregation</td>
+      <td>LogicalDataSet</td>
+      <td>qb:DataSet</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>20</td>
+      <td>containsVariable</td>
+      <td>LogicalDataSet</td>
+      <td>Variable</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>21</td>
+      <td>universe</td>
+      <td>LogicalDataSet</td>
+      <td>Universe</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>31</td>
+      <td>inputVariable</td>
+      <td>qb:DataSet</td>
+      <td>Variable</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>32</td>
+      <td>statisticsVariable</td>
+      <td>SummaryStatistics</td>
+      <td>Variable</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>33</td>
+      <td>statisticsDataFile</td>
+      <td>DescriptiveStatistics</td>
+      <td>DataFile</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>34</td>
+      <td>statisticsCategory</td>
+      <td>CategoryStatistics</td>
+      <td>skos:Concept</td>
+      <td></td>
+      <td></td>
+    </tr> 
+  </tbody>
+</table>
+                
+          </section>
+          
+          <section>
+                <h4>Variables, Variable Definitions, Representations, and Concepts</h4>
+                
+<table style="text-align: left; width: 80%;">
+  <tbody>
+    <tr>
+      <td style="font-weight: bold;">#<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>skos:inScheme</td>
+      <td>skos:Concept</td>
+      <td>skos:ConceptScheme</td>
+      <td></td>
+      <td></td>
+    </tr>     
+    <tr>
+      <td>7</td>
+      <td>skos:hasTopConcept</td>
+      <td>skos:ConceptScheme</td>
+      <td>skos:Concept</td>
+      <td></td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>22</td>
+      <td>question</td>
+      <td>Variable</td>
+      <td>Question</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>23</td>
+      <td>universe</td>
+      <td>Variable</td>
+      <td>Universe</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>24</td>
+      <td>analysisUnit</td>
+      <td>Variable</td>
+      <td>AnalysisUnit</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>25</td>
+      <td>concept</td>
+      <td>Variable</td>
+      <td>skos:Concept</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>26</td>
+      <td>representation</td>
+      <td>Variable</td>
+      <td>Representation</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>27</td>
+      <td>basedOn</td>
+      <td>Variable</td>
+      <td>VariableDefinition</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>28</td>
+      <td>concept</td>
+      <td>VariableDefinition</td>
+      <td>skos:Concept</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>29</td>
+      <td>universe</td>
+      <td>VariableDefinition</td>
+      <td>Universe</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>30</td>
+      <td>representation</td>
+      <td>VariableDefinition</td>
+      <td>Representation</td>
+      <td></td>
+      <td></td>
+    </tr> 
+  </tbody>
+</table>
+                
+          </section>
+          
+          <section>
+                <h4>Data Collection</h4>
+                
+<table style="text-align: left; width: 80%;">
+  <tbody>
+    <tr>
+      <td style="font-weight: bold;">#<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br></td>
+    </tr>
+     <tr>
+      <td>1</td>
+      <td>universe</td>
+      <td>Question</td>
+      <td>Universe</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>2</td>
+      <td>concept</td>
+      <td>Question</td>
+      <td>skos:Concept</td>
+      <td></td>
+      <td></td>
+    </tr>    
+    <tr>
+      <td>3</td>
+      <td>responseDomain</td>
+      <td>Question</td>
+      <td>Representation</td>
+      <td></td>
+      <td></td>
+    </tr>    
+    <tr>
+      <td>4</td>
+      <td>question</td>
+      <td>Questionnaire</td>
+      <td>Question</td>
+      <td></td>
+      <td></td>
+    </tr>    
+    <tr>
+      <td>5</td>
+      <td>collectionMode</td>
+      <td>Questionnaire</td>
+      <td>skos:Concept</td>
+      <td></td>
+      <td></td>
+    </tr>    
+  </tbody>
+</table>
+                
+          </section>
             
         </section>
         
