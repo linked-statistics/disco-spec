@@ -4,8 +4,8 @@
     <title>DDI-RDF Discovery Vocabulary</title>
     <meta charset='utf-8'>
     <style type="text/css">
-        table { border: black 1px solid; border-collapse:collapse; border-spacing: 0;  }
-        table td { border: black 1px solid; padding: 3px; text-align: center; vertical-align: top;}
+        table { border: black 1px solid; border-collapse:collapse; border-spacing: 0; }
+        table td { border: black 1px solid; padding: 3px; padding-left: 10px; padding-right: 10px; text-align: center; vertical-align: top;}
     </style>
     <script src='http://darobin.github.com/respec/builds/respec-w3c-common.js' class='remove'></script>
     <script class='remove'>
@@ -1384,7 +1384,7 @@ ex:study1 dcterms:subject [
               <section>
                 <h4>Studies and StudyGroups</h4>
             
-<table style="text-align: left; width: 80%;">
+<table>
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br></td>
@@ -1423,6 +1423,54 @@ ex:study1 dcterms:subject [
       <td>analysisUnit</td>
       <td>union of Study and StudyGroup</td>
       <td>AnalysisUnit</td>
+      <td></td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>4</td>
+      <td>dcterms:abstract</td>
+      <td>union of Study and StudyGroup</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>4</td>
+      <td>dcterms:alternative</td>
+      <td>union of Study and StudyGroup</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>4</td>
+      <td>dcterms:available</td>
+      <td>union of Study and StudyGroup</td>
+      <td>xsd:dateTime</td>
+      <td></td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>4</td>
+      <td>dcterms:title</td>
+      <td>union of Study and StudyGroup</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>4</td>
+      <td>purpose</td>
+      <td>union of Study and StudyGroup</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>4</td>
+      <td>subtitle</td>
+      <td>union of Study and StudyGroup</td>
+      <td>rdf:langString</td>
       <td></td>
       <td></td>
     </tr>  
@@ -1466,9 +1514,155 @@ ex:study1 dcterms:subject [
       <td></td>
       <td></td>
     </tr> 
+    <tr>
+      <td>9</td>
+      <td>owl:versionInfo</td>
+      <td>Study</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr> 
+     <tr>
+      <td>9</td>
+      <td>skos:definition</td>
+      <td>Universe</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr> 
   </tbody>
 </table>
 
+          </section>
+          
+          <section>
+                <h4>General Metdata</h4>
+                
+<table style="text-align: left; width: 80%;">
+  <tbody>
+    <tr>
+      <td style="font-weight: bold;">#<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>ddi2_1Identifier</td>
+      <td>rdfs:Resource</td>
+      <td>xsd:anyURI</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>10</td>
+      <td>ddi2_5Identifier</td>
+      <td>rdfs:Resource</td>
+      <td>xsd:anyURI</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>10</td>
+      <td>ddi3_0Identifier</td>
+      <td>rdfs:Resource</td>
+      <td>xsd:anyURI</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>10</td>
+      <td>ddi3_1Identifier</td>
+      <td>rdfs:Resource</td>
+      <td>xsd:anyURI</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>10</td>
+      <td>ddi3_2Identifier</td>
+      <td>rdfs:Resource</td>
+      <td>xsd:anyURI</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>10</td>
+      <td>skos_prefLabel</td>
+      <td>rdfs:Resource</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>10</td>
+      <td>dcterms:relation</td>
+      <td>rdfs:Resource</td>
+      <td>foaf:Document</td>
+      <td></td>
+      <td></td>
+    </tr> 
+     <tr>
+      <td>10</td>
+      <td>dcterms:description</td>
+      <td>dcterms:RightsStatement</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>11</td>
+      <td>skos:prefLabel</td>
+      <td>dcterms:RightsStatement</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>12</td>
+      <td>rdfs:seeAlso</td>
+      <td>dcterms:RightsStatement</td>
+      <td>foaf:Document</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>12</td>
+      <td>skos:prefLabel</td>
+      <td>dcterms:PeriodOfTime</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>12</td>
+      <td>startDate</td>
+      <td>dcterms:PeriodOfTime</td>
+      <td>xsd:date</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>12</td>
+      <td>endDate</td>
+      <td>dcterms:PeriodOfTime</td>
+      <td>xsd:Date</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>12</td>
+      <td>skos:prefLabel</td>
+      <td>dcterms:MediaTypeOrExtent</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr> 
+  </tbody>
+</table>
+                
           </section>
           
           <section>
@@ -1484,7 +1678,7 @@ ex:study1 dcterms:subject [
       <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br></td>
       <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br></td>
     </tr>  
-      <td>17</td>
+      <td>1</td>
       <td>instrument</td>
       <td>LogicalDataSet</td>
       <td>Instrument</td>
@@ -1492,7 +1686,7 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>18</td>
+      <td>2</td>
       <td>dataFile</td>
       <td>LogicalDataSet</td>
       <td>DataFile</td>
@@ -1500,7 +1694,7 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>19</td>
+      <td>3</td>
       <td>aggregation</td>
       <td>LogicalDataSet</td>
       <td>qb:DataSet</td>
@@ -1508,7 +1702,7 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>20</td>
+      <td>4</td>
       <td>containsVariable</td>
       <td>LogicalDataSet</td>
       <td>Variable</td>
@@ -1516,7 +1710,7 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>21</td>
+      <td>5</td>
       <td>universe</td>
       <td>LogicalDataSet</td>
       <td>Universe</td>
@@ -1524,7 +1718,39 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>31</td>
+      <td>6</td>
+      <td>dcterms:title</td>
+      <td>LogicalDataSet</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>isPublic</td>
+      <td>LogicalDataSet</td>
+      <td>xsd:boolean</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>8</td>
+      <td>dcterms:accessRights</td>
+      <td>LogicalDataSet</td>
+      <td>dcterms:RightsStatement</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>9</td>
+      <td>dcterms:license</td>
+      <td>LogicalDataSet</td>
+      <td>dcterms:LicenseDocument</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>6</td>
       <td>inputVariable</td>
       <td>qb:DataSet</td>
       <td>Variable</td>
@@ -1532,15 +1758,71 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>32</td>
-      <td>statisticsVariable</td>
-      <td>SummaryStatistics</td>
-      <td>Variable</td>
+      <td>8</td>
+      <td>caseQuantity</td>
+      <td>DataFile</td>
+      <td>xsd:nonNegativeInteger</td>
       <td></td>
       <td></td>
     </tr> 
     <tr>
-      <td>33</td>
+      <td>8</td>
+      <td>dcterms:description</td>
+      <td>DataFile</td>
+      <td>rdf:langstring</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>8</td>
+      <td>owl:versioninfo</td>
+      <td>DataFile</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>8</td>
+      <td>dcterms:temporal</td>
+      <td>DataFile</td>
+      <td>dcterms:PeriodOfTime</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>8</td>
+      <td>dcterms:spatial</td>
+      <td>DataFile</td>
+      <td>dcterms:Location</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>8</td>
+      <td>dcterms:provenance</td>
+      <td>DataFile</td>
+      <td>dcterms:ProvenanceStatement</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>8</td>
+      <td>dcterms:subject</td>
+      <td>DataFile</td>
+      <td>skos:Concept</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>8</td>
+      <td>dcterms:format</td>
+      <td>DataFile</td>
+      <td>dcterms:MediaTypeOrExtend</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>8</td>
       <td>statisticsDataFile</td>
       <td>DescriptiveStatistics</td>
       <td>DataFile</td>
@@ -1548,10 +1830,170 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>34</td>
+      <td>7</td>
+      <td>statisticsVariable</td>
+      <td>SummaryStatistics</td>
+      <td>Variable</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>invalidcases</td>
+      <td>SummaryStatistics</td>
+      <td>xsd:nonNegativeInteger</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>maximum</td>
+      <td>SummaryStatistics</td>
+      <td>xsd:decimal</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>mean</td>
+      <td>SummaryStatistics</td>
+      <td>xsd:decimal</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>median</td>
+      <td>SummaryStatistics</td>
+      <td>xsd:decimal</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>minimum</td>
+      <td>SummaryStatistics</td>
+      <td>xsd:decimal</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>mode</td>
+      <td>SummaryStatistics</td>
+      <td>xsd:decimal</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>standardDeviation</td>
+      <td>SummaryStatistics</td>
+      <td>xsd:decimal</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>validCases</td>
+      <td>SummaryStatistics</td>
+      <td>xsd:nonNegativeInteger</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>weightedInvalidCases</td>
+      <td>SummaryStatistics</td>
+      <td>xsd:nonNegativeInteger</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>weightedMean</td>
+      <td>SummaryStatistics</td>
+      <td>xsd:decimal</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>weightedMedian</td>
+      <td>SummaryStatistics</td>
+      <td>xsd:decimal</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>weightedMode</td>
+      <td>SummaryStatistics</td>
+      <td>xsd:decimal</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>weightedValidCases</td>
+      <td>SummaryStatistics</td>
+      <td>xsd:nonNegativeInteger</td>
+      <td></td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>9</td>
       <td>statisticsCategory</td>
       <td>CategoryStatistics</td>
       <td>skos:Concept</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>9</td>
+      <td>cumulativePercentage</td>
+      <td>CategoryStatistics</td>
+      <td>xsd:decimal</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>9</td>
+      <td>frequency</td>
+      <td>CategoryStatistics</td>
+      <td>xsd:nonNegativeInteger</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>9</td>
+      <td>percentage</td>
+      <td>CategoryStatistics</td>
+      <td>xsd:decimal</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>9</td>
+      <td>weightedCumulativePercentage</td>
+      <td>CategoryStatistics</td>
+      <td>xsd:decimal</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>9</td>
+      <td>weightedFrequency</td>
+      <td>CategoryStatistics</td>
+      <td>xsd:nonNegativeInteger</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>9</td>
+      <td>weightedPercentage</td>
+      <td>CategoryStatistics</td>
+      <td>xsd:decimal</td>
       <td></td>
       <td></td>
     </tr> 
@@ -1574,7 +2016,7 @@ ex:study1 dcterms:subject [
       <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br></td>
     </tr>
     <tr>
-      <td>6</td>
+      <td>1</td>
       <td>skos:inScheme</td>
       <td>skos:Concept</td>
       <td>skos:ConceptScheme</td>
@@ -1582,7 +2024,7 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr>     
     <tr>
-      <td>7</td>
+      <td>2</td>
       <td>skos:hasTopConcept</td>
       <td>skos:ConceptScheme</td>
       <td>skos:Concept</td>
@@ -1590,7 +2032,47 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr>  
     <tr>
-      <td>22</td>
+      <td>3</td>
+      <td>skos:broader</td>
+      <td>skos:Concept</td>
+      <td>skos:Concept</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>4</td>
+      <td>skos:narrower</td>
+      <td>skos:Concept</td>
+      <td>skos:Concept</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>5</td>
+      <td>skos:definition</td>
+      <td>skos:Concept</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>6</td>
+      <td>skos:notation</td>
+      <td>skos:Concept</td>
+      <td>rdfs:Literal</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>7</td>
+      <td>skos:prefLabel</td>
+      <td>skos:Concept</td>
+      <td>rdf:LangString</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>3</td>
       <td>question</td>
       <td>Variable</td>
       <td>Question</td>
@@ -1598,7 +2080,7 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>23</td>
+      <td>4</td>
       <td>universe</td>
       <td>Variable</td>
       <td>Universe</td>
@@ -1606,7 +2088,7 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>24</td>
+      <td>5</td>
       <td>analysisUnit</td>
       <td>Variable</td>
       <td>AnalysisUnit</td>
@@ -1614,7 +2096,7 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>25</td>
+      <td>6</td>
       <td>concept</td>
       <td>Variable</td>
       <td>skos:Concept</td>
@@ -1622,7 +2104,7 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>26</td>
+      <td>7</td>
       <td>representation</td>
       <td>Variable</td>
       <td>Representation</td>
@@ -1630,7 +2112,7 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>27</td>
+      <td>8</td>
       <td>basedOn</td>
       <td>Variable</td>
       <td>VariableDefinition</td>
@@ -1638,7 +2120,31 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>28</td>
+      <td>8</td>
+      <td>dcterms:description</td>
+      <td>Variable</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>8</td>
+      <td>skos:notation</td>
+      <td>Variable</td>
+      <td>rdfs:Literal</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>8</td>
+      <td>skos:prefLabel</td>
+      <td>Variable</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>9</td>
       <td>concept</td>
       <td>VariableDefinition</td>
       <td>skos:Concept</td>
@@ -1646,7 +2152,7 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>29</td>
+      <td>10</td>
       <td>universe</td>
       <td>VariableDefinition</td>
       <td>Universe</td>
@@ -1654,10 +2160,26 @@ ex:study1 dcterms:subject [
       <td></td>
     </tr> 
     <tr>
-      <td>30</td>
+      <td>11</td>
       <td>representation</td>
       <td>VariableDefinition</td>
       <td>Representation</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>11</td>
+      <td>dcterms:description</td>
+      <td>VariableDefinition</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>11</td>
+      <td>skos:prefLabel</td>
+      <td>VariableDefinition</td>
+      <td>rdf:langString</td>
       <td></td>
       <td></td>
     </tr> 
@@ -1703,6 +2225,22 @@ ex:study1 dcterms:subject [
       <td></td>
       <td></td>
     </tr>    
+     <tr>
+      <td>4</td>
+      <td>questionText</td>
+      <td>Question</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr>  
+     <tr>
+      <td>3</td>
+      <td>skos:prefLabel</td>
+      <td>Question</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr>  
     <tr>
       <td>4</td>
       <td>question</td>
@@ -1718,7 +2256,31 @@ ex:study1 dcterms:subject [
       <td>skos:Concept</td>
       <td></td>
       <td></td>
+    </tr>  
+    <tr>
+      <td>5</td>
+      <td>externalDocumentation</td>
+      <td>Instrument</td>
+      <td>foaf:Document</td>
+      <td></td>
+      <td></td>
     </tr>    
+    <tr>
+      <td>5</td>
+      <td>dcterms:description</td>
+      <td>Instrument</td>
+      <td>rdf:langString</td>
+      <td></td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>5</td>
+      <td>skos:prefLabel</td>
+      <td>Instrument</td>
+      <td>rdf:langString  </td>
+      <td></td>
+      <td></td>
+    </tr> 
   </tbody>
 </table>
                 
