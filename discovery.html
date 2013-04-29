@@ -428,9 +428,18 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
     # stdyInfo/notes currently not represented. 
     disco:variable <#AR80A401>, <#AR80A402>, <#AR80A404>, <#AR80A407>, <#AR80A411>.
 </pre>
+	  
+      <p>While the sampling methodology may not be of great interest
+        for those searching for data, one field within this section is:
+        the “universe”, that is, the population being studied. Figure 3
+        gives us an example of this information.</p>
+        
+      <div class="figure">
+        <img src="images/example-universe.png" alt="Coverage and universe">
+      </div>
+        
+      <p>Thus, the study refers to a specific universe.</p>
 	
-	The study refers to a specific universe.
-	 
 <pre class="example">
 <#universe> a disco:Universe;
     skos:definition "All the population in the national territory at the moment the census is carried out."@en .
@@ -443,16 +452,22 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       <pre class="example">
 <#dataset> a disco:LogicalDataset;
     disco:instrument <#questionnaire>;
-    dcterms:accessRights <accessRights>;
+    dcterms:accessRights <#accessRights>;
     disco:dataFile <#datafile>;
     disco:containsVariable <#AR80A401>, <#AR80A402>, <#AR80A404>, <#AR80A407>, <#AR80A411>.
 
-<accessRights> dcterms:description "IPUMS-International distributes integrated microdata of individuals and households only by agreement ... designed to extend this record.";
+<#accessRights> dcterms:description "IPUMS-International distributes integrated microdata of individuals and households only by agreement ... designed to extend this record.";
     rdfs:seeAlso <http://microdata.worldbank.org/index.php/catalog/442/accesspolicy>.
-    
 </pre>
 
-	The Units of Analysis and Kind of Data further describe the study.
+      <p>Figure 4 shows us the information about access policies,
+        which typically is of interest to those searching for data.</p>
+
+      <div class="figure">
+        <img src="images/example-access-policy.png" alt="Access policy">
+      </div>
+      
+      <p>The Units of Analysis and Kind of Data further describe the study.</p>
 
       <pre class="example">
 
@@ -464,8 +479,19 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	
 </pre>
 	
-	The questionnaire contains several questions; in this example, we represent three of them. Each 
-	question does have a text.
+      <p>In some cases we may have a lot of information about the
+        questionnaires used, and it is very common to search for data by
+        the text of the question used to collect it. Sometimes there
+        will be a PDF of a questionnaire, and sometimes question text
+        may be linked to individual variables within a file. In this
+        case, we have only a textual description of the set of forms
+        used in the census (Figure 5).</p>
+      
+      <div class="figure">
+        <img src="images/example-questionnaires.png" alt="Questionnaires">
+      </div>
+	
+	<p>The following example illustrates three questions. Each question does have a text.</p>
 
       <pre class="example">
 <#questionnaire> a disco:Questionnaire;
@@ -483,8 +509,20 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
     disco:questionText "6. [Immigration status] Only for persons who have usual residence in Argentina and were born in another country. [Questions 6A and 6B asked only of persons born outside Argentina and who currently reside in Argentina.] B. Are you a naturalized citizen of Argentina? [] Yes [] No [] Unanswered"@en.
 
 </pre>
-	
-	Any variable has a text and is based on a variable definition.
+      <p>In Figure 6 we see the list of variables contained in the
+        data file. For each of these we will also have a detailed view,
+        showing the codes and categories used to encode the actual
+        responses in the variables (Figure 7).</p>
+      
+      <div class="figure">
+        <img src="images/example-variable-list.png" alt="Variables list">
+      </div>
+      
+      <div class="figure">
+        <img src="images/example-variable-detail.png" alt="Variable details">
+      </div>
+      
+      <p>Any variable has a text and is based on a variable definition.</p>
 
       <pre class="example">
 
@@ -615,7 +653,16 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
 </pre>
 	
-	DDI concepts can be hierarchically structured. 
+      <p>At the bottom of the screen showing the variable detail, we
+        can see that the variable for roofing material is associated
+        with a high-level concept, “Dwelling characteristics variables.”
+        (Figure 8.)</p>
+      
+      <div class="figure">
+        <img src="images/example-concept.png" alt="Concept-variable link">
+      </div>
+	
+      <p>Also in DISCO, DDI concepts can be hierarchically structured</p>
 	
       <pre class="example">
 
@@ -652,7 +699,15 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
 </pre>
 
-	Finally, the data file more concretely describes the actual physical file. 
+
+      <p>Next we find some general information about the data files
+        produced by this study (Figure 9).</p>
+      
+      <div class="figure">
+        <img src="images/example-general-data-file-info.png" alt="General data set information">
+      </div>
+
+      <p>Finally, the data file more concretely describes the actual physical file.</p>
 	
       <pre class="example">
 
@@ -673,64 +728,6 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
 </pre>
 
-	XXX: The example more closely needs to be interlinked with the screenshots and descriptions.
-
-      <div class="figure">
-        <img src="images/example-access-policy.png" alt="Access policy">
-      </div>
-
-      <p>Figure 2 shows us the information about access policies,
-      which typically is of interest to those searching for data.</p>
-
-      <div class="figure">
-        <img src="images/example-universe.png" alt="Coverage and universe">
-      </div>
-
-      <p>While the sampling methodology may not be of great interest
-      for those searching for data, one field within this section is:
-      the “universe”, that is, the population being studied. Figure 3
-      gives us an example of this information.</p>
-
-      <p>In some cases we may have a lot of information about the
-      questionnaires used, and it is very common to search for data by
-      the text of the question used to collect it. Sometimes there
-      will be a PDF of a questionnaire, and sometimes question text
-      may be linked to individual variables within a file. In this
-      case, we have only a textual description of the set of forms
-      used in the census (Figure 4).</p>
-
-      <div class="figure">
-        <img src="images/example-questionnaires.png" alt="Questionnaires">
-      </div>
-
-      <p>Next we find some general information about the data files
-      produced by this study (Figure 5.)</p>
-
-      <div class="figure">
-        <img src="images/example-general-data-file-info.png" alt="General data set information">
-      </div>
-
-      <p>In Figure 6 we see the list of variables contained in the
-      data file. For each of these we will also have a detailed view,
-      showing the codes and categories used to encode the actual
-      responses in the variables (Figure 7).</p>
-
-      <div class="figure">
-        <img src="images/example-variable-list.png" alt="Variables list">
-      </div>
-
-      <div class="figure">
-        <img src="images/example-variable-detail.png" alt="Variable details">
-      </div>
-
-      <p>At the bottom of the screen showing the variable detail, we
-      can see that the variable for roofing material is associated
-      with a high-level concept, “Dwelling characteristics variables.”
-      (Figure 8.)</p>
-
-      <div class="figure">
-        <img src="images/example-concept.png" alt="Concept-variable link">
-      </div>
 
     </section>
 
@@ -4309,6 +4306,7 @@ ex:study1 dcterms:subject [
       <div class="figure">
         <img src="diagrams/object-properties.jpg" alt="Combined UML Diagram (object properties only)">
       </div>
+      <p>The source file of this diagram can be found <a href="diagrams/object-properties.jpg">here</a>.</p>
     </section>
 
     <section class='appendix'>
