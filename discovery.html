@@ -157,7 +157,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       standard queries to programmatically identify data sets, whether
       made available by government or held within a data archive.</p>
       
-      <p>The document [<cite><a class="bibref" href="#bib-Scenarios">Scenarios</a></cite> by Vompras, Gregory, Bosch, Capadisli, and Wackerow describes typical use cases for the applicability of the DDI-RDF Discovery vocabulary. In the Section <a class="bibref" href="#example-queries">Example Queries</a> of the Appendix additional discovery use cases are illustrated by several SPARQL queries.</p>
+      <p>The document [<cite><a class="bibref" href="#bib-Scenarios">Scenarios</a></cite>] by Vompras, Gregory, Bosch, Capadisli, and Wackerow describes typical use cases for the applicability of the DDI-RDF Discovery vocabulary. In the Section <a class="bibref" href="#example-queries">Example Queries</a> of the Appendix additional discovery use cases are illustrated by several SPARQL queries.</p>
     </section>
 
 
@@ -351,7 +351,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
         <img src="images/example-overview.png">
       </div>
 
-      <p>Figure 1 shows us the overview page for this study, giving us
+      <p>Figure 2 shows us the overview page for this study, giving us
       some basic information - title, an identifier for the study, data producers, year, country, and
       a link to the access policies. If we look at the right-hand
       panel, we see an outline of the metadata contents of the file,
@@ -380,8 +380,9 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  Since a study is an versionable object in DDI, we attach a version to it.
 	  
 	  A study further is described using various additional information, described further below. 
+
       
-<pre>
+<pre class="example">
 <#study> a disco:Study;
     dc:title "National Population and Housing Census, 1980"@en;
     dc:identifier "ARG_1980_PHC_v01_A_IPUMS".
@@ -430,7 +431,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	
 	The study refers to a specific universe.
 	 
-<pre>
+<pre class="example">
 <#universe> a disco:Universe;
     skos:definition "All the population in the national territory at the moment the census is carried out."@en .
 </pre>
@@ -439,7 +440,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	
 	The dataset has a concrete data file that will populate certain variables.
 	
-<pre>
+      <pre class="example">
 <#dataset> a disco:LogicalDataset;
     disco:instrument <#questionnaire>;
     dcterms:accessRights <accessRights>;
@@ -453,7 +454,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
 	The Units of Analysis and Kind of Data further describe the study.
 
-<pre>
+      <pre class="example">
 
 <#analysisUnit> a disco:AnalysisUnit ;
     skos:definition "Dwelling, quarter dwelling, census household, and population"@en .
@@ -466,7 +467,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	The questionnaire contains several questions; in this example, we represent three of them. Each 
 	question does have a text.
 
-<pre>
+      <pre class="example">
 <#questionnaire> a disco:Questionnaire;
     disco:question <#questionGender>;
     disco:question <#questionAge>;
@@ -485,7 +486,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	
 	Any variable has a text and is based on a variable definition.
 
-<pre>
+      <pre class="example">
 
 <#AR80A401> a disco:Variable;
     dc:identifier "AR80A401";
@@ -515,7 +516,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	Also, a variable definition has its own universe (possibly the same as the study, possibly a 
 	narrower one) and (DDI) concepts further describing the variable.   
 
-<pre>
+      <pre class="example">
 
 <#sexVD> a disco:VariableDefinition;
     disco:universe <#universePerson>;
@@ -601,7 +602,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	In our example, two questions are addressing the universe of persons, the third question
 	is addressing a specific subset of the universe of persons.
 
-<pre>
+      <pre class="example">
 
 <#universePerson> a disco:Universe;
     skos:definition "All persons."@en ;
@@ -616,7 +617,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	
 	DDI concepts can be hierarchically structured. 
 	
-<pre>
+      <pre class="example">
 
 <#ipumsCS> a skos:ConceptScheme;
     skos:hasTopConcept <#ipumsC1>.
@@ -633,7 +634,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
 	The usage of a variable definition within a data file can be described using statistics. 
 	
-<pre>
+      <pre class="example">
 
 <#dstat1> a disco:DescriptiveStatistic;
     disco:frequency 13314444;
@@ -653,7 +654,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
 	Finally, the data file more concretely describes the actual physical file. 
 	
-<pre>
+      <pre class="example">
 
 <#datafile> a disco:Datafile;
     dc:identifier "ARG1900-P-H.dat";
@@ -915,14 +916,14 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		which may reference an external document stating the access rights in more detail (rdfs:seeAlso).
 		For dcterms:RightsStatements descriptions (dcterms:description) and labels (skos:prefLabel) can be assigned: 
 	  </p>
-	  <pre>
+	    <pre class="example">
 ex:dataset1 a disco:LogicalDataset ;
   dcterms:accessRights ex:accessRights1 .
 ex:accessRights1 dcterms:description "Everybody may see access this document." ;
   rdfs:seeAlso &lt;http://www.example.org/access.html&gt; . 
 	  </pre>
 	  <p>License information is captured in a <b>dcterms:LicenseDocument</b>, which is a subtype of dcterms:RightsStatement:</p>
-	  <pre>
+	    <pre class="example">
 ex:dataset1 a disco:LogicalDataset ;
   dcterms:license ex:license1 .
 ex:license1 dcterms:description "Published under Open Content License." ;
@@ -947,7 +948,7 @@ ex:license1 dcterms:description "Published under Open Content License." ;
 	    <h3>Coverage of Studies, Logical Datasets, and Data Files</h3>
 		<p>Coverage comprehends the key features of the scope of the data (e.g. geographic product occupation). Studies, logical datasets, and data files may have a spatial, temporal, and topical coverage. Unlike in DDI-XML, there is no dedicated Coverage type in DDI-RDF. In contrast, spatial, temporal, and topical coverage are directly attached to the respective study, logical dataset, and datafile.</p>
 		<p>For spatial coverage, <b>dcterms:spatial</b> is used, pointing to any geographic location (dcterms:Location):</p>
-		<pre>
+	    <pre class="example">
 ex:study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .		
 		</pre>
 		<p>In this example, <a href="http://www.geonames.org/">Geonames</a> is used to refer to a spatial region, in this case, the country Germany. Geonames provides URIs for continents, countries, regions, and cities, among others, and is therefore a possible option to use for describing spatial coverage.</p>
@@ -964,7 +965,7 @@ ex:study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .
 		  A possible way to describe temporal coverage is the use of the <a href="http://www.w3.org/TR/owl-time/">W3C time ontology</a>:
 		</p>
 		
-		<pre>
+	    <pre class="example">
 ex:study1 dcterms:temporal [
   a time:Interval ;
   time:hasBeginning [ time:inXSDDateTime
@@ -979,7 +980,7 @@ ex:study1 dcterms:temporal [
         </div>
 		
 		<p>Topical coverage can be expressed using <b>dcterms:subject</b>. DDI-RDF foresees the use skos:Concept for the description of topical coverage:</p>
-		<pre>
+	    <pre class="example">
 ex:study1 dcterms:subject [
   a skos:Concept ;
   skos:prefLabel "Alcohol consumption" ] .
@@ -1080,7 +1081,15 @@ ex:study1 dcterms:subject [
 		The class DataSet is defined in the RDF Data Cube
         Vocabulary. 0 to n DataSets may point to multiple (0 - n) Variables
         (disco:inputVariable).
-	  </p>
+      </p>
+      
+      <pre class="example">
+<#dataset> a disco:LogicalDataset;
+    dcterms:accessRights <accessRights>;
+    disco:dataFile <#datafile>;
+    disco:instrument <#questionnaire>;
+    disco:containsVariable <#AR80A401>, <#AR80A402>, <#AR80A404>, <#AR80A407>, <#AR80A411>.
+      </pre>
 	  
     </section>
 
@@ -1099,7 +1108,24 @@ ex:study1 dcterms:subject [
 	  
 	  <div class="figure">
         <img src="diagrams/data-file.jpg" alt="DataFile">
-      </div>
+	  </div>
+      
+      <pre class="example">
+      <#datafile> a disco:Datafile;
+        dc:identifier "ARG1900-P-H.dat";
+        dc:description "Person records"@en;
+        disco:caseQuantity 2667714;
+        dc:format "ascii";
+        dc:provenance "Minnesota Population Center"@en;
+        owl:versionInfo "Version 1.0, IPUMS sample"@en;
+        dc:spatial [
+            # This is the DC-strictly compatible way to do it
+            a dc:Location;
+            rdfs:label "Argentina, national coverage"@en
+        ];
+        dc:temporal "PeriodOfTime"@en;
+        dc:subject "To be defined"@en.
+        </pre>
 	  
 	  <p>
         It is possible to describe DataFiles (dcterms:description).
@@ -1150,6 +1176,22 @@ ex:study1 dcterms:subject [
         and skos:Concepts representing codes (values) and categories (value labels) may be in 0 to n of such
         relationships. 		
 	  </p>
+	  
+      <pre class="example">
+      <#dstat1> a disco:DescriptiveStatistic;
+        disco:frequency 13314444;
+        # is that correct?
+        disco:percentage 49.97;
+        disco:hasStatisticsVariable <#AR80A401>;
+        disco:hasStatisticsCategory <#sexM>;
+        disco:hasStatisticsDatafile <#datafile>.
+              
+      <#dstat2> a disco:DescriptiveStatistic;
+        disco:frequency 1336270;
+        disco:hasStatisticsVariable <#AR80A401>;
+        disco:hasStatisticsCategory <#sexF>;
+        disco:hasStatisticsDatafile <#datafile>.
+</pre>	  
 	  
     </section>
 
@@ -1218,7 +1260,55 @@ ex:study1 dcterms:subject [
 		Disco:universe is used to link 1 Universe to 0 to n Variables and 0 to n Universes to 0 to n VariableDefinitions.
 		  
 	  </p>
+	  <p>The following example illustrates the three variables Sex, Age and Citizenship.</p>
 	  
+      <pre class="example">
+      <#AR80A401> a disco:Variable;
+        dc:identifier "AR80A401";
+        skos:prefLabel "Sex"@en, "Sexe"@fr;
+        dc:description "This variable indicates the person's gender."@en;
+        disco:basedOn <#sexVD>;
+        disco:hasQuestion <#questionGender>.
+            
+      <#AR80A402> a disco:Variable;
+        dc:identifier "AR80A402";
+        dc:description "This variable indicates the person's age in years."@en;
+        skos:prefLabel "Age"@en, "Âge"@fr.
+        disco:basedOn <#ageVD>;
+        disco:hasQuestion <#questionAge>.
+                  
+      <#AR80A407> a disco:Variable;
+        dc:identifier "AR80A407";
+        dc:description "This variable indicates whether or not the person is a naturalized citizen of Argentina."@en;
+        skos:prefLabel "Citizenship"@en, "Citoyenneté"@fr;
+        disco:basedOn <#citizenshipVD>;
+        disco:hasQuestion <#questionCitizenship>.
+      </pre>
+      
+      <p>The three variables refer to universe, representations and concepts in their VariableDefinition.</p>
+      
+      <pre class="example">
+      <#sexVD> a disco:VariableDefinition;
+        disco:universe <#universePerson>;
+        disco:representation <#sexRepr>;
+        disco:concept <#ipumsC1>;
+        skos:prefLabel "Sex"@en, "Sexe"@fr;
+        dc:description "Sex data element"@en.
+                                
+	    <#ageVD> a disco:VariableDefinition;
+        disco:universe <#universePerson>;
+        disco:representation <#ageRepr>;
+        disco:concept <#ipumsC1>;
+        skos:prefLabel "Age"@en, "Sexe"@fr;
+        dc:description "Age data element"@en.
+    
+      <#citizenshipVD> a disco:VariableDefinition;
+        disco:universe <#universeNonArgentines>;
+        disco:representation <#citizenshipRepr>;
+        disco:concept <#ipumsC2>;
+        skos:prefLabel "Citizenship"@en;
+        dc:description "Citizenship data element"@en.
+	  </pre>
     </section>
 
     <section>
@@ -1253,8 +1343,23 @@ ex:study1 dcterms:subject [
         (0 - n) skos:ConceptSchemes.		
 	  </p>
 	  
+      <pre class="example">
+        <#sexRepr> a skos:ConceptScheme, disco:Representation;
+          skos:hasTopConcept <#sexM>, <#sexF>.
+          
+        <#sexM> a skos:Concept;
+          skos:notation "1";
+          skos:prefLabel "Male"@en, "Homme"@fr;
+          skos:inScheme <#sexRepr>.
+              
+        <#sexF> a skos:Concept;
+          skos:notation "2";
+          skos:prefLabel "Female"@en, "Femme"@fr;
+          skos:inScheme <#sexRepr>.
+	  </pre>
+	  
 	    <section>
-        <h4>uses of skos:Concept</h4>
+        <h4>Uses of skos:Concept</h4>
         
         <p>
           In this sub-section, we will describe all possible uses of the class skos:Concept.
@@ -1301,6 +1406,19 @@ ex:study1 dcterms:subject [
       <div class="figure">
         <img src="diagrams/representation.jpg" alt="Representation">
       </div>
+      
+      <p>The following example shows the representations of the three previously introduced variables Sex, Age and Citizenship. All of them refer to the particular concepts.</p>
+      
+      <pre class="example">
+        <#sexRepr> a skos:ConceptScheme, disco:Representation;
+          skos:hasTopConcept <#sexM>, <#sexF>.
+            
+      <#ageRepr> a skos:ConceptScheme, disco:Representation;
+        skos:hasTopConcept <#age0>, <#age1>, <#age99>.
+          
+      <#citizenshipRepr> a skos:ConceptScheme, disco:Representation;
+        skos:hasTopConcept <#cYes>, <#cNo>, <#cUnknown>, <#NIU>.    
+	  </pre>
 	  
 	  <p>
 	    Questions (disco:responseDomain), 
@@ -1349,7 +1467,15 @@ ex:study1 dcterms:subject [
 		Questionnaires mut contain 1 to n Questions using the object property disco:question.
 		Particular Questions may be contained in 0 to n Questionnaires.
 	  </p>
-	  
+
+<p>The following example illustrates a questionnaire with three example questions. The questions are defined the next section.</p>
+
+      <pre class="example">
+        <#questionnaire> a disco:Questionnaire;
+          disco:question <#questionGender>;
+          disco:question <#questionAge>;
+          disco:question <#questionCitizenship>.
+	  </pre>
     </section>
 
     <section>
@@ -1369,6 +1495,17 @@ ex:study1 dcterms:subject [
 		Particular Universes may be connected with 0 to n Questions.
 		Skos:Concepts are associated with 0 to n Questions.
       </p>
+	  
+      <pre class="example">
+      <#questionGender> a disco:Question;
+        disco:questionText "2. Is the person a man or a woman? [] Man, [] Woman"@en.
+        
+      <#questionAge> a disco:Question;
+        disco:questionText "3. What is his or her age? _ _ Mark the age in completed years at the date of the census for those younger than one year old mark 00. For those younger than 10 years old, mark 01, 02, 03, etc. For those older than 99 years old, mark 99."@en.
+          
+      <#questionCitizenship> a disco:Question;
+        disco:questionText "6. [Immigration status] Only for persons who have usual residence in Argentina and were born in another country. [Questions 6A and 6B asked only of persons born outside Argentina and who currently reside in Argentina.] B. Are you a naturalized citizen of Argentina? [] Yes [] No [] Unanswered"@en.
+    </pre>      
 	  
     </section>
 
@@ -4185,7 +4322,7 @@ ex:study1 dcterms:subject [
 	  </p>
 	  
       <p>Find studies from years 2000 and after about climate change.</p>
-      <pre>
+      <pre class="example">
 SELECT ?studyTitle ?studyAbstract ?logicalDataSetTitle
 WHERE {
   ?study a disco:Study ;
@@ -4203,7 +4340,7 @@ WHERE {
       </pre>
 
       <p>Find titles of data sets which are publicly available under the Canadian Data Liberation Initiative Community policy. Optionally give links to the rights statement and the license.</p>
-      <pre>
+      <pre class="example">
 SELECT ?logicalDataSetTitle
 WHERE {
   ?logicalDataSet a disco:LogicalDataSet ;
@@ -4229,7 +4366,7 @@ WHERE {
 
 
     <p>Find all studies with questions about commuting to work.</p>
-    <pre>
+      <pre class="example">
 SELECT ?studyTitle ?studyAbstract
 WHERE {
   ?study a disco:Study ;
@@ -4247,7 +4384,7 @@ WHERE {
 
 
     <p>Find study groups where the study uses the species variable and has a variable defined as Bufo alvarius</p>
-    <pre>
+      <pre class="example">
 SELECT ?studyGroupTitle ?studyGroupAbstract
 WHERE {
   ?study a disco:Study ;
