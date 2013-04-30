@@ -218,8 +218,8 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       <p>The <a href="http://www.w3.org/TR/vocab-dcat/">Data Catalog
       Vocabulary</a> (DCAT) is a W3C standard for describing catalogs
       of datasets, and we map to it in two places:
-      Our <code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code> is a subclass of DCAT’s Dataset, and our
-      <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>DataFile is a subclass of DCAT’s Distribution. DCAT makes few
+      Our LogicalDataSet is a subclass of DCAT’s Dataset, and our
+      DataFile is a subclass of DCAT’s Distribution. DCAT makes few
       assumptions about the kind of datasets being described,
       and focuses on general metadata about the datasets
       (mostly using Dublin Core), and on different ways of
@@ -290,25 +290,25 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       cycle or "wave" of the data collection activity produces one or
       more data sets. This is typical for longitudinal studies, panel
       studies, and other types of "series" (to use the DDI term). In
-      this case, a number of <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> objects would be collected into a
-      single <code><a href="#dfn-disco-study" class="internalDFN">StudyGroup</a></code>.</p>
+      this case, a number of Study objects would be collected into a
+      single StudyGroup.</p>
  
       <p>Data sets have two representations in our model: a logical
       representation, which describes the contents of the data set,
       and a physical representation, which is a distributed file
       holding that data. It is possible to format data files in many
       different ways, even if the logical content is the same. In our
-      model the <b><code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code></b> represents the content of the file
-      (its organization into a set of <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code>). The <code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>
-      is an extension of the <code>dact:DataSet</code> class. Physical, distributed
-      files are represented by the class <b> <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code></b> (not depicted in the diagram), which is itself an
-      extension of the <code>dcat:Distribution</code>.</p>
+      model the <b>LogicalDataSet</b> represents the content of the file
+      (its organization into a set of Variables). The LogicalDataSet
+      is an extension of the dact:DataSet class. Physical, distributed
+      files are represented by the class <b>DataFile</b> (not depicted in the diagram), which is itself an
+      extension of the dcat:Distribution.</p>
  
       <p>When it comes to understanding the contents of the data set,
-      this is done using the <b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code></b> class. <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> provide a
+      this is done using the <b>Variable</b> class. Variables provide a
       definition of the column in a rectangular data file, and can
-      associate it with a Concept, and a <b><code><a href="#dfn-disco-question" class="internalDFN">Question</a></code></b> (the <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> in the
-      <b><code><a href="#dfn-disco-questionnaire" class="internalDFN">Questionnaire</a></code></b> which was used to collect the data). <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> are
+      associate it with a Concept, and a <b>Question</b> (the Question in the
+      <b>Questionnaire</b> which was used to collect the data). Variables are
       related to a representation of some form, which may be a set of
       codes and categories (a "codelist") or may be one of other
       normal data types (dateTime, numeric, textual, etc.) Codes and
@@ -318,13 +318,10 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       <p>Data is collected about a specific phenomenon, typically
       involving some target population, and focusing on the analysis
       of a particular type of subject. These are respectively
-      represented by the <b><code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code></b> class and the <b><code><a href="#dfn-disco-analysisunit" class="internalDFN">AnalysisUnit</a></code></b> class.
+      represented by the <b>Universe</b> class and the <b>AnalysisUnit</b> class.
       If, for example, the adult population of Finland is being
-      studied, the <code><a href="#dfn-disco-analysisunit" class="internalDFN">AnalysisUnit</a></code>
- would be individuals or persons.
-      Bosch, Cyganiak, Wackerow, and Zapilko give a detailed overview of
- the DDI-RDF Discovery Vocabulary in a full paper written for the Dublin
- Core conference [<cite><a class="bibref" href="#bib-Linked-Statistical-Data">Linked-Statistical-Data</a></cite>]. 
+      studied, the AnalysisUnit would be individuals or persons.
+      Bosch, Cyganiak, Wackerow, and Zapilko give a detailed overview of the DDI-RDF Discovery Vocabulary in a full paper written for the Dublin Core conference [<cite><a class="bibref" href="#bib-Linked-Statistical-Data">Linked-Statistical-Data</a></cite>]. 
       </p>
     </section>
 
@@ -372,7 +369,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       
       Using RDF and the DDI Discovery Vocabulary, the study can also be described in triples:
       
-      An instance of type <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> is given the title and the identifier; also, the two 
+      An instance of type disco:Study is given the title and the identifier; also, the two 
       data producers are linked and further described.
       
       The year and country are described in the form of a temporal and spatial coverage of the study. 
@@ -737,8 +734,8 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
     <section id='study'>
       <h2>Studies and StudyGroups</h2>
 
-	  <p>A simple <b><code><a href="#dfn-disco-study" class="internalDFN">Study</a></code></b> supports the stages of the full data lifecycle 
-	  in a modular manner. A <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> represents the
+	  <p>A simple <b>Study</b> supports the stages of the full data lifecycle 
+	  in a modular manner. A Study represents the
       process by which a data set was generated or collected. Literal
       properties include information about the funding, organizational
       affiliation, abstract, title, version, and other such high-level
@@ -749,24 +746,24 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  of the initial raw data (multiple data files can be created from this such 
 	  as a public use microdata file or aggregate data files).
 	  In some cases, where data collection is cyclic or
-      on-going, data sets may be released as a <b><code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code></b>, where each
+      on-going, data sets may be released as a <b>StudyGroup</b>, where each
       cycle or "wave" of the data collection activity produces one or
       more data sets. This is typical for longitudinal studies, panel
       studies, and other types of "series" (to use the DDI term). In
-      this case, a number of <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> objects would be collected into a
-      single <code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code>.</p>
+      this case, a number of Study objects would be collected into a
+      single StudyGroup.</p>
 	  
 	  <p>
-	    <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> may be contained in at most 1 <code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code> and groups of Studies may include 
+	    Studies may be contained in at most 1 StudyGroup and groups of Studies may include 
 		0 to n studies.
-		 <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> may have 0 to n  <code><a href="#dfn-disco-instrument" class="internalDFN">Instruments</a></code> relationships to <code><a href="#dfn-disco-instrument" class="internalDFN">Instruments</a></code>.
-		Particular <code><a href="#dfn-disco-instruments" class="internalDFN">Instruments</a></code>, however, are connected with exactly 1  <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>.
-		<code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> may have <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code> connections with 0 to n <code><a href="#dfn-disco-datafile" class="internalDFN">DataFiles</a></code> and <code><a href="#dfn-disco-datafile" class="internalDFN">DataFiles</a></code> must have 
-		1 to n <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code> relationships to <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code>.  
-		<code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code>  are associated with 0 to n <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code>  using the object property <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>.
-		On the other hand, <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> must be related to 1 to n <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> .
-		<code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> may have 0 to n <code><a href="#dfn-disco-logicaldatasets" class="internalDFN">LogicalDataSets</a></code> (disco:product) and <code><a href="#dfn-disco-logicaldatasets" class="internalDFN">LogicalDataSets</a></code must 
-        have 1 to n disco:product relationships to <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> .		
+		Studies may have 0 to n disco:instrument relationships to Instruments.
+		Particular Instruments, however, are connected with exactly 1 Study.
+		Studies may have disco:dataFile connections with 0 to n DataFiles and DataFiles must have 
+		1 to n disco:dataFile relationships to Studies.  
+		Studies are associated with 0 to n Variables using the object property disco:variable.
+		On the other hand, Variables must be related to 1 to n Studies.
+		Studies may have 0 to n LogicalDataSets (disco:product) and LogicalDataSets must 
+        have 1 to n disco:product relationships to Studies.		
 	  </p>
 	  
 	<section>
@@ -778,26 +775,26 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       </div>
 	  
 	  <p>
-	    <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> or <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code> (the <b>union of <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> and <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code></b>) 
+	    Studies or StudyGroups (the <b>union of Study and StudyGroup</b>) 
 	    may have different datatype properties. 
-	    <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> or groups of <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> may have an abstract (<code>dcterms:abstract</code>), a title
-        (<code>dcterms:title</code>), a subtitle (disco:subtitle), an alternative title
-        (<code>dcterms:alternative</code>), a purpose (disco:purpose), and information about
-        the date and the time since when the <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> is publicly available
-        (<code>dcterms:available</code>). <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> or <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code> may have multiple object properties.
+	    Studies or groups of Studies may have an abstract (<code>dcterms:abstract</code>), a title
+        (dcterms:title), a subtitle (disco:subtitle), an alternative title
+        (dcterms:alternative), a purpose (disco:purpose), and information about
+        the date and the time since when the Study is publicly available
+        (dcterms:available). Studies or StudyGroups may have multiple object properties.
 	    The object properties disco:kindOfData and
-        <code>dcterms:subject</code> guide to <code>skos:Concepts</code>. 
+        dcterms:subject guide to skos:Concepts. 
 	    Disco:kindOfData describes, with a string or a term from a controlled vocabulary, 
-	    the kind of data documented in the logical product(s) of a  <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>. 
+	    the kind of data documented in the logical product(s) of a Study. 
 	    Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc.
-	    You can use <code>dcterms:subject</code> to describe the topical coverage of  <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> and groups of  <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code>.
-	    Disco:ddiFile leads to <code>foaf:Documents</code> which are the DDI-XML files 
-	    containing further descriptions of the <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> or the <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code>.
-	    Use <code>dcterms:temporal</code> for temporal coverages related to the union of <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code>  and <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code>.
-		For the spatial coverage use <code>dcterms:spatial</code>.
+	    You can use dcterms:subject to describe the topical coverage of Studies and groups of Studies.
+	    Disco:ddiFile leads to foaf:Documents which are the DDI-XML files 
+	    containing further descriptions of the Study or the StudyGroup.
+	    Use dcterms:temporal for temporal coverages related to the union of Studies and StudyGroups.
+		For the spatial coverage use dcterms:spatial.
 		The cardinalities of all the object properties are in both directions 0 to n.
-		The only exception is that  <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code>  and <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code> may have 0 or 1 disco:kindOfData 
-		relationships to <code>skos:Concepts</code>.
+		The only exception is that Studies and StudyGroups may have 0 or 1 disco:kindOfData 
+		relationships to skos:Concepts.
 	  </p>
 	  
 	<section>
@@ -809,12 +806,12 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       </div>
 	  
 	  <p>
-	    Creators (<code>dcterms:creator</code>), contributors (<code>dcterms:contributor</code>),
-        and publishers (<code>dcterms:publisher</code>) of <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code>  and <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code> are <code>foaf:Agents</code>
-        which are either <code>foaf:Persons</code> or <code>org:Organizations</code> whose members
-        are <code>foaf:Persons</code>. <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> or <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code> may be funded by (disco:fundedBy) 
-	    <code>foaf:Agents</code>. The object property disco:fundedBy is defined as sub-property of 
-	    <code>dcterms:contributor</code>. The cardinalities of these object properties are in both
+	    Creators (dcterms:creator), contributors (dcterms:contributor),
+        and publishers (dcterms:publisher) of Studies and StudyGroups are foaf:Agents
+        which are either foaf:Persons or org:Organizations whose members
+        are foaf:Persons. Studies and StudyGroups may be funded by (disco:fundedBy) 
+	    foaf:Agents. The object property disco:fundedBy is defined as sub-property of 
+	    dcterms:contributor. The cardinalities of these object properties are in both
         directions always 0 to n.		
 	  </p>
 	  
