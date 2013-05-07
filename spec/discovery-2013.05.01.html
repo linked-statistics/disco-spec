@@ -781,23 +781,23 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	    <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> or <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code> (the <b>union of <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> and <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code></b>) 
 	    may have different datatype properties. 
 	    <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> or groups of <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> may have an abstract (<code>dcterms:abstract</code>), a title
-        (<code>dcterms:title</code>), a subtitle (<code><a href="#dfn-disco-subtitle" class="internalDFN">subtitle</a></code>), an alternative title
-        (<code>dcterms:alternative</code>), a purpose (<code><a href="#dfn-disco-purpose" class="internalDFN">purpose</a></code>), and information about
+        (<code>dcterms:title</code>), a subtitle (disco:subtitle), an alternative title
+        (<code>dcterms:alternative</code>), a purpose (disco:purpose), and information about
         the date and the time since when the <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> is publicly available
         (<code>dcterms:available</code>). <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> or <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code> may have multiple object properties.
-	    The object properties <code><a href="#dfn-disco-kindOfData" class="internalDFN">kindOfData</a></code> and
+	    The object properties disco:kindOfData and
         <code>dcterms:subject</code> guide to <code>skos:Concepts</code>. 
-	    <code><a href="#dfn-disco-kindOfData" class="internalDFN">kindOfData</a></code> describes, with a string or a term from a controlled vocabulary, 
+	    Disco:kindOfData describes, with a string or a term from a controlled vocabulary, 
 	    the kind of data documented in the logical product(s) of a  <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>. 
 	    Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc.
 	    You can use <code>dcterms:subject</code> to describe the topical coverage of  <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> and groups of  <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code>.
-	    <code><a href="#dfn-disco-ddifile" class="internalDFN">ddiFile</a></code> to <code>foaf:Documents</code> which are the DDI-XML files 
+	    Disco:ddiFile leads to <code>foaf:Documents</code> which are the DDI-XML files 
 	    containing further descriptions of the <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> or the <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code>.
 	    Use <code>dcterms:temporal</code> for temporal coverages related to the union of <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code>  and <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code>.
 		For the spatial coverage use <code>dcterms:spatial</code>.
 		The cardinalities of all the object properties are in both directions 0 to n.
-		The only exception is that  <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code>  and <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code> may have 0 or 1 
-		 <code><a href="#dfn-disco-kindOfData" class="internalDFN">kindOfData</a></code> relationships to <code>skos:Concepts</code>.
+		The only exception is that  <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code>  and <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code> may have 0 or 1 disco:kindOfData 
+		relationships to <code>skos:Concepts</code>.
 	  </p>
 	  
 	<section>
@@ -812,9 +812,8 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	    Creators (<code>dcterms:creator</code>), contributors (<code>dcterms:contributor</code>),
         and publishers (<code>dcterms:publisher</code>) of <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code>  and <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code> are <code>foaf:Agents</code>
         which are either <code>foaf:Persons</code> or <code>org:Organizations</code> whose members
-        are <code>foaf:Persons</code>. <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> or <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code> may be funded by 
-	(<code><a href="#dfn-disco-fundedBy" class="internalDFN">fundedBys</a></code>) 
-	    <code>foaf:Agents</code>. The object property <code><a href="#dfn-disco-fundedBy" class="internalDFN">fundedBys</a></code> is defined as sub-property of 
+        are <code>foaf:Persons</code>. <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> or <code><a href="#dfn-disco-studygroups" class="internalDFN">StudyGroups</a></code> may be funded by (disco:fundedBy) 
+	    <code>foaf:Agents</code>. The object property disco:fundedBy is defined as sub-property of 
 	    <code>dcterms:contributor</code>. The cardinalities of these object properties are in both
         directions always 0 to n.		
 	  </p>
@@ -823,16 +822,16 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       <h3>Analysis Units and Universes</h3>
 
 	  <p>
-		<b><code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code></b> is the total membership or population of a defined class of people, 
+		<b>Universe</b> is the total membership or population of a defined class of people, 
 		objects or events. There are two types of population, target population and 
 		survey population. A target population is the population outlined in the survey 
 		objects about which information is to be sought. A survey population (also known
 		as the coverage of the survey) is the population from which information can be 
 		obtained in the survey. 
 
-		<b><code><a href="#dfn-disco-analysisUnit" class="internalDFN">AnalysisUnit</a></code></b> is defined as follows: The process collecting data is focusing 
+		<b>AnalysisUnit</b> is defined as follows: The process collecting data is focusing 
 		on the analysis of a particular type of subject. If, for example, the adult population
-		of Finland is being studied, the <code><a href="#dfn-disco-analysisUnit" class="internalDFN">AnalysisUnit</a></code> would be individuals or persons.
+		of Finland is being studied, the AnalysisUnit would be individuals or persons.
 	  </p>
 	  
       <div class="figure">
@@ -840,17 +839,15 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       </div>
 	  
 	  <p>
-		<code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> and groups of <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> must have 1 to n <code><a href="#dfn-disco-universe" class="internalDFN">Universes</a></code> and 1 particular 
-		<code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code> may be in a <code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code> relationship with 0 to n unions of 
-		<code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> and groups of <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code>. <code><a href="#dfn-disco-universe" class="internalDFN">Universes</a></code> 
-		are sub-classes of <code>skos:Concepts</code>. 
-		For <code><a href="#dfn-disco-universe" class="internalDFN">Universes</a></code> you can state definitions using <code>skos:definition</code>. 
+		Studies and groups of Studies must have 1 to n Universes and 1 particular 
+		Universe may be in a disco:universe relationship with 0 to n unions of 
+		Studies and groups of Studies. Universes are sub-classes of skos:Concepts. 
+		For Universes you can state definitions using skos:definition. 
 
-		The union of <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> and <code><a href="#dfn-disco-studyGroup" class="internalDFN">StudyGroup</a></code> may have 0 or 1 
-		<code><a href="#dfn-disco-analysisUnit" class="internalDFN">AnalysisUnit</a></code>
-		reached by the object property <code><a href="#dfn-disco-analysisUnit" class="internalDFN">AnalysisUnit</a></code> and a specific <code><a href="#dfn-disco-analysisUnit" class="internalDFN">AnalysisUnit</a></code> may be
-		in a <code><a href="#dfn-disco-analysisUnit" class="internalDFN">AnalysisUnit</a></code> relationship to 0 to n <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> or <code><a href="#dfn-disco-studyGroups" class="internalDFN">StudyGroups</a></code>. <code><a href="#dfn-disco-analysisUnit" class="internalDFN">AnalysisUnit</a></code> 
-		is specified as a sub-class of <code>skos:Concepts</code>. 
+		The union of Study and StudyGroup may have 0 or 1 AnalysisUnit
+		reached by the object property disco:analysisUnit and a specific AnalysisUnit may be
+		in a disco:analysisUnit relationship to 0 to n Studies or StudyGroups. AnalysisUnit 
+		is specified as a sub-class of skos:Concept. 
 	  </p>
 	  
     </section>
