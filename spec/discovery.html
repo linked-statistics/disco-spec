@@ -871,13 +871,12 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       </p>
 	  
 	  <ul>
-		<li><code>skos:prefLabel</code> (<code>rdf:langString</code>): the preferred label of this element</li>
-		<li><code><a href="#dfn-disco-ddi2_1identifier" class="internalDFN">ddi2_1identifier</a></code> (<code>xsd:anyURI</code>): the unique identifier in DDI 2.1</li>
-		<li><code><a href="#dfn-disco-ddi2_5identifier" class="internalDFN">ddi2_5identifier</a></code> (<code>xsd:anyURI</code>): the unique identifier in DDI 2.5</li>
-		<li><code><a href="#dfn-disco-ddi3_0identifier" class="internalDFN">ddi3_0identifier</a></code> (<code>xsd:anyURI</code>): the unique identifier in DDI 3.0</li>
-		<li><code><a href="#dfn-disco-ddi3_1identifier" class="internalDFN">ddi3_1identifier</a></code> (<code>xsd:anyURI</code>): the unique identifier in DDI 3.1</li>
-		<li><code><a href="#dfn-disco-dd32_2identifier" class="internalDFN">ddi3_2identifier</a></code> (<code>xsd:anyURI</code>): the unique identifier in DDI 3.2</li>
-		
+		<li>skos:prefLabel (rdf:langString): the preferred label of this element</li>
+		<li>disco:ddi2_1identifier (xsd:anyURI): the unique identifier in DDI 2.1</li>
+		<li>disco:ddi2_5identifier (xsd:anyURI): the unique identifier in DDI 2.5</li>
+		<li>disco:ddi3_0identifier (xsd:anyURI): the unique identifier in DDI 3.0</li>
+		<li>disco:ddi3_1identifier (xsd:anyURI): the unique identifier in DDI 3.1</li>
+		<li>disco:ddi3_2identifier (xsd:anyURI): the unique identifier in DDI 3.2</li>
 	  </ul>
 
 	  <p>Note that in RDF, the unique identifier of a resource is its URI. The identifier properties are only used for easing the linkage between DDI-RDF metadata and the original DDI files.</p>
@@ -1003,12 +1002,12 @@ ex:study1 dcterms:subject [
 			<h3>Other General Dublin Core Metadata Properties</h3>
 			<p>The following elements from Dublin Core may be used to describe general metadata of DDI-RDF elements (see the DC definitions for more detailed descriptions):</p>
 			<ul>
-				<li><code>dcterms:abstract</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>): an abstract of the study</li>
-				<li><code>dcterms:alternativet</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>): an alternative name for the study</li>
-				<li><code>dcterms:available</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>): the date (or date range) at which this study has or will become available</li>
-				<li><code>dcterms:title</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>, <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSet</a></code>): the element’s title</li>
-				<li><code>dcterms:description</code> (used with <code><a href="#dfn-disco-dataElement" class="internalDFN">DataElement</a></code>DataElement, <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFile</a></code>, <code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>, <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>, <code>dcterms:RightsStatement</code>): a human readable description of the element</li>
-				<li><code>dcterms:provenance</code> (used with <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFile</a></code>): defines the provenance information for the data file. The object is a <code>dcterms:ProvenanceStatement</code>.</li>
+				<li>dcterms:abstract (used with disco:Study): an abstract of the study</li>
+				<li>dcterms:alternative (used with disco:Study): an alternative name for the study</li>
+				<li>dcterms:available (used with disco:Study): the date (or date range) at which this study has or will become available</li>
+				<li>dcterms:title (used with disco:Study, disco:LogicalDataSet): the element’s title</li>
+				<li>dcterms:description (used with disco:DataElement, disco:DataFile, disco:Instrument, disco:Variable, dcterms:RightsStatement): a human readable description of the element</li>
+				<li>dcterms:provenance (used with disco:DataFile): defines the provenance information for the data file. The object is a dcterms:ProvenanceStatement.</li>
 			</ul>
 			
 		</section>
@@ -1023,37 +1022,37 @@ ex:study1 dcterms:subject [
       and a physical representation, which is a distribuited file
       holding that data. It is possible to format data files in many
       different ways, even if the logical content is the same. In our
-      model the <b><code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSet</a></code></b> represents the content of the file
-      (its organization into a set of <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code>). The <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSet</a></code>
-      is an extension of the <code>dact:DataSet</code> class. Physical, distributed
-      files are represented by the class <b><code><a href="#dfn-disco-dataFile" class="internalDFN">DataFile</a></code></b>, which is itself an
-      extension of the <code>dcat:Distribution</code>. <b><code><a href="#dfn-disco-descriptiveStatistics" class="internalDFN">DescriptiveStatistics</a></code></b>
-	  , i.e. <code><a href="#dfn-disco-summaryStatistics" class="internalDFN">SummaryStatistics</a></code> as well as <code><a href="#dfn-disco-categoryStatistics" class="internalDFN">CategoryStatistics</a></code>, are accociated with 
-	  <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> by the object property <code><a href="#dfn-disco-statisticsDataFile" class="internalDFN">statisticsDataFile</a></code>. </p>
+      model the <b>LogicalDataSet</b> represents the content of the file
+      (its organization into a set of Variables). The LogicalDataSet
+      is an extension of the dact:DataSet class. Physical, distributed
+      files are represented by the class <b>DataFile</b>, which is itself an
+      extension of the dcat:Distribution. <b>DescriptiveStatistics</b>
+	  , i.e. SummaryStatistics as well as CategoryStatistics, are accociated with 
+	  DataFiles by the object property disco:statisticsDataFile. </p>
 	  
       <div class="figure">
         <img src="diagrams/overview-data-set.jpg" alt="Overview: Data sets, data files, descriptive statistcs">
       </div>
 	  
 	  <p>
-	    <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSets</a></code> and <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> are 
-	    connected using the object property <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code>. A specific <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSets</a></code>
-	    may be linked to 0 to n <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> and a particular <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFile</a></code> may be connected
-	    with 0 to n <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSets</a></code> via <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFile</a></code>.
-	    <code><a href="#dfn-disco-descriptiveStatistics" class="internalDFN">DescriptiveStatistics</a></code> are accociated with 
-	    <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> by the object property <code><a href="#dfn-disco-statisticsDataFile" class="internalDFN">statisticsDataFile</a></code>. A concrete 
-	    <code><a href="#dfn-disco-descriptiveStatistics" class="internalDFN">DescriptiveStatistics</a></code> object may have <code><a href="#dfn-disco-statisticsDataFile" class="internalDFN">statisticsDataFile</a></code> relationships 
-	    to multiple (0 - n) <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code>. <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code>, however, may have 0 to n <code><a href="#dfn-disco-statisticsDataFile" class="internalDFN">statisticsDataFile</a></code> relations to 
-	    <code><a href="#dfn-disco-descriptiveStatistics" class="internalDFN">DescriptiveStatistics</a></code> instances.
+	    LogicalDataSets and DataFiles are 
+	    connected using the object property disco:dataFile. A specific LogicalDataSet
+	    may be linked to 0 to n DataFiles and a particular DataFile may be connected
+	    with 0 to n LogicalDataSets via disco:dataFile.
+	    DescriptiveStatistics are accociated with 
+	    DataFiles by the object property disco:statisticsDataFile. A concrete 
+	    DescriptiveStatistics object may have disco:statisticsDataFile relationships 
+	    to multiple (0 - n) Datafiles. DataFiles, however, may have 0 to n statisticsDataFile relations to 
+	    DescriptiveStatistics instances.
 	  </p>
 
     <section>
       <h3>LogicalDataSet</h3>
 	  
       <p> 
-	    Each study has a set of logical metadata (disco:<b><code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSet</a></code></b>) associated with 
+	    Each study has a set of logical metadata (disco:<b>LogicalDataSet</b>) associated with 
 	    the processing of data, at the time of collection or later during cleaning, and re-coding.  
-	    <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSet</a></code> represents the microdata dataset. 
+	    LogicalDataSet represents the microdata dataset. 
 	  </p>
 
       <div class="figure">
@@ -1061,36 +1060,34 @@ ex:study1 dcterms:subject [
       </div>
 
       <p>
-	    <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSet</a></code> is defined as a sub-class of <code>dcat:Dataset</code>.
-		You can state a title (<code>dcterms:title</code>) and a flag indicating if the
+	    LogicalDataSet is defined as a sub-class of dcat:Dataset.
+		You can state a title (dcterms:title) and a flag indicating if the
         microdata dataset is publicly available (isPublic). 
-	    You can specify access rights (<code>dcterms:accessRights</code>) and LicenseStatements
-		(<code>dcterms:license</code>) for microdata datasets.
-        For  <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSet</a></code> the three dimensions of coverage can be specified:
-		spatial (<code>dcterms:spatial</code>), temporal (<code>dcterms:temporal</code>), and topical (<code>dcteerms:subject</code>).
-		The cardinalities of the object properties <code>dcterms:spatial</code>, <code>dcterms:temporal</code>, <code>dcteerms:subject</code>,
-		<code>dcterms:accessRights</code>, and <code>dcterms:license</code> are 0 to n.
-	    Microdata datasets may have <code><a href="#dfn-disco-instrument" class="internalDFN">instrument</a></code> associations to 
-	    multiple (0 - n) <code><a href="#dfn-disco-instrument" class="internalDFN">instruments</a></code> and <code><a href="#dfn-disco-instrument" class="internalDFN">instruments</a></code> are connected with 
-	    multiple (0 - n) <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSet</a></code>.
-		Each <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSets</a></code> has exactly 1 <code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code> (<code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code>) and 
-		one specific <code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code> may be in multiple (0 - n) <code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code> 
-		relations to <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSets</a></code>.	
-	
-		<code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSets</a></code> may contain (<code><a href="#dfn-disco-containsVariable" class="internalDFN">containsVariable</a></code>) 0 to n <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> and 
-		<code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> must be contained in 1 to n <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSets</a></code>.
-
-		<code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSest</a></code> can be aggregated (<code><a href="#dfn-disco-aggregation" class="internalDFN">aggregation</a></code>) to 0 to n <code><a href="#dfn-disco-dataSets" class="internalDFN">DataSets</a></code> and 
-		<code><a href="#dfn-disco-dataSets" class="internalDFN">DataSets</a></code> can be aggregations of 0 to n <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSets</a></code>. 
-		At last, <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSets</a></code> refer to 0 to n <code><a href="#dfn-disco-dataFiles" class="internalDFN">DataFiles</a></code> using the object property 
-		<code><a href="#dfn-disco-dataFiles" class="internalDFN">DataFiles</a></code> and <code><a href="#dfn-disco-dataFiles" class="internalDFN">DataFiles</a></code> may be linked to 0 to n <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSets</a></code>.
-		The class <code><a href="#dfn-disco-dataSets" class="internalDFN">DataSet</a></code> is defined in the RDF Data Cube
-        Vocabulary. 0 to n <code><a href="#dfn-disco-dataSets" class="internalDFN">DataSets</a></code> may point to multiple (0 - n) <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code>.
-        (<code><a href="#dfn-disco-inputVariable" class="internalDFN">inputVariable</a></code>).
+	    You can specify access rights (dcterms:accessRights) and LicenseStatements
+		(dcterms:license) for microdata datasets.
+        For LogicalDataSets the three dimensions of coverage can be specified:
+		spatial (dcterms:spatial), temporal (dcterms:temporal), and topical (dcteerms:subject).
+		The cardinalities of the object properties dcterms:spatial, dcterms:temporal, dcterms:subject,
+		dcterms:accessRights, and dcterms:license are 0 to n.
+	    Microdata datasets may have disco:instrument associations to 
+	    multiple (0 - n) Instruments and Instruments are connected with 
+	    multiple (0 - n) LogicalDataSets.
+		Each LogicalDataSet has exactly 1 Universe (disco:universe) and 
+		one specific Universe may be in multiple (0 - n) disco:universe 
+		relations to LogicalDataSets.		
+		LogicalDataSets may contain (disco:containsVariable) 0 to n Variables and 
+		Variables must be contained in 1 to n LogicaDataSets.
+		LogicalDataSets can be aggregated (disco:aggregation) to 0 to n DataSets and 
+		DataSets can be aggregations of 0 to n LogicalDataSets. 
+		At last, LogicalDataSets refer to 0 to n DataFiles using the object property 
+		disco:dataFile and DataFiles may be linked to 0 to n LogicalDataSets.
+		The class DataSet is defined in the RDF Data Cube
+        Vocabulary. 0 to n DataSets may point to multiple (0 - n) Variables
+        (disco:inputVariable).
       </p>
       
       <pre class="example">
-<#dataset> a LogicalDataSet;
+<#dataset> a disco:LogicalDataset;
     dcterms:accessRights <accessRights>;
     disco:dataFile <#datafile>;
     disco:instrument <#questionnaire>;
