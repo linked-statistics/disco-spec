@@ -1103,12 +1103,12 @@ ex:study1 dcterms:subject [
       <h3>DataFile</h3>
 
 	  <p>
-	    The collected data result in the microdata represented by the <b><code><a href="#dfn-disco-dataFile" class="internalDFN">DataFile</a></code></b>.
+	    The collected data result in the microdata represented by the <b>DataFile</b>.
 	    Data sets have a logical representation, which describes the contents of the data set,
         and a physical representation, which is a distribuited file
         holding that data. It is possible to format data files in many
         different ways, even if the logical content is the same. 
-        <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code>, which are also <code>dcterms:Datasets</code> as well as <code>dcat:Distributions</code>,
+        DataFiles, which are also dcterms:Datasets as well as dcat:Distributions,
         represents all the physical distributed data files containing the microdata datasets.
       </p>
 	  
@@ -1134,18 +1134,17 @@ ex:study1 dcterms:subject [
         </pre>
 	  
 	  <p>
-        It is possible to describe <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> (<code>dcterms:description</code>).
-		<code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles'</a></code> case quantities (<code>disco:caseQuantity</code>) and versions (<code>owl:versionInfo</code>) can also be stated. 
-		Using the object property <code>dcterms:format</code>, <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> formats can be defined.
-		<code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> must have exactly 1 <code>dcterms:format</code> relationship to an instance of the class 
-		<code>dcterms:MediaTypeOrExtend</code> which is a sub-class of <code>skos:Concept</code>.
-Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code>.
-		Provenance information can be assigned to <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code>. 
-		<code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> may have multiple (0 - n)
-<code>dcterms:provenance</code> relationships to <code>dcterms:ProvenanceStatements</code>.
-        <code>Dcterms:ProvenanceStatements</code>, however, may have 0 to n <code>dcterms:provenance</code> relations to <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code>.
-        The topical, spatial, and temporal coverage of <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> is realized by 
-        the object properties <code>dcterms:subject</code>, <code>dcterms:spatial</code>, and <code>dcterms:temporal</code>,
+        It is possible to describe DataFiles (dcterms:description).
+		DataFiles’ case quantities (disco:caseQuantity) and versions (owl:versionInfo) can also be stated. 
+		Using the object property dcterms:format, DataFiles formats can be defined.
+		DataFiles must have exactly 1 dcterms:format relationship to an instance of the class 
+		dcterms:MediaTypeOrExtend which is a sub-class of skos:Concept.
+		Specific formats can be assigned to multiple (0 - n) DataFiles.
+		Provenance information can be assigned to DataFiles. DataFiles may have multiple (0 - n)
+        dcterms:provenance relationships to dcterms:ProvenanceStatements.
+        Dcterms:ProvenanceStatements, however, may have 0 to n dcterms:provenance relations to DataFiles.
+        The topical, spatial, and temporal coverage of DataFiles is realized by 
+        the object properties dcterms:subject, dcterms:spatial, and dcterms:temporal,
         all with the cardinalities 0 to n on both sides. 		
       </p>
 	  
@@ -1156,13 +1155,13 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 
       <p>
 	    An overview over the microdata can be given either by the descriptive statistics 
-		or the aggregated data. <b><code><a href="#dfn-disco-descriptiveStatistics" class="internalDFN">DescriptiveStatistics</a></code></b> may be minimal, maximal, mean values, 
-		and absolute and relative frequencies. qb:<b><code><a href="#dfn-disco-dataSet" class="internalDFN">DataSet</a></code></b> originates from the RDF Data Cube Vocabulary, 
-		an approach to map the SDMX information model to an ontology. A <code><a href="#dfn-disco-dataSet" class="internalDFN">DataSet</a></code> represents aggregated data 
+		or the aggregated data. <b>DescriptiveStatistics</b> may be minimal, maximal, mean values, 
+		and absolute and relative frequencies. qb:<b>DataSet</b> originates from the RDF Data Cube Vocabulary, 
+		an approach to map the SDMX information model to an ontology. A DataSet represents aggregated data 
 		(also known as macrodata) such as multi-dimensional tables. Aggregated data are derived from microdata 
 		by statistics on groups, or aggregates such as counts, means, or frequencies.
-	    <b><code><a href="#dfn-disco-summaryStatistics" class="internalDFN">SummaryStatistics</a></code></b> pointing to variables and
-        <b><code><a href="#dfn-disco-categoryStatistics" class="internalDFN">CategoryStatistics</a></code></b> pointing to categories and codes are both
+	    <b>SummaryStatistics</b> pointing to variables and
+        <b>CategoryStatistics</b> pointing to categories and codes are both
         descriptive statistics.
        </p>
 	   
@@ -1171,17 +1170,16 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       </div>
 	   
        <p>	   
-		     You can state maximum values (<code><a href="#dfn-disco-maximum" class="internalDFN">maximum</a></code>), minimum values (<code><a href="#dfn-disco-minimum" class="internalDFN">minimum</a></code>),
-         standard deviations (<code><a href="#dfn-disco-standardDeviation" class="internalDFN">standardDeviation</a></code>), etc. for summary statistics and you can define
-         frequencies (<code><a href="#dfn-disco-frequency" class="internalDFN">frequency</a></code>), percentages (<code><a href="#dfn-disco-percentage" class="internalDFN">percentage</a></code>), weighted percentages 
-		    (<code><a href="#dfn-disco-weightedPercentage" class="internalDFN">weightedPercentage</a></code>), etc. for category statistics.
-		    <code><a href="#dfn-disco-descriptiveStatistics" class="internalDFN">DescriptiveStatistics</a></code> may have <code><a href="#dfn-disco-statisticsDataFile" class="internalDFN">statisticsDataFile</a></code> relations to 0 to n <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> and
-		    <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> may be in 0 to n <code><a href="#dfn-disco-statisticsDataFile" class="internalDFN">statisticsDataFile</a></code> relations to <code><a href="#dfn-disco-descriptiveStatistics" class="internalDFN">DescriptiveStatistics</a></code> individuals.
-		    
-<code><a href="#dfn-disco-summaryStatistics" class="internalDFN">SummaryStatistics</a></code> point to 0 to n <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> using the object property <code><a href="#dfn-disco-summaryStatistics" class="internalDFN">SummaryStatistics</a></code>x.
-		    <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code>, however, may be in 0 to n of such relationships to <code><a href="#dfn-disco-summaryStatistics" class="internalDFN">SummaryStatistics</a></code> objects.
-		    <code><a href="#dfn-disco-categoryStatistics" class="internalDFN">CategoryStatistics</a></code> may be connected with 0 to n <code>skos:Concepts</code> using the property <code><a href="#dfn-disco-statisticsCategory" class="internalDFN">statisticsCategory</a></code>
-        and s<code>skos:Concepts</code> representing codes (values) and categories (value labels) may be in 0 to n of such
+		     You can state maximum values (disco:maximum), minimum values (disco:minimum),
+         standard deviations (disco:standardDeviation), etc. for summary statistics and you can define
+         frequencies (disco:frequency), percentages (disco:percentage), weighted percentages 
+		    (disco:weightedPercentage), etc. for category statistics.
+		    DescriptiveStatistics may have disco:statisticsDataFile relations to 0 to n DataFiles and
+		    DataFiles may be in 0 to n disco:statisticsDataFile relations to DescriptiveStatistics individuals.
+		    SummaryStatistics point to 0 to n Variables using the object property disco:statisticsVariable.
+		    Variables, however, may be in 0 to n of such relationships to SummaryStatistics objects.
+		    CategoryStatistics may be connected with 0 to n skos:Concepts using the property disco:statisticsCategory
+        and skos:Concepts representing codes (values) and categories (value labels) may be in 0 to n of such
         relationships. 		
 	  </p>
 	  
@@ -1210,14 +1208,14 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 
 	  <p>
 	    When it comes to understanding the contents of the data set,
-        this is done using the <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code> class. <b><code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code></b> provide a
+        this is done using the Variable class. <b>Variable</b>s provide a
         definition of the column in a rectangular data file, and can
-        associate it with a <b>Concept</b>, and a <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>. <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> are
-        related to a <b><code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code></b> of some form, which may be a set of
+        associate it with a <b>Concept</b>, and a Question. Variables are
+        related to a <b>Representation</b> of some form, which may be a set of
         codes and categories (a "codelist") or may be one of other
         normal data types (dateTime, numeric, textual, etc.) Codes and
-        Categories are represented using SKOS <b>Concepts</b> and concept
-        schemes. <b><code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code></b> encompasse study-independent, 
+        Categories are represented using SKOS <b>Concept</b>s and concept
+        schemes. <b>VariableDefinition</b>s encompasse study-independent, 
 		re-usable parts of variables like occupation classification. 
 	  </p>
 	  
@@ -1226,25 +1224,25 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       </div>
 	  
 	  <p>
-	    <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> may be based on (<code><a href="#dfn-disco-basedOn" class="internalDFN">basedOn</a></code>) 0 or 1 <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinition</a></code>
-		and <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code> can be in 0 to n <code><a href="#dfn-disco-basedOn" class="internalDFN">basedOn</a></code> relationships to <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code>.
-		Both <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> and <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code> have <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> object properties 
-		with the class <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> as range. 
-		<code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> must have exactly 1 <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> and <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code> may have 0 to n 
-        <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> connections to <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>.
-        On the other hand, representations have 0 to n links to <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code> and to <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code>.	
-        <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> as well as <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code> have both 1 connection to the concept which should be measured.
-        Concepts have 0 to n relationships to <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> and <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code> using the object property <code><a href="#dfn-disco-concept" class="internalDFN">concept</a></code>.		
+	    Variables may be based on (disco:basedOn) 0 or 1 VariableDefinition
+		and VariableDefinitions can be in 0 to n disco:basedOn relationships to Variables.
+		Both Variables and VariableDefinitions have disco:repesentation object properties 
+		with the class Representation as range. 
+		Variables must have exactly 1 Representation and VariableDefinitions may have 0 to n 
+        disco:representation connections to Representations.
+        On the other hand, representations have 0 to n links to VariableDefinitions and to Variables.	
+        Variables as well as VariableDefinitions have both 1 connection to the concept which should be measured.
+        Concepts have 0 to n relationships to Variables and VariableDefinitions using the object property disco:concept.		
 	  </p>
 	  
     <section>
       <h3>Variable and Variable Definition</h3>
 
 	  <p>
-	    <b><code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code></b> provide a definition of the column in a rectangular data file.
-		<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code> is a characteristic of a unit being observed. A variable might be the 
+	    <b>Variable</b>s provide a definition of the column in a rectangular data file.
+		Variable is a characteristic of a unit being observed. A variable might be the 
 		answer of a question, have an administrative source, or be derived from other variables. 
-	    <b><code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code></b> encompasse study-independent, re-usable parts of variables like occupation classification. 
+	    <b>VariableDefinition</b>s encompasse study-independent, re-usable parts of variables like occupation classification. 
 	  </p>
 	 
 	  <div class="figure">
@@ -1252,20 +1250,20 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       </div>
 	  
 	  <p>
-	  <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> can be described (<code>dcterms:description</code>), 
-		<code>skos:notation</code> is used to associate names to variables and
-		labels can be assigned to variables via the datatype property <code>skos:prefLabel</code>.
-		 <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code> can also be described using <code>dcterms:description</code>.
-		Labels can be assigned to <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code> via the datatype property 
-		<code>skos:prefLabel</code>.
-		<code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> may be based on (<code><a href="#dfn-disco-basedOn" class="internalDFN">basedOn</a></code>) 0 to 1 <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinition</a></code>.
-		<code><a href="#dfn-disco-basedOn" class="internalDFN">basedOn</a></code> also connects <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code> with 0 to n <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code>.
-		<code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> and <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code> are connected with exactly 1 <code>skos:Concept</code> via <code><a href="#dfn-disco-concept" class="internalDFN">concept</a></code>.
-		<code>skos:Concept</code> have this connection to 0 to n <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> and <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code>.
-<code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> are represented by 1 <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> and <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code> are represented by multiple (0 - n) <code><a href="#dfn-disco-representation" class="internalDFN">Representations</a></code>.
-		<code><a href="#dfn-disco-representation" class="internalDFN">Representations</a></code> may be linked to 0 to n <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> and their definitions.
-     <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> may have (<code><a href="#dfn-disco-queston" class="internalDFN">queston</a></code>) 0 or more <code><a href="#dfn-disco-question" class="internalDFN">Questions</a></code> and <code><a href="#dfn-disco-question" class="internalDFN">Questions</a></code> may be associated with 0 to n <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code>.
-		<code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code> is used to link 1 <code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code> to 0 to n <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> and 0 to n <code><a href="#dfn-disco-universe" class="internalDFN">Universes</a></code> to 0 to n <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinitions</a></code>.
+	  Variables can be described (dcterms:description), 
+		skos:notation is used to associate names to variables and
+		labels can be assigned to variables via the datatype property skos:prefLabel.
+		VariableDefinitions can also be described using dcterms:description.
+		Labels can be assigned to VariableDefinitions via the datatype property 
+		skos:prefLabel.
+		Variables may be based on (disco:basedOn) 0 to 1 VariableDefinition.
+		Disco:basedOn also connects VariableDefinitions with 0 to n Variables.
+		Variables and VariableDefinitions are connected with exactly 1 skos:Concept via disco:concept.
+		Skos:Concepts have this connection to 0 to n Variables and VariableDefinitions.
+		Variables are represented by 1 Representation and VariableDefinitions are represented by multiple (0 - n) Representations.
+		Representations may be linked to 0 to n Variables and their definitions.     
+		Variables may have (disco:queston) 0 or more Questions and Questions may be associated with 0 to n Variables.
+		Disco:universe is used to link 1 Universe to 0 to n Variables and 0 to n Universes to 0 to n VariableDefinitions.
 		  
 	  </p>
 	  <p>The following example illustrates the three variables Sex, Age and Citizenship.</p>
@@ -1293,7 +1291,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
         disco:hasQuestion <#questionCitizenship>.
       </pre>
       
-      <p>The three variables refer to universe, representations and concepts in their <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinition</a></code>.</p>
+      <p>The three variables refer to universe, representations and concepts in their VariableDefinition.</p>
       
       <pre class="example">
       <#sexVD> a disco:VariableDefinition;
