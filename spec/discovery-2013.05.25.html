@@ -219,7 +219,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       Vocabulary</a> (DCAT) is a W3C standard for describing catalogs
       of datasets, and we map to it in two places:
       Our <code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code> is a subclass of DCAT’s Dataset, and our
-      <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code> is a subclass of DCAT’s Distribution. DCAT makes few
+      <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>DataFile is a subclass of DCAT’s Distribution. DCAT makes few
       assumptions about the kind of datasets being described,
       and focuses on general metadata about the datasets
       (mostly using Dublin Core), and on different ways of
@@ -765,8 +765,8 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		1 to n <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code> relationships to <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code>.  
 		<code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code>  are associated with 0 to n <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code>  using the object property <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>.
 		On the other hand, <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> must be related to 1 to n <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> .
-		<code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> may have 0 to n <code><a href="#dfn-disco-logicaldatasets" class="internalDFN">LogicalDataSets</a></code> (<code><a href="#dfn-disco-product" class="internalDFN">product</a></code>) and <code><a href="#dfn-disco-logicaldatasets" class="internalDFN">LogicalDataSets</a></code> must 
-        have 1 to n <code><a href="#dfn-disco-product" class="internalDFN">product</a></code> relationships to <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> .		
+		<code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> may have 0 to n <code><a href="#dfn-disco-logicaldatasets" class="internalDFN">LogicalDataSets</a></code> (disco:product) and <code><a href="#dfn-disco-logicaldatasets" class="internalDFN">LogicalDataSets</a></code must 
+        have 1 to n disco:product relationships to <code><a href="#dfn-disco-study" class="internalDFN">Studies</a></code> .		
 	  </p>
 	  
 	<section>
@@ -1051,7 +1051,7 @@ ex:study1 dcterms:subject [
       <h3>LogicalDataSet</h3>
 	  
       <p> 
-	    Each study has a set of logical metadata (<b><code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSet</a></code></b>) associated with 
+	    Each study has a set of logical metadata (disco:<b><code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSet</a></code></b>) associated with 
 	    the processing of data, at the time of collection or later during cleaning, and re-coding.  
 	    <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSet</a></code> represents the microdata dataset. 
 	  </p>
@@ -1067,7 +1067,7 @@ ex:study1 dcterms:subject [
 	    You can specify access rights (<code>dcterms:accessRights</code>) and LicenseStatements
 		(<code>dcterms:license</code>) for microdata datasets.
         For  <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSet</a></code> the three dimensions of coverage can be specified:
-		spatial (<code>dcterms:spatial</code>), temporal (<code>dcterms:temporal</code>), and topical (<code>dcterms:subject</code>).
+		spatial (<code>dcterms:spatial</code>), temporal (<code>dcterms:temporal</code>), and topical (<code>dcteerms:subject</code>).
 		The cardinalities of the object properties <code>dcterms:spatial</code>, <code>dcterms:temporal</code>, <code>dcteerms:subject</code>,
 		<code>dcterms:accessRights</code>, and <code>dcterms:license</code> are 0 to n.
 	    Microdata datasets may have <code><a href="#dfn-disco-instrument" class="internalDFN">instrument</a></code> associations to 
@@ -1085,7 +1085,7 @@ ex:study1 dcterms:subject [
 		At last, <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSets</a></code> refer to 0 to n <code><a href="#dfn-disco-dataFiles" class="internalDFN">DataFiles</a></code> using the object property 
 		<code><a href="#dfn-disco-dataFiles" class="internalDFN">DataFiles</a></code> and <code><a href="#dfn-disco-dataFiles" class="internalDFN">DataFiles</a></code> may be linked to 0 to n <code><a href="#dfn-disco-logicalDataSet" class="internalDFN">LogicalDataSets</a></code>.
 		The class <code><a href="#dfn-disco-dataSets" class="internalDFN">DataSet</a></code> is defined in the RDF Data Cube
-        Vocabulary. 0 to n <code><a href="#dfn-disco-dataSets" class="internalDFN">DataSets</a></code> may point to multiple (0 - n) <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code>
+        Vocabulary. 0 to n <code><a href="#dfn-disco-dataSets" class="internalDFN">DataSets</a></code> may point to multiple (0 - n) <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code>.
         (<code><a href="#dfn-disco-inputVariable" class="internalDFN">inputVariable</a></code>).
       </p>
       
@@ -1157,7 +1157,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <p>
 	    An overview over the microdata can be given either by the descriptive statistics 
 		or the aggregated data. <b><code><a href="#dfn-disco-descriptiveStatistics" class="internalDFN">DescriptiveStatistics</a></code></b> may be minimal, maximal, mean values, 
-		and absolute and relative frequencies. <code>qb:DataSet</code> originates from the RDF Data Cube Vocabulary, 
+		and absolute and relative frequencies. qb:<b><code><a href="#dfn-disco-dataSet" class="internalDFN">DataSet</a></code></b> originates from the RDF Data Cube Vocabulary, 
 		an approach to map the SDMX information model to an ontology. A <code><a href="#dfn-disco-dataSet" class="internalDFN">DataSet</a></code> represents aggregated data 
 		(also known as macrodata) such as multi-dimensional tables. Aggregated data are derived from microdata 
 		by statistics on groups, or aggregates such as counts, means, or frequencies.
@@ -1178,10 +1178,10 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 		    <code><a href="#dfn-disco-descriptiveStatistics" class="internalDFN">DescriptiveStatistics</a></code> may have <code><a href="#dfn-disco-statisticsDataFile" class="internalDFN">statisticsDataFile</a></code> relations to 0 to n <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> and
 		    <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> may be in 0 to n <code><a href="#dfn-disco-statisticsDataFile" class="internalDFN">statisticsDataFile</a></code> relations to <code><a href="#dfn-disco-descriptiveStatistics" class="internalDFN">DescriptiveStatistics</a></code> individuals.
 		    
-<code><a href="#dfn-disco-summaryStatistics" class="internalDFN">SummaryStatistics</a></code> point to 0 to n <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> using the object property <code><a href="#dfn-disco-summaryStatistics" class="internalDFN">SummaryStatistics</a></code>.
+<code><a href="#dfn-disco-summaryStatistics" class="internalDFN">SummaryStatistics</a></code> point to 0 to n <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> using the object property <code><a href="#dfn-disco-summaryStatistics" class="internalDFN">SummaryStatistics</a></code>x.
 		    <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code>, however, may be in 0 to n of such relationships to <code><a href="#dfn-disco-summaryStatistics" class="internalDFN">SummaryStatistics</a></code> objects.
 		    <code><a href="#dfn-disco-categoryStatistics" class="internalDFN">CategoryStatistics</a></code> may be connected with 0 to n <code>skos:Concepts</code> using the property <code><a href="#dfn-disco-statisticsCategory" class="internalDFN">statisticsCategory</a></code>
-        and <code>skos:Concepts</code> representing codes (values) and categories (value labels) may be in 0 to n of such
+        and s<code>skos:Concepts</code> representing codes (values) and categories (value labels) may be in 0 to n of such
         relationships. 		
 	  </p>
 	  
