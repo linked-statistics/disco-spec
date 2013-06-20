@@ -3,7 +3,7 @@ Options -MultiViews
 
 AddType text/html;charset=UTF-8     .html
 AddType text/n3;charset=UTF-8       .n3
-AddType application/rdf+xml         .xml
+AddType application/rdf+xml         .rdf
 AddType text/turtle;charset=UTF-8   .ttl
 
 # Rewrite engine setup
@@ -22,7 +22,7 @@ RewriteRule ^discovery$             discovery.n3            [R=303]
 
 # Rewrite rule to serve RDF/XML content from the vocabulary URI if requested
 RewriteCond %{HTTP_ACCEPT}          application/rdf\+xml
-RewriteRule ^discovery$             discovery.xml           [R=303]
+RewriteRule ^discovery$             discovery.rdf           [R=303]
 
 # Rewrite rule to serve Turtle content from the vocabulary URI if requested
 RewriteCond %{HTTP_ACCEPT}          text/turtle             [OR]
