@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DDI-RDF Discovery Vocabulary</title>
-    <meta charset='utf-8'>
+    <meta charset='utf-8'/>
     <style type="text/css">
         table { border: black 1px solid; border-collapse:collapse; border-spacing: 0; }
         table td { border: black 1px solid; padding: 3px; padding-left: 10px; padding-right: 10px; text-align: center; vertical-align: top;}
@@ -276,7 +276,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       <h2>Overview</h2>
 
       <div class="figure">
-        <img src="diagrams/overview.jpg" alt="Vocabulary overview">
+        <img src="diagrams/overview.jpg" alt="Vocabulary overview"/>
       </div>
 
       <p>To understand the DDI Discovery Vocabulary, there are a few
@@ -351,7 +351,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
        for the information about this DDI file at the OpenMetadata Survey Catalog.</p>
 
       <div class="figure">
-        <img src="images/example-overview.png">
+        <img src="images/example-overview.png" alt="overview"/>
       </div>
 
       <p>Figure 2 shows us the overview page for this study, giving us
@@ -386,7 +386,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
       
 <pre class="example">
-<#study> a disco:Study;
+&lt;#study&gt; a disco:Study;
     dc:title "National Population and Housing Census, 1980"@en;
     dc:identifier "ARG_1980_PHC_v01_A_IPUMS".
     dc:creator [
@@ -421,15 +421,15 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
     owl:versionInfo "Version 1.0. This version contains selected variables from the original census micro data plus harmonized variables from the IPUMS International data base."@en; 
 
-    disco:universe <#universe>;
-    disco:instrument <#questionnaire>;
-    disco:product <#dataset>;
+    disco:universe &lt;#universe&gt;;
+    disco:instrument &lt;#questionnaire&gt;;
+    disco:product &lt;#dataset&gt;;
     
-    disco:analysisUnit <#analysisUnit>;
-    disco:kindOfData <#kindOfData> ;
+    disco:analysisUnit &lt;#analysisUnit&gt;;
+    disco:kindOfData &lt;#kindOfData&gt;;
 
     # stdyInfo/notes currently not represented. 
-    disco:variable <#AR80A401>, <#AR80A402>, <#AR80A404>, <#AR80A407>, <#AR80A411>.
+    disco:variable &lt;#AR80A401&gt;, &lt;#AR80A402&gt;, &lt;#AR80A404&gt;, &lt;#AR80A407&gt;, &lt;#AR80A411&gt;.
 </pre>
 	  
       <p>While the sampling methodology may not be of great interest
@@ -438,13 +438,13 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
         gives us an example of this information.</p>
         
       <div class="figure">
-        <img src="images/example-universe.png" alt="Coverage and universe">
+        <img src="images/example-universe.png" alt="Coverage and universe"/>
       </div>
         
       <p>Thus, the study refers to a specific universe.</p>
 	
 <pre class="example">
-<#universe> a disco:Universe;
+&lt;#universe&gt; a disco:Universe;
     skos:definition "All the population in the national territory at the moment the census is carried out."@en .
 </pre>
 
@@ -453,31 +453,31 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	The dataset has a concrete data file that will populate certain variables.
 	
       <pre class="example">
-<#dataset> a disco:LogicalDataset;
-    disco:instrument <#questionnaire>;
-    dcterms:accessRights <#accessRights>;
-    disco:dataFile <#datafile>;
-    disco:containsVariable <#AR80A401>, <#AR80A402>, <#AR80A404>, <#AR80A407>, <#AR80A411>.
+&lt;#dataset&gt; a disco:LogicalDataset;
+    disco:instrument &lt;#questionnaire&gt;;
+    dcterms:accessRights &lt;#accessRights&gt;;
+    disco:dataFile &lt;#datafile&gt;;
+    disco:containsVariable &lt;#AR80A401&gt;, &lt;#AR80A402&gt;, &lt;#AR80A404&gt;, &lt;#AR80A407&gt;, &lt;#AR80A411&gt;.
 
-<#accessRights> dcterms:description "IPUMS-International distributes integrated microdata of individuals and households only by agreement ... designed to extend this record.";
-    rdfs:seeAlso <http://microdata.worldbank.org/index.php/catalog/442/accesspolicy>.
+&lt;#accessRights&gt; dcterms:description "IPUMS-International distributes integrated microdata of individuals and households only by agreement ... designed to extend this record.";
+    rdfs:seeAlso &lt;http://microdata.worldbank.org/index.php/catalog/442/accesspolicy&gt;.
 </pre>
 
       <p>Figure 4 shows us the information about access policies,
         which typically is of interest to those searching for data.</p>
 
       <div class="figure">
-        <img src="images/example-access-policy.png" alt="Access policy">
+        <img src="images/example-access-policy.png" alt="Access policy"/>
       </div>
       
       <p>The Units of Analysis and Kind of Data further describe the study.</p>
 
       <pre class="example">
 
-<#analysisUnit> a disco:AnalysisUnit ;
+&lt;#analysisUnit&gt; a disco:AnalysisUnit ;
     skos:definition "Dwelling, quarter dwelling, census household, and population"@en .
 
-<#kindOfData> a skos:Concept ;
+&lt;#kindOfData&gt; a skos:Concept ;
 	rdfs:label "Census/enumeration data [cen]"@en .
 	
 </pre>
@@ -491,24 +491,24 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
         used in the census (Figure 5).</p>
       
       <div class="figure">
-        <img src="images/example-questionnaires.png" alt="Questionnaires">
+        <img src="images/example-questionnaires.png" alt="Questionnaires"/>
       </div>
 	
 	<p>The following example illustrates three questions. Each question does have a text.</p>
 
       <pre class="example">
-<#questionnaire> a disco:Questionnaire;
-    disco:question <#questionGender>;
-    disco:question <#questionAge>;
-    disco:question <#questionCitizenship>.
+&lt;#questionnaire&gt; a disco:Questionnaire;
+    disco:question &lt;#questionGender&gt;;
+    disco:question &lt;#questionAge&gt;;
+    disco:question &lt;#questionCitizenship&gt;.
 
-<#questionGender> a disco:Question;
+&lt;#questionGender&gt; a disco:Question;
     disco:questionText "2. Is the person a man or a woman? [] Man, [] Woman"@en.
 
-<#questionAge> a disco:Question;
+&lt;#questionAge&gt; a disco:Question;
     disco:questionText "3. What is his or her age? _ _ Mark the age in completed years at the date of the census for those younger than one year old mark 00. For those younger than 10 years old, mark 01, 02, 03, etc. For those older than 99 years old, mark 99."@en.
 
-<#questionCitizenship> a disco:Question;
+&lt;#questionCitizenship&gt; a disco:Question;
     disco:questionText "6. [Immigration status] Only for persons who have usual residence in Argentina and were born in another country. [Questions 6A and 6B asked only of persons born outside Argentina and who currently reside in Argentina.] B. Are you a naturalized citizen of Argentina? [] Yes [] No [] Unanswered"@en.
 
 </pre>
@@ -518,37 +518,37 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
         responses in the variables (Figure 7).</p>
       
       <div class="figure">
-        <img src="images/example-variable-list.png" alt="Variables list">
+        <img src="images/example-variable-list.png" alt="Variables list"/>
       </div>
       
       <div class="figure">
-        <img src="images/example-variable-detail.png" alt="Variable details">
+        <img src="images/example-variable-detail.png" alt="Variable details"/>
       </div>
       
       <p>Any variable has a text and is based on a variable definition.</p>
 
       <pre class="example">
 
-<#AR80A401> a disco:Variable;
+&lt;#AR80A401&gt; a disco:Variable;
     dc:identifier "AR80A401";
     skos:prefLabel "Sex"@en, "Sexe"@fr;
     dc:description "This variable indicates the person's gender."@en;
-    disco:basedOn <#sexVD>;
-    disco:hasQuestion <#questionGender>.
+    disco:basedOn &lt;#sexVD&gt;;
+    disco:hasQuestion &lt;#questionGender&gt;.
 
-<#AR80A402> a disco:Variable;
+&lt;#AR80A402&gt; a disco:Variable;
     dc:identifier "AR80A402";
     dc:description "This variable indicates the person's age in years."@en;
     skos:prefLabel "Age"@en, "Âge"@fr.
-    disco:basedOn <#ageVD>;
-    disco:hasQuestion <#questionAge>.   
+    disco:basedOn &lt;#ageVD&gt;;
+    disco:hasQuestion &lt;#questionAge&gt;.   
 
-<#AR80A407> a disco:Variable;
+&lt;#AR80A407&gt; a disco:Variable;
     dc:identifier "AR80A407";
     dc:description "This variable indicates whether or not the person is a naturalized citizen of Argentina."@en;
     skos:prefLabel "Citizenship"@en, "Citoyenneté"@fr;
-    disco:basedOn <#citizenshipVD>;
-    disco:hasQuestion <#questionCitizenship>.
+    disco:basedOn &lt;#citizenshipVD&gt;;
+    disco:hasQuestion &lt;#questionCitizenship&gt;.
 
 </pre>
 
@@ -559,82 +559,82 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
       <pre class="example">
 
-<#sexVD> a disco:VariableDefinition;
-    disco:universe <#universePerson>;
-    disco:representation <#sexRepr>;
-    disco:concept <#ipumsC1>;
+&lt;#sexVD&gt; a disco:VariableDefinition;
+    disco:universe &lt;#universePerson&gt;;
+    disco:representation &lt;#sexRepr&gt;;
+    disco:concept &lt;#ipumsC1&gt;;
     skos:prefLabel "Sex"@en, "Sexe"@fr;
     dc:description "Sex data element"@en.
 
-<#sexRepr> a skos:ConceptScheme, disco:Representation;
-    skos:hasTopConcept <#sexM>, <#sexF>.
+&lt;#sexRepr&gt; a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept &lt;#sexM&gt;, &lt;#sexF&gt;.
 
-<#sexM> a skos:Concept;
+&lt;#sexM&gt; a skos:Concept;
     skos:notation "1";
     skos:prefLabel "Male"@en, "Homme"@fr;
-    skos:inScheme <#sexRepr>.
+    skos:inScheme &lt;#sexRepr&gt;.
 
-<#sexF> a skos:Concept;
+&lt;#sexF&gt; a skos:Concept;
     skos:notation "2";
     skos:prefLabel "Female"@en, "Femme"@fr;
-    skos:inScheme <#sexRepr>.
+    skos:inScheme &lt;#sexRepr&gt;.
     
-<#ageVD> a disco:VariableDefinition;
-    disco:universe <#universePerson>;
-    disco:representation <#ageRepr>;
-    disco:concept <#ipumsC1>;
+&lt;#ageVD&gt; a disco:VariableDefinition;
+    disco:universe &lt;#universePerson&gt;;
+    disco:representation &lt;#ageRepr&gt;;
+    disco:concept &lt;#ipumsC1&gt;;
     skos:prefLabel "Age"@en, "Sexe"@fr;
     dc:description "Age data element"@en.
 
-<#ageRepr> a skos:ConceptScheme, disco:Representation;
-    skos:hasTopConcept <#age0>, <#age1>, <#age99>.
+&lt;#ageRepr&gt; a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept &lt;#age0&gt;, &lt;#age1&gt;, &lt;#age99&gt;.
 
-<#age0> a skos:Concept;
+&lt;#age0&gt; a skos:Concept;
     skos:notation "0";
     skos:prefLabel "0";
-    skos:inScheme <#ageRepr>.
+    skos:inScheme &lt;#ageRepr&gt;.
 
-<#age1> a skos:Concept;
+&lt;#age1&gt; a skos:Concept;
     skos:notation "1";
     skos:prefLabel "1";
-    skos:inScheme <#ageRepr>.
+    skos:inScheme &lt;#ageRepr&gt;.
 
 # ...
 
-<#age99> a skos:Concept;
+&lt;#age99&gt; a skos:Concept;
     skos:notation "99";
     skos:prefLabel "99";
-    skos:inScheme <#ageRepr>.
+    skos:inScheme &lt;#ageRepr&gt;.
     
-<#citizenshipVD> a disco:VariableDefinition;
-    disco:universe <#universeNonArgentines>;
-    disco:representation <#citizenshipRepr>;
-    disco:concept <#ipumsC2>;
+&lt;#citizenshipVD&gt; a disco:VariableDefinition;
+    disco:universe &lt;#universeNonArgentines&gt;;
+    disco:representation &lt;#citizenshipRepr&gt;;
+    disco:concept &lt;#ipumsC2&gt;;
     skos:prefLabel "Citizenship"@en;
     dc:description "Citizenship data element"@en.
 
-<#citizenshipRepr> a skos:ConceptScheme, disco:Representation;
-    skos:hasTopConcept <#cYes>, <#cNo>, <#cUnknown>, <#NIU>.
+&lt;#citizenshipRepr&gt; a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept &lt;#cYes&gt;, &lt;#cNo&gt;, &lt;#cUnknown&gt;, &lt;#NIU&gt;.
 
-<#cYes> a skos:Concept;
+&lt;#cYes&gt; a skos:Concept;
     skos:notation "1";
     skos:prefLabel "Yes";
-    skos:inScheme <#citizenshipRepr>.
+    skos:inScheme &lt;#citizenshipRepr&gt;.
 
-<#cNo> a skos:Concept;
+&lt;#cNo&gt; a skos:Concept;
     skos:notation "2";
     skos:prefLabel "No";
-    skos:inScheme <#citizenshipRepr>.
+    skos:inScheme &lt;#citizenshipRepr&gt;.
 
-<#cUnknown> a skos:Concept;
+&lt;#cUnknown&gt; a skos:Concept;
     skos:notation "8";
     skos:prefLabel "Unknown";
-    skos:inScheme <#citizenshipRepr>.
+    skos:inScheme &lt;#citizenshipRepr&gt;.
 
-<#cNIU> a skos:Concept;
+&lt;#cNIU&gt; a skos:Concept;
     skos:notation "9";
     skos:prefLabel "NIU (not in universe)";
-    skos:inScheme <#citizenshipRepr>.
+    skos:inScheme &lt;#citizenshipRepr&gt;.
     
 </pre>
 
@@ -645,14 +645,14 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
       <pre class="example">
 
-<#universePerson> a disco:Universe;
+&lt;#universePerson&gt; a disco:Universe;
     skos:definition "All persons."@en ;
-    skos:narrower <#universe>.
+    skos:narrower &lt;#universe&gt;.
 
-<#universeNonArgentines> a disco:Universe;
+&lt;#universeNonArgentines&gt; a disco:Universe;
     skos:definition "Foreign-born persons who reside in Argentina."@en ;
-    skos:narrower <#universe>; 
-    skos:narrower <#universePerson>.
+    skos:narrower &lt;#universe&gt;; 
+    skos:narrower &lt;#universePerson&gt;.
 
 </pre>
 	
@@ -662,23 +662,23 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
         (Figure 8.)</p>
       
       <div class="figure">
-        <img src="images/example-concept.png" alt="Concept-variable link">
+        <img src="images/example-concept.png" alt="Concept-variable link"/>
       </div>
 	
       <p>Also in DISCO, DDI concepts can be hierarchically structured</p>
 	
       <pre class="example">
 
-<#ipumsCS> a skos:ConceptScheme;
-    skos:hasTopConcept <#ipumsC1>.
+&lt;#ipumsCS&gt; a skos:ConceptScheme;
+    skos:hasTopConcept &lt;#ipumsC1&gt;.
 
-<#ipumsC1> a skos:Concept;
+&lt;#ipumsC1&gt; a skos:Concept;
     skos:prefLabel "Demographic Variables - PERSON"@en, "Variables démographiques - PERSONNE"@fr;
-    skos:inScheme <#ipumsCS>.
+    skos:inScheme &lt;#ipumsCS&gt;.
 
-<#ipumsC2> a skos:Concept;
+&lt;#ipumsC2&gt; a skos:Concept;
     skos:prefLabel "Nativity and Birthplace Variables -- PERSON"@en;
-    skos:inScheme <#ipumsCS>.
+    skos:inScheme &lt;#ipumsCS&gt;.
 
 </pre>
 
@@ -686,19 +686,19 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	
       <pre class="example">
 
-<#dstat1> a disco:DescriptiveStatistic;
+&lt;#dstat1&gt; a disco:DescriptiveStatistic;
     disco:frequency 13314444;
     # is that correct? 
     disco:percentage 49.97;
-    disco:hasStatisticsVariable <#AR80A401>;
-    disco:hasStatisticsCategory <#sexM>;
-    disco:hasStatisticsDatafile <#datafile>.
+    disco:hasStatisticsVariable &lt;#AR80A401&gt;;
+    disco:hasStatisticsCategory &lt;#sexM&gt;;
+    disco:hasStatisticsDatafile &lt;#datafile&gt;.
 
-<#dstat2> a disco:DescriptiveStatistic;
+&lt;#dstat2&gt; a disco:DescriptiveStatistic;
     disco:frequency 1336270;
-    disco:hasStatisticsVariable <#AR80A401>;
-    disco:hasStatisticsCategory <#sexF>;
-    disco:hasStatisticsDatafile <#datafile>.
+    disco:hasStatisticsVariable &lt;#AR80A401&gt;;
+    disco:hasStatisticsCategory &lt;#sexF&gt;;
+    disco:hasStatisticsDatafile &lt;#datafile&gt;.
 
 </pre>
 
@@ -707,14 +707,14 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
         produced by this study (Figure 9).</p>
       
       <div class="figure">
-        <img src="images/example-general-data-file-info.png" alt="General data set information">
+        <img src="images/example-general-data-file-info.png" alt="General data set information"/>
       </div>
 
       <p>Finally, the data file more concretely describes the actual physical file.</p>
 	
       <pre class="example">
 
-<#datafile> a disco:Datafile;
+&lt;#datafile&gt; a disco:Datafile;
     dc:identifier "ARG1900-P-H.dat";
     dc:description "Person records"@en;
     disco:caseQuantity 2667714;
@@ -774,7 +774,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	</section>
 
       <div class="figure">
-        <img src="diagrams/study-metadata.jpg" alt="Coverage, References to DDI-XML Files, and Kind of Data">
+        <img src="diagrams/study-metadata.jpg" alt="Coverage, References to DDI-XML Files, and Kind of Data"/>
       </div>
 	  
 	  <p>
@@ -805,7 +805,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	</section>
 	  
       <div class="figure">
-        <img src="diagrams/study-agent.jpg" alt="Relationships to Agents">
+        <img src="diagrams/study-agent.jpg" alt="Relationships to Agents"/>
       </div>
 	  
 	  <p>
@@ -836,7 +836,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  </p>
 	  
       <div class="figure">
-        <img src="diagrams/study-universe.jpg" alt="Study, Universe and AnalysisUnit">
+        <img src="diagrams/study-universe.jpg" alt="Study, Universe and AnalysisUnit"/>
       </div>
 	  
 	  <p>
@@ -888,7 +888,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  </p>
 	  
 	  <div class="figure">
-        <img src="diagrams/rdfs-resource.jpg" alt="DDI-XML Identifiers and Relations to DDI-XML Files">
+        <img src="diagrams/rdfs-resource.jpg" alt="DDI-XML Identifiers and Relations to DDI-XML Files"/>
       </div>
 	  
 	  </section>
@@ -906,7 +906,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		</ul>
 		
 		<div class="figure">
-          <img src="diagrams/versioning-information.jpg" alt="Versioning Information">
+          <img src="diagrams/versioning-information.jpg" alt="Versioning Information"/>
         </div>
 		
 	  </section>
@@ -936,7 +936,7 @@ ex:license1 dcterms:description "Published under Open Content License." ;
 	  </pre>
 	  
 	  <div class="figure">
-        <img src="diagrams/access-rights-statements-and-licenses.jpg" alt="Access Rights Statements and Licenses">
+        <img src="diagrams/access-rights-statements-and-licenses.jpg" alt="Access Rights Statements and Licenses"/>
       </div>
 	  
 	  <p>
@@ -958,7 +958,7 @@ ex:study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .
 		<p>In this example, <a href="http://www.geonames.org/">Geonames</a> is used to refer to a spatial region, in this case, the country Germany. Geonames provides URIs for continents, countries, regions, and cities, among others, and is therefore a possible option to use for describing spatial coverage.</p>
         
 		<div class="figure">
-          <img src="diagrams/study-coverage.jpg" alt="Study Coverage">
+          <img src="diagrams/study-coverage.jpg" alt="Study Coverage"/>
         </div>
 		
 		<p>
@@ -980,7 +980,7 @@ ex:study1 dcterms:temporal [
 		<p>This example describes a study that has been conducted between January 1st and January 31st.</p>
 		
 		<div class="figure">
-          <img src="diagrams/logical-data-set-coverage.jpg" alt="LogicalDataSet Coverage">
+          <img src="diagrams/logical-data-set-coverage.jpg" alt="LogicalDataSet Coverage"/>
         </div>
 		
 		<p>Topical coverage can be expressed using <b><code>dcterms:subject</code></b>. DDI-RDF foresees the use <code>skos:Concept</code> for the description of topical coverage:</p>
@@ -991,7 +991,7 @@ ex:study1 dcterms:subject [
 		</pre>
 		
 		<div class="figure">
-          <img src="diagrams/data-file-coverage.jpg" alt="DataFile Coverage">
+          <img src="diagrams/data-file-coverage.jpg" alt="DataFile Coverage"/>
         </div>
 		
 		<p>
@@ -1032,7 +1032,7 @@ ex:study1 dcterms:subject [
 	  <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> by the object property <code><a href="#dfn-disco-statisticsDataFile" class="internalDFN">statisticsDataFile</a></code>. </p>
 	  
       <div class="figure">
-        <img src="diagrams/overview-data-set.jpg" alt="Overview: Data sets, data files, descriptive statistcs">
+        <img src="diagrams/overview-data-set.jpg" alt="Overview: Data sets, data files, descriptive statistcs"/>
       </div>
 	  
 	  <p>
@@ -1057,7 +1057,7 @@ ex:study1 dcterms:subject [
 	  </p>
 
       <div class="figure">
-        <img src="diagrams/logical-data-set.jpg" alt="LogicalDataSet">
+        <img src="diagrams/logical-data-set.jpg" alt="LogicalDataSet"/>
       </div>
 
       <p>
@@ -1090,11 +1090,11 @@ ex:study1 dcterms:subject [
       </p>
       
       <pre class="example">
-<#dataset> a LogicalDataSet;
-    dcterms:accessRights <accessRights>;
-    disco:dataFile <#datafile>;
-    disco:instrument <#questionnaire>;
-    disco:containsVariable <#AR80A401>, <#AR80A402>, <#AR80A404>, <#AR80A407>, <#AR80A411>.
+&lt;#dataset&gt; a LogicalDataSet;
+    dcterms:accessRights &lt;accessRights&gt;;
+    disco:dataFile &lt;#datafile&gt;;
+    disco:instrument &lt;#questionnaire&gt;;
+    disco:containsVariable &lt;#AR80A401&gt;, &lt;#AR80A402&gt;, &lt;#AR80A404&gt;, &lt;#AR80A407&gt;, &lt;#AR80A411&gt;.
       </pre>
 	  
     </section>
@@ -1113,11 +1113,11 @@ ex:study1 dcterms:subject [
       </p>
 	  
 	  <div class="figure">
-        <img src="diagrams/data-file.jpg" alt="DataFile">
+        <img src="diagrams/data-file.jpg" alt="DataFile"/>
 	  </div>
       
       <pre class="example">
-      <#datafile> a disco:Datafile;
+      &lt;#datafile&gt; a disco:Datafile;
         dc:identifier "ARG1900-P-H.dat";
         dc:description "Person records"@en;
         disco:caseQuantity 2667714;
@@ -1167,7 +1167,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
        </p>
 	   
 	   <div class="figure">
-        <img src="diagrams/descriptive-statistics.jpg" alt="DescriptiveStatistics">
+        <img src="diagrams/descriptive-statistics.jpg" alt="DescriptiveStatistics"/>
       </div>
 	   
        <p>	   
@@ -1186,19 +1186,19 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 	  </p>
 	  
       <pre class="example">
-      <#dstat1> a disco:DescriptiveStatistic;
+      &lt;#dstat1&gt; a disco:DescriptiveStatistic;
         disco:frequency 13314444;
         # is that correct?
         disco:percentage 49.97;
-        disco:hasStatisticsVariable <#AR80A401>;
-        disco:hasStatisticsCategory <#sexM>;
-        disco:hasStatisticsDatafile <#datafile>.
+        disco:hasStatisticsVariable &lt;#AR80A401&gt;;
+        disco:hasStatisticsCategory &lt;#sexM&gt;;
+        disco:hasStatisticsDatafile &lt;#datafile&gt;.
               
-      <#dstat2> a disco:DescriptiveStatistic;
+      &lt;#dstat2&gt; a disco:DescriptiveStatistic;
         disco:frequency 1336270;
-        disco:hasStatisticsVariable <#AR80A401>;
-        disco:hasStatisticsCategory <#sexF>;
-        disco:hasStatisticsDatafile <#datafile>.
+        disco:hasStatisticsVariable &lt;#AR80A401&gt;;
+        disco:hasStatisticsCategory &lt;#sexF&gt;;
+        disco:hasStatisticsDatafile &lt;#datafile&gt;.
 </pre>	  
 	  
     </section>
@@ -1222,7 +1222,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 	  </p>
 	  
 	  <div class="figure">
-        <img src="diagrams/variable.jpg" alt="Variables, Variable Definitions, Representations, and Concepts">
+        <img src="diagrams/variable.jpg" alt="Variables, Variable Definitions, Representations, and Concepts"/>
       </div>
 	  
 	  <p>
@@ -1248,7 +1248,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 	  </p>
 	 
 	  <div class="figure">
-        <img src="diagrams/variable-and-variable-definition.jpg" alt="Variables and VariableDefinitions">
+        <img src="diagrams/variable-and-variable-definition.jpg" alt="Variables and VariableDefinitions"/>
       </div>
 	  
 	  <p>
@@ -1271,49 +1271,49 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 	  <p>The following example illustrates the three variables Sex, Age and Citizenship.</p>
 	  
       <pre class="example">
-      <#AR80A401> a disco:Variable;
+      &lt;#AR80A401&gt; a disco:Variable;
         dc:identifier "AR80A401";
         skos:prefLabel "Sex"@en, "Sexe"@fr;
         dc:description "This variable indicates the person's gender."@en;
-        disco:basedOn <#sexVD>;
-        disco:hasQuestion <#questionGender>.
+        disco:basedOn &lt;#sexVD&gt;;
+        disco:hasQuestion &lt;#questionGender&gt;.
             
-      <#AR80A402> a disco:Variable;
+      &lt;#AR80A402&gt; a disco:Variable;
         dc:identifier "AR80A402";
         dc:description "This variable indicates the person's age in years."@en;
         skos:prefLabel "Age"@en, "Âge"@fr.
-        disco:basedOn <#ageVD>;
-        disco:hasQuestion <#questionAge>.
+        disco:basedOn &lt;#ageVD&gt;;
+        disco:hasQuestion &lt;#questionAge&gt;.
                   
-      <#AR80A407> a disco:Variable;
+      &lt;#AR80A407&gt; a disco:Variable;
         dc:identifier "AR80A407";
         dc:description "This variable indicates whether or not the person is a naturalized citizen of Argentina."@en;
         skos:prefLabel "Citizenship"@en, "Citoyenneté"@fr;
-        disco:basedOn <#citizenshipVD>;
-        disco:hasQuestion <#questionCitizenship>.
+        disco:basedOn &lt;#citizenshipVD&gt;;
+        disco:hasQuestion &lt;#questionCitizenship&gt;.
       </pre>
       
       <p>The three variables refer to universe, representations and concepts in their <code><a href="#dfn-disco-variableDefinition" class="internalDFN">VariableDefinition</a></code>.</p>
       
       <pre class="example">
-      <#sexVD> a disco:VariableDefinition;
-        disco:universe <#universePerson>;
-        disco:representation <#sexRepr>;
-        disco:concept <#ipumsC1>;
+      &lt;#sexVD&gt; a disco:VariableDefinition;
+        disco:universe &lt;#universePerson&gt;;
+        disco:representation &lt;#sexRepr&gt;;
+        disco:concept &lt;#ipumsC1&gt;;
         skos:prefLabel "Sex"@en, "Sexe"@fr;
         dc:description "Sex data element"@en.
                                 
-	    <#ageVD> a disco:VariableDefinition;
-        disco:universe <#universePerson>;
-        disco:representation <#ageRepr>;
-        disco:concept <#ipumsC1>;
+	    &lt;#ageVD&gt; a disco:VariableDefinition;
+        disco:universe &lt;#universePerson&gt;;
+        disco:representation &lt;#ageRepr&gt;;
+        disco:concept &lt;#ipumsC1&gt;;
         skos:prefLabel "Age"@en, "Sexe"@fr;
         dc:description "Age data element"@en.
     
-      <#citizenshipVD> a disco:VariableDefinition;
-        disco:universe <#universeNonArgentines>;
-        disco:representation <#citizenshipRepr>;
-        disco:concept <#ipumsC2>;
+      &lt;#citizenshipVD&gt; a disco:VariableDefinition;
+        disco:universe &lt;#universeNonArgentines&gt;;
+        disco:representation &lt;#citizenshipRepr&gt;;
+        disco:concept &lt;#ipumsC2&gt;;
         skos:prefLabel "Citizenship"@en;
         dc:description "Citizenship data element"@en.
 	  </pre>
@@ -1334,7 +1334,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 	  </p>
 
       <div class="figure">
-        <img src="diagrams/concept.jpg" alt="skos:Concept and skos:ConceptScheme">
+        <img src="diagrams/concept.jpg" alt="skos:Concept and skos:ConceptScheme"/>
       </div>
 	  
 	  <p>
@@ -1352,24 +1352,24 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 	  </p>
 	  
       <pre class="example">
-        <#sexRepr> a skos:ConceptScheme, disco:Representation;
-          skos:hasTopConcept <#sexM>, <#sexF>.
+        &lt;#sexRepr&gt; a skos:ConceptScheme, disco:Representation;
+          skos:hasTopConcept &lt;#sexM&gt;, &lt;#sexF&gt;.
           
-        <#sexM> a skos:Concept;
+        &lt;#sexM&gt; a skos:Concept;
           skos:notation "1";
           skos:prefLabel "Male"@en, "Homme"@fr;
-          skos:inScheme <#sexRepr>.
+          skos:inScheme &lt;#sexRepr&gt;.
               
-        <#sexF> a skos:Concept;
+        &lt;#sexF&gt; a skos:Concept;
           skos:notation "2";
           skos:prefLabel "Female"@en, "Femme"@fr;
-          skos:inScheme <#sexRepr>.
+          skos:inScheme &lt;#sexRepr&gt;.
 	  </pre>
 	  
 	    <section>
         <h4>Uses of skos:Concept</h4>
         
-        <p>
+        <div>
           In this sub-section, we will describe all possible uses of the class <code>skos:Concept</code>.
           <ul>
             <li><b>Code values: </b>Code values are represented using the datatype property <code>skos:notation</code> with <code>skos:Concept</code> as domain.</li>
@@ -1391,7 +1391,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
             <li><b>Format of data files: </b> Using the object property <code>dcterms:format</code>, <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> formats can be defined. <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> must have exactly 1 <code>dcterms:format</code> relationship to an instance of the class <code>dcterms:MediaTypeOrExtend</code> which is a sub-class of <code>skos:Concept</code>.</li>
             <li><b><code><a href="#dfn-disco-analysisUnit" class="internalDFN">AnalysisUnit</a></code>: </b>Each analysis unit is also a <code>skos:Concept</code>. Therefore the porperties defined for <code>skos:Concept</code> can be reused for analysis units.</li>
           </ul>
-        </p>
+        </div>
       </section>
 	  
     </section>
@@ -1415,20 +1415,20 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 	  </p>
 
       <div class="figure">
-        <img src="diagrams/representation.jpg" alt="Representation">
+        <img src="diagrams/representation.jpg" alt="Representation"/>
       </div>
       
       <p>The following example shows the representations of the three previously introduced variables Sex, Age and Citizenship. All of them refer to the particular concepts.</p>
       
       <pre class="example">
-        <#sexRepr> a skos:ConceptScheme, disco:Representation;
-          skos:hasTopConcept <#sexM>, <#sexF>.
+        &lt;#sexRepr&gt; a skos:ConceptScheme, disco:Representation;
+          skos:hasTopConcept &lt;#sexM&gt;, &lt;#sexF&gt;.
             
-      <#ageRepr> a skos:ConceptScheme, disco:Representation;
-        skos:hasTopConcept <#age0>, <#age1>, <#age99>.
+      &lt;#ageRepr&gt; a skos:ConceptScheme, disco:Representation;
+        skos:hasTopConcept &lt;#age0&gt;, &lt;#age1&gt;, &lt;#age99&gt;.
           
-      <#citizenshipRepr> a skos:ConceptScheme, disco:Representation;
-        skos:hasTopConcept <#cYes>, <#cNo>, <#cUnknown>, <#NIU>.    
+      &lt;#citizenshipRepr&gt; a skos:ConceptScheme, disco:Representation;
+        skos:hasTopConcept &lt;#cYes&gt;, &lt;#cNo&gt;, &lt;#cUnknown&gt;, &lt;#NIU&gt;.    
 	  </pre>
 	  
 	  <p>
@@ -1451,7 +1451,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <h2>Data Collection</h2>
 
 	  <div class="figure">
-        <img src="diagrams/data-collection.jpg" alt="DataCollection">
+        <img src="diagrams/data-collection.jpg" alt="DataCollection"/>
       </div>
 	  
     <section>
@@ -1482,10 +1482,10 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <p>The following example illustrates a questionnaire with three example questions. The questions are defined the next section.</p>
 
       <pre class="example">
-        <#questionnaire> a disco:Questionnaire;
-          disco:question <#questionGender>;
-          disco:question <#questionAge>;
-          disco:question <#questionCitizenship>.
+        &lt;#questionnaire&gt; a disco:Questionnaire;
+          disco:question &lt;#questionGender&gt;;
+          disco:question &lt;#questionAge&gt;;
+          disco:question &lt;#questionCitizenship&gt;.
 	  </pre>
     </section>
 
@@ -1508,13 +1508,13 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       </p>
 	  
       <pre class="example">
-      <#questionGender> a disco:Question;
+      &lt;#questionGender&gt; a disco:Question;
         disco:questionText "2. Is the person a man or a woman? [] Man, [] Woman"@en.
         
-      <#questionAge> a disco:Question;
+      &lt;#questionAge&gt; a disco:Question;
         disco:questionText "3. What is his or her age? _ _ Mark the age in completed years at the date of the census for those younger than one year old mark 00. For those younger than 10 years old, mark 01, 02, 03, etc. For those older than 99 years old, mark 99."@en.
           
-      <#questionCitizenship> a disco:Question;
+      &lt;#questionCitizenship&gt; a disco:Question;
         disco:questionText "6. [Immigration status] Only for persons who have usual residence in Argentina and were born in another country. [Questions 6A and 6B asked only of persons born outside Argentina and who currently reside in Argentina.] B. Are you a naturalized citizen of Argentina? [] Yes [] No [] Unanswered"@en.
     </pre>      
 	  
@@ -1530,7 +1530,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <a href="https://github.com/linked-statistics/disco-spec/issues/27">Issue #27</a>.</p>
     </section>
 
-    <section id='literals-to-identifiers'>
+    <section id='mapping-from-DDI-XML-to-DDI-RDF'>
       <h2>Mapping from DDI-XML to DDI-RDF</h2>
 
       <p>In this section a detailed mapping from DDI Codebook and Lifecycle is provided. It allows an easy adoption of the DDI Discovery Vocabulary for existing DDI metadata. XSLTs for converting any XML output of DDI-C and DDI-L are available at the <a href="https://github.com/linked-statistics/DDI-RDF-tools">DDI-RDF-tools project page</a>.</p>
@@ -1544,12 +1544,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br></td>
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></td>
     </tr>
     <tr>
       <td>1</td>
@@ -1754,12 +1754,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br></td>
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></td>
     </tr>
     <tr>
       <td>1</td>
@@ -1892,13 +1892,14 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br></td>
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></td>
     </tr>  
+    <tr>
       <td>1</td>
       <td>instrument</td>
       <td>LogicalDataSet</td>
@@ -2229,12 +2230,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br></td>
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></td>
     </tr>
     <tr>
       <td>1</td>
@@ -2415,12 +2416,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br></td>
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></td>
     </tr>
      <tr>
       <td>1</td>
@@ -2519,11 +2520,11 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br></td>
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br/></td>
     </tr>
     <tr>
       <td>1</td>
@@ -2696,12 +2697,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
   </tbody>
 </table>
 
-               <p>
+               <div>
                    <h4>notes</h4>
                    <ul>
                        <li><b>(1): </b>-</li>
                    </ul>
-               </p>
+               </div>
 
           </section>
           
@@ -2711,11 +2712,11 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br></td>
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br/></td>
     </tr>
     <tr>
       <td>1</td>
@@ -2825,12 +2826,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
   </tbody>
 </table>
 
-               <p>
+               <div>
                    <h4>notes</h4>
                    <ul>
                        <li><b>(1): </b>-</li>
                    </ul>
-               </p>
+               </div>
                 
           </section>
           
@@ -2840,12 +2841,13 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br></td>
-    </tr>  
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br/></td>
+    </tr>
+    <tr>  
       <td>1</td>
       <td>instrument</td>
       <td>LogicalDataSet</td>
@@ -3128,12 +3130,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
   </tbody>
 </table>
 
-               <p>
+               <div>
                    <h4>notes</h4>
                    <ul>
                        <li><b>(1): </b>-</li>
                    </ul>
-               </p>
+               </div>
                 
           </section>
           
@@ -3143,11 +3145,11 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br></td>
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br/></td>
     </tr>
     <tr>
       <td>1</td>
@@ -3299,12 +3301,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
   </tbody>
 </table>
                 
-               <p>
+               <div>
                    <h4>notes</h4>
                    <ul>
                        <li><b>(1): </b>-</li>
                    </ul>
-               </p>
+               </div>
                 
           </section>
           
@@ -3314,11 +3316,11 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br></td>
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br/></td>
     </tr>
      <tr>
       <td>1</td>
@@ -3395,12 +3397,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
                 
           </section>        
 
-               <p>
+               <div>
                    <h4>notes</h4>
                    <ul>
                        <li><b>(1): </b>-</li>
                    </ul>
-               </p>
+               </div>
 
         </section>
         
@@ -3413,11 +3415,11 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br></td>
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br/></td>
     </tr>
     <tr>
       <td>1</td>
@@ -3590,12 +3592,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
   </tbody>
 </table>
 
-               <p>
+               <div>
                    <h4>notes</h4>
                    <ul>
                        <li><b>(21): </b>suggested for identification</li>
                    </ul>
-               </p>
+               </div>
 
           </section>
           
@@ -3605,11 +3607,11 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br></td>
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br/></td>
     </tr>
     <tr>
       <td>1</td>
@@ -3719,12 +3721,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
   </tbody>
 </table>
 
-               <p>
+               <div>
                    <h4>notes</h4>
                    <ul>
                        <li><b>(1): </b>-</li>
                    </ul>
-               </p>
+               </div>
                 
           </section>
           
@@ -3734,12 +3736,13 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br></td>
-    </tr>  
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br/></td>
+    </tr>
+    <tr>  
       <td>1</td>
       <td>instrument</td>
       <td>LogicalDataSet</td>
@@ -4022,12 +4025,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
   </tbody>
 </table>
 
-               <p>
+               <div>
                    <h4>notes</h4>
                    <ul>
                        <li><b>(1): </b>-</li>
                    </ul>
-               </p>
+               </div>
                 
           </section>
           
@@ -4037,11 +4040,11 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br></td>
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br/></td>
     </tr>
     <tr>
       <td>1</td>
@@ -4193,12 +4196,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
   </tbody>
 </table>
                 
-               <p>
+               <div>
                    <h4>notes</h4>
                    <ul>
                        <li><b>(1): </b>-</li>
                    </ul>
-               </p>
+               </div>
                 
           </section>
           
@@ -4208,11 +4211,11 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 <table style="text-align: left; width: 80%;">
   <tbody>
     <tr>
-      <td style="font-weight: bold;">#<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br></td>
-      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br></td>
+      <td style="font-weight: bold;">#<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold;">mapping<br/></td>
     </tr>
      <tr>
       <td>1</td>
@@ -4289,12 +4292,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
                 
           </section>        
 
-               <p>
+               <div>
                    <h4>notes</h4>
                    <ul>
                        <li><b>(1): </b>-</li>
                    </ul>
-               </p>
+               </div>
 
         </section>
 
@@ -4318,7 +4321,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       </p>
       
       <div class="figure">
-        <img src="diagrams/object-properties.jpg" alt="Combined UML Diagram (object properties only)">
+        <img src="diagrams/object-properties.jpg" alt="Combined UML Diagram (object properties only)"/>
       </div>
       <p>The source file of this diagram can be found <a href="diagrams/object-properties.jpg">here</a>.</p>
     </section>
@@ -4362,7 +4365,7 @@ WHERE {
   ?rightsStatement skos:prefLabel ?rightsStatementLabel .
 
   FILTER (
-    ?isPublic = "true" &&
+    ?isPublic = "true" &amp;&amp;
     ?rightsStatementLabel = "Data Liberation Initiative Community"
   )
   
@@ -4487,8 +4490,8 @@ WHERE {
             <section>
                 <h3>Normative references</h3>
 <dl class="bibliography">
-    <dt id="bib-Linked-Statistical-Data">[Linked-Statistical-Data]</dt><dd>[2]	Bosch, T., Cyganiak, R., Wackerow, J., and Zapilko, B. <a href="http://dcpapers.dublincore.org/pubs/article/view/3654"><cite>Leveraging the DDI Model for Linked Statistical Data in the Social, Behavioural, and Economic Sciences.</cite></a> 2012. International Conference on Dublin Core and Metadata Applications. URL: <a href="http://dcpapers.dublincore.org/pubs/article/view/3654">http://dcpapers.dublincore.org/pubs/article/view/3654</a>
-    <dt id="bib-Scenarios">[Scenarios]</dt><dd>Vompras, J., Gregory, A., Bosch, T., Capadisli, and Wackerow, J.<a href="http://dx.doi.org/10.3886/DDISemanticWeb02"><cite>Scenarios for the DDI-RDF Discovery Vocabulary.</cite></a> May 2013. DDI Working Paper Series – Semantic Web 2. DOI: <a href="http://dx.doi.org/10.3886/DDISemanticWeb02">http://dx.doi.org/10.3886/DDISemanticWeb02</a>
+    <dt id="bib-Linked-Statistical-Data">[Linked-Statistical-Data]</dt><dd>[2]	Bosch, T., Cyganiak, R., Wackerow, J., and Zapilko, B. <a href="http://dcpapers.dublincore.org/pubs/article/view/3654"><cite>Leveraging the DDI Model for Linked Statistical Data in the Social, Behavioural, and Economic Sciences.</cite></a> 2012. International Conference on Dublin Core and Metadata Applications. URL: <a href="http://dcpapers.dublincore.org/pubs/article/view/3654">http://dcpapers.dublincore.org/pubs/article/view/3654</a></dd>
+    <dt id="bib-Scenarios">[Scenarios]</dt><dd>Vompras, J., Gregory, A., Bosch, T., Capadisli, and Wackerow, J.<a href="http://dx.doi.org/10.3886/DDISemanticWeb02"><cite>Scenarios for the DDI-RDF Discovery Vocabulary.</cite></a> May 2013. DDI Working Paper Series – Semantic Web 2. DOI: <a href="http://dx.doi.org/10.3886/DDISemanticWeb02">http://dx.doi.org/10.3886/DDISemanticWeb02</a></dd>
 </dl>
             </section>
             
@@ -4497,7 +4500,6 @@ WHERE {
             </section>
     </section>
         
-    </section>
     
   </body>
 </html>
