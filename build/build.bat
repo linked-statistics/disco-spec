@@ -5,7 +5,7 @@ echo -----convert turtle to other formats-----
 echo RDF/XML-ABBREV
 call rdfcopy ../discovery.ttl TURTLE RDF/XML-ABBREV > ../discovery-abbrev.xml
 echo RDF/XML
-call rdfcopy ../discovery.ttl TURTLE RDF/XML > ../discovery.xml
+call rdfcopy ../discovery.ttl TURTLE RDF/XML > ../discovery.rdf
 echo N3
 call rdfcopy ../discovery.ttl TURTLE N3 > ../discovery.n3
 
