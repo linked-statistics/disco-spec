@@ -1,11 +1,37 @@
-RewriteEngine On
-RewriteRule ^$ http://rdf-vocabulary.ddialliance.org/discovery [R=302]
+# Turn off MultiViews, multiple content types need multiple extensions
+Options -MultiViews
 
-#content negotiation for providing RDF or documentation
-DirectoryIndex discovery
-AddType text/html;charset=UTF-8  .html
-AddType application/xhtml+xml;charset=UTF-8  .html
-AddType text/turtle;charset=UTF-8  .ttl
-AddType application/x-turtle;charset=UTF-8  .ttl
-AddType text/rdf+n3;charset=UTF-8  .n3
-AddType application/rdf+xml  .rdf
+AddType text/html;charset=UTF-8     .html
+AddType text/n3;charset=UTF-8       .n3
+AddType application/rdf+xml         .xml
+AddType text/turtle;charset=UTF-8   .ttl
+
+# Rewrite engine setup
+RewriteEngine On
+RewriteBase /
+
+# Rewrite rule to serve HTML content from the vocabulary URI if requested
+RewriteCond %{HTTP_ACCEPT}          text/html               [OR]
+RewriteCond %{HTTP_ACCEPT}          application/xhtml\+xml
+RewriteRule ^discovery$             discovery.html          [R=303]
+
+# Rewrite rule to serve N3 content from the vocabulary URI if requested
+RewriteCond %{HTTP_ACCEPT}          text/n3                 [OR]
+RewriteCond %{HTTP_ACCEPT}          text/rdf\+n3
+RewriteRule ^discovery$             discovery.n3            [R=303]
+
+# Rewrite rule to serve RDF/XML content from the vocabulary URI if requested
+RewriteCond %{HTTP_ACCEPT}          application/rdf\+xml
+RewriteRule ^discovery$             discovery.xml           [R=303]
+
+# Rewrite rule to serve Turtle content from the vocabulary URI if requested
+RewriteCond %{HTTP_ACCEPT}          text/turtle             [OR]
+RewriteCond %{HTTP_ACCEPT}          application/x-turtle
+RewriteRule ^discovery$             discovery.ttl           [R=303]
+
+# Rewrite rule to serve HTML content from the vocabulary URI by default
+RewriteRule ^discovery$             discovery.html          [R=303]
+
+# Redirect for empty path to RDF page at DDI Alliance
+RewriteRule ^$                      http://www.ddialliance.org/Specification/RDF    [R=303]
+
