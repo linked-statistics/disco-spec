@@ -1341,7 +1341,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 		DDI concepts can be described using <code>skos:definition</code>.
 		Furthermore, you can describe code values (<code>skos:notation</code>) and category labels
         (<code>skos:prefLabel</code>).
-        Hierarchies of DDI concepts can be built using the object peoperties <code>skos:broader</code> and <code>skos:narrower</code>.
+        Hierarchies of DDI concepts can be built using the object properties <code>skos:broader</code> and <code>skos:narrower</code>.
 		The domains and the ranges of <code>skos:broader</code> and <code>skos:narrower</code> are <code>skos:Concept</code>.
         The cardinalities are in both directions 0 to n.
         <code>Skos:Concept</code> may be organized in 0 to n <code>skos:ConceptSchemes</code> by means of <code>skos:inScheme</code>.
@@ -1375,7 +1375,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
             <li><b>Code values: </b>Code values are represented using the datatype property <code>skos:notation</code> with <code>skos:Concept</code> as domain.</li>
             <li><b>Category labels: </b>Use <code>skos:prefLabel</code> and the domain class <code>skos:Concept</code> to describe category values</li>
             <li><b>DDI concepts: </b>DDI concepts are described by the property <code>skos:prefLabel</code> pointing from <code>skos:Concept</code> classes.</li>
-            <li><b>Hierarchies of DDI concepts: </b>Hierarchies of DDI concepts can be built using the object peoperties <code>skos:broader</code> and <code>skos:narrower</code>. The domains and the ranges of <code>skos:broader</code> and <code>skos:narrower</code> are <code>skos:Concept</code>. </li> 
+            <li><b>Hierarchies of DDI concepts: </b>Hierarchies of DDI concepts can be built using the object properties <code>skos:broader</code> and <code>skos:narrower</code>. The domains and the ranges of <code>skos:broader</code> and <code>skos:narrower</code> are <code>skos:Concept</code>. </li> 
             <li><b>Organization in <code>skos:ConceptSchemes</code>: </b><code>Skos:Concepts</code> may be organized in <code>skos:ConceptSchemes</code> by means of <code>skos:inScheme</code>. The top concept in a specific ConceptScheme is indicated by <code>skos:hasTopConcept</code> pointing to top <code>skos:Concept</code>.</li>
            
  <li><b>Topical coverage: </b>Topical coverage can be expressed using <code>dcterms:subject</code>. DDI-RDF foresees the use of <code>skos:Concept</code> for the description of topical coverage. Spatial, temporal, and topical coverage are directly attached to studies, logical datasets, and datafiles.</li>
