@@ -158,7 +158,7 @@ disco:caseQuantity a rdf:Property, owl:DatatypeProperty;
 # use if available in DDI
 disco:ddi2_1identifier a rdf:Property, owl:DatatypeProperty;
     rdfs:label "DDI 2.1 identifier"@en, "DDI 2.1 Identifikation"@de;
-    rdfs:domain rdf:Ressource;
+    rdfs:domain rdfs:Ressource;
     rdfs:range xsd:anyURI;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
     rdfs:subPropertyOf disco:internationalIdentifier.
@@ -167,7 +167,7 @@ disco:ddi2_1identifier a rdf:Property, owl:DatatypeProperty;
 # use if available in DDI
 disco:ddi2_5identifier a rdf:Property, owl:DatatypeProperty;
     rdfs:label "DDI 2.5 identifier"@en, "DDI 2.5 Identifikation"@de;
-    rdfs:domain rdf:Ressource;
+    rdfs:domain rdfs:Ressource;
     rdfs:range xsd:anyURI;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
     rdfs:subPropertyOf disco:internationalIdentifier.
@@ -176,7 +176,7 @@ disco:ddi2_5identifier a rdf:Property, owl:DatatypeProperty;
 # use if available in DDI
 disco:ddi3_0identifier a rdf:Property, owl:DatatypeProperty;
     rdfs:label "DDI 3.0 identifier"@en, "DDI 3.0 Identifikation"@de;
-    rdfs:domain rdf:Ressource;
+    rdfs:domain rdfs:Ressource;
     rdfs:range xsd:anyURI;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
     rdfs:subPropertyOf disco:internationalIdentifier.
@@ -185,7 +185,7 @@ disco:ddi3_0identifier a rdf:Property, owl:DatatypeProperty;
 # use if available in DDI
 disco:ddi3_1identifier a rdf:Property, owl:DatatypeProperty;
     rdfs:label "DDI 3.1 identifier"@en, "DDI 3.1 Identifikation"@de;
-    rdfs:domain rdf:Ressource;
+    rdfs:domain rdfs:Ressource;
     rdfs:range xsd:anyURI;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
     rdfs:subPropertyOf disco:internationalIdentifier.
@@ -194,7 +194,7 @@ disco:ddi3_1identifier a rdf:Property, owl:DatatypeProperty;
 # use if available in DDI
 disco:ddi3_2identifier a rdf:Property, owl:DatatypeProperty;
     rdfs:label "DDI 3.1 identifier"@en, "DDI 3.2 Identifikation"@de;
-    rdfs:domain rdf:Ressource;
+    rdfs:domain rdfs:Ressource;
     rdfs:range xsd:anyURI;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
     rdfs:subPropertyOf disco:internationalIdentifier.
@@ -202,7 +202,7 @@ disco:ddi3_2identifier a rdf:Property, owl:DatatypeProperty;
 # internationalIdentifier property
 disco:internationalIdentifier a rdf:Property, owl:DatatypeProperty;
     rdfs:label "international identifier"@en, "DDI-Identifikation"@de;
-    rdfs:domain rdf:Ressource;
+    rdfs:domain rdfs:Ressource;
     rdfs:range xsd:anyURI;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
