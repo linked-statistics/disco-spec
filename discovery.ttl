@@ -8,7 +8,7 @@
 @prefix qb: <http://purl.org/linked-data/cube#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix disco: <http://rdf-vocabulary.ddialliance.org/discovery#>.
-@prefix foaf: <http://xmlns.com/foaf/spec/#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
 
 
 #################################################################
