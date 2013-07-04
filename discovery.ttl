@@ -51,7 +51,7 @@
 # AnalysisUnit class
 disco:AnalysisUnit a rdfs:Class, owl:Class;
     rdfs:label "analysis unit"@en, "Analyseeinheit"@de;
-	rdfs:comment "The process collecting data is focusing on the analysis of a particular type of subject. If, for example, the adult population of Finland is being studied, the AnalysisUnit would be individuals or persons."@en;
+	  rdfs:comment "The process collecting data is focusing on the analysis of a particular type of subject. If, for example, the adult population of Finland is being studied, the AnalysisUnit would be individuals or persons."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
     rdfs:subClassOf skos:Concept.
 
@@ -64,7 +64,7 @@ disco:DataDiscoveryDocument a rdfs:Class, owl:Class;
 # VariableDefinition class
 disco:VariableDefinition a rdfs:Class, owl:Class;
     rdfs:label "Data element"@en, "Élément de donnée"@fr;
-    rdfs:comment "TODO"@en;
+    rdfs:comment "VariableDefinitions encompasse study-independent, re-usable parts of variables like occupation classification."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # DataFile class
@@ -77,27 +77,28 @@ disco:DataFile a rdfs:Class, owl:Class;
 # DescriptiveStatistics class
 disco:DescriptiveStatistics a rdfs:Class, owl:Class;
     rdfs:label "Descriptive statistics"@en, "Statistique descriptive"@fr;
-	rdfs:comment "SummaryStatistics pointing to variables and CategoryStatistics pointing to categories and codes are both descriptive statistics."@en;
+	  rdfs:comment "SummaryStatistics pointing to variables and CategoryStatistics pointing to categories and codes are both DescriptiveStatistics."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # SummaryStatistics class
 disco:SummaryStatistics a rdfs:Class, owl:Class;
     rdfs:label "Summary statistics"@en;
-	rdfs:comment "SummaryStatistics pointing to variables."@en;
+	  rdfs:comment "For SummaryStatistics, maximum values, minimum values, and standard deviations can be defined."@en;
     rdfs:subClassOf disco:DescriptiveStatistics;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # CategoryStatistics class
 disco:CategoryStatistics a rdfs:Class, owl:Class;
     rdfs:label "Category statistics"@en;
-	rdfs:comment "CategoryStatistics pointing to categories and codes."@en;
+	  rdfs:comment "For CategoryStatistics, frequencies, percentages, and weighted percentages can be defined."@en;
     rdfs:subClassOf disco:DescriptiveStatistics;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # Instrument class (e.g., questionnaire, sensors, registers)
 # XXX: Additional subclasses to be discussed.
 disco:Instrument a rdfs:Class, owl:Class;
-    rdfs:label "Survey instrument"@en, "Instrument de collecte"@fr;
+    rdfs:label "The data for the study are collected by an Instrument. The purpose of an Instrument, i.e. an interview, a questionnaire or another entity used as a means of data collection, is in the case of a survey to record the flow of a questionnaire, its use of questions, and additional component parts. A questionnaire contains a flow of questions. "@en, "Instrument de collecte"@fr;
+    rdfs:comment "The data for the study are collected by an Instrument. The purpose of an Instrument, i.e. an interview, a questionnaire or another entity used as a means of data collection, is in the case of a survey to record the flow of a questionnaire, its use of questions, and additional component parts. A questionnaire contains a flow of questions. "@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # LogicalDataSet class
@@ -109,30 +110,34 @@ disco:LogicalDataSet a rdfs:Class, owl:Class;
 
 # Question class
 # skos:prefLabel represents question name
-disco:Question a rdfs:Class, owl:Class;
+    disco:Question a rdfs:Class, owl:Class;
     rdfs:label "Question"@en, "Question"@fr;
+    rdfs:comment "A Question is designed to get information upon a subject, or sequence of subjects, from a respondent."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # Questionnaire class
 disco:Questionnaire a rdfs:Class, owl:Class;
     rdfs:label "Questionnaire"@en, "Fragebogen"@de;
+    rdfs:comment "A questionnaire contains a flow of questions. "@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
     rdfs:subClassOf disco:Instrument.
 
 # Study class
 disco:Study a rdfs:Class, owl:Class;
     rdfs:label "Study"@en, "Étude"@fr;
+    rdfs:comment "A Study represents the process by which a data set was generated or collected."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # Study group class
 disco:StudyGroup a rdfs:Class, owl:Class;
     rdfs:label "Study Group"@en, "Studiengruppe"@de;
+    rdfs:comment "In some cases, where data collection is cyclic or on-going, data sets may be released as a StudyGroup, where each cycle or wave of the data collection activity produces one or more data sets. This is typical for longitudinal studies, panel studies, and other types of series (to use the DDI term). In this case, a number of Study objects would be collected into a single StudyGroup."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # Variable class
 disco:Variable a rdfs:Class, owl:Class;
     rdfs:label "Variable"@en, "Variable"@fr;
-    rdfs:comment "It is recommended to use Dublin Core terms (identifier, description) and SKOS labels to describe the variable."@en;
+    rdfs:comment "Variables provide a definition of the column in a rectangular data file. Variable is a characteristic of a unit being observed. A variable might be the answer of a question, have an administrative source, or be derived from other variables."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # Universe class
@@ -140,7 +145,7 @@ disco:Variable a rdfs:Class, owl:Class;
 # skos:Concept/skos:prefLabel represents universe label
 disco:Universe a rdfs:Class, owl:Class;
     rdfs:label "Universe"@en, "Univers"@fr;
-    rdfs:comment "A Universe is the total membership or population of a defined class of people, objects or events"@en;
+    rdfs:comment "A Universe is the total membership or population of a defined class of people, objects or events."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
     rdfs:subClassOf skos:Concept.
 
