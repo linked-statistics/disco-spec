@@ -400,8 +400,8 @@ disco:endDate a rdf:Property, owl:DatatypeProperty;
 # Study -> AnalysisUnit 0,1 / 0,...,n
 disco:analysisUnit a rdf:Property, owl:ObjectProperty;
     rdfs:label "analysis unit"@en, "Analyseeinheit"@de;
-    rdfs:domain [ owl:unionOf (disco:Study disco:Variable)];
-    rdfs:range skos:AnalysisUnit;
+    rdfs:domain [ owl:unionOf ( owl:unionOf( disco:Study disco:StudyGroup) disco:Variable)];
+    rdfs:range disco:AnalysisUnit;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # basedOn property
