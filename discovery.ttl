@@ -110,7 +110,7 @@ disco:LogicalDataSet a rdfs:Class, owl:Class;
 
 # Question class
 # skos:prefLabel represents question name
-    disco:Question a rdfs:Class, owl:Class;
+disco:Question a rdfs:Class, owl:Class;
     rdfs:label "Question"@en, "Question"@fr;
     rdfs:comment "A Question is designed to get information upon a subject, or sequence of subjects, from a respondent."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
