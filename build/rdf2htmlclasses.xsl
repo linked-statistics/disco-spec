@@ -94,11 +94,20 @@
             <xsl:call-template name="string-replace-all">
                 <xsl:with-param name="text" select="@rdf:about" />
                 <xsl:with-param name="replace"><xsl:value-of select="$prefix"/></xsl:with-param>
-                <xsl:with-param name="by">disco:</xsl:with-param>
+                <xsl:with-param name="by"></xsl:with-param>
             </xsl:call-template>
         </xsl:variable>
         <dt>
-            <em>Class: </em><code><dfn><xsl:value-of select="$class"/></dfn></code>
+            <a>
+                <xsl:attribute name="name">dfn-disco-<xsl:value-of select="$class"/></xsl:attribute>
+            </a>
+            <em>Class: </em>
+            <code>
+                <dfn>
+
+                    disco:<xsl:value-of select="$class"/>
+                </dfn>
+            </code>
             
             <xsl:if test="rdfs:subClassOf">
                 Sub Class of: <xsl:apply-templates select="rdfs:subClassOf"/>
