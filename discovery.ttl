@@ -546,6 +546,7 @@ disco:question a rdf:Property, owl:ObjectProperty;
 # * Variable -> Representation 1 / 0,...,n
 disco:representation a rdf:Property, owl:ObjectProperty;
     rdfs:label "representation"@en, "a pour représentation"@fr;
+	rdfs:comment "VariableDefinitions and Variables can have a Representation whose individuals are either of the class rdfs:Datatype (to represent values) or skos:ConceptScheme (to represent code lists)."@en;
     rdfs:domain [ owl:unionOf (disco:VariableDefinition disco:Variable)];
     rdfs:range [ owl:unionOf (skos:ConceptScheme rdfs:Datatype)];
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
@@ -554,7 +555,8 @@ disco:representation a rdf:Property, owl:ObjectProperty;
 # * DescriptiveStatistics -> Concept 0,...,n / 0,...,n
 disco:statisticsCategory a rdf:Property, owl:ObjectProperty;
     rdfs:label "statistics category"@en, "a pour concept statistique"@fr;
-    rdfs:domain disco:DescriptiveStatistics;
+	rdfs:comment "Indicates the skos:Concept (representing codes and categories) of a specific CategoryStatistics individual."@en;
+    rdfs:domain disco:CategoryStatistics;
     rdfs:range skos:Concept;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
