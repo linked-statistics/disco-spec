@@ -481,7 +481,8 @@ disco:externalDocumentation a rdf:Property, owl:ObjectProperty;
 # fundedBy property
 disco:fundedBy a rdf:Property, owl:ObjectProperty;
     rdfs:label "funded by"@en;
-    rdfs:domain disco:Study;
+	rdfs:comment "points from a Study or a StudyGroup to the funding foaf:Agent which is either a foaf:Person or a org:Organization."@en;
+    rdfs:domain [ owl:unionOf ( disco:Study disco:StudyGroup ) ];
     rdfs:range foaf:Agent;
     rdfs:subPropertyOf dcterms:contributor;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
