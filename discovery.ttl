@@ -573,7 +573,7 @@ disco:statisticsDataFile a rdf:Property, owl:ObjectProperty;
 # * DescriptiveStatistics -> Variable 0,...,n / 0,...,n
 disco:statisticsVariable a rdf:Property, owl:ObjectProperty;
     rdfs:label "statistics variable"@en, "a pour variable statistique"@fr;
-	rdfs:comment ""@en;
+	rdfs:comment "Indicates the Variable of a specific SummaryStatistics individual."@en;
     rdfs:domain disco:SummaryStatistics;
     rdfs:range disco:Variable;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
@@ -586,23 +586,8 @@ disco:statisticsVariable a rdf:Property, owl:ObjectProperty;
 # * LogicalDataSet -> Universe 1 / 0,...,n (Property: dataSetUniverse)
 disco:universe a rdf:Property, owl:ObjectProperty;
     rdfs:label "universe"@en, "a comme univers"@fr;
+	rdfs:comment "Indicates the Universe(s) of Studies, StudyGrous, VariableDefinitions, Variables, Questions, and LogicalDataSets."@en;
     rdfs:domain [ owl:unionOf (disco:Study disco:StudyGroup disco:VariableDefinition disco:Variable disco:Question disco:LogicalDataSet)];
-    rdfs:range disco:Universe;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
-# dataSetUniverse property
-
-disco:dataSetUniverse a rdf:Property, owl:ObjectProperty;
-    rdfs:label "data set universe"@en, "Datensatzuniversum"@de;
-    rdfs:domain disco:LogicalDataSet;
-    rdfs:range disco:Universe;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
-# studyUniverse property
-
-disco:studyUniverse a rdf:Property, owl:ObjectProperty;
-    rdfs:label "study universe"@en, "mesure"@fr;
-    rdfs:domain [ owl:unionOf (disco:Study disco:StudyGroup)];
     rdfs:range disco:Universe;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
