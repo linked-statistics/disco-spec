@@ -3598,7 +3598,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>skos:definition</td>
       <td>Universe</td>
       <td>rdf:langString</td>
-      <td></td>
+      <td>c:Universe/c:HumanReadable</td>
     </tr> 
   </tbody>
 </table>
@@ -3793,7 +3793,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>dcterms:title</td>
       <td>LogicalDataSet</td>
       <td>rdf:langString</td>
-      <td></td>
+      <td>//l:LogicalProduct/r:Label</td>
     </tr> 
     <tr>
       <td>7</td>
@@ -3807,7 +3807,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>dcterms:accessRights</td>
       <td>LogicalDataSet</td>
       <td>dcterms:RightsStatement</td>
-      <td></td>
+      <td>ancestor::s:StudyUnit/a:Archive/a:DefaultAccess/a:AccessConditions</td>
     </tr> 
     <tr>
       <td>9</td>
@@ -3828,7 +3828,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>caseQuantity</td>
       <td>DataFile</td>
       <td>xsd:nonNegativeInteger</td>
-      <td></td>
+      <td>//pi:PhysicalInstance/pi:GrossFileStructure/pi:CaseQuantity</td>
     </tr> 
     <tr>
       <td>12</td>
@@ -3842,7 +3842,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>owl:versioninfo</td>
       <td>DataFile</td>
       <td>string</td>
-      <td></td>
+      <td>//pi:PhysicalInstance/@version</td>
     </tr> 
     <tr>
       <td>14</td>
@@ -3856,7 +3856,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>dcterms:spatial</td>
       <td>DataFile</td>
       <td>dcterms:Location</td>
-      <td></td>
+      <td>pi:PhysicalInstance/r:Coverage/r:SpatialCoverage/@id|pi:PhysicalInstance/r:Coverage/r:SpatialCoverageReference/r:ID</td>
     </tr> 
     <tr>
       <td>16</td>
@@ -4076,7 +4076,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>skos:broader</td>
       <td>skos:Concept</td>
       <td>skos:Concept</td>
-      <td></td>
+      <td>c:Universe/c:SubUniverse/@id [Universe]</td>
     </tr> 
     <tr>
       <td>4</td>
@@ -4090,21 +4090,21 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>skos:definition</td>
       <td>skos:Concept</td>
       <td>rdf:langString</td>
-      <td></td>
+      <td>c:Universe/c:UniverseName [Universe]</td>
     </tr> 
     <tr>
       <td>6</td>
       <td>skos:notation</td>
       <td>skos:Concept</td>
       <td>rdfs:Literal</td>
-      <td></td>
+      <td>c:Universe/c:MachineReadable [Universe]</td>
     </tr> 
     <tr>
       <td>7</td>
       <td>skos:prefLabel</td>
       <td>skos:Concept</td>
       <td>rdf:LangString</td>
-      <td></td>
+      <td>c:Universe/r:Label [Universe]</td>
     </tr> 
     <tr>
       <td>8</td>
@@ -4233,14 +4233,14 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>universe</td>
       <td>Question</td>
       <td>Universe</td>
-      <td></td>
+      <td>//l:Variable/r:UniverseReference/r:ID</td>
     </tr>
      <tr>
       <td>2</td>
       <td>concept</td>
       <td>Question</td>
       <td>skos:Concept</td>
-      <td></td>
+      <td>//l:Variable/r:ConceptReference/r:ID</td>
     </tr>    
     <tr>
       <td>3</td>
@@ -4254,14 +4254,14 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>questionText</td>
       <td>Question</td>
       <td>rdf:langString</td>
-      <td></td>
+      <td>//d:QuestionItem|d:MultipleQuestionItem/d:QuestionText/d:LiteralText/d:Text</td>
     </tr>  
      <tr>
       <td>5</td>
       <td>skos:prefLabel</td>
       <td>Question</td>
       <td>rdf:langString</td>
-      <td></td>
+      <td>//d:QuestionItem/d:QuestionItemName|d:MultipleQuestionItem/d:MultipleQuestionItemName</td>
     </tr>  
     <tr>
       <td>6</td>
@@ -4289,14 +4289,14 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>dcterms:description</td>
       <td>Instrument</td>
       <td>rdf:langString</td>
-      <td></td>
+      <td>d:Intrument/r:Description</td>
     </tr> 
     <tr>
       <td>10</td>
       <td>skos:prefLabel</td>
       <td>Instrument</td>
       <td>rdf:langString  </td>
-      <td></td>
+      <td>d:Instrument/r:Label</td>
     </tr> 
   </tbody>
 </table>
