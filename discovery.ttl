@@ -399,12 +399,14 @@ disco:weightedMode a rdf:Property, owl:DatatypeProperty;
 
 disco:startDate a rdf:Property, owl:DatatypeProperty;
     rdfs:label "Start Date"@en;
+	rdfs:comment "start date"@en;
     rdfs:domain dcterms:PeriodOfTime;
     rdfs:range xsd:date;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 disco:endDate a rdf:Property, owl:DatatypeProperty;
     rdfs:label "End Date"@en;
+	rdfs:comment "end date"@en;
     rdfs:domain dcterms:PeriodOfTime;
     rdfs:range xsd:date;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
