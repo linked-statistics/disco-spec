@@ -16,6 +16,8 @@
                 <style type="text/css">
                     table { border: black 1px solid; border-collapse:collapse; border-spacing: 0; }
                     table td { border: black 1px solid; padding: 3px; padding-left: 10px; padding-right: 10px; text-align: center; vertical-align: top;}
+                    .classDefinitions dd{margin-bottom:15px;}
+                    .classProperties{margin-left:25px;}
                 </style>
                 <title>Classes</title>
                 <script src='http://darobin.github.com/respec/builds/respec-w3c-common.js' class='remove'></script>
@@ -44,7 +46,7 @@
                     // previousMaturity:  "WD",
                     
                     // if there a publicly available Editor's Draft, this is the link
-                    edDraftURI:           "https://raw.github.com/linked-statistics/disco-spec/master/discovery.html",
+                    
                     
                     // if this is a LCWD, uncomment and set the end of its review period
                     // lcEnd: "2009-08-05",
@@ -81,10 +83,56 @@
                 </script>                
             </head>
             <body>
-                <dl>
-                    <xsl:apply-templates select="owl:Class"></xsl:apply-templates>
+                <!-- 
+                1. Studies and StudyGroups
+                Study, StudyGroup, AnalysisUnit, Universe
+                
+                2. Data Sets, Data Files, and Descriptive Statistics
+                LogicalDataSet, DataFile, DescriptiveStatistics, SummaryStatistics, CategoryStatistics
+                
+                3. Variables, Variable Definitions, Representations, and Concepts
+                Variable, VariableDefinition, Representation
+                
+                4. Data Collection
+                Question, Instrument, Questionnaire
+                -->
+                <h2>1. Studies and StudyGroups</h2>
+                <dl class="classDefinitions">
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Study')]"/>
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'StudyGroup')]"/>
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'AnalysisUnit')]"/>
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Universe')]"/>
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'DataDiscoveryDocument')]"/>
+                </dl>
+                
+                <h2>2. Data Sets, Data Files, and Descriptive Statistics</h2>
+                <dl class="classDefinitions">
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'LogicalDataSet')]"/>
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'DataFile')]"/>
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'DescriptiveStatistics')]"/>
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'SummaryStatistics')]"/>
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'CategoryStatistics')]"/>
+                </dl>
+                
+                <h2>3. Variables, Variable Definitions, Representations, and Concepts</h2>
+                <dl class="classDefinitions">
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Variable')]"/>
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'VariableDefinition')]"/>
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Representation')]"/>
+                </dl>
+
+                <h2>4. Data Collection</h2>
+                <dl class="classDefinitions">
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Question')]"/>
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Instrument')]"/>
+                    <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Questionnaire')]"/>
+                </dl>
+                <!--
+                <h2>All Properties</h2>
+                <dl class="classDefinitions">
                     <xsl:apply-templates select="owl:ObjectProperty"/>
-                </dl>                
+                </dl>      
+                -->
             </body>
         </html>
     </xsl:template>
@@ -98,22 +146,18 @@
             </xsl:call-template>
         </xsl:variable>
         <dt>
-            <a>
-                <xsl:attribute name="name">dfn-disco-<xsl:value-of select="$class"/></xsl:attribute>
-            </a>
+            <a><xsl:attribute name="name">dfn-disco-<xsl:value-of select="$class"/></xsl:attribute></a>
             <em>Class: </em>
-            <code>
-                <dfn>
-
-                    disco:<xsl:value-of select="$class"/>
-                </dfn>
-            </code>
+            <code><dfn>disco:<xsl:value-of select="$class"/></dfn></code>
             
             <xsl:if test="rdfs:subClassOf">
                 Sub Class of: <xsl:apply-templates select="rdfs:subClassOf"/>
             </xsl:if>
         </dt>
         <dd><xsl:value-of select="rdfs:comment"/></dd>
+        <div class="classProperties">
+            <xsl:apply-templates select="../owl:ObjectProperty[rdfs:domain/@rdf:resource = concat($prefix,$class) or rdfs:domain//./@rdf:about=concat($prefix,$class)]"/>
+        </div>
     </xsl:template>
     
     <xsl:template match="rdfs:subClassOf">
@@ -149,9 +193,19 @@
                     <xsl:with-param name="by">disco:</xsl:with-param>
                 </xsl:call-template>
             </xsl:variable>
-            (Domain: <code><xsl:value-of select="$domainName"/></code>)
+            (Domain: <code>
+                <xsl:value-of select="$domainName"/></code>
+                <xsl:apply-templates select="rdfs:doamin"/>
+            )
         </dt>
         <dd><xsl:value-of select="rdfs:comment"/></dd>
+    </xsl:template>
+    
+    <xsl:template match="rdfs:domain">
+        <xsl:for-each select="owl:unionOf/owl:Class">
+            <code><xsl:value-of select="@rdf:about"/></code>
+            <xsl:text>, </xsl:text>
+        </xsl:for-each>
     </xsl:template>
     
     <xsl:template name="string-replace-all">
