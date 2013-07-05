@@ -1576,7 +1576,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>union of Study and StudyGroup</td>
       <td>skos:Concept</td>
       <td></td>
-      <td></td>
+      <td>X</td>
     </tr>  
     <tr>
       <td>3</td>
@@ -1600,7 +1600,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>union of Study and StudyGroup</td>
       <td>skos:Concept</td>
       <td></td>
-      <td></td>
+      <td>X</td>
     </tr>  
     <tr>
       <td>6</td>
@@ -1778,7 +1778,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>disco:Study</td>
       <td>adms:Identifier</td>
       <td></td>
-	  <td></td>
+	  <td>X</td>
     </tr> 
 	<tr>
       <td>2</td>
@@ -1818,7 +1818,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>disco:DataFile</td>
       <td>adms:Identifier</td>
       <td></td>
-	  <td></td>
+	  <td>X</td>
     </tr> 
 	<tr>
       <td>7</td>
@@ -1850,7 +1850,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>disco:Variable</td>
       <td>adms:Identifier</td>
       <td></td>
-	  <td></td>
+	  <td>X</td>
     </tr> 
 	<tr>
       <td>11</td>
@@ -3579,7 +3579,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>dcterms:subject</td>
       <td>union of Study and StudyGroup</td>
       <td>skos:Concept</td>
-      <td></td>
+      <td>/ddi:DDIInstance/s:StudyUnit/r:TopicalCoverage/r:Subject</td>
     </tr>  
     <tr>
       <td>3</td>
@@ -3600,7 +3600,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>kindOfData</td>
       <td>union of Study and StudyGroup</td>
       <td>skos:Concept</td>
-      <td></td>
+      <td>/ddi:DDIInstance/s:StudyUnit/r:KindOfData</td>
     </tr>  
     <tr>
       <td>6</td>
@@ -3802,7 +3802,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>adms:identifier</td>
       <td>disco:DataFile</td>
       <td>adms:Identifier</td>
-      <td></td>
+      <td>//pi:PhysicalInstance/pi:DataFileIdentification</td>
     </tr> 
 	<tr>
       <td>7</td>
@@ -3830,7 +3830,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>adms:identifier</td>
       <td>disco:Variable</td>
       <td>adms:Identifier</td>
-      <td></td>
+      <td>//l:Variable/l:VariableName</td>
     </tr> 
 	<tr>
       <td>11</td>
@@ -4278,7 +4278,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>skos:broader</td>
       <td>skos:Concept</td>
       <td>skos:Concept</td>
-      <td>c:Universe/c:SubUniverse/@id [Universe]</td>
+      <td>c:Universe/c:SubUniverse/@id</td>
     </tr> 
     <tr>
       <td>4</td>
@@ -4292,21 +4292,21 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>skos:definition</td>
       <td>skos:Concept</td>
       <td>rdf:langString</td>
-      <td>c:Universe/c:UniverseName [Universe]</td>
+      <td>c:Universe/c:UniverseName</td>
     </tr> 
     <tr>
       <td>6</td>
       <td>skos:notation</td>
       <td>skos:Concept</td>
       <td>rdfs:Literal</td>
-      <td>c:Universe/c:MachineReadable [Universe]</td>
+      <td>c:Universe/c:MachineReadable <span style="color:#FF0000">[skos:notation is only used to represent codes]</span></td>
     </tr> 
     <tr>
       <td>7</td>
       <td>skos:prefLabel</td>
       <td>skos:Concept</td>
       <td>rdf:LangString</td>
-      <td>c:Universe/r:Label [Universe]</td>
+      <td>c:Universe/r:Label <span style="color:#FF0000">[skos:notation is only used to represent categories]</span></td>
     </tr> 
     <tr>
       <td>8</td>
