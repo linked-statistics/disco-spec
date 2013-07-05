@@ -564,6 +564,7 @@ disco:statisticsCategory a rdf:Property, owl:ObjectProperty;
 # * DescriptiveStatistics -> DataFile 0,...,n / 0,...,n
 disco:statisticsDataFile a rdf:Property, owl:ObjectProperty;
     rdfs:label "statistics data file"@en, "a pour fichier statistique"@fr;
+	rdfs:comment "Indicates the DataFile of a specific DesciptiveStatistics individual."@en;
     rdfs:domain disco:DescriptiveStatistics;
     rdfs:range disco:DataFile;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
@@ -572,7 +573,8 @@ disco:statisticsDataFile a rdf:Property, owl:ObjectProperty;
 # * DescriptiveStatistics -> Variable 0,...,n / 0,...,n
 disco:statisticsVariable a rdf:Property, owl:ObjectProperty;
     rdfs:label "statistics variable"@en, "a pour variable statistique"@fr;
-    rdfs:domain disco:DescriptiveStatistics;
+	rdfs:comment ""@en;
+    rdfs:domain disco:SummaryStatistics;
     rdfs:range disco:Variable;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
