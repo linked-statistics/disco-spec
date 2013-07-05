@@ -40,7 +40,7 @@
         "Joachim Wackerow",
         "Benjamin Zapilko";
     dc:creator "Franck Cotton";
-    owl:versionInfo "Version 0.5 - 2012-10-19".
+    owl:versionInfo "Version 0.6 - 2013-07-05".
 
 #################################################################
 # Classes
