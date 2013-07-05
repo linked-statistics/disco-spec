@@ -17,7 +17,7 @@
                     table { border: black 1px solid; border-collapse:collapse; border-spacing: 0; }
                     table td { border: black 1px solid; padding: 3px; padding-left: 10px; padding-right: 10px; text-align: center; vertical-align: top;}
                     .classDefinitions dd{margin-bottom:15px;}
-                    .classProperties{margin-left:25px;}
+                    .classProperties{margin-left:25px;margin-bottom: 15px;}
                 </style>
                 <title>Classes</title>
                 <script src='http://darobin.github.com/respec/builds/respec-w3c-common.js' class='remove'></script>
@@ -195,17 +195,22 @@
             </xsl:variable>
             (Domain: <code>
                 <xsl:value-of select="$domainName"/></code>
-                <xsl:apply-templates select="rdfs:doamin"/>
+                <xsl:for-each select="rdfs:domain//owl:Class">
+                    <xsl:variable name="domainNameTemp">
+                        <xsl:call-template name="string-replace-all">
+                            <xsl:with-param name="text" select="@rdf:about" />
+                            <xsl:with-param name="replace"><xsl:value-of select="$prefix"/></xsl:with-param>
+                            <xsl:with-param name="by">disco:</xsl:with-param>
+                        </xsl:call-template>
+                    </xsl:variable>
+                    <code><xsl:value-of select="$domainNameTemp"/></code>
+                    <xsl:if test="position() != last()">
+                        <xsl:text>, </xsl:text>
+                    </xsl:if>
+                </xsl:for-each>
             )
         </dt>
         <dd><xsl:value-of select="rdfs:comment"/></dd>
-    </xsl:template>
-    
-    <xsl:template match="rdfs:domain">
-        <xsl:for-each select="owl:unionOf/owl:Class">
-            <code><xsl:value-of select="@rdf:about"/></code>
-            <xsl:text>, </xsl:text>
-        </xsl:for-each>
     </xsl:template>
     
     <xsl:template name="string-replace-all">
