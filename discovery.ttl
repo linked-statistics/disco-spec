@@ -595,6 +595,7 @@ disco:universe a rdf:Property, owl:ObjectProperty;
 # * Study -> Variable 0,...,n / 1,...,n
 disco:variable a rdf:Property, owl:ObjectProperty;
     rdfs:label "variable"@en, "Variable"@de;
+	rdfs:comment "Indicates the Variable of a Study."@en;
     rdfs:domain disco:Study;
     rdfs:range disco:Variable;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
