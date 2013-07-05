@@ -157,7 +157,8 @@
         </dt>
         <dd><xsl:value-of select="rdfs:comment"/></dd>
         <div class="classProperties">
-            <xsl:apply-templates select="../owl:ObjectProperty[rdfs:domain/@rdf:resource = concat($prefix,$class) or rdfs:domain//./@rdf:about=concat($prefix,$class)]"/>
+            <xsl:apply-templates select="../..//owl:ObjectProperty[rdfs:domain/@rdf:resource=concat($prefix,$class) or rdfs:domain/owl:unionOf/owl:Class/@rdf:about=concat($prefix,$class)]"/>
+            <xsl:apply-templates select="../..//owl:DatatypeProperty[rdfs:domain/@rdf:resource=concat($prefix,$class) or rdfs:domain/owl:unionOf/owl:Class/@rdf:about=concat($prefix,$class)]"/>
         </div>
     </xsl:template>
     
@@ -177,7 +178,7 @@
         <code><xsl:value-of select="$subclassName"/></code>
     </xsl:template>
     
-    <xsl:template match="owl:ObjectProperty">
+    <xsl:template match="owl:ObjectProperty|owl:DatatypeProperty">
         <xsl:variable name="propertyName">
             <xsl:call-template name="string-replace-all">
                 <xsl:with-param name="text" select="@rdf:about" />
@@ -186,7 +187,13 @@
             </xsl:call-template>
         </xsl:variable>
         <dt>
-            <em>Property: </em><code><dfn><xsl:value-of select="$propertyName"/></dfn></code>
+            <xsl:choose>
+                <xsl:when test="name(.) = 'owl:DatatypeProperty'"><em>Datatype Property: </em></xsl:when>
+                <xsl:when test="name(.) = 'owl:ObjectProperty'"><em>Object Property: </em></xsl:when>
+            </xsl:choose>
+            
+            
+            <code><dfn><xsl:value-of select="$propertyName"/></dfn></code>
             <xsl:variable name="domainName">
                 <xsl:call-template name="string-replace-all">
                     <xsl:with-param name="text" select="rdfs:domain/@rdf:resource" />
