@@ -1752,7 +1752,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>Universe</td>
       <td>rdf:langString</td>
       <td></td>
-      <td></td>
+      <td>X</td>
     </tr> 
   </tbody>
 </table>
@@ -2270,7 +2270,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>skos:Concept</td>
       <td>skos:Concept</td>
       <td></td>
-      <td></td>
+      <td>X</td>
     </tr> 
     <tr>
       <td>4</td>
@@ -2294,7 +2294,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>skos:Concept</td>
       <td>rdfs:Literal</td>
       <td></td>
-      <td></td>
+      <td>X</td>
     </tr> 
     <tr>
       <td>7</td>
@@ -2504,7 +2504,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>Instrument</td>
       <td>rdf:langString</td>
       <td></td>
-      <td></td>
+      <td>X</td>
     </tr> 
     <tr>
       <td>10</td>
@@ -2512,7 +2512,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>Instrument</td>
       <td>rdf:langString  </td>
       <td></td>
-      <td></td>
+      <td>X</td>
     </tr> 
   </tbody>
 </table>
@@ -3437,7 +3437,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>universe</td>
       <td>union of Study and StudyGroup</td>
       <td>Universe</td>
-      <td></td>
+      <td>/ddi:DDIInstance/s:StudyUnit/r:UniverseReference/r:ID</td>
     </tr>    
     <tr>
       <td>2</td>
@@ -3479,42 +3479,42 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>dcterms:abstract</td>
       <td>union of Study and StudyGroup</td>
       <td>rdf:langString</td>
-      <td></td>
+      <td>/ddi:DDIInstance/s:StudyUnit/s:Abstract/r:Content</td>
     </tr>  
     <tr>
       <td>8</td>
       <td>dcterms:alternative</td>
       <td>union of Study and StudyGroup</td>
       <td>rdf:langString</td>
-      <td></td>
+      <td>/ddi:DDIInstance/s:StudyUnit/r:Citation/r:AlternateTitle</td>
     </tr>  
     <tr>
       <td>9</td>
       <td>dcterms:available</td>
       <td>union of Study and StudyGroup</td>
       <td>xsd:dateTime</td>
-      <td></td>
+      <td>/ddi:DDIInstance/s:StudyUnit/r:Embargo/r:Date/r:SimpleDate</td>
     </tr>  
     <tr>
       <td>10</td>
       <td>dcterms:title</td>
       <td>union of Study and StudyGroup</td>
       <td>rdf:langString</td>
-      <td></td>
+      <td>/ddi:DDIInstance/s:StudyUnit/r:Citation/r:Title</td>
     </tr>  
     <tr>
       <td>11</td>
       <td>purpose</td>
       <td>union of Study and StudyGroup</td>
       <td>rdf:langString</td>
-      <td></td>
+      <td>/ddi:DDIInstance/s:StudyUnit/s:Purpose/r:Content</td>
     </tr>  
     <tr>
       <td>12</td>
       <td>subtitle</td>
       <td>union of Study and StudyGroup</td>
       <td>rdf:langString</td>
-      <td></td>
+      <td>/ddi:DDIInstance/s:StudyUnit/r:Citation/r:SubTitle</td>
     </tr>  
      <tr>
       <td>13</td>
@@ -3535,7 +3535,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>dcterms:creator</td>
       <td>union of Study and StudyGroup</td>
       <td>foaf:Agent</td>
-      <td></td>
+      <td>/ddi:DDIInstance/s:StudyUnit/r:Citation/r:Creator</td>
     </tr> 
     <tr>
       <td>16</td>
@@ -3549,28 +3549,28 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>dcterms:publisher</td>
       <td>union of Study and StudyGroup</td>
       <td>foaf:Agent</td>
-      <td></td>
+      <td>/ddi:DDIInstance/s:StudyUnit/r:Citation/r:Publisher</td>
     </tr> 
     <tr>
       <td>18</td>
       <td>instrument</td>
       <td>Study</td>
       <td>Instrument</td>
-      <td></td>
+      <td>/ddi:DDIInstace/s:StudyUnit/d:DataCollection/@id</td>
     </tr>  
     <tr>
       <td>19</td>
       <td>inGroup</td>
       <td>Study</td>
       <td>StudyGroup</td>
-      <td></td>
+      <td>//s:StudyUnit/ancestor::g:Group[1]/@id</td>
     </tr> 
     <tr>
       <td>20</td>
       <td>dataFile</td>
       <td>Study</td>
       <td>DataFile</td>
-      <td></td>
+      <td>//s:StudyUnit/pi:PhysicalInstance/@id</td>
     </tr> 
     <tr>
       <td>21</td>
@@ -3584,7 +3584,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>product</td>
       <td>Study</td>
       <td>LogicalDataSet</td>
-      <td></td>
+      <td>//s:StudyUnit/l:LogicalProduct/@id</td>
     </tr> 
     <tr>
       <td>23</td>
@@ -4111,14 +4111,14 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>question</td>
       <td>Variable</td>
       <td>Question</td>
-      <td></td>
+      <td>//l:Variable/r:QuestionReference/r:ID</td>
     </tr> 
     <tr>
       <td>9</td>
       <td>universe</td>
       <td>Variable</td>
       <td>Universe</td>
-      <td></td>
+      <td>//l:Variable/r:UniverseReference/r:ID</td>
     </tr> 
     <tr>
       <td>10</td>
@@ -4132,7 +4132,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>concept</td>
       <td>Variable</td>
       <td>skos:Concept</td>
-      <td></td>
+      <td>//l:Variable/r:ConceptReference/r:ID</td>
     </tr> 
     <tr>
       <td>12</td>
@@ -4153,21 +4153,21 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>dcterms:description</td>
       <td>Variable</td>
       <td>rdf:langString</td>
-      <td></td>
+      <td>//l:Variable/r:Description</td>
     </tr> 
     <tr>
       <td>15</td>
       <td>skos:notation</td>
       <td>Variable</td>
       <td>rdfs:Literal</td>
-      <td></td>
+      <td>//l:Variable/l:VariableName</td>
     </tr> 
     <tr>
       <td>16</td>
       <td>skos:prefLabel</td>
       <td>Variable</td>
       <td>rdf:langString</td>
-      <td></td>
+      <td>//l:Variable/r:Label</td>
     </tr> 
     <tr>
       <td>17</td>
