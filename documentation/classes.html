@@ -3,6 +3,8 @@
       <meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8"><style type="text/css">
                     table { border: black 1px solid; border-collapse:collapse; border-spacing: 0; }
                     table td { border: black 1px solid; padding: 3px; padding-left: 10px; padding-right: 10px; text-align: center; vertical-align: top;}
+                    .classDefinitions dd{margin-bottom:15px;}
+                    .classProperties{margin-left:25px;}
                 </style><title>Classes</title><script src="http://darobin.github.com/respec/builds/respec-w3c-common.js" class="remove"></script><script class="remove">
                     var respecConfig = {
                     // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
@@ -28,7 +30,7 @@
                     // previousMaturity:  "WD",
                     
                     // if there a publicly available Editor's Draft, this is the link
-                    edDraftURI:           "https://raw.github.com/linked-statistics/disco-spec/master/discovery.html",
+                    
                     
                     // if this is a LCWD, uncomment and set the end of its review period
                     // lcEnd: "2009-08-05",
@@ -64,210 +66,324 @@
                     };
                 </script></head>
    <body>
-      <dl>
-         <dt><a name="dfn-disco-DataDiscoveryDocument"></a><em>Class: </em><code><dfn>
-                  
-                  disco:DataDiscoveryDocument</dfn></code></dt>
-         <dd>Data discovery document in DDI. Dct:publisher is used for the agency.</dd>
-         <dt><a name="dfn-disco-SummaryStatistics"></a><em>Class: </em><code><dfn>
-                  
-                  disco:SummaryStatistics</dfn></code>
-            Sub Class of: <code>disco:DescriptiveStatistics</code></dt>
-         <dd>SummaryStatistics pointing to variables.</dd>
-         <dt><a name="dfn-disco-DescriptiveStatistics"></a><em>Class: </em><code><dfn>
-                  
-                  disco:DescriptiveStatistics</dfn></code></dt>
-         <dd>SummaryStatistics pointing to variables and CategoryStatistics pointing to categories
-            and codes are both descriptive statistics.
-         </dd>
-         <dt><a name="dfn-disco-Instrument"></a><em>Class: </em><code><dfn>
-                  
-                  disco:Instrument</dfn></code></dt>
+      <h2>1. Studies and StudyGroups</h2>
+      <dl class="classDefinitions">
+         <dt><a name="dfn-disco-Study"></a><em>Class: </em><code><dfn>disco:Study</dfn></code></dt>
          <dd></dd>
-         <dt><a name="dfn-disco-CategoryStatistics"></a><em>Class: </em><code><dfn>
-                  
-                  disco:CategoryStatistics</dfn></code>
-            Sub Class of: <code>disco:DescriptiveStatistics</code></dt>
-         <dd>CategoryStatistics pointing to categories and codes.</dd>
-         <dt><a name="dfn-disco-LogicalDataSet"></a><em>Class: </em><code><dfn>
-                  
-                  disco:LogicalDataSet</dfn></code>
-            Sub Class of: <code>http://www.w3.org/ns/dcat#Dataset</code></dt>
-         <dd>Each study has a set of logical metadata associated with the processing of data, at
-            the time of collection or later during cleaning, and re-coding. LogicalDataSet represents
-            the microdata dataset.
-         </dd>
-         <dt><a name="dfn-disco-StudyGroup"></a><em>Class: </em><code><dfn>
-                  
-                  disco:StudyGroup</dfn></code></dt>
+         <div class="classProperties">
+            <dt><em>Property: </em><code><dfn>disco:variable</dfn></code>
+               (Domain: <code>disco:Study</code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:studyUniverse</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:ddifile</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:analysisUnit</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:inGroup</dfn></code>
+               (Domain: <code>disco:Study</code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:universe</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:fundedBy</dfn></code>
+               (Domain: <code>disco:Study</code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:dataFile</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:kindOfData</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd>The general kind of data (e.g., geospatial, register, survey) collected in this study,
+               given either as a skos:Concept, or as a blank node with attached free-text rdfs:label.
+            </dd>
+            <dt><em>Property: </em><code><dfn>disco:product</dfn></code>
+               (Domain: <code>disco:Study</code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:instrument</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+         </div>
+         <dt><a name="dfn-disco-StudyGroup"></a><em>Class: </em><code><dfn>disco:StudyGroup</dfn></code></dt>
          <dd></dd>
-         <dt><a name="dfn-disco-Study"></a><em>Class: </em><code><dfn>
-                  
-                  disco:Study</dfn></code></dt>
-         <dd></dd>
-         <dt><a name="dfn-disco-AnalysisUnit"></a><em>Class: </em><code><dfn>
-                  
-                  disco:AnalysisUnit</dfn></code>
+         <div class="classProperties">
+            <dt><em>Property: </em><code><dfn>disco:studyUniverse</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:ddifile</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:universe</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:kindOfData</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd>The general kind of data (e.g., geospatial, register, survey) collected in this study,
+               given either as a skos:Concept, or as a blank node with attached free-text rdfs:label.
+            </dd>
+         </div>
+         <dt><a name="dfn-disco-AnalysisUnit"></a><em>Class: </em><code><dfn>disco:AnalysisUnit</dfn></code>
             Sub Class of: <code>http://www.w3.org/2004/02/skos/core#Concept</code></dt>
          <dd>The process collecting data is focusing on the analysis of a particular type of subject.
             If, for example, the adult population of Finland is being studied, the AnalysisUnit
             would be individuals or persons.
          </dd>
-         <dt><a name="dfn-disco-VariableDefinition"></a><em>Class: </em><code><dfn>
-                  
-                  disco:VariableDefinition</dfn></code></dt>
-         <dd>TODO</dd>
-         <dt><a name="dfn-disco-Questionnaire"></a><em>Class: </em><code><dfn>
-                  
-                  disco:Questionnaire</dfn></code>
-            Sub Class of: <code>disco:Instrument</code></dt>
-         <dd></dd>
-         <dt><a name="dfn-disco-Question"></a><em>Class: </em><code><dfn>
-                  
-                  disco:Question</dfn></code></dt>
-         <dd></dd>
-         <dt><a name="dfn-disco-Universe"></a><em>Class: </em><code><dfn>
-                  
-                  disco:Universe</dfn></code>
+         <div class="classProperties"></div>
+         <dt><a name="dfn-disco-Universe"></a><em>Class: </em><code><dfn>disco:Universe</dfn></code>
             Sub Class of: <code>http://www.w3.org/2004/02/skos/core#Concept</code></dt>
          <dd>A Universe is the total membership or population of a defined class of people, objects
             or events
          </dd>
-         <dt><a name="dfn-disco-DataFile"></a><em>Class: </em><code><dfn>
-                  
-                  disco:DataFile</dfn></code>
+         <div class="classProperties"></div>
+         <dt><a name="dfn-disco-DataDiscoveryDocument"></a><em>Class: </em><code><dfn>disco:DataDiscoveryDocument</dfn></code></dt>
+         <dd>Data discovery document in DDI. Dct:publisher is used for the agency.</dd>
+         <div class="classProperties"></div>
+      </dl>
+      <h2>2. Data Sets, Data Files, and Descriptive Statistics</h2>
+      <dl class="classDefinitions">
+         <dt><a name="dfn-disco-LogicalDataSet"></a><em>Class: </em><code><dfn>disco:LogicalDataSet</dfn></code>
+            Sub Class of: <code>http://www.w3.org/ns/dcat#Dataset</code></dt>
+         <dd>Each study has a set of logical metadata associated with the processing of data, at
+            the time of collection or later during cleaning, and re-coding. LogicalDataSet represents
+            the microdata dataset.
+         </dd>
+         <div class="classProperties">
+            <dt><em>Property: </em><code><dfn>disco:containsVariable</dfn></code>
+               (Domain: <code>disco:LogicalDataSet</code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:universe</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:dataSetUniverse</dfn></code>
+               (Domain: <code>disco:LogicalDataSet</code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:dataFile</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:aggregation</dfn></code>
+               (Domain: <code>disco:LogicalDataSet</code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:instrument</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+         </div>
+         <dt><a name="dfn-disco-DataFile"></a><em>Class: </em><code><dfn>disco:DataFile</dfn></code>
             Sub Class of: <code>http://www.w3.org/ns/dcat#Distribution</code></dt>
          <dd>The class DataFile, which is also a dcterms:Dataset, represents all the data files
             containing the microdata datasets.
          </dd>
-         <dt><a name="dfn-disco-Variable"></a><em>Class: </em><code><dfn>
-                  
-                  disco:Variable</dfn></code></dt>
+         <div class="classProperties"></div>
+         <dt><a name="dfn-disco-DescriptiveStatistics"></a><em>Class: </em><code><dfn>disco:DescriptiveStatistics</dfn></code></dt>
+         <dd>SummaryStatistics pointing to variables and CategoryStatistics pointing to categories
+            and codes are both descriptive statistics.
+         </dd>
+         <div class="classProperties">
+            <dt><em>Property: </em><code><dfn>disco:statisticsCategory</dfn></code>
+               (Domain: <code>disco:DescriptiveStatistics</code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:statisticsVariable</dfn></code>
+               (Domain: <code>disco:DescriptiveStatistics</code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:statisticsDataFile</dfn></code>
+               (Domain: <code>disco:DescriptiveStatistics</code>
+               )
+               
+            </dt>
+            <dd></dd>
+         </div>
+         <dt><a name="dfn-disco-SummaryStatistics"></a><em>Class: </em><code><dfn>disco:SummaryStatistics</dfn></code>
+            Sub Class of: <code>disco:DescriptiveStatistics</code></dt>
+         <dd>SummaryStatistics pointing to variables.</dd>
+         <div class="classProperties"></div>
+         <dt><a name="dfn-disco-CategoryStatistics"></a><em>Class: </em><code><dfn>disco:CategoryStatistics</dfn></code>
+            Sub Class of: <code>disco:DescriptiveStatistics</code></dt>
+         <dd>CategoryStatistics pointing to categories and codes.</dd>
+         <div class="classProperties"></div>
+      </dl>
+      <h2>3. Variables, Variable Definitions, Representations, and Concepts</h2>
+      <dl class="classDefinitions">
+         <dt><a name="dfn-disco-Variable"></a><em>Class: </em><code><dfn>disco:Variable</dfn></code></dt>
          <dd>It is recommended to use Dublin Core terms (identifier, description) and SKOS labels
             to describe the variable.
          </dd>
-         <dt><em>Property: </em><code><dfn>disco:variable</dfn></code>
-            (Domain: <code>disco:Study</code>)
-            
-         </dt>
+         <div class="classProperties">
+            <dt><em>Property: </em><code><dfn>disco:analysisUnit</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:representation</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:universe</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:question</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:basedOn</dfn></code>
+               (Domain: <code>disco:Variable</code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:concept</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+         </div>
+         <dt><a name="dfn-disco-VariableDefinition"></a><em>Class: </em><code><dfn>disco:VariableDefinition</dfn></code></dt>
+         <dd>TODO</dd>
+         <div class="classProperties">
+            <dt><em>Property: </em><code><dfn>disco:representation</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:universe</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:concept</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+         </div>
+      </dl>
+      <h2>4. Data Collection</h2>
+      <dl class="classDefinitions">
+         <dt><a name="dfn-disco-Question"></a><em>Class: </em><code><dfn>disco:Question</dfn></code></dt>
          <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:inputVariable</dfn></code>
-            (Domain: <code>http://purl.org/linked-data/cube#DataSet</code>)
-            
-         </dt>
+         <div class="classProperties">
+            <dt><em>Property: </em><code><dfn>disco:universe</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:concept</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+         </div>
+         <dt><a name="dfn-disco-Instrument"></a><em>Class: </em><code><dfn>disco:Instrument</dfn></code></dt>
          <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:studyUniverse</dfn></code>
-            (Domain: <code></code>)
-            
-         </dt>
+         <div class="classProperties">
+            <dt><em>Property: </em><code><dfn>disco:externalDocumentation</dfn></code>
+               (Domain: <code>disco:Instrument</code>
+               )
+               
+            </dt>
+            <dd></dd>
+         </div>
+         <dt><a name="dfn-disco-Questionnaire"></a><em>Class: </em><code><dfn>disco:Questionnaire</dfn></code>
+            Sub Class of: <code>disco:Instrument</code></dt>
          <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:ddifile</dfn></code>
-            (Domain: <code></code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:statisticsCategory</dfn></code>
-            (Domain: <code>disco:DescriptiveStatistics</code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:analysisUnit</dfn></code>
-            (Domain: <code></code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:statisticsVariable</dfn></code>
-            (Domain: <code>disco:DescriptiveStatistics</code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:collectionMode</dfn></code>
-            (Domain: <code>disco:Questionnaire</code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:containsVariable</dfn></code>
-            (Domain: <code>disco:LogicalDataSet</code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:representation</dfn></code>
-            (Domain: <code></code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:inGroup</dfn></code>
-            (Domain: <code>disco:Study</code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:universe</dfn></code>
-            (Domain: <code></code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:question</dfn></code>
-            (Domain: <code></code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:fundedBy</dfn></code>
-            (Domain: <code>disco:Study</code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:dataSetUniverse</dfn></code>
-            (Domain: <code>disco:LogicalDataSet</code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:dataFile</dfn></code>
-            (Domain: <code></code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:externalDocumentation</dfn></code>
-            (Domain: <code>disco:Instrument</code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:aggregation</dfn></code>
-            (Domain: <code>disco:LogicalDataSet</code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:kindOfData</dfn></code>
-            (Domain: <code></code>)
-            
-         </dt>
-         <dd>The general kind of data (e.g., geospatial, register, survey) collected in this study,
-            given either as a skos:Concept, or as a blank node with attached free-text rdfs:label.
-         </dd>
-         <dt><em>Property: </em><code><dfn>disco:basedOn</dfn></code>
-            (Domain: <code>disco:Variable</code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:product</dfn></code>
-            (Domain: <code>disco:Study</code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:concept</dfn></code>
-            (Domain: <code></code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:statisticsDataFile</dfn></code>
-            (Domain: <code>disco:DescriptiveStatistics</code>)
-            
-         </dt>
-         <dd></dd>
-         <dt><em>Property: </em><code><dfn>disco:instrument</dfn></code>
-            (Domain: <code></code>)
-            
-         </dt>
-         <dd></dd>
+         <div class="classProperties">
+            <dt><em>Property: </em><code><dfn>disco:collectionMode</dfn></code>
+               (Domain: <code>disco:Questionnaire</code>
+               )
+               
+            </dt>
+            <dd></dd>
+            <dt><em>Property: </em><code><dfn>disco:question</dfn></code>
+               (Domain: <code></code>
+               )
+               
+            </dt>
+            <dd></dd>
+         </div>
       </dl>
    </body>
 </html>
