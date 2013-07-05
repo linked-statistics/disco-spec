@@ -3741,7 +3741,9 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
                <div>
                    <h4>notes</h4>
                    <ul>
+				     <li><b>(2): </b>inf code list is defined use it as the identifier</li>
 				     <li><b>(9): </b>the date the study is available to the public</li>
+					 <li><b>(13): </b>the URI to the DDI file(s) defined via param to the xslt</li>
                      <li><b>(21): </b>suggested for identification</li>
                    </ul>
                </div>
@@ -3765,7 +3767,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
       <td>adms:identifier</td>
       <td>disco:Study</td>
       <td>adms:Identifier</td>
-      <td></td>
+      <td>/ddi:DDIInstance/s:StudyUnit/@id</td>
     </tr> 
 	<tr>
       <td>2</td>
@@ -3934,7 +3936,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
                <div>
                    <h4>notes</h4>
                    <ul>
-                       <li><b>(1): </b>-</li>
+                       <li><b>(1):</b> s:StudyUnit/r:Archive/a:ArchiveSpecific/a:Collection/a:CallNumber is also a candidate for identification</li>
                    </ul>
                </div>
                 
@@ -4238,7 +4240,8 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
                <div>
                    <h4>notes</h4>
                    <ul>
-                       <li><b>(1): </b>-</li>
+				       <li><b>(7): </b>not populated from DDI (could be set as an param to the xslt)</li>
+                       <li><b>(17): </b>located in pi:PhysicalInstance/r:Coverage/r:TopicalCoverage (both subject and keyword)</li>
                    </ul>
                </div>
                 
@@ -4409,7 +4412,8 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
                <div>
                    <h4>notes</h4>
                    <ul>
-                       <li><b>(1): </b>-</li>
+                       <li><b>(12): </b>not sure where to map to in DDI 3.1</li>
+					   <li><b>(13): </b>coming in DDI 3.2</li>
                    </ul>
                </div>
                 
@@ -4505,7 +4509,8 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
                <div>
                    <h4>notes</h4>
                    <ul>
-                       <li><b>(1): </b>-</li>
+                       <li><b>(4): </b>question-text exists for multiple elements</li>
+					   <li><b>(5): </b>the question name as label</li>
                    </ul>
                </div>
 
