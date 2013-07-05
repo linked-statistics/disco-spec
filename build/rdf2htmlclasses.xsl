@@ -16,8 +16,9 @@
                 <style type="text/css">
                     table { border: black 1px solid; border-collapse:collapse; border-spacing: 0; }
                     table td { border: black 1px solid; padding: 3px; padding-left: 10px; padding-right: 10px; text-align: center; vertical-align: top;}
-                    .classDefinitions dd{margin-bottom:15px;}
-                    .classProperties{margin-left:25px;margin-bottom: 15px;}
+                    .classDefinitions dd{margin-left: 25px;}
+                    .classProperties{margin-left:25px;margin-bottom: 15px;margin-top:15px;}
+                    .classProperties dt{margin-top: 15px;}
                 </style>
                 <title>Classes</title>
                 <script src='http://darobin.github.com/respec/builds/respec-w3c-common.js' class='remove'></script>
@@ -193,7 +194,7 @@
                     <xsl:with-param name="by">disco:</xsl:with-param>
                 </xsl:call-template>
             </xsl:variable>
-            (Domain: <code>
+            (<em>Domain:</em> <code>
                 <xsl:value-of select="$domainName"/></code>
                 <xsl:for-each select="rdfs:domain//owl:Class">
                     <xsl:variable name="domainNameTemp">
@@ -208,6 +209,15 @@
                         <xsl:text>, </xsl:text>
                     </xsl:if>
                 </xsl:for-each>
+            <em> Range: </em> 
+            <xsl:variable name="rangeName">
+                <xsl:call-template name="string-replace-all">
+                    <xsl:with-param name="text" select="rdfs:range/@rdf:resource" />
+                    <xsl:with-param name="replace"><xsl:value-of select="$prefix"/></xsl:with-param>
+                    <xsl:with-param name="by">disco:</xsl:with-param>
+                </xsl:call-template>
+            </xsl:variable>
+            <code><xsl:value-of select="$rangeName"/></code>
             )
         </dt>
         <dd><xsl:value-of select="rdfs:comment"/></dd>
