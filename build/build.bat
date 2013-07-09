@@ -10,7 +10,7 @@ echo N3
 call rdfcopy ../discovery.ttl TURTLE N3 > ../discovery.n3
 
 echo -----create html documentation from rdf/xml-----
-call java -cp %SAXON% net.sf.saxon.Transform -t -s:../discovery-abbrev.xml -xsl:rdf2html.xsl -o:../documentation/classes.html
+call java -cp %SAXON% net.sf.saxon.Transform -t -s:../discovery-abbrev.xml -xsl:rdf2htmlclasses.xsl -o:../documentation/classes.html
 echo removing rdf/xml abbrev (used for generation the documentation)
-del ..\discovery-abbrev.xml
+del ../discovery-abbrev.xml
 echo -----done-----

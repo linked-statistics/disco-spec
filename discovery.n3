@@ -1,17 +1,19 @@
 @prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix qb:      <http://purl.org/linked-data/cube#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix adms:    <http://www.w3.org/ns/adms#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcat:    <http://www.w3.org/ns/dcat#> .
-@prefix foaf:    <http://xmlns.com/foaf/spec/#> .
 @prefix disco:   <http://rdf-vocabulary.ddialliance.org/discovery#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix qb:      <http://purl.org/linked-data/cube#> .
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
-@prefix dcterms:  <http://purl.org/dc/terms/> .
 
 disco:standardDeviation
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "standard deviation"@en ;
       rdfs:domain disco:SummaryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "standard deviation"@en ;
@@ -19,6 +21,7 @@ disco:standardDeviation
 
 disco:minimum
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "minimum"@en ;
       rdfs:domain disco:SummaryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "minimum"@en ;
@@ -26,6 +29,7 @@ disco:minimum
 
 disco:weightedPercentage
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "weighted percentage"@en ;
       rdfs:domain disco:CategoryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "weighted percentage"@en ;
@@ -33,6 +37,7 @@ disco:weightedPercentage
 
 disco:externalDocumentation
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "points from an Instrument to a foaf:Document which is the external documentation of the Instrument."@en ;
       rdfs:domain disco:Instrument ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "externe Dokumentation"@de , "external documentation"@en ;
@@ -40,6 +45,7 @@ disco:externalDocumentation
 
 disco:aggregation
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "points to the aggregated data set of a microdata data set."@en ;
       rdfs:domain disco:LogicalDataSet ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "aggregation"@en ;
@@ -47,7 +53,7 @@ disco:aggregation
 
 disco:Universe
       a       owl:Class , rdfs:Class ;
-      rdfs:comment "A Universe is the total membership or population of a defined class of people, objects or events"@en ;
+      rdfs:comment "A Universe is the total membership or population of a defined class of people, objects or events."@en ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "Universe"@en , "Univers"@fr ;
       rdfs:subClassOf skos:Concept .
@@ -61,6 +67,7 @@ disco:DataFile
 
 disco:concept
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "points to the DDI concept of a VariableDefinition, a Variable, or a Question"@en ;
       rdfs:domain
               [ owl:unionOf (disco:VariableDefinition disco:Question disco:Variable)
               ] ;
@@ -70,12 +77,13 @@ disco:concept
 
 disco:Variable
       a       owl:Class , rdfs:Class ;
-      rdfs:comment "It is recommended to use Dublin Core terms (identifier, description) and SKOS labels to describe the variable."@en ;
+      rdfs:comment "Variables provide a definition of the column in a rectangular data file. Variable is a characteristic of a unit being observed. A variable might be the answer of a question, have an administrative source, or be derived from other variables."@en ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "Variable"@en , "Variable"@fr .
 
 disco:inputVariable
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "Indicates the original Variable of an aggregated qb:DataSet."@en ;
       rdfs:domain qb:DataSet ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "input variable"@en , "variable en entrée"@fr ;
@@ -83,6 +91,7 @@ disco:inputVariable
 
 disco:ddifile
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "points from a Study or a StudyGroup to the original DDI file which is a foaf:Document."@en ;
       rdfs:domain
               [ owl:unionOf (disco:Study disco:StudyGroup)
               ] ;
@@ -92,6 +101,7 @@ disco:ddifile
 
 disco:collectionMode
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "mode of collection of a Questionnaire"@en ;
       rdfs:domain disco:Questionnaire ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "collection mode"@en , "Datenerfassungsmodus"@de ;
@@ -99,13 +109,14 @@ disco:collectionMode
 
 disco:CategoryStatistics
       a       owl:Class , rdfs:Class ;
-      rdfs:comment "CategoryStatistics pointing to categories and codes."@en ;
+      rdfs:comment "For CategoryStatistics, frequencies, percentages, and weighted percentages can be defined."@en ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "Category statistics"@en ;
       rdfs:subClassOf disco:DescriptiveStatistics .
 
 disco:mean
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "mean"@en ;
       rdfs:domain disco:SummaryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "mean"@en ;
@@ -113,6 +124,7 @@ disco:mean
 
 disco:question
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "Indicates the Questions associated to Variables or contained in Questionnaires."@en ;
       rdfs:domain
               [ owl:unionOf (disco:Variable disco:Questionnaire)
               ] ;
@@ -122,7 +134,7 @@ disco:question
 
 disco:ddi3_1identifier
       a       rdf:Property , owl:DatatypeProperty ;
-      rdfs:domain rdf:Ressource ;
+      rdfs:domain rdfs:Resource ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "DDI 3.1 identifier"@en , "DDI 3.1 Identifikation"@de ;
       rdfs:range xsd:anyURI ;
@@ -130,6 +142,7 @@ disco:ddi3_1identifier
 
 disco:percentage
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "percentage"@en ;
       rdfs:domain disco:CategoryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "pourcentage"@fr , "percentage"@en ;
@@ -137,6 +150,7 @@ disco:percentage
 
 disco:basedOn
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "points to the VariableDefinition the Variable is based on."@en ;
       rdfs:domain disco:Variable ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "utilise l'élément de donnée"@fr , "based on"@en ;
@@ -144,6 +158,7 @@ disco:basedOn
 
 disco:maximum
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "maximum"@en ;
       rdfs:domain disco:SummaryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "maximum"@en ;
@@ -157,15 +172,17 @@ disco:DataDiscoveryDocument
 
 disco:analysisUnit
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "analysis unit of a Study, a StudyGroup, or a Variable."@en ;
       rdfs:domain
-              [ owl:unionOf (disco:Study disco:Variable)
+              [ owl:unionOf (owl:unionOf (disco:Study disco:StudyGroup) disco:Variable)
               ] ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "analysis unit"@en , "Analyseeinheit"@de ;
-      rdfs:range skos:AnalysisUnit .
+      rdfs:range disco:AnalysisUnit .
 
 disco:weightedFrequency
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "weighted frequency"@en ;
       rdfs:domain disco:CategoryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "weighted frequency"@en , "fréquence pondérée"@fr ;
@@ -173,6 +190,7 @@ disco:weightedFrequency
 
 disco:containsVariable
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "points to Variable contained in the LogicalDataSet"@en ;
       rdfs:domain disco:LogicalDataSet ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "contient la variable"@fr , "contains variable"@en ;
@@ -180,6 +198,7 @@ disco:containsVariable
 
 disco:weightedCumulativePercentage
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "weighted cumulative percentage"@en ;
       rdfs:domain disco:CategoryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "weighted cumulative percentage"@en ;
@@ -187,7 +206,7 @@ disco:weightedCumulativePercentage
 
 disco:ddi2_5identifier
       a       rdf:Property , owl:DatatypeProperty ;
-      rdfs:domain rdf:Ressource ;
+      rdfs:domain rdfs:Resource ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "DDI 2.5 Identifikation"@de , "DDI 2.5 identifier"@en ;
       rdfs:range xsd:anyURI ;
@@ -195,6 +214,7 @@ disco:ddi2_5identifier
 
 disco:caseQuantity
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "case quantity of a DataFile."@en ;
       rdfs:domain disco:DataFile ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "nombre d'observations"@fr , "number of cases"@en ;
@@ -202,18 +222,13 @@ disco:caseQuantity
 
 disco:Study
       a       owl:Class , rdfs:Class ;
+      rdfs:comment "A Study represents the process by which a data set was generated or collected."@en ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "Étude"@fr , "Study"@en .
 
-disco:dataSetUniverse
-      a       rdf:Property , owl:ObjectProperty ;
-      rdfs:domain disco:LogicalDataSet ;
-      rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
-      rdfs:label "data set universe"@en , "Datensatzuniversum"@de ;
-      rdfs:range disco:Universe .
-
 disco:weightedMode
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "weighted mode"@en ;
       rdfs:domain disco:SummaryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "weighted mode"@en ;
@@ -221,6 +236,7 @@ disco:weightedMode
 
 disco:questionText
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "question text"@en ;
       rdfs:domain disco:Question ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "Fragetext"@de , "question text"@en ;
@@ -228,6 +244,7 @@ disco:questionText
 
 disco:endDate
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "end date"@en ;
       rdfs:domain dcterms:PeriodOfTime ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "End Date"@en ;
@@ -235,11 +252,13 @@ disco:endDate
 
 disco:Question
       a       owl:Class , rdfs:Class ;
+      rdfs:comment "A Question is designed to get information upon a subject, or sequence of subjects, from a respondent."@en ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "Question"@en , "Question"@fr .
 
 disco:subtitle
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "The sub-title of a Study of a StudyGroup."@en ;
       rdfs:domain
               [ owl:unionOf (disco:Study disco:StudyGroup)
               ] ;
@@ -249,7 +268,7 @@ disco:subtitle
 
 disco:kindOfData
       a       rdf:Property , owl:ObjectProperty ;
-      rdfs:comment "The general kind of data (e.g., geospatial, register, survey) collected in this study, given either as a skos:Concept, or as a blank node with attached free-text rdfs:label." ;
+      rdfs:comment "The general kind of data (e.g. geospatial, register, survey) collected in this study, given either as a skos:Concept, or as a blank node with attached free-text rdfs:label." ;
       rdfs:domain
               [ owl:unionOf (disco:Study disco:StudyGroup)
               ] ;
@@ -257,24 +276,17 @@ disco:kindOfData
       rdfs:label "kind of data"@en ;
       rdfs:range skos:Concept .
 
-disco:studyUniverse
-      a       rdf:Property , owl:ObjectProperty ;
-      rdfs:domain
-              [ owl:unionOf (disco:Study disco:StudyGroup)
-              ] ;
-      rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
-      rdfs:label "mesure"@fr , "study universe"@en ;
-      rdfs:range disco:Universe .
-
 disco:statisticsVariable
       a       rdf:Property , owl:ObjectProperty ;
-      rdfs:domain disco:DescriptiveStatistics ;
+      rdfs:comment "Indicates the Variable of a specific SummaryStatistics individual."@en ;
+      rdfs:domain disco:SummaryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "statistics variable"@en , "a pour variable statistique"@fr ;
       rdfs:range disco:Variable .
 
 disco:median
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "median"@en ;
       rdfs:domain disco:SummaryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "median"@en ;
@@ -282,6 +294,7 @@ disco:median
 
 disco:inGroup
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "points from a Study to the StudyGroup which contains the Study."@en ;
       rdfs:domain disco:Study ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "in group"@en ;
@@ -296,7 +309,10 @@ disco:LogicalDataSet
 
 disco:fundedBy
       a       rdf:Property , owl:ObjectProperty ;
-      rdfs:domain disco:Study ;
+      rdfs:comment "points from a Study or a StudyGroup to the funding foaf:Agent which is either a foaf:Person or a org:Organization."@en ;
+      rdfs:domain
+              [ owl:unionOf (disco:Study disco:StudyGroup)
+              ] ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "funded by"@en ;
       rdfs:range foaf:Agent ;
@@ -304,6 +320,7 @@ disco:fundedBy
 
 disco:startDate
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "start date"@en ;
       rdfs:domain dcterms:PeriodOfTime ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "Start Date"@en ;
@@ -311,6 +328,7 @@ disco:startDate
 
 disco:weightedMean
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "weighted mean"@en ;
       rdfs:domain disco:SummaryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "weighted mean"@en ;
@@ -318,6 +336,7 @@ disco:weightedMean
 
 disco:product
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "Indicates the LogicalDataSets of a Studies."@en ;
       rdfs:domain disco:Study ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "product"@en , "Produkt"@de ;
@@ -325,12 +344,13 @@ disco:product
 
 disco:StudyGroup
       a       owl:Class , rdfs:Class ;
+      rdfs:comment "In some cases, where data collection is cyclic or on-going, data sets may be released as a StudyGroup, where each cycle or wave of the data collection activity produces one or more data sets. This is typical for longitudinal studies, panel studies, and other types of series (to use the DDI term). In this case, a number of Study objects would be collected into a single StudyGroup."@en ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "Study Group"@en , "Studiengruppe"@de .
 
 disco:ddi3_0identifier
       a       rdf:Property , owl:DatatypeProperty ;
-      rdfs:domain rdf:Ressource ;
+      rdfs:domain rdfs:Resource ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "DDI 3.0 identifier"@en , "DDI 3.0 Identifikation"@de ;
       rdfs:range xsd:anyURI ;
@@ -338,6 +358,7 @@ disco:ddi3_0identifier
 
 disco:universe
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "Indicates the Universe(s) of Studies, StudyGrous, VariableDefinitions, Variables, Questions, and LogicalDataSets."@en ;
       rdfs:domain
               [ owl:unionOf (disco:Study disco:StudyGroup disco:VariableDefinition disco:Variable disco:Question disco:LogicalDataSet)
               ] ;
@@ -354,6 +375,7 @@ disco:AnalysisUnit
 
 disco:mode
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "mode"@en ;
       rdfs:domain disco:SummaryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "mode"@en ;
@@ -361,6 +383,7 @@ disco:mode
 
 disco:cumulativePercentage
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "cumulative percentage"@en ;
       rdfs:domain disco:CategoryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "cumulative percentage"@en ;
@@ -368,12 +391,13 @@ disco:cumulativePercentage
 
 disco:DescriptiveStatistics
       a       owl:Class , rdfs:Class ;
-      rdfs:comment "SummaryStatistics pointing to variables and CategoryStatistics pointing to categories and codes are both descriptive statistics."@en ;
+      rdfs:comment "SummaryStatistics pointing to variables and CategoryStatistics pointing to categories and codes are both DescriptiveStatistics."@en ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "Descriptive statistics"@en , "Statistique descriptive"@fr .
 
 disco:weightedInvalidCases
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "weighted invalid cases"@en ;
       rdfs:domain disco:SummaryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "weighted invalid cases"@en ;
@@ -381,6 +405,7 @@ disco:weightedInvalidCases
 
 disco:weightedMedian
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "weighted median"@en ;
       rdfs:domain disco:SummaryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "weighted median"@en ;
@@ -388,6 +413,7 @@ disco:weightedMedian
 
 disco:purpose
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "The purpose of a Study of a StudyGroup."@en ;
       rdfs:domain
               [ owl:unionOf (disco:Study disco:StudyGroup)
               ] ;
@@ -397,6 +423,7 @@ disco:purpose
 
 disco:instrument
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "Indicates the Instrument of a Study or a LogicalDataSet."@en ;
       rdfs:domain
               [ owl:unionOf (disco:Study disco:LogicalDataSet)
               ] ;
@@ -406,6 +433,7 @@ disco:instrument
 
 disco:weightedValidCases
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "weighted valid cases"@en ;
       rdfs:domain disco:SummaryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "weighted valid cases"@en ;
@@ -413,7 +441,7 @@ disco:weightedValidCases
 
 disco:ddi3_2identifier
       a       rdf:Property , owl:DatatypeProperty ;
-      rdfs:domain rdf:Ressource ;
+      rdfs:domain rdfs:Resource ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "DDI 3.1 identifier"@en , "DDI 3.2 Identifikation"@de ;
       rdfs:range xsd:anyURI ;
@@ -421,12 +449,13 @@ disco:ddi3_2identifier
 
 disco:Instrument
       a       owl:Class , rdfs:Class ;
+      rdfs:comment "The data for the study are collected by an Instrument. The purpose of an Instrument, i.e. an interview, a questionnaire or another entity used as a means of data collection, is in the case of a survey to record the flow of a questionnaire, its use of questions, and additional component parts. A questionnaire contains a flow of questions. "@en ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
-      rdfs:label "Instrument de collecte"@fr , "Survey instrument"@en .
+      rdfs:label "Instrument de collecte"@fr , "The data for the study are collected by an Instrument. The purpose of an Instrument, i.e. an interview, a questionnaire or another entity used as a means of data collection, is in the case of a survey to record the flow of a questionnaire, its use of questions, and additional component parts. A questionnaire contains a flow of questions. "@en .
 
 disco:VariableDefinition
       a       owl:Class , rdfs:Class ;
-      rdfs:comment "TODO"@en ;
+      rdfs:comment "VariableDefinitions encompasse study-independent, re-usable parts of variables like occupation classification."@en ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "Élément de donnée"@fr , "Data element"@en .
 
@@ -440,7 +469,7 @@ disco:isPublic
 
 disco:ddi2_1identifier
       a       rdf:Property , owl:DatatypeProperty ;
-      rdfs:domain rdf:Ressource ;
+      rdfs:domain rdfs:Resource ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "DDI 2.1 Identifikation"@de , "DDI 2.1 identifier"@en ;
       rdfs:range xsd:anyURI ;
@@ -452,10 +481,11 @@ disco:ddi2_1identifier
       dc:contributor "Benjamin Zapilko" , "Johanna Vompras" , "Larry Hoyle" , "Arofan Gregory" , "Franck Cotton" , "Olof Olsson" , "Thomas Bosch" , "Richard Cyganiak" , "Joachim Wackerow" , "Wendy Thomas" , "Dan Smith" , "Benedikt Kämpgen" ;
       dc:creator "Franck Cotton" ;
       dc:title "Ontologie pour le modèle DDI discovery"@fr , "DDI-Entdeckungsontologie"@de , "DDI discovery model ontology"@en ;
-      owl:versionInfo "Version 0.5 - 2012-10-19" .
+      owl:versionInfo "Version 0.6 - 2013-07-05" .
 
 disco:variable
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "Indicates the Variable of a Study."@en ;
       rdfs:domain disco:Study ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "Variable"@de , "variable"@en ;
@@ -463,6 +493,7 @@ disco:variable
 
 disco:validCases
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "valid cases"@en ;
       rdfs:domain disco:SummaryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "valid cases"@en ;
@@ -470,20 +501,22 @@ disco:validCases
 
 disco:statisticsCategory
       a       rdf:Property , owl:ObjectProperty ;
-      rdfs:domain disco:DescriptiveStatistics ;
+      rdfs:comment "Indicates the skos:Concept (representing codes and categories) of a specific CategoryStatistics individual."@en ;
+      rdfs:domain disco:CategoryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "statistics category"@en , "a pour concept statistique"@fr ;
       rdfs:range skos:Concept .
 
 disco:SummaryStatistics
       a       owl:Class , rdfs:Class ;
-      rdfs:comment "SummaryStatistics pointing to variables."@en ;
+      rdfs:comment "For SummaryStatistics, maximum values, minimum values, and standard deviations can be defined."@en ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "Summary statistics"@en ;
       rdfs:subClassOf disco:DescriptiveStatistics .
 
 disco:representation
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "VariableDefinitions and Variables can have a Representation whose individuals are either of the class rdfs:Datatype (to represent values) or skos:ConceptScheme (to represent code lists)."@en ;
       rdfs:domain
               [ owl:unionOf (disco:VariableDefinition disco:Variable)
               ] ;
@@ -495,6 +528,7 @@ disco:representation
 
 disco:dataFile
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "points to the DataFile of a Study or a LogicalDataSet."@en ;
       rdfs:domain
               [ owl:unionOf (disco:Study disco:LogicalDataSet)
               ] ;
@@ -504,12 +538,14 @@ disco:dataFile
 
 disco:Questionnaire
       a       owl:Class , rdfs:Class ;
+      rdfs:comment "A questionnaire contains a flow of questions. "@en ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "Fragebogen"@de , "Questionnaire"@en ;
       rdfs:subClassOf disco:Instrument .
 
 disco:frequency
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "frequency"@en ;
       rdfs:domain disco:CategoryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "fréquence"@fr , "frequency"@en ;
@@ -517,13 +553,14 @@ disco:frequency
 
 disco:internationalIdentifier
       a       rdf:Property , owl:DatatypeProperty ;
-      rdfs:domain rdf:Ressource ;
+      rdfs:domain rdfs:Resource ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "international identifier"@en , "DDI-Identifikation"@de ;
       rdfs:range xsd:anyURI .
 
 disco:invalidCases
       a       rdf:Property , owl:DatatypeProperty ;
+      rdfs:comment "invalid cases"@en ;
       rdfs:domain disco:SummaryStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "invalid cases"@en ;
@@ -531,6 +568,7 @@ disco:invalidCases
 
 disco:statisticsDataFile
       a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "Indicates the DataFile of a specific DesciptiveStatistics individual."@en ;
       rdfs:domain disco:DescriptiveStatistics ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "statistics data file"@en , "a pour fichier statistique"@fr ;
