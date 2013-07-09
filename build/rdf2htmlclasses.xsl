@@ -140,10 +140,9 @@
     
     <xsl:template match="owl:Class">
         <xsl:variable name="class">
-            <xsl:call-template name="string-replace-all">
-                <xsl:with-param name="text" select="@rdf:about" />
-                <xsl:with-param name="replace"><xsl:value-of select="$prefix"/></xsl:with-param>
-                <xsl:with-param name="by"></xsl:with-param>
+            <xsl:call-template name="prefixify">
+                <xsl:with-param name="uri" select="@rdf:about" />
+                <xsl:with-param name="prefix" select="0"/>
             </xsl:call-template>
         </xsl:variable>
         <dt>
@@ -164,15 +163,13 @@
     
     <xsl:template match="rdfs:subClassOf">
         <xsl:variable name="subclassName">
-            <xsl:call-template name="string-replace-all">
-                <xsl:with-param name="text">
+            <xsl:call-template name="prefixify">
+                <xsl:with-param name="uri">
                     <xsl:choose>
                         <xsl:when test="@rdf:resource"><xsl:value-of select="@rdf:resource"/></xsl:when>
                         <xsl:when test="owl:Class/@rdf:about"><xsl:value-of select="owl:Class/@rdf:about"/></xsl:when>
                     </xsl:choose>
                 </xsl:with-param>
-                <xsl:with-param name="replace"><xsl:value-of select="$prefix"/></xsl:with-param>
-                <xsl:with-param name="by">disco:</xsl:with-param>
             </xsl:call-template>
         </xsl:variable> 
         <code><xsl:value-of select="$subclassName"/></code>
@@ -180,10 +177,8 @@
     
     <xsl:template match="owl:ObjectProperty|owl:DatatypeProperty">
         <xsl:variable name="propertyName">
-            <xsl:call-template name="string-replace-all">
-                <xsl:with-param name="text" select="@rdf:about" />
-                <xsl:with-param name="replace"><xsl:value-of select="$prefix"/></xsl:with-param>
-                <xsl:with-param name="by">disco:</xsl:with-param>
+            <xsl:call-template name="prefixify">
+                <xsl:with-param name="uri" select="@rdf:about" />
             </xsl:call-template>
         </xsl:variable>
         <dt>
@@ -218,19 +213,15 @@
                 </xsl:for-each>
             <em> -&gt; Range: </em> 
             <xsl:variable name="rangeName">
-                <xsl:call-template name="string-replace-all">
-                    <xsl:with-param name="text" select="rdfs:range/@rdf:resource" />
-                    <xsl:with-param name="replace"><xsl:value-of select="$prefix"/></xsl:with-param>
-                    <xsl:with-param name="by">disco:</xsl:with-param>
+                <xsl:call-template name="prefixify">
+                    <xsl:with-param name="uri" select="rdfs:range/@rdf:resource" />
                 </xsl:call-template>
             </xsl:variable>
             <code><xsl:value-of select="$rangeName"/></code>
             <xsl:if test="rdfs:subPropertyOf">
                 <xsl:variable name="subPropertyName">
-                    <xsl:call-template name="string-replace-all">
-                        <xsl:with-param name="text" select="rdfs:subPropertyOf/@rdf:resource" />
-                        <xsl:with-param name="replace"><xsl:value-of select="$prefix"/></xsl:with-param>
-                        <xsl:with-param name="by">disco:</xsl:with-param>
+                    <xsl:call-template name="prefixify">
+                        <xsl:with-param name="uri" select="rdfs:subPropertyOf/@rdf:resource" />
                     </xsl:call-template>
                 </xsl:variable>
                 <em>; sub property of: </em>
@@ -259,6 +250,59 @@
             <xsl:otherwise>
                 <xsl:value-of select="$text" />
             </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template name="prefixify">
+        <xsl:param name="uri"></xsl:param>
+        <xsl:param name="prefix">0</xsl:param>
+        
+        <xsl:choose>
+            <xsl:when test="contains($uri, 'http://xmlns.com/foaf/0.1/')">
+                <xsl:call-template name="string-replace-all">
+                    <xsl:with-param name="text" select="$uri" />
+                    <xsl:with-param name="replace">http://xmlns.com/foaf/0.1/</xsl:with-param>
+                    <xsl:with-param name="by"><xsl:if test="$prefix">foaf:</xsl:if></xsl:with-param>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:when test="contains($uri,'http://rdf-vocabulary.ddialliance.org/discovery#')">
+                <xsl:call-template name="string-replace-all">
+                    <xsl:with-param name="text" select="$uri" />
+                    <xsl:with-param name="replace">http://rdf-vocabulary.ddialliance.org/discovery#</xsl:with-param>
+                    <xsl:with-param name="by"><xsl:if test="$prefix">disco:</xsl:if></xsl:with-param>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:when test="contains($uri,'http://purl.org/dc/terms/')">
+                <xsl:call-template name="string-replace-all">
+                    <xsl:with-param name="text" select="$uri" />
+                    <xsl:with-param name="replace">http://purl.org/dc/terms/</xsl:with-param>
+                    <xsl:with-param name="by"><xsl:if test="$prefix">dcterms:</xsl:if></xsl:with-param>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:when test="contains($uri,'http://www.w3.org/2004/02/skos/core#')">
+                <xsl:call-template name="string-replace-all">
+                    <xsl:with-param name="text" select="$uri" />
+                    <xsl:with-param name="replace">http://www.w3.org/2004/02/skos/core#</xsl:with-param>
+                    <xsl:with-param name="by"><xsl:if test="$prefix">skos:</xsl:if></xsl:with-param>
+                </xsl:call-template>
+            </xsl:when>            
+            <xsl:when test="contains($uri,'http://www.w3.org/2001/XMLSchema#')">
+                <xsl:call-template name="string-replace-all">
+                    <xsl:with-param name="text" select="$uri" />
+                    <xsl:with-param name="replace">http://www.w3.org/2001/XMLSchema#</xsl:with-param>
+                    <xsl:with-param name="by"><xsl:if test="$prefix">xsd:</xsl:if></xsl:with-param>
+                </xsl:call-template>
+            </xsl:when>            
+            <xsl:when test="contains($uri,'http://www.w3.org/1999/02/22-rdf-syntax-ns#')">
+                <xsl:call-template name="string-replace-all">
+                    <xsl:with-param name="text" select="$uri" />
+                    <xsl:with-param name="replace">http://www.w3.org/1999/02/22-rdf-syntax-ns#</xsl:with-param>
+                    <xsl:with-param name="by"><xsl:if test="$prefix">rdf:</xsl:if></xsl:with-param>
+                </xsl:call-template>
+            </xsl:when>                       
+            
+            
+            <xsl:otherwise><xsl:value-of select="$uri"/></xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 </xsl:stylesheet>
