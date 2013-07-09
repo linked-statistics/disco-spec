@@ -73,25 +73,25 @@
          <dd>A Study represents the process by which a data set was generated or collected.</dd>
          <div class="classProperties">
             <dt><em>Object Property: </em><code><dfn>disco:variable</dfn></code>
-               (<em>Domain:</em><code>disco:Study</code><em> Range: </em><code>disco:Variable</code>
+               (<em>Domain:</em><code>disco:Study</code><em> -&gt; Range: </em><code>disco:Variable</code>
                )
                
             </dt>
             <dd>Indicates the Variable of a Study.</dd>
             <dt><em>Object Property: </em><code><dfn>disco:ddifile</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> Range: </em><code>http://xmlns.com/foaf/0.1/Document</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>http://xmlns.com/foaf/0.1/Document</code>
                )
                
             </dt>
             <dd>points from a Study or a StudyGroup to the original DDI file which is a foaf:Document.</dd>
             <dt><em>Object Property: </em><code><dfn>disco:inGroup</dfn></code>
-               (<em>Domain:</em><code>disco:Study</code><em> Range: </em><code>disco:StudyGroup</code>
+               (<em>Domain:</em><code>disco:Study</code><em> -&gt; Range: </em><code>disco:StudyGroup</code>
                )
                
             </dt>
             <dd>points from a Study to the StudyGroup which contains the Study.</dd>
             <dt><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> Range: </em><code>disco:Universe</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
                )
                
             </dt>
@@ -99,7 +99,7 @@
                Questions, and LogicalDataSets.
             </dd>
             <dt><em>Object Property: </em><code><dfn>disco:fundedBy</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> Range: </em><code>http://xmlns.com/foaf/0.1/Agent</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>http://xmlns.com/foaf/0.1/Agent</code><em>; sub property of: </em><code>http://purl.org/dc/terms/contributor</code>
                )
                
             </dt>
@@ -107,13 +107,13 @@
                or a org:Organization.
             </dd>
             <dt><em>Object Property: </em><code><dfn>disco:dataFile</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:LogicalDataSet</code><em> Range: </em><code>disco:DataFile</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:DataFile</code>
                )
                
             </dt>
             <dd>points to the DataFile of a Study or a LogicalDataSet.</dd>
             <dt><em>Object Property: </em><code><dfn>disco:kindOfData</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> Range: </em><code>http://www.w3.org/2004/02/skos/core#Concept</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>http://www.w3.org/2004/02/skos/core#Concept</code>
                )
                
             </dt>
@@ -121,25 +121,25 @@
                given either as a skos:Concept, or as a blank node with attached free-text rdfs:label.
             </dd>
             <dt><em>Object Property: </em><code><dfn>disco:product</dfn></code>
-               (<em>Domain:</em><code>disco:Study</code><em> Range: </em><code>http://purl.org/linked-data/cube#LogicalDataSet</code>
+               (<em>Domain:</em><code>disco:Study</code><em> -&gt; Range: </em><code>http://purl.org/linked-data/cube#LogicalDataSet</code>
                )
                
             </dt>
             <dd>Indicates the LogicalDataSets of a Studies.</dd>
             <dt><em>Object Property: </em><code><dfn>disco:instrument</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:LogicalDataSet</code><em> Range: </em><code>disco:Instrument</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Instrument</code>
                )
                
             </dt>
             <dd>Indicates the Instrument of a Study or a LogicalDataSet.</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:subtitle</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> Range: </em><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#langString</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#langString</code>
                )
                
             </dt>
             <dd>The sub-title of a Study of a StudyGroup.</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:purpose</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> Range: </em><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#langString</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#langString</code>
                )
                
             </dt>
@@ -154,13 +154,13 @@
          </dd>
          <div class="classProperties">
             <dt><em>Object Property: </em><code><dfn>disco:ddifile</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> Range: </em><code>http://xmlns.com/foaf/0.1/Document</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>http://xmlns.com/foaf/0.1/Document</code>
                )
                
             </dt>
             <dd>points from a Study or a StudyGroup to the original DDI file which is a foaf:Document.</dd>
             <dt><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> Range: </em><code>disco:Universe</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
                )
                
             </dt>
@@ -168,7 +168,7 @@
                Questions, and LogicalDataSets.
             </dd>
             <dt><em>Object Property: </em><code><dfn>disco:fundedBy</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> Range: </em><code>http://xmlns.com/foaf/0.1/Agent</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>http://xmlns.com/foaf/0.1/Agent</code><em>; sub property of: </em><code>http://purl.org/dc/terms/contributor</code>
                )
                
             </dt>
@@ -176,7 +176,7 @@
                or a org:Organization.
             </dd>
             <dt><em>Object Property: </em><code><dfn>disco:kindOfData</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> Range: </em><code>http://www.w3.org/2004/02/skos/core#Concept</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>http://www.w3.org/2004/02/skos/core#Concept</code>
                )
                
             </dt>
@@ -184,13 +184,13 @@
                given either as a skos:Concept, or as a blank node with attached free-text rdfs:label.
             </dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:subtitle</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> Range: </em><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#langString</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#langString</code>
                )
                
             </dt>
             <dd>The sub-title of a Study of a StudyGroup.</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:purpose</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> Range: </em><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#langString</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#langString</code>
                )
                
             </dt>
@@ -223,13 +223,13 @@
          </dd>
          <div class="classProperties">
             <dt><em>Object Property: </em><code><dfn>disco:containsVariable</dfn></code>
-               (<em>Domain:</em><code>disco:LogicalDataSet</code><em> Range: </em><code>disco:Variable</code>
+               (<em>Domain:</em><code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Variable</code>
                )
                
             </dt>
             <dd>points to Variable contained in the LogicalDataSet</dd>
             <dt><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> Range: </em><code>disco:Universe</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
                )
                
             </dt>
@@ -237,25 +237,25 @@
                Questions, and LogicalDataSets.
             </dd>
             <dt><em>Object Property: </em><code><dfn>disco:dataFile</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:LogicalDataSet</code><em> Range: </em><code>disco:DataFile</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:DataFile</code>
                )
                
             </dt>
             <dd>points to the DataFile of a Study or a LogicalDataSet.</dd>
             <dt><em>Object Property: </em><code><dfn>disco:aggregation</dfn></code>
-               (<em>Domain:</em><code>disco:LogicalDataSet</code><em> Range: </em><code>http://purl.org/linked-data/cube#DataSet</code>
+               (<em>Domain:</em><code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>http://purl.org/linked-data/cube#DataSet</code>
                )
                
             </dt>
             <dd>points to the aggregated data set of a microdata data set.</dd>
             <dt><em>Object Property: </em><code><dfn>disco:instrument</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:LogicalDataSet</code><em> Range: </em><code>disco:Instrument</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Instrument</code>
                )
                
             </dt>
             <dd>Indicates the Instrument of a Study or a LogicalDataSet.</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:isPublic</dfn></code>
-               (<em>Domain:</em><code>disco:LogicalDataSet</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#boolean</code>
+               (<em>Domain:</em><code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#boolean</code>
                )
                
             </dt>
@@ -270,7 +270,7 @@
          </dd>
          <div class="classProperties">
             <dt><em>Datatype Property: </em><code><dfn>disco:caseQuantity</dfn></code>
-               (<em>Domain:</em><code>disco:DataFile</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</code>
+               (<em>Domain:</em><code>disco:DataFile</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</code>
                )
                
             </dt>
@@ -282,7 +282,7 @@
          </dd>
          <div class="classProperties">
             <dt><em>Object Property: </em><code><dfn>disco:statisticsDataFile</dfn></code>
-               (<em>Domain:</em><code>disco:DescriptiveStatistics</code><em> Range: </em><code>disco:DataFile</code>
+               (<em>Domain:</em><code>disco:DescriptiveStatistics</code><em> -&gt; Range: </em><code>disco:DataFile</code>
                )
                
             </dt>
@@ -295,85 +295,85 @@
          </dd>
          <div class="classProperties">
             <dt><em>Object Property: </em><code><dfn>disco:statisticsVariable</dfn></code>
-               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> Range: </em><code>disco:Variable</code>
+               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>disco:Variable</code>
                )
                
             </dt>
             <dd>Indicates the Variable of a specific SummaryStatistics individual.</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:standardDeviation</dfn></code>
-               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
+               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
                )
                
             </dt>
             <dd>standard deviation</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:weightedValidCases</dfn></code>
-               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</code>
+               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</code>
                )
                
             </dt>
             <dd>weighted valid cases</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:minimum</dfn></code>
-               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
+               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
                )
                
             </dt>
             <dd>minimum</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:weightedMode</dfn></code>
-               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
+               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
                )
                
             </dt>
             <dd>weighted mode</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:mode</dfn></code>
-               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
+               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
                )
                
             </dt>
             <dd>mode</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:validCases</dfn></code>
-               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</code>
+               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</code>
                )
                
             </dt>
             <dd>valid cases</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:median</dfn></code>
-               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
+               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
                )
                
             </dt>
             <dd>median</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:mean</dfn></code>
-               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
+               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
                )
                
             </dt>
             <dd>mean</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:weightedInvalidCases</dfn></code>
-               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</code>
+               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</code>
                )
                
             </dt>
             <dd>weighted invalid cases</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:weightedMean</dfn></code>
-               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
+               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
                )
                
             </dt>
             <dd>weighted mean</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:invalidCases</dfn></code>
-               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</code>
+               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</code>
                )
                
             </dt>
             <dd>invalid cases</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:weightedMedian</dfn></code>
-               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
+               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
                )
                
             </dt>
             <dd>weighted median</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:maximum</dfn></code>
-               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
+               (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
                )
                
             </dt>
@@ -386,7 +386,7 @@
          </dd>
          <div class="classProperties">
             <dt><em>Object Property: </em><code><dfn>disco:statisticsCategory</dfn></code>
-               (<em>Domain:</em><code>disco:CategoryStatistics</code><em> Range: </em><code>http://www.w3.org/2004/02/skos/core#Concept</code>
+               (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2004/02/skos/core#Concept</code>
                )
                
             </dt>
@@ -394,37 +394,37 @@
                individual.
             </dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:weightedFrequency</dfn></code>
-               (<em>Domain:</em><code>disco:CategoryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</code>
+               (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</code>
                )
                
             </dt>
             <dd>weighted frequency</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:weightedCumulativePercentage</dfn></code>
-               (<em>Domain:</em><code>disco:CategoryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
+               (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
                )
                
             </dt>
             <dd>weighted cumulative percentage</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:weightedPercentage</dfn></code>
-               (<em>Domain:</em><code>disco:CategoryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
+               (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
                )
                
             </dt>
             <dd>weighted percentage</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:cumulativePercentage</dfn></code>
-               (<em>Domain:</em><code>disco:CategoryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
+               (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
                )
                
             </dt>
             <dd>cumulative percentage</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:frequency</dfn></code>
-               (<em>Domain:</em><code>disco:CategoryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</code>
+               (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</code>
                )
                
             </dt>
             <dd>frequency</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:percentage</dfn></code>
-               (<em>Domain:</em><code>disco:CategoryStatistics</code><em> Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
+               (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>http://www.w3.org/2001/XMLSchema#decimal</code>
                )
                
             </dt>
@@ -440,13 +440,13 @@
          </dd>
          <div class="classProperties">
             <dt><em>Object Property: </em><code><dfn>disco:analysisUnit</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:StudyGroup</code>, <code>disco:Variable</code><em> Range: </em><code>disco:AnalysisUnit</code>
+               (<em>Domain:</em><code></code><code>disco:StudyGroup</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>disco:AnalysisUnit</code>
                )
                
             </dt>
             <dd>analysis unit of a Study, a StudyGroup, or a Variable.</dd>
             <dt><em>Object Property: </em><code><dfn>disco:representation</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Variable</code><em> Range: </em><code></code>
+               (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code></code>
                )
                
             </dt>
@@ -455,7 +455,7 @@
                represent code lists).
             </dd>
             <dt><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> Range: </em><code>disco:Universe</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
                )
                
             </dt>
@@ -463,19 +463,19 @@
                Questions, and LogicalDataSets.
             </dd>
             <dt><em>Object Property: </em><code><dfn>disco:question</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Variable</code>, <code>disco:Questionnaire</code><em> Range: </em><code>disco:Question</code>
+               (<em>Domain:</em><code></code><code>disco:Variable</code>, <code>disco:Questionnaire</code><em> -&gt; Range: </em><code>disco:Question</code>
                )
                
             </dt>
             <dd>Indicates the Questions associated to Variables or contained in Questionnaires.</dd>
             <dt><em>Object Property: </em><code><dfn>disco:basedOn</dfn></code>
-               (<em>Domain:</em><code>disco:Variable</code><em> Range: </em><code>disco:VariableDefinition</code>
+               (<em>Domain:</em><code>disco:Variable</code><em> -&gt; Range: </em><code>disco:VariableDefinition</code>
                )
                
             </dt>
             <dd>points to the VariableDefinition the Variable is based on.</dd>
             <dt><em>Object Property: </em><code><dfn>disco:concept</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> Range: </em><code>http://www.w3.org/2004/02/skos/core#Concept</code>
+               (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>http://www.w3.org/2004/02/skos/core#Concept</code>
                )
                
             </dt>
@@ -487,7 +487,7 @@
          </dd>
          <div class="classProperties">
             <dt><em>Object Property: </em><code><dfn>disco:representation</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Variable</code><em> Range: </em><code></code>
+               (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code></code>
                )
                
             </dt>
@@ -496,7 +496,7 @@
                represent code lists).
             </dd>
             <dt><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> Range: </em><code>disco:Universe</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
                )
                
             </dt>
@@ -504,7 +504,7 @@
                Questions, and LogicalDataSets.
             </dd>
             <dt><em>Object Property: </em><code><dfn>disco:concept</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> Range: </em><code>http://www.w3.org/2004/02/skos/core#Concept</code>
+               (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>http://www.w3.org/2004/02/skos/core#Concept</code>
                )
                
             </dt>
@@ -519,7 +519,7 @@
          </dd>
          <div class="classProperties">
             <dt><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> Range: </em><code>disco:Universe</code>
+               (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
                )
                
             </dt>
@@ -527,13 +527,13 @@
                Questions, and LogicalDataSets.
             </dd>
             <dt><em>Object Property: </em><code><dfn>disco:concept</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> Range: </em><code>http://www.w3.org/2004/02/skos/core#Concept</code>
+               (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>http://www.w3.org/2004/02/skos/core#Concept</code>
                )
                
             </dt>
             <dd>points to the DDI concept of a VariableDefinition, a Variable, or a Question</dd>
             <dt><em>Datatype Property: </em><code><dfn>disco:questionText</dfn></code>
-               (<em>Domain:</em><code>disco:Question</code><em> Range: </em><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#langString</code>
+               (<em>Domain:</em><code>disco:Question</code><em> -&gt; Range: </em><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#langString</code>
                )
                
             </dt>
@@ -547,7 +547,7 @@
          </dd>
          <div class="classProperties">
             <dt><em>Object Property: </em><code><dfn>disco:externalDocumentation</dfn></code>
-               (<em>Domain:</em><code>disco:Instrument</code><em> Range: </em><code>http://xmlns.com/foaf/0.1/Document</code>
+               (<em>Domain:</em><code>disco:Instrument</code><em> -&gt; Range: </em><code>http://xmlns.com/foaf/0.1/Document</code>
                )
                
             </dt>
@@ -560,13 +560,13 @@
          <dd>A questionnaire contains a flow of questions. </dd>
          <div class="classProperties">
             <dt><em>Object Property: </em><code><dfn>disco:collectionMode</dfn></code>
-               (<em>Domain:</em><code>disco:Questionnaire</code><em> Range: </em><code>http://www.w3.org/2004/02/skos/core#Concept</code>
+               (<em>Domain:</em><code>disco:Questionnaire</code><em> -&gt; Range: </em><code>http://www.w3.org/2004/02/skos/core#Concept</code>
                )
                
             </dt>
             <dd>mode of collection of a Questionnaire</dd>
             <dt><em>Object Property: </em><code><dfn>disco:question</dfn></code>
-               (<em>Domain:</em><code></code><code>disco:Variable</code>, <code>disco:Questionnaire</code><em> Range: </em><code>disco:Question</code>
+               (<em>Domain:</em><code></code><code>disco:Variable</code>, <code>disco:Questionnaire</code><em> -&gt; Range: </em><code>disco:Question</code>
                )
                
             </dt>
