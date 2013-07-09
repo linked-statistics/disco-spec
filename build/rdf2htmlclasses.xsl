@@ -216,7 +216,7 @@
                         <xsl:text>, </xsl:text>
                     </xsl:if>
                 </xsl:for-each>
-            <em> Range: </em> 
+            <em> -&gt; Range: </em> 
             <xsl:variable name="rangeName">
                 <xsl:call-template name="string-replace-all">
                     <xsl:with-param name="text" select="rdfs:range/@rdf:resource" />
@@ -225,6 +225,17 @@
                 </xsl:call-template>
             </xsl:variable>
             <code><xsl:value-of select="$rangeName"/></code>
+            <xsl:if test="rdfs:subPropertyOf">
+                <xsl:variable name="subPropertyName">
+                    <xsl:call-template name="string-replace-all">
+                        <xsl:with-param name="text" select="rdfs:subPropertyOf/@rdf:resource" />
+                        <xsl:with-param name="replace"><xsl:value-of select="$prefix"/></xsl:with-param>
+                        <xsl:with-param name="by">disco:</xsl:with-param>
+                    </xsl:call-template>
+                </xsl:variable>
+                <em>; sub property of: </em>
+                <code><xsl:value-of select="$subPropertyName"/></code>
+            </xsl:if>
             )
         </dt>
         <dd><xsl:value-of select="rdfs:comment"/></dd>
