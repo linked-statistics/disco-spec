@@ -1213,19 +1213,123 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 
 	<section>
     
-      <p class="issue">Issue on DescriptiveStatistics <a href="https://github.com/linked-statistics/disco-spec/issues/104">Issue #104</a>.
+      <p class="issue">Issue on DescriptiveStatistics <a href="https://github.com/linked-statistics/disco-spec/issues/104">Issue #104</a></p>
+	  
+	    <p>
+		  Available category statistics types are frequency, percentage, and cumulativePercentage. 
+		  Available summary statistics types are frequency, percentage, maximum, mean, median, minimum, mode, and standardDeviation.
+		</p>
+		<p>
+          There are two properties which describe details of a category or summary statistic value, typeOfCases and weightedBy.
+		</p>
 	  
 	    <div class="figure">
           <img src="diagrams/descriptive-statistics_modified.jpg" alt="DescriptiveStatistics"/>
         </div>
 	  
-	  </p>
-	  
-	  <p class="issue">
-	  
-	    test
-	  
-	  </p>
+        <p>		
+          typeOfCases expresses if the cases - which are the basis of the computation of a statistics value - 
+		  are valid, invalid or the total of both. The usage of typeOfCases for frequency differs from the usage for the 
+		  percentage statistics and the summary statistics. A distinction regarding typeOfCases doesn’t apply to frequency as category statistic. 
+		  The following table describes the details of usage of typeOfCases in dependency of the respective statistics type.
+		</p>
+		
+		<p>
+		  Table 1: Description of Statistics of Valid/Invalid Cases
+		</p>
+                
+		<table style="text-align: left; width: 80%;">
+		  <tbody>
+			<tr>
+			  <td style="vertical-align: middle; text-align: center; font-weight: bold;" rowspan='2'>Statistics Type<br/></td>
+			  <td style="vertical-align: top; text-align: center; font-weight: bold;" colspan='4'>typeOfCases<br/></td>
+			</tr>
+			<tr>
+			  <td style="vertical-align: top; text-align: center;">valid<br/></td>
+			  <td style="vertical-align: top; text-align: center;">invalid<br/></td>
+			  <td style="vertical-align: top; text-align: center;">total<br/></td>
+			  <td style="vertical-align: top; text-align: center;">not used<br/></td>
+			</tr>
+			<tr>
+			  <td style="vertical-align: top; text-align: center; font-weight: bold;">Category Statistics Type<br/></td>
+			  <td style="vertical-align: top; text-align: center;" colspan='4'><br/></td>
+			</tr>
+			<tr>
+			  <td style="vertical-align: top; text-align: center;">frequency<br/></td>
+			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
+			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
+			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
+			  <td style="vertical-align: top; text-align: center;">X<br/></td>
+			</tr>
+			<tr>
+			  <td style="vertical-align: top; text-align: center;">percentage<br/></td>
+			  <td style="vertical-align: top; text-align: center;">X<br/></td>
+			  <td style="vertical-align: top; text-align: center;">x<br/></td>
+			  <td style="vertical-align: top; text-align: center;">X<br/></td>
+			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
+			</tr>
+			<tr>
+			  <td style="vertical-align: top; text-align: center;">cumulativePercentage<br/></td>
+			  <td style="vertical-align: top; text-align: center;">X<br/></td>
+			  <td style="vertical-align: top; text-align: center;">x<br/></td>
+			  <td style="vertical-align: top; text-align: center;">X<br/></td>
+			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
+			</tr>
+			<tr>
+			  <td style="vertical-align: top; text-align: center; font-weight: bold;">Summary Statistics Type<br/></td>
+			  <td style="vertical-align: top; text-align: center;" colspan='4'><br/></td>
+			</tr>
+			<tr>
+			  <td style="vertical-align: top; text-align: center;">percentage<br/></td>
+			  <td style="vertical-align: top; text-align: center;">X<br/></td>
+			  <td style="vertical-align: top; text-align: center;">x<br/></td>
+			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
+			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
+			</tr>
+			<tr>
+			  <td style="vertical-align: top; text-align: center;">Any other summary statistics type<br/></td>
+			  <td style="vertical-align: top; text-align: center;">X<br/></td>
+			  <td style="vertical-align: top; text-align: center;">x<br/></td>
+			  <td style="vertical-align: top; text-align: center;">X<br/></td>
+			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
+			</tr>
+		  </tbody>
+		</table>
+		
+		<p>
+		  Legend: X – used frequently, x – not used frequently, n/a – not applicable
+		</p>
+
+         <p>		
+          weightedBy defines the weight variable of a category or summary statistic computation respectively value. 
+		  It can also be used to indicate if a weight variable is used but the related variable is not known. 
+		  weightedBy may be assigned to a category statistic value or to a summary statistic value.
+		</p>
+		
+		<p>
+		  Table 2. Description of Statistics of Non-weighted/Weighted Variables
+		</p>
+		
+		<table style="text-align: left; width: 80%;">
+		  <tbody>
+			<tr>
+			  <td style="vertical-align: middle; text-align: center; font-weight: bold;">Statistics Value of ...</td>
+			  <td style="vertical-align: top; text-align: center; font-weight: bold;">Value of weightedBy</td>
+			</tr>
+			<tr>
+			  <td style="vertical-align: middle; text-align: center;">unweighted variable</td>
+			  <td style="vertical-align: top; text-align: center;">not used</td>
+			</tr>
+			<tr>
+			  <td style="vertical-align: middle; text-align: center;">weighted variable <br> Weight variable is not known.</td>
+			  <td style="vertical-align: top; text-align: center;">Reference to blank node</td>
+			</tr>
+			<tr>
+			  <td style="vertical-align: middle; text-align: center;">weighted variable <br> Weight variable is known.</td>
+			  <td style="vertical-align: top; text-align: center;">Reference to weight variable</td>
+			</tr>
+		  </tbody>
+		</table>
 	  
     </section>
 	
@@ -1422,19 +1526,12 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 	  
 	  <section>
     
-      <p class="issue">Issue on skos:Concept <a href="https://github.com/linked-statistics/disco-spec/issues/104">Issue #104</a>.
+      <p class="issue">Issue on skos:Concept <a href="https://github.com/linked-statistics/disco-spec/issues/104">Issue #104</a></p>
 	  
-	    <div class="figure">
-			<img src="diagrams/concept_modified.jpg" alt="skos:Concept and skos:ConceptScheme"/>
-		</div>
+	<div class="figure">
+		<img src="diagrams/concept_modified.jpg" alt="skos:Concept and skos:ConceptScheme"/>
+	</div>
 	  
-	  </p>
-	  
-	  <p class="issue">
-	  
-	    test
-	  
-	  </p>
 	  
     </section>
 	  
