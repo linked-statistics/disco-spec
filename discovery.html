@@ -1351,36 +1351,25 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 		  
 		  <pre class="example">
 @prefix issp: &lt;http://www.issp.org/&gt;	  
-
-&lt;issp:conceptScheme1&gt; skos:inScheme [
-  a rdf:Seq;
-  rdf:_1 &lt;issp:concept1&gt;;
-  rdf:_2 &lt;issp:concept1&gt;;
-  rdf:_3 &lt;issp:concept1&gt;.
-] .
 		  
 &lt;issp:concept1&gt;
-  a missy:Concept;
-  skos:inScheme &lt;issp:conceptScheme1;&gt;
+  a skos:Concept;
   skos:notation '1';
   skos:preflabel 'Yes, have partner; live in same household';
   disco:isValid true.
   
 &lt;issp:concept3&gt;
-  a missy:Concept;
-  skos:inScheme &lt;issp:conceptScheme1;&gt;
+  a skos:Concept;
   disco:isValid true.
 
 &lt;issp:concept2&gt;
-  a missy:Concept;
-  skos:inScheme &lt;issp:conceptScheme1;&gt;
+  a skos:Concept;
   skos:notation '0';
   skos:preflabel 'Not available (GB))';
   disco:isValid false.
 
 &lt;issp:concept4&gt;
-  a missy:Concept;
-  skos:inScheme &lt;issp:conceptScheme1;&gt;
+  a skos:Concept;
   disco:isValid false.
 
 &lt;issp:categoryStatistics1_concept1&gt;
@@ -1447,7 +1436,17 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
   disco:percentage '4.8';
   disco:computationBase 'missingOnly'.
   
-  
+&lt;issp:summaryStatistics1&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:numberOfCases '26216';
+  disco:computationBase 'total'.
+
+&lt;issp:summaryStatistics2&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:percentage '100';
+  disco:computationBase 'total'.  
 	      </pre>
 		</div>
 	  
