@@ -1333,6 +1333,116 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 			</tr>
 		  </tbody>
 		</table>
+		
+		
+		
+		<div class="example">
+		  <div class="example-title">
+		    <span>ISSP 2011 (International Social Survey Programme)</span>
+	      </div>
+		  
+		  <div class="figure">
+            <img src="images/example-frequencies.jpg" alt="frequency table"/>
+          </div>
+		  
+		  <div class="figure">
+            <img src="images/example-descriptives.jpg" alt="Descriptives"/>
+          </div>
+		  
+		  <pre class="example">
+@prefix issp: &lt;http://www.issp.org/&gt;	  
+		  
+&lt;issp:concept1&gt;
+  a missy:Concept;
+  skos:inScheme &lt;issp:conceptScheme1;&gt;
+  skos:notation '1';
+  skos:preflabel 'Yes, have partner; live in same household';
+  disco:isValid true.
+  
+&lt;issp:concept3&gt;
+  a missy:Concept;
+  skos:inScheme &lt;issp:conceptScheme1;&gt;
+  disco:isValid true.
+
+&lt;issp:concept2&gt;
+  a missy:Concept;
+  skos:inScheme &lt;issp:conceptScheme1;&gt;
+  skos:notation '0';
+  skos:preflabel 'Not available (GB))';
+  disco:isValid false.
+
+&lt;issp:concept4&gt;
+  a missy:Concept;
+  skos:inScheme &lt;issp:conceptScheme1;&gt;
+  disco:isValid false.
+
+&lt;issp:categoryStatistics1_concept1&gt;
+  a disco:CategoryStatistics;
+  disco:categoryStatistics &lt;issp:concept1&gt;;
+  disco:frequency '15893'.
+
+&lt;issp:categoryStatistics1_concept2&gt;
+  a disco:CategoryStatistics;
+  disco:categoryStatistics &lt;issp:concept2&gt;;
+  disco:frequency '936'.
+  
+&lt;issp:categoryStatistics2_concept1&gt;
+  a disco:CategoryStatistics;
+  disco:categoryStatistics &lt;issp:concept1&gt;;
+  disco:percentage '60.6'.
+  disco:computationBase 'total'.
+
+&lt;issp:categoryStatistics2_concept2&gt;
+  a disco:CategoryStatistics;
+  disco:categoryStatistics &lt;issp:concept2&gt;;
+  disco:percentage '3.6';
+  disco:computationBase 'total'.
+  
+&lt;issp:categoryStatistics3_concept1&gt;
+  a disco:CategoryStatistics;
+  disco:categoryStatistics &lt;issp:concept1&gt;;
+  disco:percentage '63.7';
+  disco:computationBase 'valid'.
+  
+&lt;issp:categoryStatistics4_concept1&gt;
+  a disco:CategoryStatistics;
+  disco:categoryStatistics &lt;issp:concept1&gt;;
+  disco:cumulativePercentage '63.7';
+  disco:computationBase 'valid'.
+  
+&lt;issp:summaryStatistics1_concept3&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:numberOfcases '24965';
+  disco:computationBase 'valid'.
+
+&lt;issp:summaryStatistics2_concept3&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:percentage '95.2';
+  disco:computationBase 'total'.
+
+&lt;issp:summaryStatistics3_concept3&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:percentage '100';
+  disco:computationBase 'valid'.
+
+&lt;issp:summaryStatistics1_concept4&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:numberOfcases '1251';
+  disco:computationBase 'invalid'.
+  
+<summaryStatistics2_concept4>
+  a disco:SummaryStatistics;
+  disco:statisticsVariable <variable>;
+  disco:percentage ‘48.7’;
+  disco:typeOfCases ‘invalid’
+  
+  
+	      </pre>
+		</div>
 	  
     </section>
 	
