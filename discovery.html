@@ -1351,6 +1351,13 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 		  
 		  <pre class="example">
 @prefix issp: &lt;http://www.issp.org/&gt;	  
+
+&lt;issp:conceptScheme1&gt; skos:inScheme [
+  a rdf:Seq;
+  rdf:_1 &lt;issp:concept1&gt;;
+  rdf:_2 &lt;issp:concept1&gt;;
+  rdf:_3 &lt;issp:concept1&gt;.
+] .
 		  
 &lt;issp:concept1&gt;
   a missy:Concept;
@@ -1636,6 +1643,115 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
           </ul>
         </div>
       </section>
+	  
+	  <p class="issue">Issue on support of order of items regarding Variables, Categories, etc. <a href="https://github.com/linked-statistics/disco-spec/issues/105">Issue #105</a></p>
+	  
+	  <div class="figure">
+        <img src="diagrams/concept-review.jpg" alt="UML diagram (skos)"/>
+      </div>
+		
+	  <div class="figure">
+        <img src="diagrams/representation-review.jpg" alt="UML diagram (representation)"/>
+      </div>
+	  
+	  <div class="example">
+		<div class="example-title">
+          <span>ISSP 2011 (International Social Survey Programme)</span>
+	    </div>
+		
+		<div class="figure">
+            <img src="images/example-issp2011-frequencies-PARTLIV.jpg" alt="frequencies"/>
+          </div>
+		  
+		<pre class="example">
+@prefix issp: &lt;http://www.issp.org/&gt;	  
+
+&lt;issp:PARTLIV&gt;
+  a disco:Variable;
+  skos:notation 'PARTLIV';
+  skos:preflabel 'Living in steady partnership';
+  disco:representation &lt;issp:orderedCollection1&gt;.
+
+&lt;issp:orderedCollection1&gt;
+  rdf:type skos:OrderedCollection;
+  skos:memberList [
+    rdf:first &lt;issp:concept1&gt;; rdf:rest [
+    rdf:first &lt;issp:concept2&gt;; rdf:rest [
+    rdf:first &lt;issp:concept3&gt;; rdf:rest [
+    rdf:first &lt;issp:concept4&gt;; rdf:rest [
+    rdf:first &lt;issp:concept5&gt;; rdf:rest [
+    rdf:first &lt;issp:concept6&gt;; rdf:rest [
+    rdf:first &lt;issp:concept7&gt;; rdf:rest [
+    rdf:first &lt;issp:concept8&gt;;
+    rdf:rest rdf:nil.] ] ] ] ] ] ] ].
+
+# syntactic sugar:
+&lt;issp:orderedCollection1&gt;
+  rdf:type skos:OrderedCollection;
+  skos:memberList (
+    &lt;issp:concept1&gt;
+    &lt;issp:concept2&gt;
+    &lt;issp:concept3&gt;
+    &lt;issp:concept4&gt;
+    &lt;issp:concept5&gt;
+    &lt;issp:concept6&gt;
+    &lt;issp:concept7&gt;
+    &lt;issp:concept8&gt; ).
+		  
+&lt;issp:concept1&gt;
+  a skos:Concept;
+  skos:notation '1';
+  skos:preflabel 'Yes, have partner; live in same household';
+  disco:isValid true.
+  
+&lt;issp:concept2&gt;
+  a skos:Concept;
+  skos:notation '2';
+  skos:preflabel 'Yes, have partner; don't live in same household';
+  disco:isValid true.
+  
+&lt;issp:concept3&gt;
+  a skos:Concept;
+  skos:notation '3';
+  skos:preflabel 'No partner';
+  disco:isValid true.
+  
+&lt;issp:concept4&gt;
+  a skos:Concept;
+  disco:isValid true.
+
+&lt;issp:concept5&gt;
+  a skos:Concept;
+  skos:notation '0';
+  skos:preflabel 'Not available (GB))';
+  disco:isValid false.
+  
+&lt;issp:concept6&gt;
+  a skos:Concept;
+  skos:notation '7';
+  skos:preflabel 'Refused';
+  disco:isValid false.
+  
+&lt;issp:concept7&gt;
+  a skos:Concept;
+  skos:notation '9';
+  skos:preflabel 'No answer';
+  disco:isValid false.
+
+&lt;issp:concept8&gt;
+  a skos:Concept;
+  disco:isValid false.
+	    </pre>
+		
+      </div>
+	  
+	  <p>
+	    new sub-classes of skos:Concept:
+		<ul>
+		  <li>Variable</li>
+		  <li>Question</li>
+		</ul>
+      </p>
 	  
     </section>
 
