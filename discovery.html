@@ -1402,19 +1402,19 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
   a disco:CategoryStatistics;
   disco:categoryStatistics &lt;issp:concept1&gt;;
   disco:percentage '63.7';
-  disco:computationBase 'valid'.
+  disco:computationBase 'validOnly'.
   
 &lt;issp:categoryStatistics4_concept1&gt;
   a disco:CategoryStatistics;
   disco:categoryStatistics &lt;issp:concept1&gt;;
   disco:cumulativePercentage '63.7';
-  disco:computationBase 'valid'.
+  disco:computationBase 'validOnly'.
   
 &lt;issp:summaryStatistics1_concept3&gt;
   a disco:SummaryStatistics;
   disco:statisticsVariable &lt;issp:PARTLIV&gt;;
   disco:numberOfcases '24965';
-  disco:computationBase 'valid'.
+  disco:computationBase 'validOnly'.
 
 &lt;issp:summaryStatistics2_concept3&gt;
   a disco:SummaryStatistics;
@@ -1426,19 +1426,19 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
   a disco:SummaryStatistics;
   disco:statisticsVariable &lt;issp:PARTLIV&gt;;
   disco:percentage '100';
-  disco:computationBase 'valid'.
+  disco:computationBase 'validOnly'.
 
 &lt;issp:summaryStatistics1_concept4&gt;
   a disco:SummaryStatistics;
   disco:statisticsVariable &lt;issp:PARTLIV&gt;;
   disco:numberOfcases '1251';
-  disco:computationBase 'invalid'.
+  disco:computationBase 'missingOnly'.
   
-<summaryStatistics2_concept4>
+&lt;issp:summaryStatistics2_concept4&gt;
   a disco:SummaryStatistics;
-  disco:statisticsVariable <variable>;
-  disco:percentage ‘48.7’;
-  disco:typeOfCases ‘invalid’
+  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:percentage '4.8';
+  disco:computationBase 'missingOnly'.
   
   
 	      </pre>
@@ -1636,17 +1636,6 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
           </ul>
         </div>
       </section>
-	  
-	  <section>
-    
-      <p class="issue">Issue on skos:Concept <a href="https://github.com/linked-statistics/disco-spec/issues/104">Issue #104</a></p>
-	  
-	<div class="figure">
-		<img src="diagrams/concept_modified.jpg" alt="skos:Concept and skos:ConceptScheme"/>
-	</div>
-	  
-	  
-    </section>
 	  
     </section>
 
