@@ -1186,7 +1186,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
          standard deviations (<code><a href="#dfn-disco-standardDeviation" class="internalDFN">standardDeviation</a></code>), etc. for summary statistics and you can define
          frequencies (<code><a href="#dfn-disco-frequency" class="internalDFN">frequency</a></code>), percentages (<code><a href="#dfn-disco-percentage" class="internalDFN">percentage</a></code>), weighted percentages 
 		    (<code><a href="#dfn-disco-weightedPercentage" class="internalDFN">weightedPercentage</a></code>), etc. for category statistics.
-		    <code><a href="#dfn-disco-descriptiveStatistics" class="internalDFN">DescriptiveStatistics</a></code> may have <code><a href="#dfn-disco-statisticsDataFile" class="internalDFN">statisticsDataFile</a></code> relations to 0 to n <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> and
+		    <code><a href="#dfn-disco-descriptiveStatistics" class="internalDFN">DescriptiveStatistics</a></code> may have <code><a href="#dfn-disco-statisticsDataFile" class="internalDFN">statisticsDataFile</a></code> relations to 0 to n <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFile</a></code>s and
 		    <code><a href="#dfn-disco-dataFile" class="internalDFN">DataFiles</a></code> may be in 0 to n <code><a href="#dfn-disco-statisticsDataFile" class="internalDFN">statisticsDataFile</a></code> relations to <code><a href="#dfn-disco-descriptiveStatistics" class="internalDFN">DescriptiveStatistics</a></code> individuals.
 		    
 <code><a href="#dfn-disco-summaryStatistics" class="internalDFN">SummaryStatistics</a></code> point to 0 to n <code><a href="#dfn-disco-variable" class="internalDFN">Variables</a></code> using the object property <code><a href="#dfn-disco-summaryStatistics" class="internalDFN">SummaryStatistics</a></code>.
@@ -1341,12 +1341,23 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 		    <span>ISSP 2011 (International Social Survey Programme)</span>
 	      </div>
 		  
+		  <p>
+		    The following example shows different categories of an ISSP data set and the values of the related summary and category statistics.
+            Each category is defined as a skos:Concept and the used name is <issp:category_X>, which is the corresponding category value in the 
+			frequency table above (see Figure 23, second column).
+          </p>
+		  <p>
+            The category <issp:category_1> is the category with the code 1 (skos:notation '1'), the category label ‘Yes, have partner; live 
+			in same household’ (skos:preflabel 'Yes, have partner; live in same household') and which is valid (disco:isValid true). 
+			<issp:XYZ_1> defines the frequency (disco:frequency '15893') of the category <issp:category_1> ( disco:statisticsCategory <issp:category_1>).  
+		  </p>
+		  
 		  <div class="figure">
             <img src="images/example-frequencies.jpg" alt="frequency table"/>
           </div>
 		  
 		  <div class="figure">
-            <img src="images/example-descriptives.jpg" alt="Descriptives"/>
+            <img src="images/example-descriptive-statistics.jpg" alt="Descriptives"/>
           </div>
 		  
 		  <pre class="example">
@@ -1377,75 +1388,83 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 &lt;issp:XYZ_1&gt;
   a disco:CategoryStatistics;
   disco:statisticsCategory &lt;issp:category_1&gt;;
-  disco:frequency '15893'.
+  disco:frequency 15893.
 
 &lt;issp:XYZ_2&gt;
   a disco:CategoryStatistics;
   disco:statisticsCategory &lt;issp:category_2&gt;;
-  disco:frequency '936'.
+  disco:frequency 936.
   
 &lt;issp:XYZ_3&gt;
   a disco:CategoryStatistics;
   disco:statisticsCategory &lt;issp:category_1&gt;;
-  disco:percentage '60.6'.
+  disco:percentage 60.6.
   disco:computationBase 'total'.
 
 &lt;issp:XYZ_4&gt;
   a disco:CategoryStatistics;
   disco:statisticsCategory &lt;issp:category_2&gt;;
-  disco:percentage '3.6';
+  disco:percentage 3.6;
   disco:computationBase 'total'.
   
 &lt;issp:XYZ_5&gt;
   a disco:CategoryStatistics;
   disco:statisticsCategory &lt;issp:category_1&gt;;
-  disco:percentage '63.7';
+  disco:percentage 63.7;
   disco:computationBase 'validOnly'.
   
 &lt;issp:XYZ_6&gt;
   a disco:CategoryStatistics;
   disco:statisticsCategory &lt;issp:category_1&gt;;
-  disco:cumulativePercentage '63.7';
+  disco:cumulativePercentage 63.7;
+  disco:computationBase 'validOnly'.
+  
+# optional: harmonized CategoryStatistics resource if computationBase and category is the same
+&lt;issp:XYZ_13&gt;
+  a disco:CategoryStatistics;
+  disco:statisticsCategory &lt;issp:category_1&gt;;
+  disco:percentage 63.7;
+  disco:cumulativePercentage 63.7;
   disco:computationBase 'validOnly'.
   
 &lt;issp:XYZ_7&gt;
   a disco:SummaryStatistics;
   disco:statisticsVariable &lt;issp:PARTLIV&gt;;
-  disco:numberOfcases '24965';
+  disco:numberOfcases 24965;
   disco:computationBase 'validOnly'.
 
 &lt;issp:XYZ_8&gt;
   a disco:SummaryStatistics;
   disco:statisticsVariable &lt;issp:PARTLIV&gt;;
-  disco:percentage '95.2';
+  disco:percentage 95.2;
   disco:computationBase 'total'.
 
 &lt;issp:XYZ_9&gt;
   a disco:SummaryStatistics;
   disco:statisticsVariable &lt;issp:PARTLIV&gt;;
-  disco:numberOfcases '1251';
+  disco:numberOfcases 1251;
   disco:computationBase 'missingOnly'.
   
 &lt;issp:XYZ_10&gt;
   a disco:SummaryStatistics;
   disco:statisticsVariable &lt;issp:PARTLIV&gt;;
-  disco:percentage '4.8';
+  disco:percentage 4.8;
   disco:computationBase 'missingOnly'.
   
 &lt;issp:XYZ_11&gt;
   a disco:SummaryStatistics;
   disco:statisticsVariable &lt;issp:PARTLIV&gt;;
-  disco:numberOfCases '26216';
+  disco:numberOfCases 26216;
   disco:computationBase 'total'.
   
 &lt;issp:XYZ_12&gt;
   a disco:SummaryStatistics;
   disco:statisticsVariable &lt;issp:WRKHRS&gt;;
-  disco:numberOfCases '14237';
-  disco:minimum '1';
-  disco:maximum '96';
-  disco:mean '41.74';
-  disco:standardDeviation '14.265';
+  disco:numberOfCases 14237;
+  disco:minimum 1;
+  disco:maximum 96;
+  disco:mean 41.74;
+  disco:standardDeviation 14.265;
   disco:computationBase 'validOnly'.  
 	      </pre>
 		</div>
@@ -1671,6 +1690,20 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
   skos:preflabel 'Living in steady partnership';
   disco:representation &lt;issp:orderedCollection1&gt;.
 
+# abbreviated syntax:
+&lt;issp:XYZ_2&gt;
+  rdf:type skos:OrderedCollection;
+  skos:memberList (
+    &lt;issp:category_1&gt;
+    &lt;issp:category_2&gt;
+    &lt;issp:category_3&gt;
+    &lt;issp:category_4&gt;
+    &lt;issp:category_5&gt;
+    &lt;issp:category_6&gt;
+    &lt;issp:category_7&gt;
+    &lt;issp:category_8&gt; ).
+	
+# complete syntax:
 &lt;issp:XYZ_2&gt;
   rdf:type skos:OrderedCollection;
   skos:memberList [
@@ -1683,19 +1716,6 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
     rdf:first &lt;issp:category_7&gt;; rdf:rest [
     rdf:first &lt;issp:category_8&gt;;
     rdf:rest rdf:nil.] ] ] ] ] ] ] ].
-
-# syntactic sugar:
-&lt;issp:XYZ_2&gt;
-  rdf:type skos:OrderedCollection;
-  skos:memberList (
-    &lt;issp:category_1&gt;
-    &lt;issp:category_2&gt;
-    &lt;issp:category_3&gt;
-    &lt;issp:category_4&gt;
-    &lt;issp:category_5&gt;
-    &lt;issp:category_6&gt;
-    &lt;issp:category_7&gt;
-    &lt;issp:category_8&gt; ).
 		  
 &lt;issp:category_1&gt;
   a skos:Concept;
@@ -1750,6 +1770,7 @@ Specific formats can be assigned to multiple (0 - n) <code><a href="#dfn-disco-d
 		  <li>Variable</li>
 		  <li>Question</li>
 		</ul>
+		in order to include variables and questions in unordered skos:ConceptSchemes.
       </p>
 	  
     </section>
