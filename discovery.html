@@ -1925,8 +1925,20 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		and delineating code lists, category schemes, mappings between them, and concepts like topics 
 		using the Simple Knowledge Organization System (SKOS) [<cite><a class="bibref" href="#bib-SKOS">SKOS</a></cite>]. Furthermore, the external vocabularies Friend of a Friend (FOAF) [<cite><a class="bibref" href="#bib-FOAF">FOAF</a></cite>], 
 		the Organization Ontology (ORG) [<cite><a class="bibref" href="#bib-ORG">ORG</a></cite>], the Asset Description Metadata Schema (ADMS) [<cite><a class="bibref" href="#bib-ADMS">ADMS</a></cite>], and the PROV Ontology (PROV-O) [<cite><a class="bibref" href="#bib-PROV-O">PROV-O</a></cite>] are used.
-		
-		
+	  </p>
+	  <p>
+	    DCMI is reused in order to describe general metadata of Disco constructs such as a study abstract (dcterms:abstract), a study or dataset title (dcterms:title), a human readable description of a Disco construct (dcterms:description), provenance information for a data file (dcterms:provenance), or the date (or date range) at which a study will become available (dcterms:available). With-in the context of Disco, FOAF as well as ORG are reused. Creators (dcterms:creator), contributors (dcterms:contributor), and publishers (dcterms:publisher) of Studies and StudyGroups are foaf:Agents which are either foaf:Persons or org:Organizations whose members are foaf:Persons. Studies and StudyGroups may be funded by (dis-co:fundedBy) foaf:Agents. The object property disco:fundedBy is de-fined as sub-property of dcterms:contributor.
+	  </p>
+	  <p>
+	    Especially persons and organizations may hold one or more persistent identifiers of particular schemes and agencies (e.g. ORCID , FundRef ) that are not considered by the specific IDs of Disco. In order to include those identifiers and for distinguishing between multiple identifiers for the same class, ADMS is utilized. As a profile of DCAT, ADMS aims to describe semantic assets, i.e. reusable metadata and reference data. The class adms:Identifier can be added to a rdfs:Resource by using the property adms:identifier. That identifier class can contain properties that define the particular identifier itself, but also its scheme, version and managing agen-cy. However, although utilized primarily for describing identifiers of persons and organizations, it is allowed to attach an adms:Identifier class to all classes in Disco.
+	  </p>
+	  <p>
+	    In order to represent detailed provenance information of Web data and metadata, classes and properties of PROV-O can be used. Thus, it can be used as a natural vo-cabulary to attach provenance information to Disco metadata. Terms of PROV-O are organized among three main classes: prov:Entity, prov:Activity and prov:Agent. While classes of Disco can be represented either as entities or agents, particular processes for, e.g. creating, maintaining and accessing data can be modeled as activities. Properties like prov:wasGeneratedBy, prov:hadPrimarySource, prov:wasInvalidatedBy, or prov:wasDerivedFrom describe the relationship between classes for the genera-tion of data in more detail. In order to link from a disco:Study to its original DDI XML file, the property prov:wasDerivedFrom can be used. Moreover, PROV-O allows for representing versioning information by e.g., using the terms prov:Revision, prov:hadGeneration and prov:hadUsage.
+	  </p>
+	  <p>
+	    Skos:Concept is reused to a large extent to represent DDI concepts, codes, and categories. SKOS defines the term skos:Concept, which is a unit of knowledge created by a unique combination of characteristics. In context of statistical (meta)data, concepts are abstract summaries, general notions, knowledge of a whole set of behaviours, attitudes or characteristics which are seen as having something in common. Skos:Concepts may be associated with variables, variable definitions, and questions and are reused to a large extent to represent DDI concepts (skos:prefLabel), codes (skos:notation), and category labels (skos:prefLabel). Skos:Concepts may be organized in skos:ConceptSchemes (skos:inScheme), sets of metadata describing statis-tical concepts. Hierarchies of DDI concepts can be built using the object peoperties skos:broader and skos:narrower. Topical coverage can be expressed using dcterms:subject. Disco foresees the use of skos:Concept for the description of topical coverage. Spatial, temporal, and topical coverage are directly attached to studies, logical datasets, and datafiles. Universes and AnalysisUnits are also skos:Concepts. Therefore the porperties defined for skos:Concept can be reused. KindOfData, pointing to a skos:Concept , describes, with a string or a term from a controlled vocabulary, the kind of data documented in the logical product(s) of a Study. Using dcterms:format, DataFiles formats can be defined.
+	  </p>
+	  <p>
 	  </p>
 	  
     </section>
@@ -5616,25 +5628,45 @@ WHERE {
             <section>
                 <h3>Normative references</h3>
 <dl class="bibliography">
-    <dt id="bib-ADMS">[ADMS]</dt><dd>Asset Description Metadata Schema (ADMS), <a href="http://www.w3.org/TR/vocab-adms/"><cite>http://www.w3.org/TR/vocab-adms/</cite></a></dd>
-    <dt id="bib-DCAT">[DCAT]</dt><dd>Data Catalog Vocabulary (DCAT), <a href="http://www.w3.org/TR/vocab-dcat/"><cite>http://www.w3.org/TR/vocab-dcat/</cite></a></dd>
+	<dt id="bib-ADMS">[ADMS]</dt><dd>Asset Description Metadata Schema (ADMS), <a href="http://www.w3.org/TR/vocab-adms/"><cite>http://www.w3.org/TR/vocab-adms/</cite></a></dd>
+	<dt id="bib-DCAT">[DCAT]</dt><dd>Data Catalog Vocabulary (DCAT), <a href="http://www.w3.org/TR/vocab-dcat/"><cite>http://www.w3.org/TR/vocab-dcat/</cite></a></dd>
 	<dt id="bib-DCMI">[DCMI]</dt><dd>DCMI Metadata Terms (DCMI), <a href="http://dublincore.org/documents/dcmi-terms/"><cite>http://dublincore.org/documents/dcmi-terms/</cite></a></dd>
-    <dt id="bib-DDI-RDF-Discovery-Vocabulary">[DDI-RDF-Discovery-Vocabulary]</dt>
+	<dt id="bib-DDI-RDF-Discovery-Vocabulary">[DDI-RDF-Discovery-Vocabulary]</dt>
 	  <dd>
-	    Bosch, T., Cyganiak, R., Gregory, A., Wackerow, J. 
+		Bosch, T., Cyganiak, R., Gregory, A., Wackerow, J. 
 		<a href="http://ceur-ws.org/Vol-996/papers/ldow2013-paper-12.pdf">
-	      <cite>DDI-RDF Discovery Vocabulary: A Metadata Vocabulary for Documenting Research and Survey Data.</cite>
+		  <cite>DDI-RDF Discovery Vocabulary: A Metadata Vocabulary for Documenting Research and Survey Data.</cite>
 		</a> 
 		2013. Proceedings of the WWW2013 Workshop on Linked Data on the Web. 
 		URL: <a href="http://ceur-ws.org/Vol-996/papers/ldow2013-paper-12.pdf">http://ceur-ws.org/Vol-996/papers/ldow2013-paper-12.pdf</a>
 	  </dd>
+	<dt id="bib-eXtended-Knowledge-Organization-System">[eXtended Knowledge Organization System]</dt>
+	  <dd>
+		Dan Gillman, Franck Cotton, and Yves Jaques
+		<a href="http://www.unece.org/stats/documents/2013.05.metis.html">
+		  <cite>eXtended Knowledge Organization System (XKOS).</cite>
+		</a> 
+		2013. METIS, Work Session on Statistical Metadata. 
+		URL: <a href="http://www.unece.org/stats/documents/2013.05.metis.html">http://www.unece.org/stats/documents/2013.05.metis.html</a>
+	  </dd>
 	<dt id="bib-FOAF">[FOAF]</dt><dd>Friend of a Friend (FOAF), <a href="http://www.foaf-project.org/"><cite>http://www.foaf-project.org/</cite></a></dd>
+	<dt id="bib-FundRef">[FundRef]</dt><dd>FundRef, <a href="http://www.crossref.org/fundref/"><cite>http://www.crossref.org/fundref/</cite></a></dd>
 	<dt id="bib-Linked-Statistical-Data">[Linked-Statistical-Data]</dt><dd>Bosch, T., Cyganiak, R., Wackerow, J., and Zapilko, B. <a href="http://dcpapers.dublincore.org/pubs/article/view/3654"><cite>Leveraging the DDI Model for Linked Statistical Data in the Social, Behavioural, and Economic Sciences.</cite></a> 2012. International Conference on Dublin Core and Metadata Applications. URL: <a href="http://dcpapers.dublincore.org/pubs/article/view/3654">http://dcpapers.dublincore.org/pubs/article/view/3654</a></dd>
-    <dt id="bib-ORG">[ORG]</dt><dd>Organization Ontology (ORG), <a href="http://www.w3.org/TR/vocab-org/"><cite>http://www.w3.org/TR/vocab-org/</cite></a></dd>
+	<dt id="bib-ORCID">[ORCID]</dt><dd>ORCID, <a href="http://orcid.org/"><cite>http://orcid.org/</cite></a></dd>
+	<dt id="bib-ORG">[ORG]</dt><dd>Organization Ontology (ORG), <a href="http://www.w3.org/TR/vocab-org/"><cite>http://www.w3.org/TR/vocab-org/</cite></a></dd>
 	<dt id="bib-PROV-O">[PROV-O]</dt><dd>PROV Ontology (PROV-O), <a href="http://www.w3.org/TR/prov-o/"><cite>http://www.w3.org/TR/prov-o/</cite></a></dd>
 	<dt id="bib-RDF-Data-Cube-Vocabulary">[RDF Data Cube Vocabulary]</dt><dd>RDF Data Cube Vocabulary, <a href="http://www.w3.org/TR/vocab-data-cube/"><cite>http://www.w3.org/TR/vocab-data-cube/</cite></a></dd>
 	<dt id="bib-Scenarios">[Scenarios]</dt><dd>Vompras, J., Gregory, A., Bosch, T., Capadisli, and Wackerow, J.<a href="http://dx.doi.org/10.3886/DDISemanticWeb02"><cite>Scenarios for the DDI-RDF Discovery Vocabulary.</cite></a> May 2013. DDI Working Paper Series – Semantic Web 2. DOI: <a href="http://dx.doi.org/10.3886/DDISemanticWeb02">http://dx.doi.org/10.3886/DDISemanticWeb02</a></dd>
-    <dt id="bib-SKOS">[SKOS]</dt><dd>Simple Knowledge Organization System (SKOS), <a href="http://www.w3.org/2004/02/skos/"><cite>http://www.w3.org/2004/02/skos/</cite></a></dd>
+	<dt id="bib-Semantic-Statistics">[Semantic Statistics]</dt>
+	  <dd>
+		8.	Cyganiak, R., Field, S., Gregory, A., Halb, W., Tennison, J.
+		<a href="http://www.google.de/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CDQQFjAA&url=http%3A%2F%2Fcyganiak.de%2F2008%2Fpapers%2Fsdmx-ldow2010.pdf&ei=2ibsUY7ME4OoO7qKgcgB&usg=AFQjCNGA2qcrcw4yHrjyMw6vJCtDTw4j5Q&sig2=BJhjcw8HgpbvukmRaT5Oog&bvm=bv.49478099,d.ZWU">
+		  <cite>Semantic Statistics: Bringing Together SDMX and SCOVO.</cite>
+		</a> 
+		2010. Proceedings of the WWW2010 Workshop on Linked Data on the Web.
+		URL: <a href="http://www.google.de/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CDQQFjAA&url=http%3A%2F%2Fcyganiak.de%2F2008%2Fpapers%2Fsdmx-ldow2010.pdf&ei=2ibsUY7ME4OoO7qKgcgB&usg=AFQjCNGA2qcrcw4yHrjyMw6vJCtDTw4j5Q&sig2=BJhjcw8HgpbvukmRaT5Oog&bvm=bv.49478099,d.ZWU">http://www.google.de/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CDQQFjAA&url=http%3A%2F%2Fcyganiak.de%2F2008%2Fpapers%2Fsdmx-ldow2010.pdf&ei=2ibsUY7ME4OoO7qKgcgB&usg=AFQjCNGA2qcrcw4yHrjyMw6vJCtDTw4j5Q&sig2=BJhjcw8HgpbvukmRaT5Oog&bvm=bv.49478099,d.ZWU</a>
+	  </dd>
+	<dt id="bib-SKOS">[SKOS]</dt><dd>Simple Knowledge Organization System (SKOS), <a href="http://www.w3.org/2004/02/skos/"><cite>http://www.w3.org/2004/02/skos/</cite></a></dd>
 	<dt id="bib-XKOS">[XKOS]</dt><dd>SKOS Extension for Statistics (XKOS), <a href="http://htmlpreview.github.io/?https://github.com/linked-statistics/xkos/blob/master/xkos.html"><cite>http://htmlpreview.github.io/?https://github.com/linked-statistics/xkos/blob/master/xkos.html</cite></a></dd>
 </dl>
             </section>
