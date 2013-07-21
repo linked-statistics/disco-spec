@@ -168,7 +168,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		representatives of national statistical institutes, national data ar-chives) and Linked Open Data community 
 		members have selected the DDI elements which are seen as most important to solve problems associated with 
 		use cases in the area of data discovery. This section gives an overview of the conceptual model. 
-		More detailed descriptions of all the properties are given in the specification  and two con-ference papers [5, 6]. 
+		More detailed descriptions of all the properties are given in the specification and two conference papers [<cite><a class="bibref" href="#bib-Linked-Statistical-Data">Linked-Statistical-Data</a></cite>] [<cite><a class="bibref" href="#bib-DDI-RDF-Discovery-Vocabulary">DDI-RDF-Discovery-Vocabulary</a></cite>]. 
 		Disco is intended to provide means to describe microdata by essential metadata for the discovery purpose. 
 		Existing DDI-XML instances can be transformed into this RDF format and therefore exposed in the Web of Linked Data. 
 		The vice-versa process is not intended, as we have defined Disco components and reused components of other 
@@ -1914,6 +1914,21 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 
     <section id='useOfOtherVocabularies'>
       <h2>Use of Other Vocabularies</h2>
+	  
+	  <p>
+	    Widely accepted and adopted vocabularies are reused to a large extend. 
+		There are features of DDI which can be addressed through other vocabularies, such as: 
+		describ-ing metadata for citation purposes using the DCMI Metadata Terms (DCMI) [<cite><a class="bibref" href="#bib-DCMI">DCMI</a></cite>], 
+		de-scribing catalogues of datasets using the Data Catalog Vocabulary (DCAT) [<cite><a class="bibref" href="#bib-DCAT">DCAT</a></cite>], 
+		describ-ing aggregate data like multi-dimensional tables using the RDF Data Cube Vocabulary [<cite><a class="bibref" href="#bib-RDF-Data-Cube-Vocabulary">RDF Data Cube Vocabulary</a></cite>], 
+		describing formal statistical classifications using the SKOS Extension for Statis-tics (XKOS) [<cite><a class="bibref" href="#bib-XKOS">XKOS</a></cite>], 
+		and delineating code lists, category schemes, mappings between them, and concepts like topics 
+		using the Simple Knowledge Organization System (SKOS) [<cite><a class="bibref" href="#bib-SKOS">SKOS</a></cite>]. Furthermore, the external vocabularies Friend of a Friend (FOAF) [<cite><a class="bibref" href="#bib-FOAF">FOAF</a></cite>], 
+		the Organization Ontology (ORG) [<cite><a class="bibref" href="#bib-ORG">ORG</a></cite>], the Asset Description Metadata Schema (ADMS) [<cite><a class="bibref" href="#bib-ADMS">ADMS</a></cite>], and the PROV Ontology (PROV-O) [<cite><a class="bibref" href="#bib-PROV-O">PROV-O</a></cite>] are used.
+		
+		
+	  </p>
+	  
     </section>
 
     <section id='literals-to-identifiers'>
@@ -5601,8 +5616,26 @@ WHERE {
             <section>
                 <h3>Normative references</h3>
 <dl class="bibliography">
-    <dt id="bib-Linked-Statistical-Data">[Linked-Statistical-Data]</dt><dd>[2]	Bosch, T., Cyganiak, R., Wackerow, J., and Zapilko, B. <a href="http://dcpapers.dublincore.org/pubs/article/view/3654"><cite>Leveraging the DDI Model for Linked Statistical Data in the Social, Behavioural, and Economic Sciences.</cite></a> 2012. International Conference on Dublin Core and Metadata Applications. URL: <a href="http://dcpapers.dublincore.org/pubs/article/view/3654">http://dcpapers.dublincore.org/pubs/article/view/3654</a></dd>
-    <dt id="bib-Scenarios">[Scenarios]</dt><dd>Vompras, J., Gregory, A., Bosch, T., Capadisli, and Wackerow, J.<a href="http://dx.doi.org/10.3886/DDISemanticWeb02"><cite>Scenarios for the DDI-RDF Discovery Vocabulary.</cite></a> May 2013. DDI Working Paper Series – Semantic Web 2. DOI: <a href="http://dx.doi.org/10.3886/DDISemanticWeb02">http://dx.doi.org/10.3886/DDISemanticWeb02</a></dd>
+    <dt id="bib-ADMS">[ADMS]</dt><dd>Asset Description Metadata Schema (ADMS), <a href="http://www.w3.org/TR/vocab-adms/"><cite>http://www.w3.org/TR/vocab-adms/</cite></a></dd>
+    <dt id="bib-DCAT">[DCAT]</dt><dd>Data Catalog Vocabulary (DCAT), <a href="http://www.w3.org/TR/vocab-dcat/"><cite>http://www.w3.org/TR/vocab-dcat/</cite></a></dd>
+	<dt id="bib-DCMI">[DCMI]</dt><dd>DCMI Metadata Terms (DCMI), <a href="http://dublincore.org/documents/dcmi-terms/"><cite>http://dublincore.org/documents/dcmi-terms/</cite></a></dd>
+    <dt id="bib-DDI-RDF-Discovery-Vocabulary">[DDI-RDF-Discovery-Vocabulary]</dt>
+	  <dd>
+	    Bosch, T., Cyganiak, R., Gregory, A., Wackerow, J. 
+		<a href="http://ceur-ws.org/Vol-996/papers/ldow2013-paper-12.pdf">
+	      <cite>DDI-RDF Discovery Vocabulary: A Metadata Vocabulary for Documenting Research and Survey Data.</cite>
+		</a> 
+		2013. Proceedings of the WWW2013 Workshop on Linked Data on the Web. 
+		URL: <a href="http://ceur-ws.org/Vol-996/papers/ldow2013-paper-12.pdf">http://ceur-ws.org/Vol-996/papers/ldow2013-paper-12.pdf</a>
+	  </dd>
+	<dt id="bib-FOAF">[FOAF]</dt><dd>Friend of a Friend (FOAF), <a href="http://www.foaf-project.org/"><cite>http://www.foaf-project.org/</cite></a></dd>
+	<dt id="bib-Linked-Statistical-Data">[Linked-Statistical-Data]</dt><dd>Bosch, T., Cyganiak, R., Wackerow, J., and Zapilko, B. <a href="http://dcpapers.dublincore.org/pubs/article/view/3654"><cite>Leveraging the DDI Model for Linked Statistical Data in the Social, Behavioural, and Economic Sciences.</cite></a> 2012. International Conference on Dublin Core and Metadata Applications. URL: <a href="http://dcpapers.dublincore.org/pubs/article/view/3654">http://dcpapers.dublincore.org/pubs/article/view/3654</a></dd>
+    <dt id="bib-ORG">[ORG]</dt><dd>Organization Ontology (ORG), <a href="http://www.w3.org/TR/vocab-org/"><cite>http://www.w3.org/TR/vocab-org/</cite></a></dd>
+	<dt id="bib-PROV-O">[PROV-O]</dt><dd>PROV Ontology (PROV-O), <a href="http://www.w3.org/TR/prov-o/"><cite>http://www.w3.org/TR/prov-o/</cite></a></dd>
+	<dt id="bib-RDF-Data-Cube-Vocabulary">[RDF Data Cube Vocabulary]</dt><dd>RDF Data Cube Vocabulary, <a href="http://www.w3.org/TR/vocab-data-cube/"><cite>http://www.w3.org/TR/vocab-data-cube/</cite></a></dd>
+	<dt id="bib-Scenarios">[Scenarios]</dt><dd>Vompras, J., Gregory, A., Bosch, T., Capadisli, and Wackerow, J.<a href="http://dx.doi.org/10.3886/DDISemanticWeb02"><cite>Scenarios for the DDI-RDF Discovery Vocabulary.</cite></a> May 2013. DDI Working Paper Series – Semantic Web 2. DOI: <a href="http://dx.doi.org/10.3886/DDISemanticWeb02">http://dx.doi.org/10.3886/DDISemanticWeb02</a></dd>
+    <dt id="bib-SKOS">[SKOS]</dt><dd>Simple Knowledge Organization System (SKOS), <a href="http://www.w3.org/2004/02/skos/"><cite>http://www.w3.org/2004/02/skos/</cite></a></dd>
+	<dt id="bib-XKOS">[XKOS]</dt><dd>SKOS Extension for Statistics (XKOS), <a href="http://htmlpreview.github.io/?https://github.com/linked-statistics/xkos/blob/master/xkos.html"><cite>http://htmlpreview.github.io/?https://github.com/linked-statistics/xkos/blob/master/xkos.html</cite></a></dd>
 </dl>
             </section>
             
