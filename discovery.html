@@ -1921,29 +1921,54 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		describ-ing metadata for citation purposes using the DCMI Metadata Terms (DCMI) [<cite><a class="bibref" href="#bib-DCMI">DCMI</a></cite>], 
 		de-scribing catalogues of datasets using the Data Catalog Vocabulary (DCAT) [<cite><a class="bibref" href="#bib-DCAT">DCAT</a></cite>], 
 		describ-ing aggregate data like multi-dimensional tables using the RDF Data Cube Vocabulary [<cite><a class="bibref" href="#bib-RDF-Data-Cube-Vocabulary">RDF Data Cube Vocabulary</a></cite>], 
-		describing formal statistical classifications using the SKOS Extension for Statis-tics (XKOS) [<cite><a class="bibref" href="#bib-XKOS">XKOS</a></cite>], 
+		describing formal statistical classifications using the SKOS Extension for Statistics (XKOS) [<cite><a class="bibref" href="#bib-XKOS">XKOS</a></cite>], 
 		and delineating code lists, category schemes, mappings between them, and concepts like topics 
 		using the Simple Knowledge Organization System (SKOS) [<cite><a class="bibref" href="#bib-SKOS">SKOS</a></cite>]. Furthermore, the external vocabularies Friend of a Friend (FOAF) [<cite><a class="bibref" href="#bib-FOAF">FOAF</a></cite>], 
 		the Organization Ontology (ORG) [<cite><a class="bibref" href="#bib-ORG">ORG</a></cite>], the Asset Description Metadata Schema (ADMS) [<cite><a class="bibref" href="#bib-ADMS">ADMS</a></cite>], and the PROV Ontology (PROV-O) [<cite><a class="bibref" href="#bib-PROV-O">PROV-O</a></cite>] are used.
 	  </p>
+	  
+	  <section>
+	  <h3>DCMI Metadata Terms (DCMI)</h3>
+	  
+	    <p>
+	      DCMI is reused in order to describe general metadata of Disco constructs such as a study abstract (dcterms:abstract), 
+		  a study or dataset title (dcterms:title), a human readable description of a Disco construct (dcterms:description), 
+	  	  provenance information for a data file (dcterms:provenance), or the date (or date range) at which a study will become 
+		  available (dcterms:available). 
+	    </p>
+	  
+	  </section>
+	  
+	  <section>
+	  <h3>Friend of a Friend (FOAF) and Organization Ontology (ORG)</h3>
+	  
 	  <p>
-	    DCMI is reused in order to describe general metadata of Disco constructs such as a study abstract (dcterms:abstract), 
-		a study or dataset title (dcterms:title), a human readable description of a Disco construct (dcterms:description), 
-		provenance information for a data file (dcterms:provenance), or the date (or date range) at which a study will become 
-		available (dcterms:available). With-in the context of Disco, FOAF as well as ORG are reused. Creators (dcterms:creator), 
+		With-in the context of Disco, FOAF as well as ORG are reused. Creators (dcterms:creator), 
 		contributors (dcterms:contributor), and publishers (dcterms:publisher) of Studies and StudyGroups are foaf:Agents which 
-		are either foaf:Persons or org:Organizations whose members are foaf:Persons. Studies and StudyGroups may be funded by (dis-co:fundedBy) foaf:Agents. 
+		are either foaf:Persons or org:Organizations whose members are foaf:Persons. Studies and StudyGroups may be funded by (disco:fundedBy) foaf:Agents. 
 		The object property disco:fundedBy is de-fined as sub-property of dcterms:contributor.
 	  </p>
+	  
+	  </section>
+	  
+	  <section>
+	  <h3>Asset Description Metadata Schema (ADMS)</h3>
+	  
 	  <p>
 	    Especially persons and organizations may hold one or more persistent identifiers of particular schemes and agencies 
 		(e.g. ORCID , FundRef ) that are not considered by the specific IDs of Disco. In order to include those identifiers 
 		and for distinguishing between multiple identifiers for the same class, ADMS is utilized. As a profile of DCAT, 
 		ADMS aims to describe semantic assets, i.e. reusable metadata and reference data. The class adms:Identifier can be 
 		added to a rdfs:Resource by using the property adms:identifier. That identifier class can contain properties that define 
-		the particular identifier itself, but also its scheme, version and managing agen-cy. However, although utilized primarily 
+		the particular identifier itself, but also its scheme, version and managing agency. However, although utilized primarily 
 		for describing identifiers of persons and organizations, it is allowed to attach an adms:Identifier class to all classes in Disco.
 	  </p>
+	  
+	  </section>
+	  
+	  <section>
+	  <h3>PROV Ontology (PROV-O)</h3>
+	  
 	  <p>
 	    In order to represent detailed provenance information of Web data and metadata, classes and properties of PROV-O can be used. 
 		Thus, it can be used as a natural vo-cabulary to attach provenance information to Disco metadata. 
@@ -1955,6 +1980,12 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		the property prov:wasDerivedFrom can be used. Moreover, PROV-O allows for representing versioning information by e.g., 
 		using the terms prov:Revision, prov:hadGeneration and prov:hadUsage.
 	  </p>
+	  
+	  </section>
+	  
+	  <section>
+	  <h3>Simple Knowledge Organization System (SKOS)</h3>
+	  
 	  <p>
 	    Skos:Concept is reused to a large extent to represent DDI concepts, codes, and categories. 
 		SKOS defines the term skos:Concept, which is a unit of knowledge created by a unique combination of characteristics. 
@@ -1969,6 +2000,12 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		KindOfData, pointing to a skos:Concept , describes, with a string or a term from a controlled vocabulary, the kind of data documented 
 		in the logical product(s) of a Study. Using dcterms:format, DataFiles formats can be defined.
 	  </p>
+	  
+	  </section>
+	  
+	  <section>
+	  <h3>SKOS Extension for Statistics (XKOS)</h3>
+	  
 	  <p>
 	    The use of formal statistical classifications is very common in research datasets - these are treated in Disco as SKOS concepts, 
 		but in some cases those working with formal statistical classifications may desire more expressive capability than SKOS provides. 
@@ -1977,6 +2014,12 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		While the use of XKOS is not required by this vocabulary, the two are designed to work in complementary fashion. 
 		SKOS properties may be substituted by additional XKOS properties.
 	  </p>
+	  
+	  </section>
+	  
+	  <section>
+	  <h3>Data Catalog Vocabulary (DCAT)</h3>
+	  
 	  <p>
 	    DCAT is a W3C standard for describing catalogs of datasets. DCAT makes few assumptions about the kind of datasets being described, 
 		and focuses on general metadata about the datasets (mostly using Dublin Core), and on different ways of distributing and accessing the dataset, 
@@ -1990,16 +2033,23 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		  <li>Providing information about the logical structure (variables, concepts, etc.) of tabular datasets in a data catalog</li>
 		</ul>
 	  </p>
+	  
 	  <p>
 	    The LogicalDataSet is an extension of the dcat:DataSet. Physical, dis-tributed files are represented by the DataFile, 
 		which is itself an extension of dcat:Distribution.
 	  </p>
+	  
+	  </section>
+	  
+	  <section>
+	  <h3>RDF Data Cube Vocabulary</h3>
+	  
 	  <p>
 	    The RDF Data Cube Vocabulary is a W3C standard for representing data cubes, that is, multidimensional aggregate data. 
 		A DataSet represents aggregate data such as multi-dimensional tables. 
 		Aggregate data is derived from microdata by statistics on groups, or aggregates such as counts, means, or frequencies. 
 		Data cubes are often generated by tabulating or aggregating unit-record datasets. 
-		For example, if an obser-vation in a census data cube indicates the population of a certain age group in a certain region is 12345, 
+		For example, if an observation in a census data cube indicates the population of a certain age group in a certain region is 12345, 
 		then this fact was obtained by aggregating that number of indi-vidual records from a unit-record dataset. 
 		Disco contains a property “aggregation” that indicates that a Cube dataset was derived by tabulating a unit-record dataset. 
 		Data Cube provides for the description of the structure of such cubes, but also for the representation of the cube data itself, 
@@ -2007,6 +2057,8 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		which only describes the structure of a da-taset, but is not concerned with representing the actual data in it. 
 		The actual data are assumed to sit in a data file (e.g. a CSV  file, or in a proprietary statistical package file format) that is not represented in RDF.
 	  </p>
+	  
+	  </section>
 	  
     </section>
 
