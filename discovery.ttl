@@ -10,6 +10,9 @@
 @prefix disco: <http://rdf-vocabulary.ddialliance.org/discovery#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix adms: <http://www.w3.org/ns/adms#>.
+@prefix org: <http://www.w3.org/ns/org#>.
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix xkos: <http://purl.org/linked-data/xkos#>.
 
 
 #################################################################
