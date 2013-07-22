@@ -404,28 +404,28 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
       
 <pre class="example">
-&lt;#study&gt; a disco:Study;
-    dc:title "National Population and Housing Census, 1980"@en;
-    dc:identifier "ARG_1980_PHC_v01_A_IPUMS".
-    dc:creator [
+&lt;#Study&gt; a disco:Study;
+    dcterms:title "National Population and Housing Census, 1980"@en;
+    dcterms:identifier "ARG_1980_PHC_v01_A_IPUMS".
+    dcterms:creator [
         rdfs:label "Minnesota Population Center"@en;
         skos:notation "MPC";
         org:memberOf [
             rdfs:label "University of Minnesota"@en;
         ];
     ];
-    dc:creator [
+    dcterms:creator [
         rdfs:label "Argentine National institute of Statistics and Censuses"@en;
     ]
-	dc:temporal [
+	dcterms:temporal [
 		a dcterms:PeriodOfTime ;
 		disco:startDate "1980-10-22"^^xsd:date;
 		disco:endDate "1980-10-22"^^xsd:date;
 		rdfs:comment "The interviews take place on the expected census day.  In some areas the enumeration took place the following day because of access problems due to heavy rains.";
     ];
-    dc:spatial [
+    dcterms:spatial [
         # This is the DC-strictly compatible way to do it
-        a dc:Location;
+        a dcterms:Location;
         rdfs:label "Argentina, national coverage"@en;
     ];
     # Only a subset of subjects mentioned in the original file
@@ -439,12 +439,12 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
     owl:versionInfo "Version 1.0. This version contains selected variables from the original census micro data plus harmonized variables from the IPUMS International data base."@en; 
 
-    disco:universe &lt;#universe&gt;;
-    disco:instrument &lt;#questionnaire&gt;;
-    disco:product &lt;#dataset&gt;;
+    disco:universe &lt;#Universe&gt;;
+    disco:instrument &lt;#Questionnaire&gt;;
+    disco:product &lt;#Dataset&gt;;
     
-    disco:analysisUnit &lt;#analysisUnit&gt;;
-    disco:kindOfData &lt;#kindOfData&gt;;
+    disco:analysisUnit &lt;#AnalysisUnit&gt;;
+    disco:kindOfData &lt;#KindOfData&gt;;
 
     # stdyInfo/notes currently not represented. 
     disco:variable &lt;#AR80A401&gt;, &lt;#AR80A402&gt;, &lt;#AR80A404&gt;, &lt;#AR80A407&gt;, &lt;#AR80A411&gt;.
@@ -462,7 +462,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       <p>Thus, the study refers to a specific universe.</p>
 	
 <pre class="example">
-&lt;#universe&gt; a disco:Universe;
+&lt;#Universe&gt; a disco:Universe;
     skos:definition "All the population in the national territory at the moment the census is carried out."@en .
 </pre>
 
@@ -471,13 +471,13 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	The dataset has a concrete data file that will populate certain variables.
 	
       <pre class="example">
-&lt;#dataset&gt; a disco:LogicalDataset;
-    disco:instrument &lt;#questionnaire&gt;;
-    dcterms:accessRights &lt;#accessRights&gt;;
-    disco:dataFile &lt;#datafile&gt;;
+&lt;#Dataset&gt; a disco:LogicalDataset;
+    disco:instrument &lt;#Questionnaire&gt;;
+    dcterms:accessRights &lt;#AccessRights&gt;;
+    disco:dataFile &lt;#Datafile&gt;;
     disco:containsVariable &lt;#AR80A401&gt;, &lt;#AR80A402&gt;, &lt;#AR80A404&gt;, &lt;#AR80A407&gt;, &lt;#AR80A411&gt;.
 
-&lt;#accessRights&gt; dcterms:description "IPUMS-International distributes integrated microdata of individuals and households only by agreement ... designed to extend this record.";
+&lt;#AccessRights&gt; dcterms:description "IPUMS-International distributes integrated microdata of individuals and households only by agreement ... designed to extend this record.";
     rdfs:seeAlso &lt;http://microdata.worldbank.org/index.php/catalog/442/accesspolicy&gt;.
 </pre>
 
@@ -492,10 +492,10 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
       <pre class="example">
 
-&lt;#analysisUnit&gt; a disco:AnalysisUnit ;
+&lt;#AnalysisUnit&gt; a disco:AnalysisUnit ;
     skos:definition "Dwelling, quarter dwelling, census household, and population"@en .
 
-&lt;#kindOfData&gt; a skos:Concept ;
+&lt;#KindOfData&gt; a skos:Concept ;
 	rdfs:label "Census/enumeration data [cen]"@en .
 	
 </pre>
@@ -515,18 +515,18 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	<p>The following example illustrates three questions. Each question does have a text.</p>
 
       <pre class="example">
-&lt;#questionnaire&gt; a disco:Questionnaire;
-    disco:question &lt;#questionGender&gt;;
-    disco:question &lt;#questionAge&gt;;
-    disco:question &lt;#questionCitizenship&gt;.
+&lt;#Questionnaire&gt; a disco:Questionnaire;
+    disco:question &lt;#QuestionGender&gt;;
+    disco:question &lt;#QuestionAge&gt;;
+    disco:question &lt;#QuestionCitizenship&gt;.
 
-&lt;#questionGender&gt; a disco:Question;
+&lt;#QuestionGender&gt; a disco:Question;
     disco:questionText "2. Is the person a man or a woman? [] Man, [] Woman"@en.
 
-&lt;#questionAge&gt; a disco:Question;
+&lt;#QuestionAge&gt; a disco:Question;
     disco:questionText "3. What is his or her age? _ _ Mark the age in completed years at the date of the census for those younger than one year old mark 00. For those younger than 10 years old, mark 01, 02, 03, etc. For those older than 99 years old, mark 99."@en.
 
-&lt;#questionCitizenship&gt; a disco:Question;
+&lt;#QuestionCitizenship&gt; a disco:Question;
     disco:questionText "6. [Immigration status] Only for persons who have usual residence in Argentina and were born in another country. [Questions 6A and 6B asked only of persons born outside Argentina and who currently reside in Argentina.] B. Are you a naturalized citizen of Argentina? [] Yes [] No [] Unanswered"@en.
 
 </pre>
@@ -548,25 +548,25 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       <pre class="example">
 
 &lt;#AR80A401&gt; a disco:Variable;
-    dc:identifier "AR80A401";
+    dcterms:identifier "AR80A401";
     skos:prefLabel "Sex"@en, "Sexe"@fr;
-    dc:description "This variable indicates the person's gender."@en;
-    disco:basedOn &lt;#sexVD&gt;;
-    disco:hasQuestion &lt;#questionGender&gt;.
+    dcterms:description "This variable indicates the person's gender."@en;
+    disco:basedOn &lt;#SexVD&gt;;
+    disco:question &lt;#QuestionGender&gt;.
 
 &lt;#AR80A402&gt; a disco:Variable;
-    dc:identifier "AR80A402";
-    dc:description "This variable indicates the person's age in years."@en;
+    dcterms:identifier "AR80A402";
+    dcterms:description "This variable indicates the person's age in years."@en;
     skos:prefLabel "Age"@en, "Âge"@fr.
-    disco:basedOn &lt;#ageVD&gt;;
-    disco:hasQuestion &lt;#questionAge&gt;.   
+    disco:basedOn &lt;#AgeVD&gt;;
+    disco:question &lt;#QuestionAge&gt;.   
 
 &lt;#AR80A407&gt; a disco:Variable;
-    dc:identifier "AR80A407";
-    dc:description "This variable indicates whether or not the person is a naturalized citizen of Argentina."@en;
+    dcterms:identifier "AR80A407";
+    dcterms:description "This variable indicates whether or not the person is a naturalized citizen of Argentina."@en;
     skos:prefLabel "Citizenship"@en, "Citoyenneté"@fr;
-    disco:basedOn &lt;#citizenshipVD&gt;;
-    disco:hasQuestion &lt;#questionCitizenship&gt;.
+    disco:basedOn &lt;#CitizenshipVD&gt;;
+    disco:question &lt;#QuestionCitizenship&gt;.
 
 </pre>
 
@@ -577,82 +577,82 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
       <pre class="example">
 
-&lt;#sexVD&gt; a disco:VariableDefinition;
-    disco:universe &lt;#universePerson&gt;;
-    disco:representation &lt;#sexRepr&gt;;
-    disco:concept &lt;#ipumsC1&gt;;
+&lt;#SexVD&gt; a disco:VariableDefinition;
+    disco:universe &lt;#UniversePerson&gt;;
+    disco:representation &lt;#SexRepr&gt;;
+    disco:concept &lt;#IpumsC1&gt;;
     skos:prefLabel "Sex"@en, "Sexe"@fr;
-    dc:description "Sex data element"@en.
+    dcterms:description "Sex data element"@en.
 
-&lt;#sexRepr&gt; a skos:ConceptScheme, disco:Representation;
-    skos:hasTopConcept &lt;#sexM&gt;, &lt;#sexF&gt;.
+&lt;#SexRepr&gt; a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept &lt;#SexM&gt;, &lt;#SexF&gt;.
 
-&lt;#sexM&gt; a skos:Concept;
+&lt;#SexM&gt; a skos:Concept;
     skos:notation "1";
     skos:prefLabel "Male"@en, "Homme"@fr;
-    skos:inScheme &lt;#sexRepr&gt;.
+    skos:inScheme &lt;#SexRepr&gt;.
 
-&lt;#sexF&gt; a skos:Concept;
+&lt;#SexF&gt; a skos:Concept;
     skos:notation "2";
     skos:prefLabel "Female"@en, "Femme"@fr;
-    skos:inScheme &lt;#sexRepr&gt;.
+    skos:inScheme &lt;#SexRepr&gt;.
     
 &lt;#ageVD&gt; a disco:VariableDefinition;
-    disco:universe &lt;#universePerson&gt;;
-    disco:representation &lt;#ageRepr&gt;;
-    disco:concept &lt;#ipumsC1&gt;;
+    disco:universe &lt;#UniversePerson&gt;;
+    disco:representation &lt;#AgeRepr&gt;;
+    disco:concept &lt;#IpumsC1&gt;;
     skos:prefLabel "Age"@en, "Âge"@fr;
-    dc:description "Age data element"@en.
+    dcterms:description "Age data element"@en.
 
-&lt;#ageRepr&gt; a skos:ConceptScheme, disco:Representation;
-    skos:hasTopConcept &lt;#age0&gt;, &lt;#age1&gt;, &lt;#age99&gt;.
+&lt;#AgeRepr&gt; a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept &lt;#Age0&gt;, &lt;#Age1&gt;, &lt;#Age99&gt;.
 
-&lt;#age0&gt; a skos:Concept;
+&lt;#Age0&gt; a skos:Concept;
     skos:notation "0";
     skos:prefLabel "0";
-    skos:inScheme &lt;#ageRepr&gt;.
+    skos:inScheme &lt;#AgeRepr&gt;.
 
-&lt;#age1&gt; a skos:Concept;
+&lt;#Age1&gt; a skos:Concept;
     skos:notation "1";
     skos:prefLabel "1";
-    skos:inScheme &lt;#ageRepr&gt;.
+    skos:inScheme &lt;#AgeRepr&gt;.
 
 # ...
 
-&lt;#age99&gt; a skos:Concept;
+&lt;#Age99&gt; a skos:Concept;
     skos:notation "99";
     skos:prefLabel "99";
-    skos:inScheme &lt;#ageRepr&gt;.
+    skos:inScheme &lt;#AgeRepr&gt;.
     
-&lt;#citizenshipVD&gt; a disco:VariableDefinition;
-    disco:universe &lt;#universeNonArgentines&gt;;
-    disco:representation &lt;#citizenshipRepr&gt;;
-    disco:concept &lt;#ipumsC2&gt;;
+&lt;#CitizenshipVD&gt; a disco:VariableDefinition;
+    disco:universe &lt;#UniverseNonArgentines&gt;;
+    disco:representation &lt;#CitizenshipRepr&gt;;
+    disco:concept &lt;#IpumsC2&gt;;
     skos:prefLabel "Citizenship"@en;
-    dc:description "Citizenship data element"@en.
+    dcterms:description "Citizenship data element"@en.
 
-&lt;#citizenshipRepr&gt; a skos:ConceptScheme, disco:Representation;
-    skos:hasTopConcept &lt;#cYes&gt;, &lt;#cNo&gt;, &lt;#cUnknown&gt;, &lt;#NIU&gt;.
+&lt;#CitizenshipRepr&gt; a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept &lt;#CYes&gt;, &lt;#CNo&gt;, &lt;#CUnknown&gt;, &lt;#CNIU&gt;.
 
-&lt;#cYes&gt; a skos:Concept;
+&lt;#CYes&gt; a skos:Concept;
     skos:notation "1";
     skos:prefLabel "Yes";
-    skos:inScheme &lt;#citizenshipRepr&gt;.
+    skos:inScheme &lt;#CitizenshipRepr&gt;.
 
-&lt;#cNo&gt; a skos:Concept;
+&lt;#CNo&gt; a skos:Concept;
     skos:notation "2";
     skos:prefLabel "No";
-    skos:inScheme &lt;#citizenshipRepr&gt;.
+    skos:inScheme &lt;#CitizenshipRepr&gt;.
 
-&lt;#cUnknown&gt; a skos:Concept;
+&lt;#CUnknown&gt; a skos:Concept;
     skos:notation "8";
     skos:prefLabel "Unknown";
-    skos:inScheme &lt;#citizenshipRepr&gt;.
+    skos:inScheme &lt;#CitizenshipRepr&gt;.
 
-&lt;#cNIU&gt; a skos:Concept;
+&lt;#CNIU&gt; a skos:Concept;
     skos:notation "9";
     skos:prefLabel "NIU (not in universe)";
-    skos:inScheme &lt;#citizenshipRepr&gt;.
+    skos:inScheme &lt;#CitizenshipRepr&gt;.
     
 </pre>
 
@@ -663,14 +663,14 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
       <pre class="example">
 
-&lt;#universePerson&gt; a disco:Universe;
+&lt;#UniversePerson&gt; a disco:Universe;
     skos:definition "All persons."@en ;
-    skos:narrower &lt;#universe&gt;.
+    skos:narrower &lt;#Universe&gt;.
 
-&lt;#universeNonArgentines&gt; a disco:Universe;
+&lt;#UniverseNonArgentines&gt; a disco:Universe;
     skos:definition "Foreign-born persons who reside in Argentina."@en ;
-    skos:narrower &lt;#universe&gt;; 
-    skos:narrower &lt;#universePerson&gt;.
+    skos:narrower &lt;#Universe&gt;; 
+    skos:narrower &lt;#UniversePerson&gt;.
 
 </pre>
 	
@@ -687,16 +687,16 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	
       <pre class="example">
 
-&lt;#ipumsCS&gt; a skos:ConceptScheme;
-    skos:hasTopConcept &lt;#ipumsC1&gt;.
+&lt;#IpumsCS&gt; a skos:ConceptScheme;
+    skos:hasTopConcept &lt;#IpumsC1&gt;.
 
-&lt;#ipumsC1&gt; a skos:Concept;
+&lt;#IpumsC1&gt; a skos:Concept;
     skos:prefLabel "Demographic Variables - PERSON"@en, "Variables démographiques - PERSONNE"@fr;
-    skos:inScheme &lt;#ipumsCS&gt;.
+    skos:inScheme &lt;#IpumsCS&gt;.
 
-&lt;#ipumsC2&gt; a skos:Concept;
+&lt;#IpumsC2&gt; a skos:Concept;
     skos:prefLabel "Nativity and Birthplace Variables -- PERSON"@en;
-    skos:inScheme &lt;#ipumsCS&gt;.
+    skos:inScheme &lt;#IpumsCS&gt;.
 
 </pre>
 
@@ -704,19 +704,19 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	
       <pre class="example">
 
-&lt;#dstat1&gt; a disco:DescriptiveStatistic;
+&lt;#Dstat1&gt; a disco:DescriptiveStatistic;
     disco:frequency 13314444;
     # is that correct? 
     disco:percentage 49.97;
-    disco:hasStatisticsVariable &lt;#AR80A401&gt;;
-    disco:hasStatisticsCategory &lt;#sexM&gt;;
-    disco:hasStatisticsDatafile &lt;#datafile&gt;.
+    disco:statisticsVariable &lt;#AR80A401&gt;;
+    disco:statisticsCategory &lt;#SexM&gt;;
+    disco:statisticsDatafile &lt;#Datafile&gt;.
 
-&lt;#dstat2&gt; a disco:DescriptiveStatistic;
+&lt;#Dstat2&gt; a disco:DescriptiveStatistic;
     disco:frequency 1336270;
-    disco:hasStatisticsVariable &lt;#AR80A401&gt;;
-    disco:hasStatisticsCategory &lt;#sexF&gt;;
-    disco:hasStatisticsDatafile &lt;#datafile&gt;.
+    disco:statisticsVariable &lt;#AR80A401&gt;;
+    disco:statisticsCategory &lt;#SexF&gt;;
+    disco:statisticsDatafile &lt;#Datafile&gt;.
 
 </pre>
 
@@ -732,20 +732,20 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	
       <pre class="example">
 
-&lt;#datafile&gt; a disco:Datafile;
-    dc:identifier "ARG1900-P-H.dat";
-    dc:description "Person records"@en;
+&lt;#Datafile&gt; a disco:Datafile;
+    dcterms:identifier "ARG1900-P-H.dat";
+    dcterms:description "Person records"@en;
     disco:caseQuantity 2667714;
-    dc:format "ascii";
-    dc:provenance "Minnesota Population Center"@en;
+    dcterms:format "ascii";
+    dcterms:provenance "Minnesota Population Center"@en;
     owl:versionInfo "Version 1.0, IPUMS sample"@en;
-    dc:spatial [
+    dcterms:spatial [
         # This is the DC-strictly compatible way to do it
-        a dc:Location;
+        a dcterms:Location;
         rdfs:label "Argentina, national coverage"@en
     ];
-    dc:temporal "PeriodOfTime"@en;
-    dc:subject "To be defined"@en.
+    dcterms:temporal "PeriodOfTime"@en;
+    dcterms:subject "To be defined"@en.
 
 </pre>
 
@@ -939,16 +939,16 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		For <code>dcterms:RightsStatements</code> descriptions (<code>dcterms:description</code>) and labels (<code>skos:prefLabel</code>) can be assigned: 
 	  </p>
 	    <pre class="example">
-ex:dataset1 a disco:LogicalDataset ;
-  dcterms:accessRights ex:accessRights1 .
-ex:accessRights1 dcterms:description "Everybody may see access this document." ;
+ex:Dataset1 a disco:LogicalDataset ;
+  dcterms:accessRights ex:AccessRights1 .
+ex:AccessRights1 dcterms:description "Everybody may see access this document." ;
   rdfs:seeAlso &lt;http://www.example.org/access.html&gt; . 
 	  </pre>
 	  <p>License information is captured in a <b><code>dcterms:LicenseDocument</code></b>, which is a subtype of <code>dcterms:RightsStatements</code>:</p>
 	    <pre class="example">
-ex:dataset1 a disco:LogicalDataset ;
-  dcterms:license ex:license1 .
-ex:license1 dcterms:description "Published under Open Content License." ;
+ex:Dataset1 a disco:LogicalDataset ;
+  dcterms:license ex:License1 .
+ex:License1 dcterms:description "Published under Open Content License." ;
   skos:prefLabel "OCL 1.0" ;
   rdfs:seeAlso &lt;http://opencontent.org/opl.shtml&gt; .	  
 	  </pre>
@@ -971,7 +971,7 @@ ex:license1 dcterms:description "Published under Open Content License." ;
 		<p>Coverage comprehends the key features of the scope of the data (e.g. geographic product occupation). Studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>), logical datasets, and data files may have a spatial, temporal, and topical coverage. Unlike in DDI-XML, there is no dedicated Coverage type in DDI-RDF. In contrast, spatial, temporal, and topical coverage are directly attached to the respective study, logical dataset, and datafile.</p>
 		<p>For spatial coverage, <b><code>dcterms:spatial</code></b> is used, pointing to any geographic location (<code>dcterms:Location</code>):</p>
 	    <pre class="example">
-ex:study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .		
+ex:Study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .		
 		</pre>
 		<p>In this example, <a href="http://www.geonames.org/">Geonames</a> is used to refer to a spatial region, in this case, the country Germany. Geonames provides URIs for continents, countries, regions, and cities, among others, and is therefore a possible option to use for describing spatial coverage.</p>
         
@@ -988,7 +988,7 @@ ex:study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .
 		</p>
 		
 	    <pre class="example">
-ex:study1 dcterms:temporal [
+ex:Study1 dcterms:temporal [
   a time:Interval ;
   time:hasBeginning [ time:inXSDDateTime
     "2012-01-01T00:00:00+01:00"^^xsd:dateTime ];
@@ -1003,7 +1003,7 @@ ex:study1 dcterms:temporal [
 		
 		<p>Topical coverage can be expressed using <b><code>dcterms:subject</code></b>. DDI-RDF foresees the use <code>skos:Concept</code> for the description of topical coverage:</p>
 	    <pre class="example">
-ex:study1 dcterms:subject [
+ex:Study1 dcterms:subject [
   a skos:Concept ;
   skos:prefLabel "Alcohol consumption" ] .
 		</pre>
@@ -1112,10 +1112,10 @@ ex:study1 dcterms:subject [
       </p>
       
       <pre class="example">
-&lt;#dataset&gt; a LogicalDataSet;
-    dcterms:accessRights &lt;accessRights&gt;;
-    disco:dataFile &lt;#datafile&gt;;
-    disco:instrument &lt;#questionnaire&gt;;
+&lt;#Dataset&gt; a LogicalDataSet;
+    dcterms:accessRights &lt;AccessRights&gt;;
+    disco:dataFile &lt;#Datafile&gt;;
+    disco:instrument &lt;#Questionnaire&gt;;
     disco:containsVariable &lt;#AR80A401&gt;, &lt;#AR80A402&gt;, &lt;#AR80A404&gt;, &lt;#AR80A407&gt;, &lt;#AR80A411&gt;.
       </pre>
 	  
@@ -1139,20 +1139,20 @@ ex:study1 dcterms:subject [
 	  </div>
       
       <pre class="example">
-      &lt;#datafile&gt; a disco:Datafile;
-        dc:identifier "ARG1900-P-H.dat";
-        dc:description "Person records"@en;
+      &lt;#Datafile&gt; a disco:Datafile;
+        dcterms:identifier "ARG1900-P-H.dat";
+        dcterms:description "Person records"@en;
         disco:caseQuantity 2667714;
-        dc:format "ascii";
-        dc:provenance "Minnesota Population Center"@en;
+        dcterms:format "ascii";
+        dcterms:provenance "Minnesota Population Center"@en;
         owl:versionInfo "Version 1.0, IPUMS sample"@en;
-        dc:spatial [
+        dcterms:spatial [
             # This is the DC-strictly compatible way to do it
-            a dc:Location;
+            a dcterms:Location;
             rdfs:label "Argentina, national coverage"@en
         ];
-        dc:temporal "PeriodOfTime"@en;
-        dc:subject "To be defined"@en.
+        dcterms:temporal "PeriodOfTime"@en;
+        dcterms:subject "To be defined"@en.
         </pre>
 	  
 	  <p>
@@ -1208,19 +1208,19 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	  </p>
 	  
       <pre class="example">
-      &lt;#dstat1&gt; a disco:DescriptiveStatistic;
+      &lt;#Dstat1&gt; a disco:DescriptiveStatistic;
         disco:frequency 13314444;
         # is that correct?
         disco:percentage 49.97;
-        disco:hasStatisticsVariable &lt;#AR80A401&gt;;
-        disco:hasStatisticsCategory &lt;#sexM&gt;;
-        disco:hasStatisticsDatafile &lt;#datafile&gt;.
+        disco:statisticsVariable &lt;#AR80A401&gt;;
+        disco:statisticsCategory &lt;#SexM&gt;;
+        disco:statisticsDatafile &lt;#Datafile&gt;.
               
-      &lt;#dstat2&gt; a disco:DescriptiveStatistic;
+      &lt;#Dstat2&gt; a disco:DescriptiveStatistic;
         disco:frequency 1336270;
-        disco:hasStatisticsVariable &lt;#AR80A401&gt;;
-        disco:hasStatisticsCategory &lt;#sexF&gt;;
-        disco:hasStatisticsDatafile &lt;#datafile&gt;.
+        disco:statisticsVariable &lt;#AR80A401&gt;;
+        disco:statisticsCategory &lt;#SexF&gt;;
+        disco:statisticsDatafile &lt;#Datafile&gt;.
 </pre>	  
 	  
     </section>
@@ -1374,66 +1374,66 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		  <pre class="example">
 @prefix issp: &lt;http://www.issp.org/&gt;	  
 		  
-&lt;issp:category_1&gt;
+&lt;issp:Category_1&gt;
   a skos:Concept;
   skos:notation '1';
   skos:preflabel 'Yes, have partner; live in same household';
   disco:isValid true.
   
-&lt;issp:category_3&gt;
+&lt;issp:Category_3&gt;
   a skos:Concept;
   skos:preflabel 'valid total';
   disco:isValid true.
 
-&lt;issp:category_2&gt;
+&lt;issp:Category_2&gt;
   a skos:Concept;
   skos:notation '0';
   skos:preflabel 'Not available (GB))';
   disco:isValid false.
 
-&lt;issp:category_4&gt;
+&lt;issp:Category_4&gt;
   a skos:Concept;
   skos:preflabel 'missing total';
   disco:isValid false.
 
 &lt;issp:XYZ_1&gt;
   a disco:CategoryStatistics;
-  disco:statisticsCategory &lt;issp:category_1&gt;;
+  disco:statisticsCategory &lt;issp:Category_1&gt;;
   disco:frequency 15893.
 
 &lt;issp:XYZ_2&gt;
   a disco:CategoryStatistics;
-  disco:statisticsCategory &lt;issp:category_2&gt;;
+  disco:statisticsCategory &lt;issp:Category_2&gt;;
   disco:frequency 936.
   
 &lt;issp:XYZ_3&gt;
   a disco:CategoryStatistics;
-  disco:statisticsCategory &lt;issp:category_1&gt;;
+  disco:statisticsCategory &lt;issp:Category_1&gt;;
   disco:percentage 60.6.
   disco:computationBase 'total'.
 
 &lt;issp:XYZ_4&gt;
   a disco:CategoryStatistics;
-  disco:statisticsCategory &lt;issp:category_2&gt;;
+  disco:statisticsCategory &lt;issp:Category_2&gt;;
   disco:percentage 3.6;
   disco:computationBase 'total'.
   
 &lt;issp:XYZ_5&gt;
   a disco:CategoryStatistics;
-  disco:statisticsCategory &lt;issp:category_1&gt;;
+  disco:statisticsCategory &lt;issp:Category_1&gt;;
   disco:percentage 63.7;
   disco:computationBase 'validOnly'.
   
 &lt;issp:XYZ_6&gt;
   a disco:CategoryStatistics;
-  disco:statisticsCategory &lt;issp:category_1&gt;;
+  disco:statisticsCategory &lt;issp:Category_1&gt;;
   disco:cumulativePercentage 63.7;
   disco:computationBase 'validOnly'.
   
 # optional: harmonized CategoryStatistics resource if computationBase and category is the same
 &lt;issp:XYZ_13&gt;
   a disco:CategoryStatistics;
-  disco:statisticsCategory &lt;issp:category_1&gt;;
+  disco:statisticsCategory &lt;issp:Category_1&gt;;
   disco:percentage 63.7;
   disco:cumulativePercentage 63.7;
   disco:computationBase 'validOnly'.
@@ -1551,50 +1551,50 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 	  
       <pre class="example">
       &lt;#AR80A401&gt; a disco:Variable;
-        dc:identifier "AR80A401";
+        dcterms:identifier "AR80A401";
         skos:prefLabel "Sex"@en, "Sexe"@fr;
-        dc:description "This variable indicates the person's gender."@en;
-        disco:basedOn &lt;#sexVD&gt;;
-        disco:hasQuestion &lt;#questionGender&gt;.
+        dcterms:description "This variable indicates the person's gender."@en;
+        disco:basedOn &lt;#SexVD&gt;;
+        disco:question &lt;#QuestionGender&gt;.
             
       &lt;#AR80A402&gt; a disco:Variable;
-        dc:identifier "AR80A402";
-        dc:description "This variable indicates the person's age in years."@en;
+        dcterms:identifier "AR80A402";
+        dcterms:description "This variable indicates the person's age in years."@en;
         skos:prefLabel "Age"@en, "Âge"@fr.
-        disco:basedOn &lt;#ageVD&gt;;
-        disco:hasQuestion &lt;#questionAge&gt;.
+        disco:basedOn &lt;#AgeVD&gt;;
+        disco:question &lt;#QuestionAge&gt;.
                   
       &lt;#AR80A407&gt; a disco:Variable;
-        dc:identifier "AR80A407";
-        dc:description "This variable indicates whether or not the person is a naturalized citizen of Argentina."@en;
+        dcterms:identifier "AR80A407";
+        dcterms:description "This variable indicates whether or not the person is a naturalized citizen of Argentina."@en;
         skos:prefLabel "Citizenship"@en, "Citoyenneté"@fr;
-        disco:basedOn &lt;#citizenshipVD&gt;;
-        disco:hasQuestion &lt;#questionCitizenship&gt;.
+        disco:basedOn &lt;#CitizenshipVD&gt;;
+        disco:question &lt;#QuestionCitizenship&gt;.
       </pre>
       
       <p>The three variables refer to universe, representations and concepts in their <code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>.</p>
       
       <pre class="example">
-      &lt;#sexVD&gt; a disco:VariableDefinition;
-        disco:universe &lt;#universePerson&gt;;
-        disco:representation &lt;#sexRepr&gt;;
-        disco:concept &lt;#ipumsC1&gt;;
+      &lt;#SexVD&gt; a disco:VariableDefinition;
+        disco:universe &lt;#UniversePerson&gt;;
+        disco:representation &lt;#SexRepr&gt;;
+        disco:concept &lt;#IpumsC1&gt;;
         skos:prefLabel "Sex"@en, "Sexe"@fr;
-        dc:description "Sex data element"@en.
+        dcterms:description "Sex data element"@en.
                                 
-	    &lt;#ageVD&gt; a disco:VariableDefinition;
-        disco:universe &lt;#universePerson&gt;;
-        disco:representation &lt;#ageRepr&gt;;
-        disco:concept &lt;#ipumsC1&gt;;
+	    &lt;#AgeVD&gt; a disco:VariableDefinition;
+        disco:universe &lt;#UniversePerson&gt;;
+        disco:representation &lt;#AgeRepr&gt;;
+        disco:concept &lt;#IpumsC1&gt;;
         skos:prefLabel "Age"@en, "Sexe"@fr;
-        dc:description "Age data element"@en.
+        dcterms:description "Age data element"@en.
     
-      &lt;#citizenshipVD&gt; a disco:VariableDefinition;
-        disco:universe &lt;#universeNonArgentines&gt;;
-        disco:representation &lt;#citizenshipRepr&gt;;
-        disco:concept &lt;#ipumsC2&gt;;
+      &lt;#CitizenshipVD&gt; a disco:VariableDefinition;
+        disco:universe &lt;#UniverseNonArgentines&gt;;
+        disco:representation &lt;#CitizenshipRepr&gt;;
+        disco:concept &lt;#IpumsC2&gt;;
         skos:prefLabel "Citizenship"@en;
-        dc:description "Citizenship data element"@en.
+        dcterms:description "Citizenship data element"@en.
 	  </pre>
     </section>
 
@@ -1631,18 +1631,18 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 	  </p>
 	  
       <pre class="example">
-        &lt;#sexRepr&gt; a skos:ConceptScheme, disco:Representation;
-          skos:hasTopConcept &lt;#sexM&gt;, &lt;#sexF&gt;.
+        &lt;#SexRepr&gt; a skos:ConceptScheme, disco:Representation;
+          skos:hasTopConcept &lt;#SexM&gt;, &lt;#SexF&gt;.
           
-        &lt;#sexM&gt; a skos:Concept;
+        &lt;#SexM&gt; a skos:Concept;
           skos:notation "1";
           skos:prefLabel "Male"@en, "Homme"@fr;
-          skos:inScheme &lt;#sexRepr&gt;.
+          skos:inScheme &lt;#SexRepr&gt;.
               
-        &lt;#sexF&gt; a skos:Concept;
+        &lt;#SexF&gt; a skos:Concept;
           skos:notation "2";
           skos:prefLabel "Female"@en, "Femme"@fr;
-          skos:inScheme &lt;#sexRepr&gt;.
+          skos:inScheme &lt;#SexRepr&gt;.
 	  </pre>
 	  
 	    <section>
@@ -1699,76 +1699,76 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
   a disco:Variable;
   skos:notation 'PARTLIV';
   skos:preflabel 'Living in steady partnership';
-  disco:representation &lt;issp:orderedCollection1&gt;.
+  disco:representation &lt;issp:OrderedCollection1&gt;.
 
 # abbreviated syntax:
 &lt;issp:XYZ_2&gt;
   rdf:type skos:OrderedCollection;
   skos:memberList (
-    &lt;issp:category_1&gt;
-    &lt;issp:category_2&gt;
-    &lt;issp:category_3&gt;
-    &lt;issp:category_4&gt;
-    &lt;issp:category_5&gt;
-    &lt;issp:category_6&gt;
-    &lt;issp:category_7&gt;
-    &lt;issp:category_8&gt; ).
+    &lt;issp:Category_1&gt;
+    &lt;issp:Category_2&gt;
+    &lt;issp:Category_3&gt;
+    &lt;issp:Category_4&gt;
+    &lt;issp:Category_5&gt;
+    &lt;issp:Category_6&gt;
+    &lt;issp:Category_7&gt;
+    &lt;issp:Category_8&gt; ).
 	
 # complete syntax:
 &lt;issp:XYZ_2&gt;
   rdf:type skos:OrderedCollection;
   skos:memberList [
-    rdf:first &lt;issp:category_1&gt;; rdf:rest [
-    rdf:first &lt;issp:category_2&gt;; rdf:rest [
-    rdf:first &lt;isspcategory_3&gt;; rdf:rest [
-    rdf:first &lt;issp:category_4&gt;; rdf:rest [
-    rdf:first &lt;issp:category_5&gt;; rdf:rest [
-    rdf:first &lt;issp:category_6&gt;; rdf:rest [
-    rdf:first &lt;issp:category_7&gt;; rdf:rest [
-    rdf:first &lt;issp:category_8&gt;;
+    rdf:first &lt;issp:Category_1&gt;; rdf:rest [
+    rdf:first &lt;issp:Category_2&gt;; rdf:rest [
+    rdf:first &lt;issp:Category_3&gt;; rdf:rest [
+    rdf:first &lt;issp:Category_4&gt;; rdf:rest [
+    rdf:first &lt;issp:Category_5&gt;; rdf:rest [
+    rdf:first &lt;issp:Category_6&gt;; rdf:rest [
+    rdf:first &lt;issp:Category_7&gt;; rdf:rest [
+    rdf:first &lt;issp:Category_8&gt;;
     rdf:rest rdf:nil.] ] ] ] ] ] ] ].
 		  
-&lt;issp:category_1&gt;
+&lt;issp:Category_1&gt;
   a skos:Concept;
   skos:notation '1';
   skos:preflabel 'Yes, have partner; live in same household';
   disco:isValid true.
   
-&lt;issp:category_2&gt;
+&lt;issp:Category_2&gt;
   a skos:Concept;
   skos:notation '2';
   skos:preflabel 'Yes, have partner; don't live in same household';
   disco:isValid true.
   
-&lt;issp:category_3&gt;
+&lt;issp:Category_3&gt;
   a skos:Concept;
   skos:notation '3';
   skos:preflabel 'No partner';
   disco:isValid true.
   
-&lt;issp:category_4&gt;
+&lt;issp:Category_4&gt;
   a skos:Concept;
   disco:isValid true.
 
-&lt;issp:category_5&gt;
+&lt;issp:Category_5&gt;
   a skos:Concept;
   skos:notation '0';
   skos:preflabel 'Not available (GB))';
   disco:isValid false.
   
-&lt;issp:category_6&gt;
+&lt;issp:Category_6&gt;
   a skos:Concept;
   skos:notation '7';
   skos:preflabel 'Refused';
   disco:isValid false.
   
-&lt;issp:category_7&gt;
+&lt;issp:Category_7&gt;
   a skos:Concept;
   skos:notation '9';
   skos:preflabel 'No answer';
   disco:isValid false.
 
-&lt;issp:category_8&gt;
+&lt;issp:Category_8&gt;
   a skos:Concept;
   disco:isValid false.
 	    </pre>
@@ -1811,14 +1811,14 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
       <p>The following example shows the representations of the three previously introduced variables Sex, Age and Citizenship. All of them refer to the particular concepts.</p>
       
       <pre class="example">
-        &lt;#sexRepr&gt; a skos:ConceptScheme, disco:Representation;
-          skos:hasTopConcept &lt;#sexM&gt;, &lt;#sexF&gt;.
+        &lt;#SexRepr&gt; a skos:ConceptScheme, disco:Representation;
+          skos:hasTopConcept &lt;#SexM&gt;, &lt;#SexF&gt;.
             
-      &lt;#ageRepr&gt; a skos:ConceptScheme, disco:Representation;
-        skos:hasTopConcept &lt;#age0&gt;, &lt;#age1&gt;, &lt;#age99&gt;.
+      &lt;#AgeRepr&gt; a skos:ConceptScheme, disco:Representation;
+        skos:hasTopConcept &lt;#Age0&gt;, &lt;#Age1&gt;, &lt;#Age99&gt;.
           
-      &lt;#citizenshipRepr&gt; a skos:ConceptScheme, disco:Representation;
-        skos:hasTopConcept &lt;#cYes&gt;, &lt;#cNo&gt;, &lt;#cUnknown&gt;, &lt;#NIU&gt;.    
+      &lt;#CitizenshipRepr&gt; a skos:ConceptScheme, disco:Representation;
+        skos:hasTopConcept &lt;#CYes&gt;, &lt;#CNo&gt;, &lt;#CUnknown&gt;, &lt;#CNIU&gt;.    
 	  </pre>
 	  
 	  <p>
@@ -1872,10 +1872,10 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 <p>The following example illustrates a questionnaire with three example questions. The questions are defined the next section.</p>
 
       <pre class="example">
-        &lt;#questionnaire&gt; a disco:Questionnaire;
-          disco:question &lt;#questionGender&gt;;
-          disco:question &lt;#questionAge&gt;;
-          disco:question &lt;#questionCitizenship&gt;.
+        &lt;#Questionnaire&gt; a disco:Questionnaire;
+          disco:question &lt;#QuestionGender&gt;;
+          disco:question &lt;#QuestionAge&gt;;
+          disco:question &lt;#QuestionCitizenship&gt;.
 	  </pre>
     </section>
 
@@ -1898,14 +1898,14 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
       </p>
 	  
       <pre class="example">
-      &lt;#questionGender&gt; a disco:Question;
+      &lt;#QuestionGender&gt; a disco:Question;
         disco:questionText "2. Is the person a man or a woman? [] Man, [] Woman"@en.
         
       &lt;#questionAge&gt; a disco:Question;
-        disco:questionText "3. What is his or her age? _ _ Mark the age in completed years at the date of the census for those younger than one year old mark 00. For those younger than 10 years old, mark 01, 02, 03, etc. For those older than 99 years old, mark 99."@en.
+        disco:QuestionText "3. What is his or her age? _ _ Mark the age in completed years at the date of the census for those younger than one year old mark 00. For those younger than 10 years old, mark 01, 02, 03, etc. For those older than 99 years old, mark 99."@en.
           
       &lt;#questionCitizenship&gt; a disco:Question;
-        disco:questionText "6. [Immigration status] Only for persons who have usual residence in Argentina and were born in another country. [Questions 6A and 6B asked only of persons born outside Argentina and who currently reside in Argentina.] B. Are you a naturalized citizen of Argentina? [] Yes [] No [] Unanswered"@en.
+        disco:QuestionText "6. [Immigration status] Only for persons who have usual residence in Argentina and were born in another country. [Questions 6A and 6B asked only of persons born outside Argentina and who currently reside in Argentina.] B. Are you a naturalized citizen of Argentina? [] Yes [] No [] Unanswered"@en.
     </pre>      
 	  
     </section>
