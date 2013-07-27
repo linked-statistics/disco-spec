@@ -421,7 +421,9 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		a dcterms:PeriodOfTime ;
 		disco:startDate "1980-10-22"^^xsd:date;
 		disco:endDate "1980-10-22"^^xsd:date;
-		rdfs:comment "The interviews take place on the expected census day.  In some areas the enumeration took place the following day because of access problems due to heavy rains.";
+		rdfs:comment "The interviews take place on the expected census day. In
+			some areas the enumeration took place the following day because of
+			access problems due to heavy rains.";
     ];
     dcterms:spatial [
         # This is the DC-strictly compatible way to do it
@@ -435,9 +437,24 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
     dcterms:subject [
 		skos:definition "Group Quarters Variables -- HOUSEHOLD"@en ;
     ] ;
-	dcterms:abstract "IPUMS-International is an effort to inventory, preserve, harmonize, and disseminate census microdata from around the world. The project has collected the world's largest archive of publicly available census samples. The data are coded and documented consistently across countries and over time to facilitate comparative research. IPUMS-International makes these data available to qualified researchers free of charge through a web dissemination system. The IPUMS project is a collaboration of the Minnesota Population Center, National Statistical Offices, and international data archives. Major funding is provided by the U.S. National Science Foundation and the Demographic and Behavioral Sciences Branch of the National Institute of Child Health and Human Development. Additional support is provided by the University of Minnesota Office of the Vice President for Research, the Minnesota Population Center, and Sun Microsystems.";    
+	dcterms:abstract "IPUMS-International is an effort to inventory, preserve,
+		harmonize, and disseminate census microdata from around the world. The
+		project has collected the world's largest archive of publicly available
+		census samples. The data are coded and documented consistently across
+		countries and over time to facilitate comparative research. IPUMS-
+		International makes these data available to qualified researchers free
+		of charge through a web dissemination system. The IPUMS project is a
+		collaboration of the Minnesota Population Center, National Statistical
+		Offices, and international data archives. Major funding is provided by
+		the U.S. National Science Foundation and the Demographic and Behavioral
+		Sciences Branch of the National Institute of Child Health and Human
+		Development. Additional support is provided by the University of
+		Minnesota Office of the Vice President for Research, the Minnesota
+		Population Center, and Sun Microsystems.";    
 
-    owl:versionInfo "Version 1.0. This version contains selected variables from the original census micro data plus harmonized variables from the IPUMS International data base."@en; 
+    owl:versionInfo "Version 1.0. This version contains selected variables from
+		the original census micro data plus harmonized variables from the IPUMS
+		International data base."@en; 
 
     disco:universe &lt;#Universe&gt;;
     disco:instrument &lt;#Questionnaire&gt;;
@@ -524,10 +541,17 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
     disco:questionText "2. Is the person a man or a woman? [] Man, [] Woman"@en.
 
 &lt;#QuestionAge&gt; a disco:Question;
-    disco:questionText "3. What is his or her age? _ _ Mark the age in completed years at the date of the census for those younger than one year old mark 00. For those younger than 10 years old, mark 01, 02, 03, etc. For those older than 99 years old, mark 99."@en.
+    disco:questionText "3. What is his or her age? _ _ Mark the age in completed
+		years at the date of the census for those younger than one year old mark
+		00. For those younger than 10 years old, mark 01, 02, 03, etc. For those
+		older than 99 years old, mark 99."@en.
 
 &lt;#QuestionCitizenship&gt; a disco:Question;
-    disco:questionText "6. [Immigration status] Only for persons who have usual residence in Argentina and were born in another country. [Questions 6A and 6B asked only of persons born outside Argentina and who currently reside in Argentina.] B. Are you a naturalized citizen of Argentina? [] Yes [] No [] Unanswered"@en.
+    disco:questionText "6. [Immigration status] Only for persons who have usual
+		residence in Argentina and were born in another country. [Questions 6A
+		and 6B asked only of persons born outside Argentina and who currently
+		reside in Argentina.] B. Are you a naturalized citizen of Argentina?
+		[] Yes [] No [] Unanswered"@en.
 
 </pre>
       <p>In Figure 6 we see the list of variables contained in the
