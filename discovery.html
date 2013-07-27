@@ -48,6 +48,8 @@
                 company: "GESIS - Leibniz Institute for the Social Sciences", companyURL: "http://www.gesis.org/" },
               { name: "Richard Cyganiak", url: "http://richard.cyganiak.de/",
                 company: "DERI, NUI Galway", companyURL: "http://www.deri.ie/" },
+			  { name: "Joachim Wackerow",
+                company: "GESIS - Leibniz Institute for the Social Sciences", companyURL: "http://www.gesis.org/" },
               { name: "Benjamin Zapilko",
                 company: "GESIS - Leibniz Institute for the Social Sciences", companyURL: "http://www.gesis.org/" },
           ],
@@ -270,6 +272,14 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       assumed to sit in a data file (e.g., a CSV file, or in a
       proprietary stats package file format) that is not represented
       in RDF.</p>
+	  
+	  <p>
+	  The interplay of Data Cube and Disco needs further exploration regarding the relationship of aggregate data, 
+	  aggregation methods, and the underlying microdata. 
+	  The goal would be to drill down to the related microdata based on a search resulting in aggregate data. 
+	  On the one hand aggregate data are often easily available and gives a quick overview. 
+	  On the other hand microdata enable more detailed anal-yses.
+	  </p>
 
       <p>The use of formal statistical classifications is very common
       in research data sets—these are treated in our vocabulary as
@@ -1049,7 +1059,7 @@ ex:Study1 dcterms:subject [
 				<li><code>dcterms:alternativet</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>): an alternative name for the study</li>
 				<li><code>dcterms:available</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>): the date (or date range) at which this study has or will become available</li>
 				<li><code>dcterms:title</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>, <code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>): the element’s title</li>
-				<li><code>dcterms:description</code> (used with <code><a href="#dfn-disco-dataelement" class="internalDFN">DataElement</a></code>, <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>, <code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>, <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>, <code>dcterms:RightsStatement</code>): a human readable description of the element</li>
+				<li><code>dcterms:description</code> (used with <code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>, <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>, <code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>, <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>, <code>dcterms:RightsStatement</code>): a human readable description of the element</li>
 				<li><code>dcterms:provenance</code> (used with <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>): defines the provenance information for the data file. The object is a <code>dcterms:ProvenanceStatement</code>.</li>
 			</ul>
 			
@@ -1126,12 +1136,12 @@ ex:Study1 dcterms:subject [
 		Logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>) may contain (<code><a href="#dfn-disco-containsvariable" class="internalDFN">containsVariable</a></code>) 0 to n variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and variables (
 		<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) must be contained in 1 to n logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>).
 
-		Logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>) can be aggregated (<code><a href="#dfn-disco-aggregation" class="internalDFN">aggregation</a></code>) to 0 to n data sets (<code><a href="#dfn-disco-dataset" class="internalDFN">DataSet</a></code>) and data sets (
-		<code><a href="#dfn-disco-dataset" class="internalDFN">DataSet</a></code>) can be aggregations of 0 to n logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>). 
+		Logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>) can be aggregated (<code><a href="#dfn-disco-aggregation" class="internalDFN">aggregation</a></code>) to 0 to n data sets (<code>qb:DataSet</code>) and data sets (
+		<code>qb:DataSet</code>) can be aggregations of 0 to n logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>). 
 		At last, logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>) refer to 0 to n data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) using the object property 
 		data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) and data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) may be linked to 0 to n logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>).
-		The class <code><a href="#dfn-disco-dataset" class="internalDFN">DataSet</a></code> is defined in the RDF Data Cube
-        Vocabulary. 0 to n data sets (<code><a href="#dfn-disco-dataset" class="internalDFN">DataSet</a></code>) may point to multiple (0 - n) variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>)
+		The class <code>qb:DataSet</code> is defined in the RDF Data Cube
+        Vocabulary. 0 to n data sets (<code>qb:DataSet</code>) may point to multiple (0 - n) variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>)
         (<code><a href="#dfn-disco-inputvariable" class="internalDFN">inputVariable</a></code>).
       </p>
       
@@ -1204,7 +1214,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	    An overview over the microdata can be given either by the descriptive statistics 
 		or the aggregated data. <b><code><a href="#dfn-disco-descriptivestatistics" class="internalDFN">DescriptiveStatistics</a></code></b> may be minimal, maximal, mean values, 
 		and absolute and relative frequencies. <code>qb:DataSet</code> originates from the RDF Data Cube Vocabulary, 
-		an approach to map the SDMX information model to an ontology. A <code><a href="#dfn-disco-dataset" class="internalDFN">DataSet</a></code> represents aggregated data 
+		an approach to map the SDMX information model to an ontology. A <code>qb:DataSet</code> represents aggregated data 
 		(also known as macrodata) such as multi-dimensional tables. Aggregated data are derived from microdata 
 		by statistics on groups, or aggregates such as counts, means, or frequencies.
 	    <b><code><a href="#dfn-disco-summarystatistics" class="internalDFN">SummaryStatistics</a></code></b> pointing to variables and
@@ -2005,6 +2015,37 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		using the terms prov:Revision, prov:hadGeneration and prov:hadUsage.
 	  </p>
 	  
+	  <div class="example">
+		<div class="example-title">
+          <span>Which Persons and Organizations Are Associated with Specific Datasets?</span>
+	    </div>
+		<div>
+		 
+		  
+		<p>
+		  Within the context of Disco, we reuse other well elaborated and accepted vocabularies as often as possible and reasonable. 
+		  DCMI, FOAF, ORG, ADMS, and PROV-O build one block of complementary vocabularies. Their use is shown in one combined use case. 
+		  DCMI is used in order to describe general metadata, FOAF and ORG are used to describe persons and organizations, 
+		  we use ADMS for the persistent identification of objects like persons and organizations, and PROV-O is used to provide provenance information. 
+		  A typical scenario within the social sciences community could be the following one:
+		</p>
+		
+		<ul>
+		  <li>
+		    John (foaf:person) aggregates (disco:aggregation) microdata datasets (disco:LogicalDataSet) which are associated with (disco:product) the European study EU-SILC (disco:Study). The aggregate dataset is represented using qb:DataSet. The prov:Agent :john was associated with (prov:wasAssociatedWith) the prov:Activity :aggregationActivity. The :aggregationActivity used (prov:used) the prov:Entity :europeanDataSet (a European dataset), and generated (prov:wasGeneratedBy) a new prov:Entity :aggregatedEuropeanDataSet that aggregates the microdata in :europeanDataSet. The prov:Agent :john acted on behalf of (prov:actedOnBehalfOf) the organization :deri (prov:Agent, org:Organization). The European study (disco:Study) was funded by (disco:fundedBy) the research institution GESIS (org:Organization) for which John is working for (org:memberOf). In order to identify foaf:Persons and org:Organizations permanently, the object property adms:identifier is used pointing to adms:Identifiers. Further possible example queries using the vocabularies TERMS, FOAF, ORG, ADMS, and PROV-O would be:Which persons (foaf:Person), working for (org:memberOf) the research institute GESIS (org:Organization) created (dcterms:creator) the survey ALLBUS (Germany General Social Survey), which is a particular group of studies (disco:StudyGroup) in Germany?
+		  </li>
+		  <li>
+		    Which organizations (org:Organization) and which persons (foaf:Person) contributed (dcterms:contributor) to the creation of the European study EU-SILC (disco:Study)?
+		  </li>
+		  <li>
+		    Which persistent identifier (adms:identifier) are assigned to persons and organizations (foaf:Agent) publishing (dcterms:publisher) the European study EU-LFS (disco:Study)?
+		  </li>
+		</ul>
+		
+		
+		</div>
+	  </div>
+	  
 	  </section>
 	  
 	  <section>
@@ -2039,6 +2080,29 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		SKOS properties may be substituted by additional XKOS properties.
 	  </p>
 	  
+	  <div class="example">
+		<div class="example-title">
+          <span>Which Datasets Have A Specific Statistical Classification and What Are Its Semantic Relations?</span>
+	    </div>
+		
+		<p>
+XKOS extends SKOS with two main objectives: the first one is to allow the descrip-tion of statistical classifications, 
+the second one is to introduce refinements of the semantic properties defined in SKOS. 
+The semantic properties extend the possible relations that can be applied between pairs of skos:Concepts. 
+SKOS allows the following relations: skos:broader than, skos:narrower than, and skos:related to. The first two are hierarchical relations, one in each direction. 
+In Disco, these SKOS properties may be substituted by additional XKOS properties like xkos:generalizes, xkos:hasPart, xkos:caused, xkos:previous, and xkos:next.
+        </p>
+		<p>
+One question, typically asked by social science researchers, could be to query all the datasets (disco:LogicalDataSet) 
+which have a specific statistical classifi-cation (skos:ConceptScheme) like ISCO (International Standard Classification of Occupations) 
+or ANZSIC (Australian and New Zealand Industry Classification). It is also possible to query on the semantic relationships 
+which are defined for statistical classifications using XKOS properties. By means of these properties not only hierarchical relations can be queries 
+but also for example part of relationships (xkos:hasPart), more general (xkos:generalizes) and more specific (xkos:specializes) concepts, 
+and positions of concepts in lists (xkos:previous, xkos:next).
+	    </p>
+		
+	  </div>
+	  
 	  </section>
 	  
 	  <section>
@@ -2070,7 +2134,7 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 	  
 	  <p>
 	    The RDF Data Cube Vocabulary is a W3C standard for representing data cubes, that is, multidimensional aggregate data. 
-		A DataSet represents aggregate data such as multi-dimensional tables. 
+		A <code>qb:DataSet</code> represents aggregate data such as multi-dimensional tables. 
 		Aggregate data is derived from microdata by statistics on groups, or aggregates such as counts, means, or frequencies. 
 		Data cubes are often generated by tabulating or aggregating unit-record datasets. 
 		For example, if an observation in a census data cube indicates the population of a certain age group in a certain region is 12345, 
