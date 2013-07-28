@@ -1680,6 +1680,65 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
           skos:prefLabel "Female"@en, "Femme"@fr;
           skos:inScheme &lt;#SexRepr&gt;.
 	  </pre>
+
+	  <div class="example">
+		<div class="example-title">
+          <span>ISSP 2011 (International Social Survey Programme)</span>
+	    </div>
+		
+		<div class="figure">
+            <img src="images/example-issp2011-frequencies-PARTLIV.jpg" alt="frequencies"/>
+          </div>
+		  
+		<pre class="example">
+@prefix issp: &lt;http://www.issp.org/&gt;	  
+		  
+&lt;issp:Category_1&gt;
+  a skos:Concept;
+  skos:notation '1';
+  skos:preflabel 'Yes, have partner; live in same household';
+  disco:isValid true.
+  
+&lt;issp:Category_2&gt;
+  a skos:Concept;
+  skos:notation '2';
+  skos:preflabel 'Yes, have partner; don't live in same household';
+  disco:isValid true.
+  
+&lt;issp:Category_3&gt;
+  a skos:Concept;
+  skos:notation '3';
+  skos:preflabel 'No partner';
+  disco:isValid true.
+  
+&lt;issp:Category_4&gt;
+  a skos:Concept;
+  disco:isValid true.
+
+&lt;issp:Category_5&gt;
+  a skos:Concept;
+  skos:notation '0';
+  skos:preflabel 'Not available (GB))';
+  disco:isValid false.
+  
+&lt;issp:Category_6&gt;
+  a skos:Concept;
+  skos:notation '7';
+  skos:preflabel 'Refused';
+  disco:isValid false.
+  
+&lt;issp:Category_7&gt;
+  a skos:Concept;
+  skos:notation '9';
+  skos:preflabel 'No answer';
+  disco:isValid false.
+
+&lt;issp:Category_8&gt;
+  a skos:Concept;
+  disco:isValid false.
+	    </pre>
+		
+      </div>
 	  
 	    <section>
         <h4>Uses of skos:Concept</h4>
@@ -1709,15 +1768,15 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
         </div>
       </section>
 	  
-	  <p class="issue">Issue on support of order of items regarding Variables, Categories, etc. <a href="https://github.com/linked-statistics/disco-spec/issues/105">Issue #105</a></p>
-	  
-	  <div class="figure">
-        <img src="diagrams/concept-review.jpg" alt="UML diagram (skos)"/>
-      </div>
+	  <section>
+        <h4>Uses of skos:OrderedCollection and skos:ConceptScheme </h4>
 		
-	  <div class="figure">
-        <img src="diagrams/representation-review.jpg" alt="UML diagram (representation)"/>
-      </div>
+		
+	  </section>
+	  
+	  
+	  
+	  
 	  
 	  <div class="example">
 		<div class="example-title">
@@ -1763,50 +1822,7 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
     rdf:first &lt;issp:Category_7&gt;; rdf:rest [
     rdf:first &lt;issp:Category_8&gt;;
     rdf:rest rdf:nil.] ] ] ] ] ] ] ].
-		  
-&lt;issp:Category_1&gt;
-  a skos:Concept;
-  skos:notation '1';
-  skos:preflabel 'Yes, have partner; live in same household';
-  disco:isValid true.
-  
-&lt;issp:Category_2&gt;
-  a skos:Concept;
-  skos:notation '2';
-  skos:preflabel 'Yes, have partner; don't live in same household';
-  disco:isValid true.
-  
-&lt;issp:Category_3&gt;
-  a skos:Concept;
-  skos:notation '3';
-  skos:preflabel 'No partner';
-  disco:isValid true.
-  
-&lt;issp:Category_4&gt;
-  a skos:Concept;
-  disco:isValid true.
 
-&lt;issp:Category_5&gt;
-  a skos:Concept;
-  skos:notation '0';
-  skos:preflabel 'Not available (GB))';
-  disco:isValid false.
-  
-&lt;issp:Category_6&gt;
-  a skos:Concept;
-  skos:notation '7';
-  skos:preflabel 'Refused';
-  disco:isValid false.
-  
-&lt;issp:Category_7&gt;
-  a skos:Concept;
-  skos:notation '9';
-  skos:preflabel 'No answer';
-  disco:isValid false.
-
-&lt;issp:Category_8&gt;
-  a skos:Concept;
-  disco:isValid false.
 	    </pre>
 		
       </div>
