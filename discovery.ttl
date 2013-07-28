@@ -181,6 +181,14 @@ disco:isPublic a rdf:Property, owl:DatatypeProperty;
     rdfs:range xsd:boolean;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
+# isValid property
+disco:isValid a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "is valid"@en;
+    rdfs:domain skos:Concept;
+    rdfs:comment "Indicates if the code (represented by skos:Concept) is valid or missing."@en;
+    rdfs:range xsd:boolean;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+	
 # questionText property
 disco:questionText a rdf:Property, owl:DatatypeProperty;
     rdfs:label "question text"@en, "Fragetext"@de;
