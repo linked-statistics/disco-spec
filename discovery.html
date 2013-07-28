@@ -1266,12 +1266,6 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
         disco:statisticsDatafile &lt;#Datafile&gt;.
 </pre>	  
 	  
-    </section>
-
-	<section>
-    
-      <p class="issue">Issue on DescriptiveStatistics <a href="https://github.com/linked-statistics/disco-spec/issues/104">Issue #104</a></p>
-	  
 	    <p>
 		  Available category statistics types are frequency, percentage, and cumulativePercentage. 
 		  Available summary statistics types are frequency, percentage, maximum, mean, median, minimum, mode, and standardDeviation.
@@ -1388,8 +1382,6 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		  </tbody>
 		</table>
 		
-		
-		
 		<div class="example">
 		  <div class="example-title">
 		    <span>ISSP 2011 (International Social Survey Programme)</span>
@@ -1397,13 +1389,13 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		  
 		  <p>
 		    The following example shows different categories of an ISSP data set and the values of the related summary and category statistics.
-            Each category is defined as a skos:Concept and the used name is <issp:category_X>, which is the corresponding category value in the 
+            Each category is defined as a skos:Concept and the used name is &lt;issp:category_X&gt;, which is the corresponding category value in the 
 			frequency table above (see Figure 23, second column).
           </p>
 		  <p>
-            The category <issp:category_1> is the category with the code 1 (skos:notation '1'), the category label ‘Yes, have partner; live 
+            The category &lt;issp:category_1&gt; is the category with the code 1 (skos:notation '1'), the category label ‘Yes, have partner; live 
 			in same household’ (skos:preflabel 'Yes, have partner; live in same household') and which is valid (disco:isValid true). 
-			<issp:XYZ_1> defines the frequency (disco:frequency '15893') of the category <issp:category_1> ( disco:statisticsCategory <issp:category_1>).  
+			&lt;issp:XYZ_1&gt; defines the frequency (disco:frequency '15893') of the category &lt;issp:category_1&gt; ( disco:statisticsCategory &lt;issp:category_1&gt;).  
 		  </p>
 		  
 		  <div class="figure">
@@ -1521,11 +1513,12 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
   disco:standardDeviation 14.265;
   disco:computationBase 'validOnly'.  
 	      </pre>
+		
 		</div>
 	  
     </section>
 	
-    </section>
+	</section>
 
     <section id='variable'>
       <h2>Variables, Variable Definitions, Representations, and Concepts</h2>
