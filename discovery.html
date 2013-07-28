@@ -949,7 +949,10 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		<h3>Versioning Information</h3>
 		<p>Use of the <code>owl:versionInfo</code> property is recommended to indicate the version number and/or additional versioning text of entities.</p>
 
-		<p>Any entity can have version information; however, the most typical cases are:</p>
+		<p>
+		  Any entity can have version information. As you can see in the next UML class diagram, the property owl:versionInfo has rdfs:Resource as domain. 
+          As a consequence, each DDI onject can have attachted versioning information.		  
+		  However, the most typical cases are:</p>
 
 		<ul>
 			<li>Version of the metadata (e.g., DDI file or RDF file), where the subject is the URL of the file</li>
@@ -958,7 +961,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		</ul>
 		
 		<div class="figure">
-          <img src="diagrams/versioning-information.jpg" alt="Versioning Information"/>
+          <img src="diagrams/rdfs-resource.jpg" alt="Versioning Information"/>
         </div>
 		
 	  </section>
