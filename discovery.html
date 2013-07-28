@@ -915,32 +915,16 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       
 
     <section>
-	  <h3>DDI-XML Identifiers and Relations to DDI-XML Files</h3>
+	  <h3>Relations to DDI-XML Files</h3>
+	  
 	  
 	  <p>
-	    Every entity defined in DDI-RDF is an <code>rdfs:Resource</code>. 
-	    General metadata elements which can be used on every resource in a DDI-RDF description include:
-      </p>
-	  
-	  <ul>
-		<li><code>skos:prefLabel</code> (<code>rdf:langString</code>): the preferred label of this element</li>
-		<li><code><a href="#dfn-disco-ddi2_1identifier" class="internalDFN">ddi2_1identifier</a></code> (<code>xsd:anyURI</code>): the unique identifier in DDI 2.1</li>
-		<li><code><a href="#dfn-disco-ddi2_5identifier" class="internalDFN">ddi2_5identifier</a></code> (<code>xsd:anyURI</code>): the unique identifier in DDI 2.5</li>
-		<li><code><a href="#dfn-disco-ddi3_0identifier" class="internalDFN">ddi3_0identifier</a></code> (<code>xsd:anyURI</code>): the unique identifier in DDI 3.0</li>
-		<li><code><a href="#dfn-disco-ddi3_1identifier" class="internalDFN">ddi3_1identifier</a></code> (<code>xsd:anyURI</code>): the unique identifier in DDI 3.1</li>
-		<li><code><a href="#dfn-disco-dd32_2identifier" class="internalDFN">ddi3_2identifier</a></code> (<code>xsd:anyURI</code>): the unique identifier in DDI 3.2</li>
-		
-	  </ul>
-
-	  <p>Note that in RDF, the unique identifier of a resource is its URI. The identifier properties are only used for easing the linkage between DDI-RDF metadata and the original DDI files.</p>
-
-	  <p>
-	    Furthermore, every element can be related to any <code>foaf:Document</code> using <code>dcterms:relation</code>.
+	    Every element can be related to any <code>foaf:Document</code> using <code>dcterms:relation</code>.
 		The cardinalities are in both directions 0 to n.
 	  </p>
 	  
 	  <div class="figure">
-        <img src="diagrams/rdfs-resource.jpg" alt="DDI-XML Identifiers and Relations to DDI-XML Files"/>
+        <img src="diagrams/Relations-DDI-XML.jpg" alt="Relations to DDI-XML Files"/>
       </div>
 	  
 	  </section>
@@ -961,7 +945,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		</ul>
 		
 		<div class="figure">
-          <img src="diagrams/rdfs-resource.jpg" alt="Versioning Information"/>
+          <img src="diagrams/identification-versioning.jpg" alt="Versioning Information"/>
         </div>
 		
 	  </section>
@@ -1069,8 +1053,18 @@ ex:Study1 dcterms:subject [
 		</section>
 		
 		<section>
-			<h3>Identification</h3>
+		  <h3>Identification</h3>
 			
+		    <p>
+	    Every entity defined in DDI-RDF is an <code>rdfs:Resource</code>. 
+	    General metadata elements which can be used on every resource in a DDI-RDF description include:
+            </p>
+	  
+		  <ul>
+			<li><code>skos:prefLabel</code> (<code>rdf:langString</code>): the preferred label of this element</li>
+			<li><code>adms:identifier</code> (<code>rdfs:Resource</code>, <code>adms:Identifier</code>): the identifier of this element</li>
+			
+		  </ul>			
 			<p>
 			  Each Disco resource must have an identifier (see figure below). 
 			  The identifier is stated using the object property adms:identifier pointing from any rdfs:Ressource to 1 to n idetifiers (adms:Identifier).
@@ -1079,7 +1073,7 @@ ex:Study1 dcterms:subject [
 			</p>
 			
 			<div class="figure">
-			  <img src="diagrams/rdfs-resource.jpg" alt="Identification"/>
+			  <img src="diagrams/identification-versioning.jpg" alt="Identification"/>
 			</div>
 			
 	 </section>
