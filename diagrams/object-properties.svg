@@ -4,11 +4,12 @@
 <style type="text/css">
 .brush0 { fill: rgb(255,255,255); }
 .pen0 { stroke: rgb(0,0,0); stroke-width: 1; stroke-linejoin: round; }
-.font0 { font-weight: bold; font-size: 10px; font-family: Arial; }
-.font1 { font-weight: bold; font-size: 20px; font-family: System, sans-serif; }
-.font2 { font-size: 10px; font-family: Arial; }
-.brush1 { fill: rgb(225,225,225); }
-.font3 { font-style: italic; font-size: 10px; font-family: Arial; }
+.font0 { font-weight: bold; font-size: 10px; font-family: Calibri; }
+.font1 { font-weight: bold; font-size: 16px; font-family: System, sans-serif; }
+.font2 { font-size: 10px; font-family: Calibri; }
+.brush1 { fill: rgb(255,251,240); }
+.pen1 { stroke: rgb(255,251,240); stroke-width: 1; stroke-linejoin: round; }
+.font3 { font-style: italic; font-size: 10px; font-family: Calibri; }
 .brush2 { fill: rgb(0,0,0); }
 </style>
 <g>
@@ -16,99 +17,124 @@
 <line class="pen0" fill="none" x1="1" x2="1619" y1="983" y2="983"/>
 <line class="pen0" fill="none" x1="1619" x2="1619" y1="983" y2="1"/>
 <line class="pen0" fill="none" x1="1619" x2="1" y1="1" y2="1"/>
-<polygon class="pen0 brush0" points="1,23 140,23 153,9 153,1 1,1 1,23"/>
+<polygon class="pen0 brush0" points="1,23 131,23 144,9 144,1 1,1 1,23"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="132" x="6" y="4"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="6" xml:space="preserve" y="12"> </text>
+<rect fill="rgb(255,255,255)" height="10" width="123" x="6" y="4"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="6 11 14 20 25 30 33 40 47 50 57 62 67 71 78 83 90 97 104 109 114 117 124" xml:space="preserve" y="12">class object-properties</text>
 </g>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="6 13 16 23 30 37 40 47 54 57 64 71 75 79 86 91 98 105 112 117 121 124 131" xml:space="preserve" y="12">class object-properties</text>
-<rect class="pen0 brush1" height="28" width="114" x="736" y="570"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="769 777 784 789 792 799 806 809" xml:space="preserve" y="587">Variable</text>
-<rect class="pen0 brush1" height="28" width="109" x="25" y="527"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="54 63 70 77 84 88 91 98" xml:space="preserve" y="544">Question</text>
-<rect class="pen0 brush1" height="28" width="142" x="460" y="345"/>
-</g>
-<g>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="508 515 522 529 532 539 546" xml:space="preserve" y="359">«union»</text>
-</g>
-<g>
-<rect class="pen0 brush1" height="28" width="136" x="1223" y="472"/>
+<rect class="pen1 brush1" height="28" width="114" x="739" y="573"/>
+<rect class="pen0 brush0" height="28" width="114" x="736" y="570"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="770 778 784 789 792 798 805 808" xml:space="preserve" y="587">Variable</text>
+<rect class="pen1 brush1" height="28" width="109" x="28" y="530"/>
+<rect class="pen0 brush0" height="28" width="109" x="25" y="527"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="54 63 70 77 82 87 90 97" xml:space="preserve" y="544">Question</text>
+<rect class="pen1 brush1" height="28" width="142" x="463" y="348"/>
+<rect class="pen0 brush0" height="28" width="142" x="460" y="345"/>
 </g>
 <g>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1268 1275 1282 1289 1292 1299 1306" xml:space="preserve" y="486">«union»</text>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="508 515 522 529 533 540 547" xml:space="preserve" y="359">«union»</text>
 </g>
 <g>
-<rect class="pen0 brush1" height="28" width="124" x="282" y="167"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="313 316 323 330 334 339 346 357 364 371" xml:space="preserve" y="184">Instrument</text>
-<rect class="pen0 brush1" height="28" width="126" x="621" y="111"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="659 667 674 677 683 690 695 702" xml:space="preserve" y="128">Universe</text>
-<rect class="pen0 brush1" height="38" width="118" x="531" y="652"/>
-<text class="font3" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="577 584 590 597 600 603 612 619 622 629 635 642" xml:space="preserve" y="663">dcat:Dataset</text>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="547 554 561 568 571 578 585 588 596 603 607 614 622 629" xml:space="preserve" y="681">LogicalDataSet</text>
-<rect class="pen0 brush1" height="28" width="107" x="678" y="866"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="700 707 714 717 725 732 736 743 751 758" xml:space="preserve" y="883">qb:DataSet</text>
-<rect class="pen0 brush1" height="58" width="143" x="1033" y="901"/>
-<text class="font3" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1083 1090 1096 1103 1106 1109 1118 1121 1127 1130 1134 1137 1145 1152 1155 1158 1165" xml:space="preserve" y="912">dcat:Distribution</text>
-<text class="font3" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1083 1090 1096 1099 1106 1110 1121 1127 1130 1139 1146 1149 1156 1162 1169" xml:space="preserve" y="927">dcterms:Dataset</text>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1082 1090 1097 1101 1108 1114 1117 1120" xml:space="preserve" y="945">DataFile</text>
-<rect class="pen0 brush1" height="28" width="150" x="1077" y="639"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1102 1110 1117 1122 1125 1132 1139 1142 1149 1157 1164 1168 1171 1178 1181 1185 1188 1195" xml:space="preserve" y="656">VariableDefinition</text>
-<rect class="pen0 brush1" height="28" width="153" x="1344" y="923"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1361 1369 1376 1383 1390 1395 1398 1405 1409 1412 1418 1425 1433 1437 1444 1448 1451 1458 1462 1465 1472" xml:space="preserve" y="940">DescriptiveStatistics</text>
-<rect class="pen0 brush1" height="28" width="127" x="991" y="206"/>
-<text class="font3" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1038 1042 1049 1052 1058 1061 1070 1077 1083 1090 1097 1101 1107" xml:space="preserve" y="217">rdfs:Resource</text>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1015 1022 1029 1036 1043 1046 1054 1061 1068 1075 1082 1089" xml:space="preserve" y="235">skos:Concept</text>
-<rect class="pen0 brush1" height="33" width="147" x="1343" y="118"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1354 1361 1368 1375 1382 1385 1393 1400 1407 1414 1421 1428 1432 1440 1447 1454 1461 1472" xml:space="preserve" y="135">skos:ConceptScheme</text>
-<rect class="pen0 brush1" height="28" width="134" x="93" y="164"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="120 129 136 143 150 154 157 164 171 178 185 188 193" xml:space="preserve" y="181">Questionnaire</text>
-<rect class="pen0 brush1" height="28" width="90" x="847" y="350"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="857 865 872 879 882 888 895 898 905 913 920 923" xml:space="preserve" y="367">AnalysisUnit</text>
-<rect class="pen0 brush1" height="28" width="151" x="1213" y="817"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1234 1242 1249 1260 1271 1278 1283 1289 1297 1301 1308 1312 1315 1322 1326 1329 1336" xml:space="preserve" y="834">SummaryStatistics</text>
-<rect class="pen0 brush1" height="28" width="135" x="1460" y="817"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1475 1483 1490 1494 1501 1508 1515 1520 1526 1534 1538 1545 1549 1552 1559 1563 1566 1573" xml:space="preserve" y="834">CategoryStatistics</text>
-<rect class="pen0 brush1" height="28" width="89" x="1223" y="403"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1229 1234 1241 1245 1252 1255 1263 1270 1274 1281 1285 1291 1298" xml:space="preserve" y="420">rdfs:Datatype</text>
-<rect class="pen0 brush1" height="31" width="90" x="544" y="400"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="556 564 568 575 582 588 596 601 608 615" xml:space="preserve" y="417">StudyGroup</text>
-<rect class="pen0 brush1" height="31" width="84" x="421" y="491"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="447 455 459 466 473" xml:space="preserve" y="508">Study</text>
-<rect class="pen0 brush1" height="28" width="136" x="1223" y="540"/>
-<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1247 1255 1262 1269 1274 1281 1288 1295 1302 1306 1313 1317 1320 1327" xml:space="preserve" y="557">Representation</text>
+<rect class="pen1 brush1" height="28" width="136" x="1226" y="475"/>
+<rect class="pen0 brush0" height="28" width="136" x="1223" y="472"/>
+</g>
+<g>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1268 1275 1282 1289 1293 1300 1307" xml:space="preserve" y="486">«union»</text>
+</g>
+<g>
+<rect class="pen1 brush1" height="28" width="124" x="285" y="170"/>
+<rect class="pen0 brush0" height="28" width="124" x="282" y="167"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="313 316 323 328 333 338 345 356 363 370" xml:space="preserve" y="184">Instrument</text>
+<rect class="pen1 brush1" height="28" width="126" x="624" y="114"/>
+<rect class="pen0 brush0" height="28" width="126" x="621" y="111"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="660 668 675 678 684 691 696 701" xml:space="preserve" y="128">Universe</text>
+<rect class="pen1 brush1" height="38" width="118" x="534" y="655"/>
+<rect class="pen0 brush0" height="38" width="118" x="531" y="652"/>
+<text class="font3" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="578 585 590 597 601 604 612 619 623 630 635 641" xml:space="preserve" y="663">dcat:Dataset</text>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="550 556 563 569 572 577 583 586 594 600 605 611 617 624" xml:space="preserve" y="681">LogicalDataSet</text>
+<rect class="pen1 brush1" height="28" width="107" x="681" y="869"/>
+<rect class="pen0 brush0" height="28" width="107" x="678" y="866"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="701 708 715 719 727 733 738 744 750 757" xml:space="preserve" y="883">qb:DataSet</text>
+<rect class="pen1 brush1" height="58" width="143" x="1036" y="904"/>
+<rect class="pen0 brush0" height="58" width="143" x="1033" y="901"/>
+<text class="font3" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1084 1091 1096 1103 1107 1110 1118 1121 1126 1130 1134 1137 1144 1151 1155 1158 1165" xml:space="preserve" y="912">dcat:Distribution</text>
+<text class="font3" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1087 1094 1099 1103 1109 1113 1123 1128 1131 1139 1146 1150 1157 1162 1168" xml:space="preserve" y="927">dcterms:Dataset</text>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1082 1090 1096 1101 1107 1113 1116 1119" xml:space="preserve" y="945">DataFile</text>
+<rect class="pen1 brush1" height="28" width="150" x="1080" y="642"/>
+<rect class="pen0 brush0" height="28" width="150" x="1077" y="639"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1102 1110 1116 1121 1124 1130 1137 1140 1147 1155 1162 1166 1169 1176 1179 1184 1187 1194" xml:space="preserve" y="656">VariableDefinition</text>
+<rect class="pen1 brush1" height="28" width="153" x="1347" y="926"/>
+<rect class="pen0 brush0" height="28" width="153" x="1344" y="923"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1366 1374 1381 1386 1391 1396 1399 1406 1411 1414 1420 1427 1433 1438 1444 1449 1452 1457 1462 1465 1470" xml:space="preserve" y="940">DescriptiveStatistics</text>
+<rect class="pen1 brush1" height="39" width="129" x="994" y="209"/>
+<rect class="pen0 brush0" height="39" width="129" x="991" y="206"/>
+<text class="font3" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1046 1050 1057 1061 1066 1069 1076 1082 1087 1094 1101 1105 1110" xml:space="preserve" y="217">rdfs:Resource</text>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1019 1024 1030 1037 1042 1046 1053 1060 1067 1072 1079 1086" xml:space="preserve" y="235">skos:Concept</text>
+<rect class="pen1 brush1" height="33" width="147" x="1346" y="121"/>
+<rect class="pen0 brush0" height="33" width="147" x="1343" y="118"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1359 1364 1370 1377 1382 1386 1393 1400 1407 1412 1419 1426 1431 1437 1442 1449 1456 1467" xml:space="preserve" y="135">skos:ConceptScheme</text>
+<rect class="pen1 brush1" height="28" width="134" x="96" y="167"/>
+<rect class="pen0 brush0" height="28" width="134" x="93" y="164"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="121 130 137 144 149 154 157 164 171 178 184 187 192" xml:space="preserve" y="181">Questionnaire</text>
+<rect class="pen1 brush1" height="28" width="90" x="850" y="353"/>
+<rect class="pen0 brush0" height="28" width="90" x="847" y="350"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="859 867 874 880 883 889 894 897 902 910 917 920" xml:space="preserve" y="367">AnalysisUnit</text>
+<rect class="pen1 brush1" height="28" width="151" x="1216" y="820"/>
+<rect class="pen0 brush0" height="28" width="151" x="1213" y="817"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1238 1244 1251 1262 1273 1279 1284 1290 1296 1301 1307 1312 1315 1320 1325 1328 1333" xml:space="preserve" y="834">SummaryStatistics</text>
+<rect class="pen1 brush1" height="28" width="135" x="1463" y="820"/>
+<rect class="pen0 brush0" height="28" width="135" x="1460" y="817"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1479 1486 1492 1497 1504 1510 1517 1522 1528 1534 1539 1545 1550 1553 1558 1563 1566 1571" xml:space="preserve" y="834">CategoryStatistics</text>
+<rect class="pen1 brush1" height="28" width="89" x="1226" y="406"/>
+<rect class="pen0 brush0" height="28" width="89" x="1223" y="403"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1230 1235 1242 1246 1251 1255 1263 1269 1274 1280 1285 1291 1298" xml:space="preserve" y="420">rdfs:Datatype</text>
+<rect class="pen1 brush1" height="31" width="90" x="547" y="403"/>
+<rect class="pen0 brush0" height="31" width="90" x="544" y="400"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="556 562 567 574 581 587 595 600 607 614" xml:space="preserve" y="417">StudyGroup</text>
+<rect class="pen1 brush1" height="31" width="84" x="424" y="494"/>
+<rect class="pen0 brush0" height="31" width="84" x="421" y="491"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="447 453 458 465 472" xml:space="preserve" y="508">Study</text>
+<rect class="pen1 brush1" height="28" width="136" x="1226" y="543"/>
+<rect class="pen0 brush0" height="28" width="136" x="1223" y="540"/>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1248 1255 1262 1269 1274 1281 1286 1293 1300 1305 1311 1316 1319 1326" xml:space="preserve" y="557">Representation</text>
+<rect class="pen1 brush1" height="42" width="140" x="1412" y="475"/>
+<rect class="pen0 brush0" height="42" width="140" x="1409" y="472"/>
+<text class="font3" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1467 1472 1478 1485 1490 1493 1500 1507 1510 1513 1519 1524 1528 1531 1538" xml:space="preserve" y="483">skos:Collection</text>
+<text class="font0" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1415 1420 1426 1433 1438 1442 1451 1456 1463 1470 1475 1482 1489 1496 1503 1506 1509 1516 1521 1526 1529 1536" xml:space="preserve" y="501">skos:OrderedCollection</text>
 <line class="pen0" fill="none" x1="850" x2="1280" y1="598" y2="598"/>
 <line class="pen0" fill="none" x1="1280" x2="1280" y1="598" y2="568"/>
 <line class="pen0" fill="none" x1="1280" x2="1286" y1="568" y2="583"/>
 <line class="pen0" fill="none" x1="1280" x2="1274" y1="568" y2="583"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="850" y="615"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="850" y="615"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="850 857 860 863" xml:space="preserve" y="623">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="80" x="904" y="582"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="904 908 915 922 926 933 940 947 954 957 964 967 970 977" xml:space="preserve" y="590">representation</text>
+<rect fill="rgb(255,255,255)" height="10" width="81" x="904" y="582"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="904 909 915 922 927 933 939 945 952 956 963 967 971 978" xml:space="preserve" y="590">representation</text>
 </g>
-<polygon class="pen0 brush2" points="999,589 989,586 989,592"/>
+<polygon class="pen0 brush2" points="1000,589 990,586 990,592"/>
 <g>
 <rect fill="rgb(255,255,255)" height="10" width="7" x="1292" y="573"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1292" xml:space="preserve" y="581">1</text>
 </g>
-<line class="pen0" fill="none" x1="462" x2="462" y1="345" y2="139"/>
-<line class="pen0" fill="none" x1="462" x2="621" y1="139" y2="139"/>
-<line class="pen0" fill="none" x1="621" x2="606" y1="139" y2="145"/>
-<line class="pen0" fill="none" x1="621" x2="606" y1="139" y2="133"/>
+<line class="pen0" fill="none" x1="1108" x2="1107" y1="639" y2="603"/>
+<path class="pen0" d="M 1107.5662602512812,602.999600856344 A 5.5,5.5 0 0 0 1107.5078014105916,592.0000055329125" fill="none"/>
+<line class="pen0" fill="none" x1="1107" x2="1108" y1="592" y2="245"/>
+<line class="pen0" fill="none" x1="1108" x2="1114" y1="245" y2="260"/>
+<line class="pen0" fill="none" x1="1108" x2="1102" y1="245" y2="260"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="465" y="326"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="465 472 475 478" xml:space="preserve" y="334">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1111" y="620"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1111 1118 1121 1124" xml:space="preserve" y="628">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="47" x="484" y="172"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="484 491 498 501 506 513 517 524" xml:space="preserve" y="180">universe</text>
+<rect fill="rgb(255,255,255)" height="10" width="43" x="1058" y="395"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1058 1064 1071 1078 1084 1090 1097" xml:space="preserve" y="403">concept</text>
 </g>
-<polygon class="pen0 brush2" points="507,162 504,172 510,172"/>
+<polygon class="pen0 brush2" points="1079,385 1076,395 1082,395"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="584" y="119"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="584 591 594 597" xml:space="preserve" y="127">1..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="7" x="1119" y="254"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1119" xml:space="preserve" y="262">1</text>
 </g>
 <line class="pen0" fill="none" x1="1159" x2="1158" y1="639" y2="603"/>
 <path class="pen0" d="M 1158.5662602512812,602.999600856344 A 5.5,5.5 0 0 0 1158.505273247816,592.0000025279227" fill="none"/>
@@ -118,44 +144,44 @@
 <line class="pen0" fill="none" x1="685" x2="679" y1="111" y2="96"/>
 <line class="pen0" fill="none" x1="685" x2="691" y1="111" y2="96"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1162" y="620"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1162" y="620"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1162 1169 1172 1175" xml:space="preserve" y="628">0..*</text>
 </g>
 <g>
 <rect fill="rgb(255,255,255)" height="10" width="47" x="1163" y="389"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1163 1170 1177 1180 1185 1192 1196 1203" xml:space="preserve" y="397">universe</text>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1163 1170 1177 1181 1187 1193 1198 1204" xml:space="preserve" y="397">universe</text>
 </g>
 <polygon class="pen0 brush2" points="1186,379 1183,389 1189,389"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="693" y="91"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="693" y="91"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="693 700 703 706" xml:space="preserve" y="99">0..*</text>
 </g>
 <line class="pen0" fill="none" x1="774" x2="774" y1="866" y2="598"/>
 <line class="pen0" fill="none" x1="774" x2="780" y1="598" y2="613"/>
 <line class="pen0" fill="none" x1="774" x2="768" y1="598" y2="613"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="783" y="850"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="783" y="850"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="783 790 793 796" xml:space="preserve" y="858">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="72" x="696" y="820"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="696 699 706 713 720 723 730 737 741 744 751 758 761" xml:space="preserve" y="828">inputVariable</text>
+<rect fill="rgb(255,255,255)" height="10" width="76" x="694" y="820"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="694 698 705 712 719 723 730 737 742 746 753 760 764" xml:space="preserve" y="828">inputVariable</text>
 </g>
 <polygon class="pen0 brush2" points="732,810 729,820 735,820"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="809" y="616"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="809" y="616"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="809 816 819 822" xml:space="preserve" y="624">0..*</text>
 </g>
 <line class="pen0" fill="none" x1="646" x2="646" y1="652" y2="139"/>
 <line class="pen0" fill="none" x1="646" x2="652" y1="139" y2="154"/>
 <line class="pen0" fill="none" x1="646" x2="640" y1="139" y2="154"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="656" y="607"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="656" y="607"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="656 663 666 669" xml:space="preserve" y="615">0..*</text>
 </g>
 <g>
 <rect fill="rgb(255,255,255)" height="10" width="47" x="593" y="616"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="593 600 607 610 615 622 626 633" xml:space="preserve" y="624">universe</text>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="593 600 607 611 617 623 628 634" xml:space="preserve" y="624">universe</text>
 </g>
 <polygon class="pen0 brush2" points="616,606 613,616 619,616"/>
 <g>
@@ -167,50 +193,50 @@
 <line class="pen0" fill="none" x1="1033" x2="1018" y1="931" y2="937"/>
 <line class="pen0" fill="none" x1="1033" x2="1018" y1="931" y2="925"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="578" y="695"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="578" y="695"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="578 585 588 591" xml:space="preserve" y="703">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="44" x="780" y="913"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="780 787 794 797 804 811 814 817" xml:space="preserve" y="921">dataFile</text>
+<rect fill="rgb(255,255,255)" height="10" width="45" x="780" y="913"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="780 787 794 798 805 811 815 819" xml:space="preserve" y="921">dataFile</text>
 </g>
-<polygon class="pen0 brush2" points="839,920 829,917 829,923"/>
+<polygon class="pen0 brush2" points="840,920 830,917 830,923"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1008" y="938"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1008 1015 1018 1021" xml:space="preserve" y="946">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1007" y="938"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1007 1014 1017 1020" xml:space="preserve" y="946">0..*</text>
 </g>
 <line class="pen0" fill="none" x1="604" x2="604" y1="690" y2="881"/>
 <line class="pen0" fill="none" x1="604" x2="678" y1="881" y2="881"/>
 <line class="pen0" fill="none" x1="678" x2="663" y1="881" y2="887"/>
 <line class="pen0" fill="none" x1="678" x2="663" y1="881" y2="875"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="612" y="695"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="612" y="695"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="612 619 622 625" xml:space="preserve" y="703">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="66" x="611" y="720"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="611 618 625 632 636 643 650 657 660 663 670" xml:space="preserve" y="728">aggregation</text>
+<rect fill="rgb(255,255,255)" height="10" width="65" x="612" y="720"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="612 619 625 631 636 642 648 655 659 663 670" xml:space="preserve" y="728">aggregation</text>
 </g>
 <polygon class="pen0 brush2" points="644,745 641,735 647,735"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="657" y="886"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="657 664 667 670" xml:space="preserve" y="894">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="656" y="886"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="656 663 666 669" xml:space="preserve" y="894">0..*</text>
 </g>
 <line class="pen0" fill="none" x1="649" x2="740" y1="680" y2="680"/>
 <line class="pen0" fill="none" x1="740" x2="740" y1="680" y2="598"/>
 <line class="pen0" fill="none" x1="740" x2="746" y1="598" y2="613"/>
 <line class="pen0" fill="none" x1="740" x2="734" y1="598" y2="613"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="652" y="685"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="652" y="685"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="652 659 662 665" xml:space="preserve" y="693">1..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="92" x="657" y="661"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="657 663 670 677 680 687 690 697 704 711 718 722 725 732 739 742" xml:space="preserve" y="669">containsVariable</text>
+<rect fill="rgb(255,255,255)" height="10" width="95" x="656" y="661"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="656 662 669 676 680 687 691 698 704 711 718 723 727 734 741 745" xml:space="preserve" y="669">containsVariable</text>
 </g>
-<polygon class="pen0 brush2" points="764,668 754,665 754,671"/>
+<polygon class="pen0 brush2" points="766,668 756,665 756,671"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="748" y="617"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="748" y="617"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="748 755 758 761" xml:space="preserve" y="625">0..*</text>
 </g>
 <line class="pen0" fill="none" x1="531" x2="282" y1="679" y2="679"/>
@@ -218,113 +244,96 @@
 <line class="pen0" fill="none" x1="282" x2="288" y1="195" y2="210"/>
 <line class="pen0" fill="none" x1="282" x2="276" y1="195" y2="210"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="510" y="684"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="510 517 520 523" xml:space="preserve" y="692">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="509" y="684"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="509 516 519 522" xml:space="preserve" y="692">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="59" x="380" y="661"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="380 383 390 397 400 404 411 422 429 436" xml:space="preserve" y="669">instrument</text>
+<rect fill="rgb(255,255,255)" height="10" width="60" x="379" y="661"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="379 383 390 396 400 405 412 422 428 435" xml:space="preserve" y="669">instrument</text>
 </g>
 <polygon class="pen0 brush2" points="409,651 406,661 412,661"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="294" y="200"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="294" y="200"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="294 301 304 307" xml:space="preserve" y="208">0..*</text>
 </g>
-<line class="pen0" fill="none" x1="1227" x2="1226" y1="650" y2="603"/>
-<path class="pen0" d="M 1226.5523785769892,602.9997505838604 A 5.5,5.5 0 0 0 1226.5932069519881,592.0007898327032" fill="none"/>
-<line class="pen0" fill="none" x1="1226" x2="1227" y1="592" y2="568"/>
-<line class="pen0" fill="none" x1="1227" x2="1233" y1="568" y2="583"/>
-<line class="pen0" fill="none" x1="1227" x2="1221" y1="568" y2="583"/>
+<line class="pen0" fill="none" x1="462" x2="462" y1="345" y2="139"/>
+<line class="pen0" fill="none" x1="462" x2="621" y1="139" y2="139"/>
+<line class="pen0" fill="none" x1="621" x2="606" y1="139" y2="145"/>
+<line class="pen0" fill="none" x1="621" x2="606" y1="139" y2="133"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1230" y="655"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1230 1237 1240 1243" xml:space="preserve" y="663">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="465" y="326"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="465 472 475 478" xml:space="preserve" y="334">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="80" x="1228" y="614"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1228 1232 1239 1246 1250 1257 1264 1271 1278 1281 1288 1291 1294 1301" xml:space="preserve" y="622">representation</text>
+<rect fill="rgb(255,255,255)" height="10" width="47" x="484" y="172"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="484 491 498 502 508 514 519 525" xml:space="preserve" y="180">universe</text>
 </g>
-<polygon class="pen0 brush2" points="1268,604 1265,614 1271,614"/>
+<polygon class="pen0 brush2" points="507,162 504,172 510,172"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1239" y="573"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1239 1246 1249 1252" xml:space="preserve" y="581">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="583" y="119"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="583 590 593 596" xml:space="preserve" y="127">1..*</text>
 </g>
 <line class="pen0" fill="none" x1="850" x2="850" y1="578" y2="378"/>
 <line class="pen0" fill="none" x1="850" x2="856" y1="378" y2="393"/>
 <line class="pen0" fill="none" x1="850" x2="844" y1="378" y2="393"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="854" y="552"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="854" y="552"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="854 861 864 867" xml:space="preserve" y="560">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="68" x="859" y="466"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="859 866 873 880 883 888 895 898 905 914 921 924" xml:space="preserve" y="474">analysisUnit</text>
+<rect fill="rgb(255,255,255)" height="10" width="70" x="858" y="466"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="858 865 872 879 883 889 895 899 905 913 920 924" xml:space="preserve" y="474">analysisUnit</text>
 </g>
 <polygon class="pen0 brush2" points="893,456 890,466 896,466"/>
 <g>
 <rect fill="rgb(255,255,255)" height="10" width="20" x="862" y="383"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="862 869 872 875" xml:space="preserve" y="391">0..1</text>
 </g>
-<line class="pen0" fill="none" x1="1344" x2="1176" y1="935" y2="935"/>
-<line class="pen0" fill="none" x1="1176" x2="1191" y1="935" y2="929"/>
-<line class="pen0" fill="none" x1="1176" x2="1191" y1="935" y2="941"/>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1323" y="940"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1323 1330 1333 1336" xml:space="preserve" y="948">0..*</text>
-</g>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="95" x="1216" y="915"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1216 1223 1226 1233 1236 1239 1246 1249 1252 1258 1265 1274 1281 1284 1291 1298 1301 1304" xml:space="preserve" y="923">statisticsDataFile</text>
-</g>
-<polygon class="pen0 brush2" points="1201,922 1211,919 1211,925"/>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1179" y="940"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1179 1186 1189 1192" xml:space="preserve" y="948">0..*</text>
-</g>
 <line class="pen0" fill="none" x1="850" x2="850" y1="598" y2="643"/>
 <line class="pen0" fill="none" x1="850" x2="1077" y1="643" y2="643"/>
 <line class="pen0" fill="none" x1="1077" x2="1062" y1="643" y2="649"/>
 <line class="pen0" fill="none" x1="1077" x2="1062" y1="643" y2="637"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="852" y="581"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="852 859 862 865" xml:space="preserve" y="589">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="851" y="581"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="851 858 861 864" xml:space="preserve" y="589">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="51" x="916" y="626"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="916 923 930 937 944 951 960" xml:space="preserve" y="634">basedOn</text>
+<rect fill="rgb(255,255,255)" height="10" width="49" x="917" y="626"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="917 924 931 937 943 950 959" xml:space="preserve" y="634">basedOn</text>
 </g>
-<polygon class="pen0 brush2" points="982,633 972,630 972,636"/>
+<polygon class="pen0 brush2" points="981,633 971,630 971,636"/>
 <g>
 <rect fill="rgb(255,255,255)" height="10" width="20" x="1054" y="648"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1054 1061 1064 1067" xml:space="preserve" y="656">0..1</text>
 </g>
 <line class="pen0" fill="none" x1="850" x2="991" y1="570" y2="570"/>
-<line class="pen0" fill="none" x1="991" x2="991" y1="570" y2="234"/>
-<line class="pen0" fill="none" x1="991" x2="997" y1="234" y2="249"/>
-<line class="pen0" fill="none" x1="991" x2="985" y1="234" y2="249"/>
+<line class="pen0" fill="none" x1="991" x2="991" y1="570" y2="245"/>
+<line class="pen0" fill="none" x1="991" x2="997" y1="245" y2="260"/>
+<line class="pen0" fill="none" x1="991" x2="985" y1="245" y2="260"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="830" y="553"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="830" y="553"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="830 837 840 843" xml:space="preserve" y="561">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="43" x="902" y="552"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="902 908 915 922 928 935 942" xml:space="preserve" y="560">concept</text>
+<rect fill="rgb(255,255,255)" height="10" width="43" x="902" y="550"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="902 908 915 922 928 934 941" xml:space="preserve" y="558">concept</text>
 </g>
-<polygon class="pen0 brush2" points="923,542 920,552 926,552"/>
+<polygon class="pen0 brush2" points="923,540 920,550 926,550"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="7" x="1003" y="239"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1003" xml:space="preserve" y="247">1</text>
+<rect fill="rgb(255,255,255)" height="10" width="7" x="1003" y="250"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1003" xml:space="preserve" y="258">1</text>
 </g>
 <line class="pen0" fill="none" x1="800" x2="800" y1="570" y2="122"/>
 <line class="pen0" fill="none" x1="800" x2="747" y1="122" y2="122"/>
 <line class="pen0" fill="none" x1="747" x2="762" y1="122" y2="116"/>
 <line class="pen0" fill="none" x1="747" x2="762" y1="122" y2="128"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="803" y="551"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="803" y="551"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="803 810 813 816" xml:space="preserve" y="559">0..*</text>
 </g>
 <g>
 <rect fill="rgb(255,255,255)" height="10" width="47" x="748" y="456"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="748 755 762 765 770 777 781 788" xml:space="preserve" y="464">universe</text>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="748 755 762 766 772 778 783 789" xml:space="preserve" y="464">universe</text>
 </g>
 <polygon class="pen0 brush2" points="771,446 768,456 774,456"/>
 <g>
@@ -340,16 +349,16 @@
 <line class="pen0" fill="none" x1="78" x2="84" y1="555" y2="570"/>
 <line class="pen0" fill="none" x1="78" x2="72" y1="555" y2="570"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="713" y="597"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="713 720 723 726" xml:space="preserve" y="605">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="712" y="597"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="712 719 722 725" xml:space="preserve" y="605">0..*</text>
 </g>
 <g>
 <rect fill="rgb(255,255,255)" height="10" width="48" x="679" y="574"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="679 686 693 700 707 710 713 720" xml:space="preserve" y="582">question</text>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="679 686 693 699 705 709 713 720" xml:space="preserve" y="582">question</text>
 </g>
 <polygon class="pen0 brush2" points="664,581 674,578 674,584"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="90" y="560"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="90" y="560"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="90 97 100 103" xml:space="preserve" y="568">0..*</text>
 </g>
 <line class="pen0" fill="none" x1="131" x2="131" y1="527" y2="221"/>
@@ -365,29 +374,29 @@
 <line class="pen0" fill="none" x1="991" x2="976" y1="221" y2="227"/>
 <line class="pen0" fill="none" x1="991" x2="976" y1="221" y2="215"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="134" y="508"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="134" y="508"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="134 141 144 147" xml:space="preserve" y="516">0..*</text>
 </g>
 <g>
 <rect fill="rgb(255,255,255)" height="10" width="43" x="133" y="438"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="133 139 146 153 159 166 173" xml:space="preserve" y="446">concept</text>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="133 139 146 153 159 165 172" xml:space="preserve" y="446">concept</text>
 </g>
 <polygon class="pen0 brush2" points="191,445 181,442 181,448"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="970" y="226"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="970 977 980 983" xml:space="preserve" y="234">1..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="969" y="226"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="969 976 979 982" xml:space="preserve" y="234">1..*</text>
 </g>
 <line class="pen0" fill="none" x1="66" x2="66" y1="527" y2="112"/>
 <line class="pen0" fill="none" x1="66" x2="621" y1="112" y2="112"/>
 <line class="pen0" fill="none" x1="621" x2="606" y1="112" y2="118"/>
 <line class="pen0" fill="none" x1="621" x2="606" y1="112" y2="106"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="69" y="508"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="69" y="508"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="69 76 79 82" xml:space="preserve" y="516">0..*</text>
 </g>
 <g>
 <rect fill="rgb(255,255,255)" height="10" width="47" x="4" y="453"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="4 11 18 21 26 33 37 44" xml:space="preserve" y="461">universe</text>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="4 11 18 22 28 34 39 45" xml:space="preserve" y="461">universe</text>
 </g>
 <polygon class="pen0 brush2" points="66,460 56,457 56,463"/>
 <g>
@@ -404,23 +413,25 @@
 <path class="pen0" d="M 844.0000013429296,540.5038434651692 A 5.5,5.5 0 0 0 854.9999950717707,540.5073627778738" fill="none"/>
 <line class="pen0" fill="none" x1="855" x2="985" y1="540" y2="540"/>
 <path class="pen0" d="M 985.0000009371689,540.5032107408423 A 5.5,5.5 0 0 0 995.9999872818108,540.5118279296383" fill="none"/>
-<line class="pen0" fill="none" x1="996" x2="1153" y1="540" y2="540"/>
+<line class="pen0" fill="none" x1="996" x2="1102" y1="540" y2="540"/>
+<path class="pen0" d="M 1102.0000007254387,540.5028248583844 A 5.5,5.5 0 0 0 1112.9999484649586,540.5238093007141" fill="none"/>
+<line class="pen0" fill="none" x1="1113" x2="1153" y1="540" y2="540"/>
 <path class="pen0" d="M 1153.0000006550113,540.5026842358931 A 5.5,5.5 0 0 0 1163.9998347529556,540.5426343779299" fill="none"/>
 <line class="pen0" fill="none" x1="1164" x2="1223" y1="540" y2="541"/>
 <line class="pen0" fill="none" x1="1223" x2="1208" y1="541" y2="547"/>
 <line class="pen0" fill="none" x1="1223" x2="1208" y1="541" y2="535"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="137" y="546"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="137" y="546"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="137 144 147 150" xml:space="preserve" y="554">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="97" x="164" y="525"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="164 168 175 182 189 196 203 210 217 226 233 244 251 254" xml:space="preserve" y="533">responseDomain</text>
+<rect fill="rgb(255,255,255)" height="10" width="93" x="167" y="522"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="167 172 178 184 191 198 205 211 217 225 232 242 249 253" xml:space="preserve" y="530">responseDomain</text>
 </g>
-<polygon class="pen0 brush2" points="276,532 266,529 266,535"/>
+<polygon class="pen0 brush2" points="275,529 265,526 265,532"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1202" y="546"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1202 1209 1212 1215" xml:space="preserve" y="554">1..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1201" y="546"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1201 1208 1211 1214" xml:space="preserve" y="554">1..*</text>
 </g>
 <line class="pen0" fill="none" x1="501" x2="501" y1="345" y2="288"/>
 <line class="pen0" fill="none" x1="501" x2="640" y1="288" y2="287"/>
@@ -429,17 +440,17 @@
 <path class="pen0" d="M 794.0000077158383,287.5092127173939 A 5.5,5.5 0 0 0 804.9999812529505,287.514360264368" fill="none"/>
 <line class="pen0" fill="none" x1="805" x2="991" y1="287" y2="288"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="504" y="326"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="504" y="326"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="504 511 514 517" xml:space="preserve" y="334">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="88" x="524" y="268"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="524 531 537 540 547 551 562 569 572 579 586 593 596 603 609" xml:space="preserve" y="276">dcterms:subject</text>
+<rect fill="rgb(255,255,255)" height="10" width="87" x="525" y="268"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="525 532 538 542 548 553 563 569 572 578 585 592 596 602 608" xml:space="preserve" y="276">dcterms:subject</text>
 </g>
 <polygon class="pen0 brush2" points="627,275 617,272 617,278"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1003" y="239"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1003 1010 1013 1016" xml:space="preserve" y="247">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1003" y="250"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1003 1010 1013 1016" xml:space="preserve" y="258">0..*</text>
 </g>
 <line class="pen0" fill="none" x1="532" x2="532" y1="345" y2="321"/>
 <line class="pen0" fill="none" x1="532" x2="640" y1="321" y2="320"/>
@@ -448,64 +459,66 @@
 <path class="pen0" d="M 794.0000096078008,320.51028035587325 A 5.5,5.5 0 0 0 804.9999812529505,320.514360264368" fill="none"/>
 <line class="pen0" fill="none" x1="805" x2="991" y1="320" y2="321"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="535" y="326"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="535" y="326"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="535 542 545 548" xml:space="preserve" y="334">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="61" x="552" y="304"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="552 558 561 568 575 584 587 596 603 606" xml:space="preserve" y="312">kindOfData</text>
+<rect fill="rgb(255,255,255)" height="10" width="63" x="551" y="304"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="551 557 561 568 575 584 588 596 603 607" xml:space="preserve" y="312">kindOfData</text>
 </g>
-<polygon class="pen0 brush2" points="628,311 618,308 618,314"/>
+<polygon class="pen0 brush2" points="629,311 619,308 619,314"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="20" x="968" y="243"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="968 975 978 981" xml:space="preserve" y="251">0..1</text>
+<rect fill="rgb(255,255,255)" height="10" width="20" x="1003" y="254"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1003 1010 1013 1016" xml:space="preserve" y="262">0..1</text>
 </g>
-<line class="pen0" fill="none" x1="602" x2="640" y1="357" y2="356"/>
-<path class="pen0" d="M 640.0003632880879,356.5632142150794 A 5.5,5.5 0 0 0 650.999983067519,356.51364760066383" fill="none"/>
-<line class="pen0" fill="none" x1="651" x2="794" y1="356" y2="356"/>
-<path class="pen0" d="M 794.0000176252959,356.5139240060119 A 5.5,5.5 0 0 0 804.9996953161785,356.557891529644" fill="none"/>
-<line class="pen0" fill="none" x1="805" x2="847" y1="356" y2="357"/>
-<line class="pen0" fill="none" x1="847" x2="832" y1="357" y2="363"/>
-<line class="pen0" fill="none" x1="847" x2="832" y1="357" y2="351"/>
+<line class="pen0" fill="none" x1="602" x2="640" y1="359" y2="358"/>
+<path class="pen0" d="M 640.0003632880879,358.5632142150794 A 5.5,5.5 0 0 0 650.999983067519,358.51364760066383" fill="none"/>
+<line class="pen0" fill="none" x1="651" x2="794" y1="358" y2="358"/>
+<path class="pen0" d="M 794.0000176252959,358.5139240060119 A 5.5,5.5 0 0 0 804.9996953161785,358.557891529644" fill="none"/>
+<line class="pen0" fill="none" x1="805" x2="847" y1="358" y2="359"/>
+<line class="pen0" fill="none" x1="847" x2="832" y1="359" y2="365"/>
+<line class="pen0" fill="none" x1="847" x2="832" y1="359" y2="353"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="605" y="362"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="605 612 615 618" xml:space="preserve" y="370">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="605" y="364"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="605 612 615 618" xml:space="preserve" y="372">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="68" x="693" y="341"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="693 700 707 714 717 722 729 732 739 748 755 758" xml:space="preserve" y="349">analysisUnit</text>
+<rect fill="rgb(255,255,255)" height="10" width="70" x="693" y="337"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="693 700 707 714 718 724 730 734 740 748 755 759" xml:space="preserve" y="345">analysisUnit</text>
 </g>
-<polygon class="pen0 brush2" points="776,348 766,345 766,351"/>
+<polygon class="pen0 brush2" points="778,344 768,341 768,347"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="20" x="824" y="362"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="824 831 834 837" xml:space="preserve" y="370">0..1</text>
+<rect fill="rgb(255,255,255)" height="10" width="20" x="824" y="364"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="824 831 834 837" xml:space="preserve" y="372">0..1</text>
 </g>
 <line class="pen0" fill="none" x1="747" x2="794" y1="139" y2="138"/>
 <path class="pen0" d="M 794.0002494161396,138.55237857698916 A 5.5,5.5 0 0 0 804.9999865990773,138.51214125077058" fill="none"/>
 <line class="pen0" fill="none" x1="805" x2="1026" y1="138" y2="139"/>
 <line class="pen0" fill="none" x1="1026" x2="1026" y1="139" y2="206"/>
-<polygon class="pen0 brush1" points="1020,190 1032,190 1026,206"/>
-<line class="pen0" fill="none" x1="505" x2="640" y1="515" y2="514"/>
-<path class="pen0" d="M 640.000034826989,514.5195728297972 A 5.5,5.5 0 0 0 650.9999213606045,514.5294113441744" fill="none"/>
-<line class="pen0" fill="none" x1="651" x2="739" y1="514" y2="515"/>
-<line class="pen0" fill="none" x1="739" x2="738" y1="515" y2="535"/>
-<path class="pen0" d="M 738.6078224121394,535.001056980888 A 5.5,5.5 0 1 0 738.5932069519881,545.9992101672968" fill="none"/>
-<line class="pen0" fill="none" x1="738" x2="739" y1="546" y2="570"/>
-<line class="pen0" fill="none" x1="739" x2="733" y1="570" y2="555"/>
-<line class="pen0" fill="none" x1="739" x2="745" y1="570" y2="555"/>
+<polygon class="pen0 brush0" points="1020,190 1032,190 1026,206"/>
+<line class="pen0" fill="none" x1="479" x2="479" y1="491" y2="430"/>
+<line class="pen0" fill="none" x1="479" x2="544" y1="430" y2="430"/>
+<line class="pen0" fill="none" x1="544" x2="529" y1="430" y2="436"/>
+<line class="pen0" fill="none" x1="544" x2="529" y1="430" y2="424"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="508" y="520"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="508 515 518 521" xml:space="preserve" y="528">1..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="485" y="469"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="485 492 495 498" xml:space="preserve" y="477">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="43" x="669" y="500"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="669 674 681 685 688 695 702 705" xml:space="preserve" y="508">variable</text>
+<rect fill="rgb(255,255,255)" height="10" width="45" x="482" y="410"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="482 486 493 501 506 513 520" xml:space="preserve" y="418">inGroup</text>
 </g>
-<polygon class="pen0 brush2" points="727,507 717,504 717,510"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="747" y="550"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="747 754 757 760" xml:space="preserve" y="558">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="20" x="510" y="436"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="510 517 520 523" xml:space="preserve" y="444">0..1</text>
 </g>
+<line class="pen0" fill="none" x1="1359" x2="1366" y1="487" y2="487"/>
+<line class="pen0" fill="none" x1="1370" x2="1377" y1="487" y2="487"/>
+<line class="pen0" fill="none" x1="1381" x2="1388" y1="487" y2="487"/>
+<line class="pen0" fill="none" x1="1392" x2="1399" y1="487" y2="487"/>
+<line class="pen0" fill="none" x1="1403" x2="1409" y1="487" y2="487"/>
+<line class="pen0" fill="none" x1="1359" x2="1374" y1="487" y2="482"/>
+<line class="pen0" fill="none" x1="1359" x2="1374" y1="487" y2="492"/>
 <line class="pen0" fill="none" x1="1267" x2="1267" y1="472" y2="465"/>
 <line class="pen0" fill="none" x1="1267" x2="1267" y1="461" y2="454"/>
 <line class="pen0" fill="none" x1="1267" x2="1267" y1="450" y2="443"/>
@@ -513,81 +526,45 @@
 <line class="pen0" fill="none" x1="1267" x2="1262" y1="472" y2="457"/>
 <line class="pen0" fill="none" x1="1267" x2="1272" y1="472" y2="457"/>
 <line class="pen0" fill="none" x1="1478" x2="1478" y1="845" y2="923"/>
-<polygon class="pen0 brush1" points="1472,907 1484,907 1478,923"/>
-<line class="pen0" fill="none" x1="1497" x2="1497" y1="817" y2="234"/>
-<line class="pen0" fill="none" x1="1497" x2="1164" y1="234" y2="233"/>
-<path class="pen0" d="M 1163.9999939999532,233.50812406794677 A 5.5,5.5 0 1 0 1153.0004190955162,233.56789606054917" fill="none"/>
-<line class="pen0" fill="none" x1="1153" x2="1118" y1="233" y2="234"/>
-<line class="pen0" fill="none" x1="1118" x2="1133" y1="234" y2="228"/>
-<line class="pen0" fill="none" x1="1118" x2="1133" y1="234" y2="240"/>
+<polygon class="pen0 brush0" points="1472,907 1484,907 1478,923"/>
+<line class="pen0" fill="none" x1="1564" x2="1564" y1="817" y2="225"/>
+<line class="pen0" fill="none" x1="1564" x2="1164" y1="225" y2="224"/>
+<path class="pen0" d="M 1163.9999958189005,224.5067817457693 A 5.5,5.5 0 1 0 1153.0004637632287,224.5714225485295" fill="none"/>
+<line class="pen0" fill="none" x1="1153" x2="1120" y1="224" y2="225"/>
+<line class="pen0" fill="none" x1="1120" x2="1135" y1="225" y2="219"/>
+<line class="pen0" fill="none" x1="1120" x2="1135" y1="225" y2="231"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1500" y="798"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1500 1507 1510 1513" xml:space="preserve" y="806">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1571" y="797"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1571 1578 1581 1584" xml:space="preserve" y="805">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="98" x="1389" y="731"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1389 1396 1399 1406 1409 1412 1419 1422 1425 1431 1438 1447 1454 1457 1464 1471 1478 1482" xml:space="preserve" y="739">statisticsCategory</text>
+<rect fill="rgb(255,255,255)" height="10" width="99" x="1453" y="730"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1453 1459 1463 1470 1474 1478 1484 1488 1492 1498 1504 1511 1518 1522 1528 1534 1541 1546" xml:space="preserve" y="738">statisticsCategory</text>
 </g>
-<polygon class="pen0 brush2" points="1438,721 1435,731 1441,731"/>
+<polygon class="pen0 brush2" points="1502,720 1499,730 1505,730"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1115" y="258"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1115 1122 1125 1128" xml:space="preserve" y="266">0..*</text>
-</g>
-<line class="pen0" fill="none" x1="1485" x2="971" y1="817" y2="644"/>
-<path class="pen0" d="M 971.7127096262294,644.2543256119133 A 5.5,5.5 0 1 0 961.2861901654292,640.7489468857478" fill="none"/>
-<line class="pen0" fill="none" x1="961" x2="834" y1="640" y2="598"/>
-<line class="pen0" fill="none" x1="834" x2="850" y1="598" y2="597"/>
-<line class="pen0" fill="none" x1="834" x2="846" y1="598" y2="608"/>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1488" y="798"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1488 1495 1498 1501" xml:space="preserve" y="806">0..*</text>
-</g>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="63" x="1129" y="692"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1129 1138 1145 1148 1155 1162 1165 1172 1179 1187" xml:space="preserve" y="700">weightedBy</text>
-</g>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="20" x="846" y="603"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="846 853 856 859" xml:space="preserve" y="611">0..1</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1122" y="234"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1122 1129 1132 1135" xml:space="preserve" y="242">0..*</text>
 </g>
 <line class="pen0" fill="none" x1="1213" x2="805" y1="830" y2="830"/>
 <line class="pen0" fill="none" x1="805" x2="805" y1="830" y2="598"/>
 <line class="pen0" fill="none" x1="805" x2="811" y1="598" y2="613"/>
 <line class="pen0" fill="none" x1="805" x2="799" y1="598" y2="613"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1192" y="835"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1192 1199 1202 1205" xml:space="preserve" y="843">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1191" y="835"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1191 1198 1201 1204" xml:space="preserve" y="843">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="94" x="1079" y="807"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1079 1086 1089 1096 1099 1102 1109 1112 1115 1121 1128 1135 1142 1146 1149 1156 1163 1166" xml:space="preserve" y="815">statisticsVariable</text>
+<rect fill="rgb(255,255,255)" height="10" width="98" x="1077" y="807"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1077 1083 1087 1094 1098 1102 1108 1112 1116 1122 1128 1135 1142 1147 1151 1158 1165 1169" xml:space="preserve" y="815">statisticsVariable</text>
 </g>
-<polygon class="pen0 brush2" points="1064,814 1074,811 1074,817"/>
+<polygon class="pen0 brush2" points="1062,814 1072,811 1072,817"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="782" y="616"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="782 789 792 795" xml:space="preserve" y="624">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="781" y="616"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="781 788 791 794" xml:space="preserve" y="624">0..*</text>
 </g>
 <line class="pen0" fill="none" x1="1354" x2="1354" y1="845" y2="923"/>
-<polygon class="pen0 brush1" points="1348,907 1360,907 1354,923"/>
-<line class="pen0" fill="none" x1="1259" x2="915" y1="817" y2="644"/>
-<path class="pen0" d="M 915.4179375679734,644.9624967162449 A 5.5,5.5 0 1 0 905.5751601452214,640.0513366085179" fill="none"/>
-<line class="pen0" fill="none" x1="905" x2="854" y1="640" y2="613"/>
-<path class="pen0" d="M 854.4157430008453,613.9668746927318 A 5.5,5.5 0 1 0 844.5294418860856,609.1455251039353" fill="none"/>
-<line class="pen0" fill="none" x1="844" x2="821" y1="609" y2="598"/>
-<line class="pen0" fill="none" x1="821" x2="837" y1="598" y2="599"/>
-<line class="pen0" fill="none" x1="821" x2="832" y1="598" y2="610"/>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1262" y="798"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1262 1269 1272 1275" xml:space="preserve" y="806">0..*</text>
-</g>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="63" x="1009" y="692"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1009 1018 1025 1028 1035 1042 1045 1052 1059 1067" xml:space="preserve" y="700">weightedBy</text>
-</g>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="20" x="833" y="603"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="833 840 843 846" xml:space="preserve" y="611">0..1</text>
-</g>
+<polygon class="pen0 brush0" points="1348,907 1360,907 1354,923"/>
 <line class="pen0" fill="none" x1="460" x2="460" y1="373" y2="380"/>
 <line class="pen0" fill="none" x1="460" x2="460" y1="384" y2="391"/>
 <line class="pen0" fill="none" x1="460" x2="460" y1="395" y2="402"/>
@@ -616,87 +593,98 @@
 <path class="pen0" d="M 1038.5258213116756,592.0000606130737 A 5.5,5.5 0 1 0 1038.509060943223,602.9999925362956" fill="none"/>
 <line class="pen0" fill="none" x1="1038" x2="1038" y1="603" y2="637"/>
 <path class="pen0" d="M 1038.518151716326,637.0000299532458 A 5.5,5.5 0 1 0 1038.510638277972,647.9999897115397" fill="none"/>
-<line class="pen0" fill="none" x1="1038" x2="1038" y1="648" y2="660"/>
-<path class="pen0" d="M 1038.5157592476285,660.0000225776723 A 5.5,5.5 0 1 0 1038.5116772560589,670.9999876037762" fill="none"/>
-<line class="pen0" fill="none" x1="1038" x2="1038" y1="671" y2="701"/>
-<path class="pen0" d="M 1038.5127609865337,701.0000148039088 A 5.5,5.5 0 1 0 1038.5141387707629,711.9999818268028" fill="none"/>
-<line class="pen0" fill="none" x1="1038" x2="1038" y1="712" y2="824"/>
+<line class="pen0" fill="none" x1="1038" x2="1038" y1="648" y2="824"/>
 <path class="pen0" d="M 1038.5081240679467,824.0000060000469 A 5.5,5.5 0 1 0 1038.53846059807,834.9998655240283" fill="none"/>
 <line class="pen0" fill="none" x1="1038" x2="1039" y1="835" y2="901"/>
 <line class="pen0" fill="none" x1="1039" x2="1033" y1="901" y2="886"/>
 <line class="pen0" fill="none" x1="1039" x2="1045" y1="901" y2="886"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="508" y="496"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="508" y="496"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="508 515 518 521" xml:space="preserve" y="504">1..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="44" x="683" y="467"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="683 690 697 700 707 714 717 720" xml:space="preserve" y="475">dataFile</text>
+<rect fill="rgb(255,255,255)" height="10" width="45" x="683" y="467"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="683 690 697 701 708 714 718 722" xml:space="preserve" y="475">dataFile</text>
 </g>
-<polygon class="pen0 brush2" points="742,474 732,471 732,477"/>
+<polygon class="pen0 brush2" points="743,474 733,471 733,477"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1043" y="848"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1043" y="848"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1043 1050 1053 1056" xml:space="preserve" y="856">0..*</text>
 </g>
-<line class="pen0" fill="none" x1="469" x2="468" y1="522" y2="535"/>
-<path class="pen0" d="M 468.64859438741354,535.0020076656994 A 5.5,5.5 0 1 0 468.52422883979193,545.9999466327704" fill="none"/>
-<line class="pen0" fill="none" x1="468" x2="468" y1="546" y2="588"/>
-<path class="pen0" d="M 468.5384605980701,588.0001344759717 A 5.5,5.5 0 1 0 468.54545299323075,598.9998121809209" fill="none"/>
-<line class="pen0" fill="none" x1="468" x2="469" y1="599" y2="654"/>
-<line class="pen0" fill="none" x1="469" x2="531" y1="654" y2="654"/>
-<line class="pen0" fill="none" x1="531" x2="516" y1="654" y2="660"/>
-<line class="pen0" fill="none" x1="531" x2="516" y1="654" y2="648"/>
+<line class="pen0" fill="none" x1="1227" x2="1226" y1="650" y2="603"/>
+<path class="pen0" d="M 1226.5523785769892,602.9997505838604 A 5.5,5.5 0 0 0 1226.5932069519881,592.0007898327032" fill="none"/>
+<line class="pen0" fill="none" x1="1226" x2="1227" y1="592" y2="568"/>
+<line class="pen0" fill="none" x1="1227" x2="1233" y1="568" y2="583"/>
+<line class="pen0" fill="none" x1="1227" x2="1221" y1="568" y2="583"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="474" y="543"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="474 481 484 487" xml:space="preserve" y="551">1..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1230" y="655"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1230 1237 1240 1243" xml:space="preserve" y="663">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="41" x="420" y="559"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="420 427 431 438 445 452 458" xml:space="preserve" y="567">product</text>
+<rect fill="rgb(255,255,255)" height="10" width="81" x="1228" y="614"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1228 1233 1239 1246 1251 1257 1263 1269 1276 1280 1287 1291 1295 1302" xml:space="preserve" y="622">representation</text>
 </g>
-<polygon class="pen0 brush2" points="440,584 437,574 443,574"/>
+<polygon class="pen0 brush2" points="1268,604 1265,614 1271,614"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="510" y="659"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="510 517 520 523" xml:space="preserve" y="667">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1239" y="573"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1239 1246 1249 1252" xml:space="preserve" y="581">0..*</text>
 </g>
-<line class="pen0" fill="none" x1="1108" x2="1107" y1="639" y2="603"/>
-<path class="pen0" d="M 1107.5662602512812,602.999600856344 A 5.5,5.5 0 0 0 1107.5075653298445,592.000005203113" fill="none"/>
-<line class="pen0" fill="none" x1="1107" x2="1107" y1="592" y2="546"/>
-<path class="pen0" d="M 1107.527918422038,545.9999291415172 A 5.5,5.5 0 0 0 1107.508972255598,535.0000073183113" fill="none"/>
-<line class="pen0" fill="none" x1="1107" x2="1108" y1="535" y2="234"/>
-<line class="pen0" fill="none" x1="1108" x2="1114" y1="234" y2="249"/>
-<line class="pen0" fill="none" x1="1108" x2="1102" y1="234" y2="249"/>
+<line class="pen0" fill="none" x1="421" x2="393" y1="505" y2="505"/>
+<line class="pen0" fill="none" x1="393" x2="392" y1="505" y2="226"/>
+<path class="pen0" d="M 392.50966606591584,225.99999150609978 A 5.5,5.5 0 0 0 392.60782241213946,215.00105698088802" fill="none"/>
+<line class="pen0" fill="none" x1="392" x2="393" y1="215" y2="195"/>
+<line class="pen0" fill="none" x1="393" x2="399" y1="195" y2="210"/>
+<line class="pen0" fill="none" x1="393" x2="387" y1="195" y2="210"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1111" y="620"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1111 1118 1121 1124" xml:space="preserve" y="628">0..*</text>
-</g>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="43" x="1058" y="390"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1058 1064 1071 1078 1084 1091 1098" xml:space="preserve" y="398">concept</text>
-</g>
-<polygon class="pen0 brush2" points="1079,380 1076,390 1082,390"/>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="7" x="1120" y="239"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1120" xml:space="preserve" y="247">1</text>
-</g>
-<line class="pen0" fill="none" x1="479" x2="479" y1="491" y2="430"/>
-<line class="pen0" fill="none" x1="479" x2="544" y1="430" y2="430"/>
-<line class="pen0" fill="none" x1="544" x2="529" y1="430" y2="436"/>
-<line class="pen0" fill="none" x1="544" x2="529" y1="430" y2="424"/>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="485" y="469"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="485 492 495 498" xml:space="preserve" y="477">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="7" x="406" y="483"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="406" xml:space="preserve" y="491">1</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="44" x="482" y="410"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="482 485 492 501 505 512 519" xml:space="preserve" y="418">inGroup</text>
+<rect fill="rgb(255,255,255)" height="10" width="60" x="323" y="430"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="323 327 334 340 344 349 356 366 372 379" xml:space="preserve" y="438">instrument</text>
+</g>
+<polygon class="pen0 brush2" points="353,420 350,430 356,430"/>
+<g>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="405" y="200"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="405 412 415 418" xml:space="preserve" y="208">0..*</text>
+</g>
+<line class="pen0" fill="none" x1="1344" x2="1176" y1="935" y2="935"/>
+<line class="pen0" fill="none" x1="1176" x2="1191" y1="935" y2="929"/>
+<line class="pen0" fill="none" x1="1176" x2="1191" y1="935" y2="941"/>
+<g>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1322" y="940"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1322 1329 1332 1335" xml:space="preserve" y="948">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="20" x="510" y="436"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="510 517 520 523" xml:space="preserve" y="444">0..1</text>
+<rect fill="rgb(255,255,255)" height="10" width="97" x="1215" y="915"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1215 1221 1225 1232 1236 1240 1246 1250 1254 1260 1266 1274 1281 1285 1292 1298 1302 1306" xml:space="preserve" y="923">statisticsDataFile</text>
 </g>
-<line class="pen0" fill="none" x1="1291" x2="1291" y1="540" y2="500"/>
-<polygon class="pen0 brush1" points="1297,516 1285,516 1291,500"/>
+<polygon class="pen0 brush2" points="1200,922 1210,919 1210,925"/>
+<g>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1179" y="940"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1179 1186 1189 1192" xml:space="preserve" y="948">0..*</text>
+</g>
+<line class="pen0" fill="none" x1="505" x2="640" y1="515" y2="514"/>
+<path class="pen0" d="M 640.000034826989,514.5195728297972 A 5.5,5.5 0 0 0 650.9999213606045,514.5294113441744" fill="none"/>
+<line class="pen0" fill="none" x1="651" x2="739" y1="514" y2="515"/>
+<line class="pen0" fill="none" x1="739" x2="738" y1="515" y2="535"/>
+<path class="pen0" d="M 738.6078224121394,535.001056980888 A 5.5,5.5 0 1 0 738.5932069519881,545.9992101672968" fill="none"/>
+<line class="pen0" fill="none" x1="738" x2="739" y1="546" y2="570"/>
+<line class="pen0" fill="none" x1="739" x2="733" y1="570" y2="555"/>
+<line class="pen0" fill="none" x1="739" x2="745" y1="570" y2="555"/>
+<g>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="508" y="520"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="508 515 518 521" xml:space="preserve" y="528">1..*</text>
+</g>
+<g>
+<rect fill="rgb(255,255,255)" height="10" width="46" x="668" y="496"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="668 674 681 686 690 697 704 708" xml:space="preserve" y="504">variable</text>
+</g>
+<polygon class="pen0 brush2" points="729,503 719,500 719,506"/>
+<g>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="747" y="550"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="747 754 757 760" xml:space="preserve" y="558">0..*</text>
+</g>
 <line class="pen0" fill="none" x1="573" x2="573" y1="373" y2="380"/>
 <line class="pen0" fill="none" x1="573" x2="573" y1="384" y2="391"/>
 <line class="pen0" fill="none" x1="573" x2="573" y1="395" y2="400"/>
@@ -712,73 +700,73 @@
 <line class="pen0" fill="none" x1="1057" x2="1051" y1="206" y2="191"/>
 <line class="pen0" fill="none" x1="1057" x2="1063" y1="206" y2="191"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="161" y="145"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="161" y="145"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="161 168 171 174" xml:space="preserve" y="153">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="82" x="170" y="30"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="170 176 183 186 189 196 202 205 208 215 222 231 238 245" xml:space="preserve" y="38">collectionMode</text>
+<rect fill="rgb(255,255,255)" height="10" width="86" x="168" y="30"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="168 174 181 185 189 195 201 205 209 216 223 234 241 248" xml:space="preserve" y="38">collectionMode</text>
 </g>
-<polygon class="pen0 brush2" points="267,37 257,34 257,40"/>
+<polygon class="pen0 brush2" points="269,37 259,34 259,40"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1065" y="186"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1065" y="186"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1065 1072 1075 1078" xml:space="preserve" y="194">1..*</text>
 </g>
 <line class="pen0" fill="none" x1="227" x2="282" y1="179" y2="179"/>
-<polygon class="pen0 brush1" points="266,185 266,173 282,179"/>
+<polygon class="pen0 brush0" points="266,185 266,173 282,179"/>
 <line class="pen0" fill="none" x1="96" x2="96" y1="192" y2="527"/>
 <line class="pen0" fill="none" x1="96" x2="90" y1="527" y2="512"/>
 <line class="pen0" fill="none" x1="96" x2="102" y1="527" y2="512"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="104" y="197"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="104" y="197"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="104 111 114 117" xml:space="preserve" y="205">0..*</text>
 </g>
 <g>
 <rect fill="rgb(255,255,255)" height="10" width="48" x="72" y="344"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="72 79 86 93 100 103 106 113" xml:space="preserve" y="352">question</text>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="72 79 86 92 98 102 106 113" xml:space="preserve" y="352">question</text>
 </g>
 <polygon class="pen0 brush2" points="96,369 93,359 99,359"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="104" y="507"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="104" y="507"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="104 111 114 117" xml:space="preserve" y="515">1..*</text>
 </g>
-<line class="pen0" fill="none" x1="937" x2="985" y1="350" y2="349"/>
-<path class="pen0" d="M 985.0002401799167,349.55139962448675 A 5.5,5.5 0 0 0 995.9998397599312,349.5419835096178" fill="none"/>
-<line class="pen0" fill="none" x1="996" x2="1056" y1="349" y2="350"/>
-<line class="pen0" fill="none" x1="1056" x2="1056" y1="350" y2="234"/>
-<polygon class="pen0 brush1" points="1062,250 1050,250 1056,234"/>
-<line class="pen0" fill="none" x1="1295" x2="1297" y1="472" y2="465"/>
-<line class="pen0" fill="none" x1="1298" x2="1301" y1="461" y2="454"/>
-<line class="pen0" fill="none" x1="1302" x2="1305" y1="450" y2="443"/>
-<line class="pen0" fill="none" x1="1306" x2="1309" y1="439" y2="432"/>
-<line class="pen0" fill="none" x1="1310" x2="1313" y1="428" y2="421"/>
-<line class="pen0" fill="none" x1="1314" x2="1317" y1="417" y2="410"/>
-<line class="pen0" fill="none" x1="1318" x2="1320" y1="406" y2="399"/>
-<line class="pen0" fill="none" x1="1322" x2="1324" y1="395" y2="388"/>
-<line class="pen0" fill="none" x1="1326" x2="1328" y1="384" y2="377"/>
-<line class="pen0" fill="none" x1="1330" x2="1332" y1="373" y2="366"/>
-<line class="pen0" fill="none" x1="1334" x2="1336" y1="362" y2="355"/>
-<line class="pen0" fill="none" x1="1337" x2="1340" y1="351" y2="344"/>
-<line class="pen0" fill="none" x1="1341" x2="1344" y1="340" y2="333"/>
-<line class="pen0" fill="none" x1="1345" x2="1348" y1="329" y2="322"/>
-<line class="pen0" fill="none" x1="1349" x2="1352" y1="318" y2="311"/>
-<line class="pen0" fill="none" x1="1353" x2="1356" y1="307" y2="300"/>
-<line class="pen0" fill="none" x1="1357" x2="1359" y1="296" y2="289"/>
-<line class="pen0" fill="none" x1="1361" x2="1363" y1="285" y2="278"/>
-<line class="pen0" fill="none" x1="1365" x2="1367" y1="274" y2="267"/>
-<line class="pen0" fill="none" x1="1369" x2="1371" y1="263" y2="256"/>
-<line class="pen0" fill="none" x1="1373" x2="1375" y1="252" y2="245"/>
-<line class="pen0" fill="none" x1="1377" x2="1379" y1="241" y2="234"/>
-<line class="pen0" fill="none" x1="1380" x2="1383" y1="230" y2="223"/>
-<line class="pen0" fill="none" x1="1384" x2="1387" y1="219" y2="212"/>
-<line class="pen0" fill="none" x1="1388" x2="1391" y1="208" y2="201"/>
-<line class="pen0" fill="none" x1="1392" x2="1395" y1="197" y2="190"/>
-<line class="pen0" fill="none" x1="1396" x2="1399" y1="186" y2="179"/>
-<line class="pen0" fill="none" x1="1400" x2="1402" y1="175" y2="168"/>
-<line class="pen0" fill="none" x1="1404" x2="1406" y1="164" y2="157"/>
-<line class="pen0" fill="none" x1="1408" x2="1409" y1="153" y2="151"/>
-<line class="pen0" fill="none" x1="1295" x2="1295" y1="472" y2="456"/>
-<line class="pen0" fill="none" x1="1295" x2="1305" y1="472" y2="460"/>
+<line class="pen0" fill="none" x1="937" x2="985" y1="362" y2="361"/>
+<path class="pen0" d="M 985.0002401799167,361.55139962448675 A 5.5,5.5 0 0 0 995.9998445427436,361.5413522146071" fill="none"/>
+<line class="pen0" fill="none" x1="996" x2="1057" y1="361" y2="362"/>
+<line class="pen0" fill="none" x1="1057" x2="1057" y1="362" y2="245"/>
+<polygon class="pen0 brush0" points="1063,261 1051,261 1057,245"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="472" y2="465"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="461" y2="454"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="450" y2="443"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="439" y2="432"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="428" y2="421"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="417" y2="410"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="406" y2="399"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="395" y2="388"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="384" y2="377"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="373" y2="366"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="362" y2="355"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="351" y2="344"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="340" y2="333"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="329" y2="322"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="318" y2="311"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="307" y2="300"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="296" y2="289"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="285" y2="278"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="274" y2="267"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="263" y2="256"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="252" y2="245"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="241" y2="234"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="230" y2="223"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="219" y2="212"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="208" y2="201"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="197" y2="190"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="186" y2="179"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="175" y2="168"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="164" y2="157"/>
+<line class="pen0" fill="none" x1="1356" x2="1356" y1="153" y2="151"/>
+<line class="pen0" fill="none" x1="1356" x2="1351" y1="472" y2="457"/>
+<line class="pen0" fill="none" x1="1356" x2="1361" y1="472" y2="457"/>
 <line class="pen0" fill="none" x1="1343" x2="1164" y1="118" y2="117"/>
 <path class="pen0" d="M 1163.9999798034323,117.51490509431825 A 5.5,5.5 0 1 0 1153.000138317804,117.53900611122125" fill="none"/>
 <line class="pen0" fill="none" x1="1153" x2="1088" y1="117" y2="118"/>
@@ -786,20 +774,16 @@
 <line class="pen0" fill="none" x1="1088" x2="1082" y1="206" y2="191"/>
 <line class="pen0" fill="none" x1="1088" x2="1094" y1="206" y2="191"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1321" y="99"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1321 1328 1331 1334" xml:space="preserve" y="107">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1320" y="99"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1320 1327 1330 1333" xml:space="preserve" y="107">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="30" x="1186" y="95"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1186 1193 1199 1206 1213" xml:space="preserve" y="103">skos:</text>
+<rect fill="rgb(255,255,255)" height="10" width="112" x="1189" y="95"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1189 1195 1201 1208 1214 1217 1224 1231 1237 1243 1250 1257 1264 1271 1278 1284 1290 1297" xml:space="preserve" y="103">skos:hasTopConcept</text>
 </g>
+<polygon class="pen0 brush2" points="1174,102 1184,99 1184,105"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="88" x="1186" y="110"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1186 1193 1200 1207 1214 1221 1228 1237 1244 1251 1257 1264 1271" xml:space="preserve" y="118">hasTopConcept</text>
-</g>
-<polygon class="pen0 brush2" points="1171,110 1181,107 1181,113"/>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1096" y="186"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1096" y="186"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1096 1103 1106 1109" xml:space="preserve" y="194">0..*</text>
 </g>
 <line class="pen0" fill="none" x1="1116" x2="1116" y1="206" y2="146"/>
@@ -809,40 +793,40 @@
 <line class="pen0" fill="none" x1="1343" x2="1328" y1="146" y2="152"/>
 <line class="pen0" fill="none" x1="1343" x2="1328" y1="146" y2="140"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1119" y="187"/>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1119" y="187"/>
 <text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1119 1126 1129 1132" xml:space="preserve" y="195">0..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="30" x="1208" y="151"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1208 1215 1221 1228 1235" xml:space="preserve" y="159">skos:</text>
+<rect fill="rgb(255,255,255)" height="10" width="80" x="1211" y="151"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1211 1217 1223 1230 1236 1239 1243 1250 1256 1262 1269 1275 1285" xml:space="preserve" y="159">skos:inScheme</text>
+</g>
+<polygon class="pen0 brush2" points="1306,158 1296,155 1296,161"/>
+<g>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="1321" y="152"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1321 1328 1331 1334" xml:space="preserve" y="160">0..*</text>
+</g>
+<line class="pen0" fill="none" x1="1291" x2="1291" y1="540" y2="500"/>
+<polygon class="pen0 brush0" points="1297,516 1285,516 1291,500"/>
+<line class="pen0" fill="none" x1="469" x2="468" y1="522" y2="535"/>
+<path class="pen0" d="M 468.64859438741354,535.0020076656994 A 5.5,5.5 0 1 0 468.52422883979193,545.9999466327704" fill="none"/>
+<line class="pen0" fill="none" x1="468" x2="468" y1="546" y2="588"/>
+<path class="pen0" d="M 468.5384605980701,588.0001344759717 A 5.5,5.5 0 1 0 468.54545299323075,598.9998121809209" fill="none"/>
+<line class="pen0" fill="none" x1="468" x2="469" y1="599" y2="654"/>
+<line class="pen0" fill="none" x1="469" x2="531" y1="654" y2="654"/>
+<line class="pen0" fill="none" x1="531" x2="516" y1="654" y2="660"/>
+<line class="pen0" fill="none" x1="531" x2="516" y1="654" y2="648"/>
+<g>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="474" y="543"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="474 481 484 487" xml:space="preserve" y="551">1..*</text>
 </g>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="56" x="1208" y="166"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1208 1211 1218 1226 1232 1239 1246 1257" xml:space="preserve" y="174">inScheme</text>
+<rect fill="rgb(255,255,255)" height="10" width="43" x="419" y="559"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="419 426 431 438 445 452 458" xml:space="preserve" y="567">product</text>
 </g>
-<polygon class="pen0 brush2" points="1279,166 1269,163 1269,169"/>
+<polygon class="pen0 brush2" points="440,584 437,574 443,574"/>
 <g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="1322" y="152"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="1322 1329 1332 1335" xml:space="preserve" y="160">0..*</text>
-</g>
-<line class="pen0" fill="none" x1="421" x2="393" y1="505" y2="505"/>
-<line class="pen0" fill="none" x1="393" x2="392" y1="505" y2="226"/>
-<path class="pen0" d="M 392.50966606591584,225.99999150609978 A 5.5,5.5 0 0 0 392.60782241213946,215.00105698088802" fill="none"/>
-<line class="pen0" fill="none" x1="392" x2="393" y1="215" y2="195"/>
-<line class="pen0" fill="none" x1="393" x2="399" y1="195" y2="210"/>
-<line class="pen0" fill="none" x1="393" x2="387" y1="195" y2="210"/>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="7" x="406" y="483"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="406" xml:space="preserve" y="491">1</text>
-</g>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="59" x="324" y="430"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="324 327 334 341 344 348 355 366 373 380" xml:space="preserve" y="438">instrument</text>
-</g>
-<polygon class="pen0 brush2" points="353,420 350,430 356,430"/>
-<g>
-<rect fill="rgb(255,255,255)" height="10" width="18" x="405" y="200"/>
-<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="405 412 415 418" xml:space="preserve" y="208">0..*</text>
+<rect fill="rgb(255,255,255)" height="10" width="19" x="509" y="659"/>
+<text class="font2" fill="rgb(0,0,0)" stroke="none" style="dominant-baseline: baseline;" x="509 516 519 522" xml:space="preserve" y="667">0..*</text>
 </g>
 </g>
 </svg>
