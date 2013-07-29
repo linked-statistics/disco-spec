@@ -2,16 +2,47 @@
 <html>
   <head>
     <title>DDI-RDF Discovery Vocabulary</title>
-    <meta charset='utf-8'/>
+    <meta http-equiv="content-type" content="text/html;" charset='utf-8'/>
     <style type="text/css">
-        table { border: black 1px solid; border-collapse:collapse; border-spacing: 0; }
-        table td { border: black 1px solid; padding: 3px; padding-left: 10px; padding-right: 10px; text-align: center; vertical-align: top;}
-	.classDefinitions dd{margin-left: 25px;}
-	.classProperties{margin-left:25px;margin-bottom: 15px;margin-top:15px;}
-	.classProperties dt{margin-top: 15px;}        
+      table { border: black 1px solid; border-collapse:collapse; border-spacing: 0; }
+      table td { border: black 1px solid; padding: 3px; padding-left: 10px; padding-right: 10px; text-align: center; vertical-align: top;}
+	  .classDefinitions dd{margin-left: 25px;}
+	  .classProperties{margin-left:25px;margin-bottom: 15px;margin-top:15px;}
+	  .classProperties dt{margin-top: 15px;}        
+      .uml-diagram {
+        max-width: 100%;
+      }
+	  @media screen
+	  {
+		.screen-hidden {
+		  display: none;
+		}
+		#combined-uml-diagram-object-properties-only {
+		  width: 88%;
+		}
+	  }
+	  @media print
+	  {
+        img {
+          width: 95%;
+        }
+		#combined-uml-diagram-object-properties-only {
+		  width: 88%;
+		}
+		.print-hidden {
+		  display: none;
+		}
+		.table {
+		  width: 100%;
+		}
+			/*
+			IE: OK
+			Firefox: 11.3.3 "Data Sets, Data Files, and Descriptive Statistics" too wide.
+			*/
+	  }
     </style>
-    <script src='http://darobin.github.com/respec/builds/respec-w3c-common.js' class='remove'></script>
-    <script class='remove'>
+    <script type="text/javascript" src='http://darobin.github.com/respec/builds/respec-w3c-common.js' class='remove'></script>
+    <script type="text/javascript" class='remove'>
       var respecConfig = {
           // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
           specStatus:           "unofficial",
@@ -114,6 +145,9 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
         <li><a href="https://github.com/linked-statistics/disco-spec/issues">Issue tracker</a></li>
         <li><a href="https://github.com/linked-statistics/disco-spec/">GitHub repository</a></li>
       </ul>
+    </section>
+    <section id="tof">
+	  <!-- placeholder for generated table of diagrams -->
     </section>
 
     <section>
@@ -304,7 +338,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       <h2>Overview</h2>
 
       <div class="figure">
-        <img src="diagrams/overview.jpg" alt="Vocabulary overview"/>
+        <img width="70%" class="uml-diagram" src="diagrams/overview.jpg" alt="Vocabulary overview"/>
       </div>
 
       <p>To understand the DDI Discovery Vocabulary, there are a few
@@ -504,7 +538,9 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
     disco:dataFile &lt;#Datafile&gt;;
     disco:containsVariable &lt;#AR80A401&gt;, &lt;#AR80A402&gt;, &lt;#AR80A404&gt;, &lt;#AR80A407&gt;, &lt;#AR80A411&gt;.
 
-&lt;#AccessRights&gt; dcterms:description "IPUMS-International distributes integrated microdata of individuals and households only by agreement ... designed to extend this record.";
+&lt;#AccessRights&gt; dcterms:description "IPUMS-International distributes
+	integrated microdata of individuals and households only by agreement ... 
+	designed to extend this record.";
     rdfs:seeAlso &lt;http://microdata.worldbank.org/index.php/catalog/442/accesspolicy&gt;.
 </pre>
 
@@ -597,7 +633,8 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 
 &lt;#AR80A407&gt; a disco:Variable;
     dcterms:identifier "AR80A407";
-    dcterms:description "This variable indicates whether or not the person is a naturalized citizen of Argentina."@en;
+    dcterms:description "This variable indicates whether or not the person is
+		a naturalized citizen of Argentina."@en;
     skos:prefLabel "Citizenship"@en, "Citoyenneté"@fr;
     disco:basedOn &lt;#CitizenshipVD&gt;;
     disco:question &lt;#QuestionCitizenship&gt;.
@@ -717,7 +754,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
         <img src="images/example-concept.png" alt="Concept-variable link"/>
       </div>
 	
-      <p>Also in DISCO, DDI concepts can be hierarchically structured</p>
+      <p>Also in Disco, DDI concepts can be hierarchically structured</p>
 	
       <pre class="example">
 
@@ -826,7 +863,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	</section>
 
       <div class="figure">
-        <img src="diagrams/study-metadata.jpg" alt="Coverage, References to DDI-XML Files, and Kind of Data"/>
+        <img width="90%" class="uml-diagram" src="diagrams/study-metadata.jpg" alt="Coverage, References to DDI-XML Files, and Kind of Data"/>
       </div>
 	  
 	  <p>
@@ -857,7 +894,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	</section>
 	  
       <div class="figure">
-        <img src="diagrams/study-agent.jpg" alt="Relationships to Agents"/>
+        <img width="55%" class="uml-diagram" src="diagrams/study-agent.jpg" alt="Relationships to Agents"/>
       </div>
 	  
 	  <p>
@@ -888,7 +925,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  </p>
 	  
       <div class="figure">
-        <img src="diagrams/study-universe.jpg" alt="Study, Universe and AnalysisUnit"/>
+        <img width="55%" class="uml-diagram" src="diagrams/study-universe.jpg" alt="Study, Universe and AnalysisUnit"/>
       </div>
 	  
 	  <p>
@@ -940,7 +977,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  </p>
 	  
 	  <div class="figure">
-        <img src="diagrams/rdfs-resource.jpg" alt="DDI-XML Identifiers and Relations to DDI-XML Files"/>
+        <img width="45%" class="uml-diagram" src="diagrams/rdfs-resource.jpg" alt="DDI-XML Identifiers and Relations to DDI-XML Files"/>
       </div>
 	  
 	  </section>
@@ -958,7 +995,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		</ul>
 		
 		<div class="figure">
-          <img src="diagrams/versioning-information.jpg" alt="Versioning Information"/>
+          <img width="50%" class="uml-diagram" src="diagrams/versioning-information.jpg" alt="Versioning Information"/>
         </div>
 		
 	  </section>
@@ -988,7 +1025,7 @@ ex:License1 dcterms:description "Published under Open Content License." ;
 	  </pre>
 	  
 	  <div class="figure">
-        <img src="diagrams/access-rights-statements-and-licenses.jpg" alt="Access Rights Statements and Licenses"/>
+        <img width="55%" class="uml-diagram" src="diagrams/access-rights-statements-and-licenses.jpg" alt="Access Rights Statements and Licenses"/>
       </div>
 	  
 	  <p>
@@ -1010,7 +1047,7 @@ ex:Study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .
 		<p>In this example, <a href="http://www.geonames.org/">Geonames</a> is used to refer to a spatial region, in this case, the country Germany. Geonames provides URIs for continents, countries, regions, and cities, among others, and is therefore a possible option to use for describing spatial coverage.</p>
         
 		<div class="figure">
-          <img src="diagrams/study-coverage.jpg" alt="Study Coverage"/>
+          <img width="70%" class="uml-diagram" src="diagrams/study-coverage.jpg" alt="Study Coverage"/>
         </div>
 		
 		<p>
@@ -1032,7 +1069,7 @@ ex:Study1 dcterms:temporal [
 		<p>This example describes a study that has been conducted between January 1st and January 31st.</p>
 		
 		<div class="figure">
-          <img src="diagrams/logical-data-set-coverage.jpg" alt="LogicalDataSet Coverage"/>
+          <img width="45%" class="uml-diagram" src="diagrams/logical-data-set-coverage.jpg" alt="LogicalDataSet Coverage"/>
         </div>
 		
 		<p>Topical coverage can be expressed using <b><code>dcterms:subject</code></b>. DDI-RDF foresees the use <code>skos:Concept</code> for the description of topical coverage:</p>
@@ -1043,7 +1080,7 @@ ex:Study1 dcterms:subject [
 		</pre>
 		
 		<div class="figure">
-          <img src="diagrams/data-file-coverage.jpg" alt="DataFile Coverage"/>
+          <img width="50%" class="uml-diagram" src="diagrams/data-file-coverage.jpg" alt="DataFile Coverage"/>
         </div>
 		
 		<p>
@@ -1088,7 +1125,7 @@ ex:Study1 dcterms:subject [
 	  <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) by the object property <code><a href="#dfn-disco-statisticsdatafile" class="internalDFN">statisticsDataFile</a></code>. </p>
 	  
       <div class="figure">
-        <img src="diagrams/overview-data-set.jpg" alt="Overview: Data sets, data files, descriptive statistcs"/>
+        <img width="65%" class="uml-diagram" src="diagrams/overview-data-set.jpg" alt="Overview: Data sets, data files, descriptive statistcs"/>
       </div>
 	  
 	  <p>
@@ -1113,7 +1150,7 @@ ex:Study1 dcterms:subject [
 	  </p>
 
       <div class="figure">
-        <img src="diagrams/logical-data-set.jpg" alt="LogicalDataSet"/>
+        <img width="70%" class="uml-diagram" src="diagrams/logical-data-set.jpg" alt="LogicalDataSet"/>
       </div>
 
       <p>
@@ -1169,7 +1206,7 @@ ex:Study1 dcterms:subject [
       </p>
 	  
 	  <div class="figure">
-        <img src="diagrams/data-file.jpg" alt="DataFile"/>
+        <img width="50%" class="uml-diagram" src="diagrams/data-file.jpg" alt="DataFile"/>
 	  </div>
       
       <pre class="example">
@@ -1223,7 +1260,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
        </p>
 	   
 	   <div class="figure">
-        <img src="diagrams/descriptive-statistics.jpg" alt="DescriptiveStatistics"/>
+        <img width="50%" class="uml-diagram" src="diagrams/descriptive-statistics.jpg" alt="DescriptiveStatistics"/>
       </div>
 	   
        <p>	   
@@ -1272,7 +1309,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		</p>
 	  
 	    <div class="figure">
-          <img src="diagrams/descriptive-statistics_modified.jpg" alt="DescriptiveStatistics"/>
+          <img width="50%" class="uml-diagram" src="diagrams/descriptive-statistics_modified.jpg" alt="DescriptiveStatistics"/>
         </div>
 	  
         <p>		
@@ -1286,7 +1323,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		  Table 1: Description of Statistics of Valid/Invalid Cases
 		</p>
                 
-		<table style="text-align: left; width: 80%;">
+		<table style="text-align: left; font-size: 70%;">
 		  <tbody>
 			<tr>
 			  <td style="vertical-align: middle; text-align: center; font-weight: bold;" rowspan='2'>Statistics Type<br/></td>
@@ -1358,7 +1395,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		  Table 2. Description of Statistics of Non-weighted/Weighted Variables
 		</p>
 		
-		<table style="text-align: left; width: 80%;">
+		<table style="text-align: left; font-size: 70%;">
 		  <tbody>
 			<tr>
 			  <td style="vertical-align: middle; text-align: center; font-weight: bold;">Statistics Value of ...</td>
@@ -1369,11 +1406,11 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 			  <td style="vertical-align: top; text-align: center;">not used</td>
 			</tr>
 			<tr>
-			  <td style="vertical-align: middle; text-align: center;">weighted variable <br> Weight variable is not known.</td>
+			  <td style="vertical-align: middle; text-align: center;">weighted variable <br/> Weight variable is not known.</td>
 			  <td style="vertical-align: top; text-align: center;">Reference to blank node</td>
 			</tr>
 			<tr>
-			  <td style="vertical-align: middle; text-align: center;">weighted variable <br> Weight variable is known.</td>
+			  <td style="vertical-align: middle; text-align: center;">weighted variable <br/> Weight variable is known.</td>
 			  <td style="vertical-align: top; text-align: center;">Reference to weight variable</td>
 			</tr>
 		  </tbody>
@@ -1388,13 +1425,13 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		  
 		  <p>
 		    The following example shows different categories of an ISSP data set and the values of the related summary and category statistics.
-            Each category is defined as a skos:Concept and the used name is <issp:category_X>, which is the corresponding category value in the 
+            Each category is defined as a skos:Concept and the used name is &lt;issp:category_X&gt;, which is the corresponding category value in the 
 			frequency table above (see Figure 23, second column).
           </p>
 		  <p>
-            The category <issp:category_1> is the category with the code 1 (skos:notation '1'), the category label ‘Yes, have partner; live 
+            The category &lt;issp:category_1&gt; is the category with the code 1 (skos:notation '1'), the category label ‘Yes, have partner; live 
 			in same household’ (skos:preflabel 'Yes, have partner; live in same household') and which is valid (disco:isValid true). 
-			<issp:XYZ_1> defines the frequency (disco:frequency '15893') of the category <issp:category_1> ( disco:statisticsCategory <issp:category_1>).  
+			&lt;issp:XYZ_1&gt; defines the frequency (disco:frequency '15893') of the category &lt;issp:category_1&gt; ( disco:statisticsCategory &lt;issp:category_1&gt;).  
 		  </p>
 		  
 		  <div class="figure">
@@ -1535,7 +1572,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	  </p>
 	  
 	  <div class="figure">
-        <img src="diagrams/variable.jpg" alt="Variables, Variable Definitions, Representations, and Concepts"/>
+        <img width="50%" class="uml-diagram" src="diagrams/variable.jpg" alt="Variables, Variable Definitions, Representations, and Concepts"/>
       </div>
 	  
 	  <p>
@@ -1561,7 +1598,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	  </p>
 	 
 	  <div class="figure">
-        <img src="diagrams/variable-and-variable-definition.jpg" alt="Variables and VariableDefinitions"/>
+        <img width="25%" class="uml-diagram" src="diagrams/variable-and-variable-definition.jpg" alt="Variables and VariableDefinitions"/>
       </div>
 	  
 	  <p>
@@ -1600,7 +1637,8 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
                   
       &lt;#AR80A407&gt; a disco:Variable;
         dcterms:identifier "AR80A407";
-        dcterms:description "This variable indicates whether or not the person is a naturalized citizen of Argentina."@en;
+        dcterms:description "This variable indicates whether or not the person
+			is a naturalized citizen of Argentina."@en;
         skos:prefLabel "Citizenship"@en, "Citoyenneté"@fr;
         disco:basedOn &lt;#CitizenshipVD&gt;;
         disco:question &lt;#QuestionCitizenship&gt;.
@@ -1647,7 +1685,7 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 	  </p>
 
       <div class="figure">
-        <img src="diagrams/concept.jpg" alt="skos:Concept and skos:ConceptScheme"/>
+        <img width="45%" class="uml-diagram" src="diagrams/concept.jpg" alt="skos:Concept and skos:ConceptScheme"/>
       </div>
 	  
 	  <p>
@@ -1710,11 +1748,11 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 	  <p class="issue">Issue on support of order of items regarding Variables, Categories, etc. <a href="https://github.com/linked-statistics/disco-spec/issues/105">Issue #105</a></p>
 	  
 	  <div class="figure">
-        <img src="diagrams/concept-review.jpg" alt="UML diagram (skos)"/>
+        <img width="60%" class="uml-diagram" src="diagrams/concept-review.jpg" alt="UML diagram (skos)"/>
       </div>
 		
 	  <div class="figure">
-        <img src="diagrams/representation-review.jpg" alt="UML diagram (representation)"/>
+        <img width="85%" class="uml-diagram" src="diagrams/representation-review.jpg" alt="UML diagram (representation)"/>
       </div>
 	  
 	  <div class="example">
@@ -1809,14 +1847,12 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		
       </div>
 	  
-	  <p>
-	    new sub-classes of skos:Concept:
+	  <p> new sub-classes of skos:Concept:</p>
 		<ul>
 		  <li>Variable</li>
 		  <li>Question</li>
 		</ul>
-		in order to include variables and questions in unordered skos:ConceptSchemes.
-      </p>
+		<p>in order to include variables and questions in unordered skos:ConceptSchemes.</p>
 	  
     </section>
 
@@ -1839,7 +1875,7 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 	  </p>
 
       <div class="figure">
-        <img src="diagrams/representation.jpg" alt="Representation"/>
+        <img width="50%" class="uml-diagram" src="diagrams/representation.jpg" alt="Representation"/>
       </div>
       
       <p>The following example shows the representations of the three previously introduced variables Sex, Age and Citizenship. All of them refer to the particular concepts.</p>
@@ -1875,7 +1911,7 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
       <h2>Data Collection</h2>
 
 	  <div class="figure">
-        <img src="diagrams/data-collection.jpg" alt="DataCollection"/>
+        <img width="50%" class="uml-diagram" src="diagrams/data-collection.jpg" alt="DataCollection"/>
       </div>
 	  
     <section>
@@ -1936,10 +1972,17 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
         disco:questionText "2. Is the person a man or a woman? [] Man, [] Woman"@en.
         
       &lt;#questionAge&gt; a disco:Question;
-        disco:QuestionText "3. What is his or her age? _ _ Mark the age in completed years at the date of the census for those younger than one year old mark 00. For those younger than 10 years old, mark 01, 02, 03, etc. For those older than 99 years old, mark 99."@en.
+        disco:QuestionText "3. What is his or her age? _ _ Mark the age in
+			completed years at the date of the census for those younger than
+			one year old mark 00. For those younger than 10 years old, mark 01,
+			02, 03, etc. For those older than 99 years old, mark 99."@en.
           
       &lt;#questionCitizenship&gt; a disco:Question;
-        disco:QuestionText "6. [Immigration status] Only for persons who have usual residence in Argentina and were born in another country. [Questions 6A and 6B asked only of persons born outside Argentina and who currently reside in Argentina.] B. Are you a naturalized citizen of Argentina? [] Yes [] No [] Unanswered"@en.
+        disco:QuestionText "6. [Immigration status] Only for persons who have
+			usual residence in Argentina and were born in another country.
+			[Questions 6A and 6B asked only of persons born outside Argentina
+			and who currently reside in Argentina.] B. Are you a naturalized
+			citizen of Argentina? [] Yes [] No [] Unanswered"@en.
     </pre>      
 	  
     </section>
@@ -2113,14 +2156,12 @@ and positions of concepts in lists (xkos:previous, xkos:next).
 		and focuses on general metadata about the datasets (mostly using Dublin Core), and on different ways of distributing and accessing the dataset, 
 		including availability of the dataset in multiple formats. Combining terms from both DCAT and Disco can be useful for a number of reasons:
 	  </p>
-	  <p>
 	    <ul>
 		  <li>Describing collections (catalogs) of research datasets</li>
 		  <li>Providing additional information about physical aspects (file size, file formats) of research data files</li>
 		  <li>Providing information about the data collection that produced the datasets in a data catalog</li>
 		  <li>Providing information about the logical structure (variables, concepts, etc.) of tabular datasets in a data catalog</li>
 		</ul>
-	  </p>
 	  
 	  <p>
 	    The LogicalDataSet is an extension of the dcat:DataSet. Physical, dis-tributed files are represented by the DataFile, 
@@ -2168,7 +2209,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
               <section>
                 <h4>Studies and StudyGroups</h4>
             
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -2378,7 +2419,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           <section>
                 <h4>General Metdata</h4>
                 
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -2588,7 +2629,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           <section>
                 <h4>Data Sets, Data Files, and Descriptive Statistics</h4>
                 
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -2926,7 +2967,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           <section>
                 <h4>Variables, Variable Definitions, Representations, and Concepts</h4>
                 
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -3112,7 +3153,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           <section>
                 <h4>Data Collection</h4>
                 
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -3216,7 +3257,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
             <section>
                 <h4>Studies and StudyGroups</h4>
             
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -3408,7 +3449,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           <section>
                 <h4>General Metdata</h4>
                 
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -3600,7 +3641,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           <section>
                 <h4>Data Sets, Data Files, and Descriptive Statistics</h4>
                 
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -3904,7 +3945,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           <section>
                 <h4>Variables, Variable Definitions, Representations, and Concepts</h4>
                 
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -4075,7 +4116,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           <section>
                 <h4>Data Collection</h4>
                 
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -4174,7 +4215,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
             <section>
                 <h4>Studies and StudyGroups</h4>
             
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -4369,7 +4410,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           <section>
                 <h4>General Metdata</h4>
                 
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -4561,7 +4602,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           <section>
                 <h4>Data Sets, Data Files, and Descriptive Statistics</h4>
                 
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -4673,7 +4714,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
       <td>dcterms:spatial</td>
       <td>DataFile</td>
       <td>dcterms:Location</td>
-      <td>pi:PhysicalInstance/r:Coverage/r:SpatialCoverage/@id|pi:PhysicalInstance/r:Coverage/r:SpatialCoverageReference/r:ID</td>
+      <td>pi:PhysicalInstance/r:Coverage/r:SpatialCoverage/@id | pi:PhysicalInstance/r:Coverage/r:SpatialCoverageReference/r:ID</td>
     </tr> 
     <tr>
       <td>16</td>
@@ -4866,7 +4907,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           <section>
                 <h4>Variables, Variable Definitions, Representations, and Concepts</h4>
                 
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -5038,7 +5079,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           <section>
                 <h4>Data Collection</h4>
                 
-<table style="text-align: left; width: 80%;">
+<table style="text-align: left; font-size: 70%;">
   <tbody>
     <tr>
       <td style="font-weight: bold;">#<br/></td>
@@ -5073,14 +5114,14 @@ and positions of concepts in lists (xkos:previous, xkos:next).
       <td>questionText</td>
       <td>Question</td>
       <td>rdf:langString</td>
-      <td>//d:QuestionItem|d:MultipleQuestionItem/d:QuestionText/d:LiteralText/d:Text</td>
+      <td>//d:QuestionItem | d:MultipleQuestionItem/d:QuestionText/d:LiteralText/d:Text</td>
     </tr>  
      <tr>
       <td>5</td>
       <td>skos:prefLabel</td>
       <td>Question</td>
       <td>rdf:langString</td>
-      <td>//d:QuestionItem/d:QuestionItemName|d:MultipleQuestionItem/d:MultipleQuestionItemName</td>
+      <td>//d:QuestionItem/d:QuestionItemName | d:MultipleQuestionItem/d:MultipleQuestionItemName</td>
     </tr>  
     <tr>
       <td>6</td>
@@ -5149,7 +5190,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
       <!-- Vocabulary Reference start-->
       <h3>1. Studies and StudyGroups</h3>
       <dl class="classDefinitions">
-         <dt><a name="dfn-disco-Study"></a><em>Class: </em><code><dfn>disco:Study</dfn></code></dt>
+         <dt><a id="dfn-disco-Study"></a><em>Class: </em><code><dfn>disco:Study</dfn></code></dt>
          <dd>A Study represents the process by which a data set was generated or collected.</dd>
          <div class="classProperties">
             <dt><em>Object Property: </em><code><dfn>disco:variable</dfn></code>
@@ -5225,7 +5266,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
             </dt>
             <dd>The purpose of a Study of a StudyGroup.</dd>
          </div>
-         <dt><a name="dfn-disco-StudyGroup"></a><em>Class: </em><code><dfn>disco:StudyGroup</dfn></code></dt>
+         <dt><a id="dfn-disco-StudyGroup"></a><em>Class: </em><code><dfn>disco:StudyGroup</dfn></code></dt>
          <dd>In some cases, where data collection is cyclic or on-going, data sets may be released
             as a StudyGroup, where each cycle or wave of the data collection activity produces
             one or more data sets. This is typical for longitudinal studies, panel studies, and
@@ -5276,26 +5317,26 @@ and positions of concepts in lists (xkos:previous, xkos:next).
             </dt>
             <dd>The purpose of a Study of a StudyGroup.</dd>
          </div>
-         <dt><a name="dfn-disco-AnalysisUnit"></a><em>Class: </em><code><dfn>disco:AnalysisUnit</dfn></code>
+         <dt><a id="dfn-disco-AnalysisUnit"></a><em>Class: </em><code><dfn>disco:AnalysisUnit</dfn></code>
             Sub Class of: <code>skos:Concept</code></dt>
          <dd>The process collecting data is focusing on the analysis of a particular type of subject.
             If, for example, the adult population of Finland is being studied, the AnalysisUnit
             would be individuals or persons.
          </dd>
          <div class="classProperties"></div>
-         <dt><a name="dfn-disco-Universe"></a><em>Class: </em><code><dfn>disco:Universe</dfn></code>
+         <dt><a id="dfn-disco-Universe"></a><em>Class: </em><code><dfn>disco:Universe</dfn></code>
             Sub Class of: <code>skos:Concept</code></dt>
          <dd>A Universe is the total membership or population of a defined class of people, objects
             or events.
          </dd>
          <div class="classProperties"></div>
-         <dt><a name="dfn-disco-DataDiscoveryDocument"></a><em>Class: </em><code><dfn>disco:DataDiscoveryDocument</dfn></code></dt>
+         <dt><a id="dfn-disco-DataDiscoveryDocument"></a><em>Class: </em><code><dfn>disco:DataDiscoveryDocument</dfn></code></dt>
          <dd>Data discovery document in DDI. Dct:publisher is used for the agency.</dd>
          <div class="classProperties"></div>
       </dl>
       <h3>2. Data Sets, Data Files, and Descriptive Statistics</h3>
       <dl class="classDefinitions">
-         <dt><a name="dfn-disco-LogicalDataSet"></a><em>Class: </em><code><dfn>disco:LogicalDataSet</dfn></code>
+         <dt><a id="dfn-disco-LogicalDataSet"></a><em>Class: </em><code><dfn>disco:LogicalDataSet</dfn></code>
             Sub Class of: <code>http://www.w3.org/ns/dcat#Dataset</code></dt>
          <dd>Each study has a set of logical metadata associated with the processing of data, at
             the time of collection or later during cleaning, and re-coding. LogicalDataSet represents
@@ -5343,7 +5384,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
                anyone.
             </dd>
          </div>
-         <dt><a name="dfn-disco-DataFile"></a><em>Class: </em><code><dfn>disco:DataFile</dfn></code>
+         <dt><a id="dfn-disco-DataFile"></a><em>Class: </em><code><dfn>disco:DataFile</dfn></code>
             Sub Class of: <code>http://www.w3.org/ns/dcat#Distribution</code></dt>
          <dd>The class DataFile, which is also a dcterms:Dataset, represents all the data files
             containing the microdata datasets.
@@ -5356,7 +5397,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
             </dt>
             <dd>case quantity of a DataFile.</dd>
          </div>
-         <dt><a name="dfn-disco-DescriptiveStatistics"></a><em>Class: </em><code><dfn>disco:DescriptiveStatistics</dfn></code></dt>
+         <dt><a id="dfn-disco-DescriptiveStatistics"></a><em>Class: </em><code><dfn>disco:DescriptiveStatistics</dfn></code></dt>
          <dd>SummaryStatistics pointing to variables and CategoryStatistics pointing to categories
             and codes are both DescriptiveStatistics.
          </dd>
@@ -5368,7 +5409,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
             </dt>
             <dd>Indicates the DataFile of a specific DesciptiveStatistics individual.</dd>
          </div>
-         <dt><a name="dfn-disco-SummaryStatistics"></a><em>Class: </em><code><dfn>disco:SummaryStatistics</dfn></code>
+         <dt><a id="dfn-disco-SummaryStatistics"></a><em>Class: </em><code><dfn>disco:SummaryStatistics</dfn></code>
             Sub Class of: <code>disco:DescriptiveStatistics</code></dt>
          <dd>For SummaryStatistics, maximum values, minimum values, and standard deviations can
             be defined.
@@ -5459,7 +5500,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
             </dt>
             <dd>maximum</dd>
          </div>
-         <dt><a name="dfn-disco-CategoryStatistics"></a><em>Class: </em><code><dfn>disco:CategoryStatistics</dfn></code>
+         <dt><a id="dfn-disco-CategoryStatistics"></a><em>Class: </em><code><dfn>disco:CategoryStatistics</dfn></code>
             Sub Class of: <code>disco:DescriptiveStatistics</code></dt>
          <dd>For CategoryStatistics, frequencies, percentages, and weighted percentages can be
             defined.
@@ -5513,7 +5554,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
       </dl>
       <h3>3. Variables, Variable Definitions, Representations, and Concepts</h3>
       <dl class="classDefinitions">
-         <dt><a name="dfn-disco-Variable"></a><em>Class: </em><code><dfn>disco:Variable</dfn></code></dt>
+         <dt><a id="dfn-disco-Variable"></a><em>Class: </em><code><dfn>disco:Variable</dfn></code></dt>
          <dd>Variables provide a definition of the column in a rectangular data file. Variable
             is a characteristic of a unit being observed. A variable might be the answer of a
             question, have an administrative source, or be derived from other variables.
@@ -5561,7 +5602,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
             </dt>
             <dd>points to the DDI concept of a VariableDefinition, a Variable, or a Question</dd>
          </div>
-         <dt><a name="dfn-disco-VariableDefinition"></a><em>Class: </em><code><dfn>disco:VariableDefinition</dfn></code></dt>
+         <dt><a id="dfn-disco-VariableDefinition"></a><em>Class: </em><code><dfn>disco:VariableDefinition</dfn></code></dt>
          <dd>VariableDefinitions encompasse study-independent, re-usable parts of variables like
             occupation classification.
          </dd>
@@ -5593,7 +5634,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
       </dl>
       <h3>4. Data Collection</h3>
       <dl class="classDefinitions">
-         <dt><a name="dfn-disco-Question"></a><em>Class: </em><code><dfn>disco:Question</dfn></code></dt>
+         <dt><a id="dfn-disco-Question"></a><em>Class: </em><code><dfn>disco:Question</dfn></code></dt>
          <dd>A Question is designed to get information upon a subject, or sequence of subjects,
             from a respondent.
          </dd>
@@ -5619,7 +5660,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
             </dt>
             <dd>question text</dd>
          </div>
-         <dt><a name="dfn-disco-Instrument"></a><em>Class: </em><code><dfn>disco:Instrument</dfn></code></dt>
+         <dt><a id="dfn-disco-Instrument"></a><em>Class: </em><code><dfn>disco:Instrument</dfn></code></dt>
          <dd>The data for the study are collected by an Instrument. The purpose of an Instrument,
             i.e. an interview, a questionnaire or another entity used as a means of data collection,
             is in the case of a survey to record the flow of a questionnaire, its use of questions,
@@ -5635,7 +5676,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
                the Instrument.
             </dd>
          </div>
-         <dt><a name="dfn-disco-Questionnaire"></a><em>Class: </em><code><dfn>disco:Questionnaire</dfn></code>
+         <dt><a id="dfn-disco-Questionnaire"></a><em>Class: </em><code><dfn>disco:Questionnaire</dfn></code>
             Sub Class of: <code>disco:Instrument</code></dt>
          <dd>A questionnaire contains a flow of questions. </dd>
          <div class="classProperties">
@@ -5665,10 +5706,11 @@ and positions of concepts in lists (xkos:previous, xkos:next).
         Additionally, the cardinalities of these object properties and class hierarchies are visualized.
       </p>
       
-      <div class="figure">
-        <img src="diagrams/object-properties.jpg" alt="Combined UML Diagram (object properties only)"/>
+      <div class="figure" style="page-break-before:always">
+	    <img width="100%" class="print-hidden uml-diagram" src="diagrams/object-properties.jpg" alt="Combined UML Diagram (object properties only)"/>
+	    <img id="combined-uml-diagram-object-properties-only" class="screen-hidden" src="diagrams/object-properties_HiRes_vertical.jpg" alt="Combined UML Diagram (object properties only)"/>
       </div>
-      <p>The source file of this diagram can be found <a href="diagrams/object-properties.jpg">here</a>.</p>
+      <p>A scalable version of this diagram can be found <a target="_blank" href="diagrams/object-properties.svg">here</a>.</p>
     </section>
 
     <section class='appendix'>
@@ -5867,11 +5909,11 @@ WHERE {
 	<dt id="bib-Semantic-Statistics">[Semantic Statistics]</dt>
 	  <dd>
 		Cyganiak, R., Field, S., Gregory, A., Halb, W., Tennison, J.
-		<a href="http://www.google.de/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CDQQFjAA&url=http%3A%2F%2Fcyganiak.de%2F2008%2Fpapers%2Fsdmx-ldow2010.pdf&ei=2ibsUY7ME4OoO7qKgcgB&usg=AFQjCNGA2qcrcw4yHrjyMw6vJCtDTw4j5Q&sig2=BJhjcw8HgpbvukmRaT5Oog&bvm=bv.49478099,d.ZWU">
+		<a href="http://ceur-ws.org/Vol-628/ldow2010_paper03.pdf">
 		  <cite>Semantic Statistics: Bringing Together SDMX and SCOVO.</cite>
 		</a> 
 		2010. Proceedings of the WWW2010 Workshop on Linked Data on the Web.
-		URL: <a href="http://www.google.de/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CDQQFjAA&url=http%3A%2F%2Fcyganiak.de%2F2008%2Fpapers%2Fsdmx-ldow2010.pdf&ei=2ibsUY7ME4OoO7qKgcgB&usg=AFQjCNGA2qcrcw4yHrjyMw6vJCtDTw4j5Q&sig2=BJhjcw8HgpbvukmRaT5Oog&bvm=bv.49478099,d.ZWU">http://www.google.de/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CDQQFjAA&url=http%3A%2F%2Fcyganiak.de%2F2008%2Fpapers%2Fsdmx-ldow2010.pdf&ei=2ibsUY7ME4OoO7qKgcgB&usg=AFQjCNGA2qcrcw4yHrjyMw6vJCtDTw4j5Q&sig2=BJhjcw8HgpbvukmRaT5Oog&bvm=bv.49478099,d.ZWU</a>
+		URL: <a href="http://ceur-ws.org/Vol-628/ldow2010_paper03.pdf">http://ceur-ws.org/Vol-628/ldow2010_paper03.pdf</a>
 	  </dd>
 	<dt id="bib-SKOS">[SKOS]</dt><dd>Simple Knowledge Organization System (SKOS), <a href="http://www.w3.org/2004/02/skos/"><cite>http://www.w3.org/2004/02/skos/</cite></a></dd>
 	<dt id="bib-XKOS">[XKOS]</dt><dd>SKOS Extension for Statistics (XKOS), <a href="http://htmlpreview.github.io/?https://github.com/linked-statistics/xkos/blob/master/xkos.html"><cite>http://htmlpreview.github.io/?https://github.com/linked-statistics/xkos/blob/master/xkos.html</cite></a></dd>
