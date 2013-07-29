@@ -1236,18 +1236,23 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
       </div>
 	   
        <p>	   
-		     You can state maximum values (<code><a href="#dfn-disco-maximum" class="internalDFN">maximum</a></code>), minimum values (<code><a href="#dfn-disco-minimum" class="internalDFN">minimum</a></code>),
-         standard deviations (<code><a href="#dfn-disco-standarddeviation" class="internalDFN">standardDeviation</a></code>), etc. for summary statistics and you can define
-         frequencies (<code><a href="#dfn-disco-frequency" class="internalDFN">frequency</a></code>), percentages (<code><a href="#dfn-disco-percentage" class="internalDFN">percentage</a></code>), weighted percentages 
-		    (<code><a href="#dfn-disco-weightedpercentage" class="internalDFN">weightedPercentage</a></code>), etc. for category statistics.
-		    <code><a href="#dfn-disco-descriptivestatistics" class="internalDFN">DescriptiveStatistics</a></code> may have <code><a href="#dfn-disco-statisticsdatafile" class="internalDFN">statisticsDataFile</a></code> relations to 0 to n data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) and
-		    data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) may be in 0 to n <code><a href="#dfn-disco-statisticsdatafile" class="internalDFN">statisticsDataFile</a></code> relations to <code><a href="#dfn-disco-descriptivestatistics" class="internalDFN">DescriptiveStatistics</a></code> individuals.
-		    
-<code><a href="#dfn-disco-summarystatistics" class="internalDFN">SummaryStatistics</a></code> point to 0 to n variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) using the object property <code><a href="#dfn-disco-summarystatistics" class="internalDFN">SummaryStatistics</a></code>. Variables (
-		    <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>), however, may be in 0 to n of such relationships to <code><a href="#dfn-disco-summarystatistics" class="internalDFN">SummaryStatistics</a></code> objects.
-		    <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code> may be connected with 0 to n <code>skos:Concepts</code> using the property <code><a href="#dfn-disco-statisticscategory" class="internalDFN">statisticsCategory</a></code>
-        and <code>skos:Concepts</code> representing codes (values) and categories (value labels) may be in 0 to n of such
-        relationships. 		
+	     DescriptiveStatistics</a></code> may have <code><a href="#dfn-disco-statisticsdatafile" class="internalDFN">statisticsDataFile</a></code> 
+		 relations to 0 to n data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) and
+		 data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) may be in 0 to n 
+		 <code><a href="#dfn-disco-statisticsdatafile" class="internalDFN">statisticsDataFile</a></code> relations to 
+		 <code><a href="#dfn-disco-descriptivestatistics" class="internalDFN">DescriptiveStatistics</a></code> individuals.
+		 <code><a href="#dfn-disco-summarystatistics" class="internalDFN">SummaryStatistics</a></code> point to 0 to n variables 
+		 (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) using the object property 
+		 <code><a href="#dfn-disco-statisticsvariable" class="internalDFN">statisticsVariable</a></code>. Variables (
+		 <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>), however, may be in 0 to n of such relationships to 
+		 <code><a href="#dfn-disco-summarystatistics" class="internalDFN">SummaryStatistics</a></code> objects.
+		 <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code> may be connected with 0 to n 
+		 <code>skos:Concepts</code> using the property <code><a href="#dfn-disco-statisticscategory" class="internalDFN">statisticsCategory</a></code>
+         and <code>skos:Concepts</code> representing codes (values) and categories (value labels) may be in 0 to n of such relationships.
+		 <code><a href="#dfn-disco-summarystatistics" class="internalDFN">SummaryStatistics</a></code> and  
+		 <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code> may have a 
+		 <code><a href="#dfn-disco-weightedby" class="internalDFN">weightedBy</a></code> relation to a
+		 <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>.
 	  </p>
 	  
       <pre class="example">
@@ -1271,14 +1276,14 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		  Available summary statistics types are frequency, percentage, maximum, mean, median, minimum, mode, and standardDeviation.
 		</p>
 		<p>
-          There are two properties which describe details of a category or summary statistic value, typeOfCases and weightedBy.
+          There are two properties which describe details of a category or summary statistic value, computationBase and weightedBy.
 		</p>
 	  
         <p>		
-          typeOfCases expresses if the cases - which are the basis of the computation of a statistics value - 
-		  are valid, invalid or the total of both. The usage of typeOfCases for frequency differs from the usage for the 
-		  percentage statistics and the summary statistics. A distinction regarding typeOfCases doesn’t apply to frequency as category statistic. 
-		  The following table describes the details of usage of typeOfCases in dependency of the respective statistics type.
+          computationBase expresses if the cases - which are the basis of the computation of a statistics value - 
+		  are valid, invalid or the total of both. The usage of computationBase for frequency differs from the usage for the 
+		  percentage statistics and the summary statistics. A distinction regarding computationBase doesn’t apply to frequency as category statistic. 
+		  The following table describes the details of usage of computationBase in dependency of the respective statistics type.
 		</p>
 		
 		<p>
@@ -1289,7 +1294,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		  <tbody>
 			<tr>
 			  <td style="vertical-align: middle; text-align: center; font-weight: bold;" rowspan='2'>Statistics Type<br/></td>
-			  <td style="vertical-align: top; text-align: center; font-weight: bold;" colspan='4'>typeOfCases<br/></td>
+			  <td style="vertical-align: top; text-align: center; font-weight: bold;" colspan='4'>computationBase<br/></td>
 			</tr>
 			<tr>
 			  <td style="vertical-align: top; text-align: center;">valid<br/></td>
@@ -1823,12 +1828,8 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
       </div>
 	  
 	  <p>
-	    new sub-classes of skos:Concept:
-		<ul>
-		  <li>Variable</li>
-		  <li>Question</li>
-		</ul>
-		in order to include variables and questions in unordered skos:ConceptSchemes.
+	    In order to include variables and questions in unordered skos:ConceptSchemes,
+		it has to be stated that the classes Variable and Question are defined as sub-classes of skos:Concept.
       </p>
 	  
     </section>
@@ -1845,15 +1846,35 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
         (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>), and variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>) may have
         representations.
 		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> is defined as sub-class of the union of <b><code>rdfs:Datatype</code></b> (e.g. numeric or
-        textual values) and <b><code>skos:ConceptScheme</code></b>, as for example questions
-        may have as response domain a mixture of a numeric response
-        domain containing numeric values (<code>rdfs:Datatype</code>) and a code
-        response domain (<code>skos:ConceptScheme</code>).
+        textual values), <b><code>skos:ConceptScheme</code></b>, and <b><code>skos:OrderedCollection</code></b>, as for example questions
+        may have as response domain a mixture of a numeric response domain containing numeric values (<code>rdfs:Datatype</code>) and 
+		an unordered code response domain (<code>skos:ConceptScheme</code>) as well as an ordered code response domain (<code>skos:OrderedCollection</code>).
 	  </p>
 
       <div class="figure">
         <img src="diagrams/representation.jpg" alt="Representation"/>
       </div>
+	  
+	  <p>
+	    Questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) 
+		(<code><a href="#dfn-disco-responsedomain" class="internalDFN">responseDomain</a></code>), 
+		variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) 
+		(<code><a href="#dfn-disco-representation" class="internalDFN">representation</a></code>), and variable definitions (
+		<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) 
+		(<code><a href="#dfn-disco-representation" class="internalDFN">representation</a></code>) 
+		may have representations. 
+		Questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) must have 1 to n representations 
+		(<code><a href="#dfn-disco-representation" class="internalDFN">representation</a></code>), variables
+		(<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) must have exactly 1 
+		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>,
+		and variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>)
+		may have 0 to n representations (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>).
+		Each <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> can be in 0 to n 
+		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> relationships 
+		with questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>), variables 
+		(<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>), and variable definitions 
+		(<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>).
+	  </p>
       
       <p>The following example shows the representations of the three previously introduced variables Sex, Age and Citizenship. All of them refer to the particular concepts.</p>
       
@@ -1867,18 +1888,6 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
       &lt;#CitizenshipRepr&gt; a skos:ConceptScheme, disco:Representation;
         skos:hasTopConcept &lt;#CYes&gt;, &lt;#CNo&gt;, &lt;#CUnknown&gt;, &lt;#CNIU&gt;.    
 	  </pre>
-	  
-	  <p>
-	    Questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) (<code><a href="#dfn-disco-responsedomain" class="internalDFN">responseDomain</a></code>), 
-		variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>), and variable definitions (
-		<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>) 
-		may have representations. 
-		Questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) must have 1 to n representations (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>), variables
-		(<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) must have exactly 1 <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>,
-		and variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) may have 0 to n representations (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>).
-		Each <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> can be in 0 to n <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> relationships 
-		with questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>), variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>), and variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>).
-	  </p>
 	  
     </section>
 
