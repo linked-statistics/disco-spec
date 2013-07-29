@@ -48,7 +48,7 @@
           specStatus:           "unofficial",
           
           // the specification's short name, as in http://www.w3.org/TR/short-name/
-          shortName:            "discovery",
+          shortName:            "Disco",
 
           // if your specification has a subtitle that goes below the main
           // formal title, define it here
@@ -107,16 +107,22 @@
               { name: "Joachim Wackerow", //url: "http://example.org/",
                 company: "GESIS - Leibniz Institute for the Social Sciences", companyURL: "http://www.gesis.org/" },
               { name: "Benjamin Zapilko",
-                company: "GESIS - Leibniz Institute for the Social Sciences", companyURL: "http://www.gesis.org/" },
+                company: "GESIS - Leibniz Institute for the Social Sciences", companyURL: "http://www.gesis.org/" }
           ],
           
+		  // generates various RDFa attributes if set to true
+		  doRDFa: false,
           // name of the WG
+		  // Apparently, not used.
           wg:           "DDI Alliance RDF Vocabularies Working Group",
           
           // URI of the public WG page
+		  // Apparently, not used.
           wgURI:        "http://www.ddialliance.org/alliance/working-groups#RDF",
           
           // name (without the @w3c.org) of the public mailing to which comments are due
+		  // Apparently, this has to be a W3C address.
+		  // Apparently, not used.
           wgPublicList: "ddi-rdf-vocabulary@googlegroups.com",
           
           // URI of the patent status for this WG, for Rec-track documents
@@ -200,8 +206,8 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
     </section>
 
 	  <p>
-	    Statistical domain experts (core members of the DDI Alliance Technical Implementa-tion Committee, 
-		representatives of national statistical institutes, national data ar-chives) and Linked Open Data community 
+	    Statistical domain experts (core members of the DDI Alliance Technical Implementation Committee, 
+		representatives of national statistical institutes, national data archives) and Linked Open Data community 
 		members have selected the DDI elements which are seen as most important to solve problems associated with 
 		use cases in the area of data discovery. This section gives an overview of the conceptual model. 
 		More detailed descriptions of all the properties are given in the specification and two conference papers [<cite><a class="bibref" href="#bib-Linked-Statistical-Data">Linked-Statistical-Data</a></cite>] [<cite><a class="bibref" href="#bib-DDI-RDF-Discovery-Vocabulary">DDI-RDF-Discovery-Vocabulary</a></cite>]. 
@@ -312,7 +318,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  aggregation methods, and the underlying microdata. 
 	  The goal would be to drill down to the related microdata based on a search resulting in aggregate data. 
 	  On the one hand aggregate data are often easily available and gives a quick overview. 
-	  On the other hand microdata enable more detailed anal-yses.
+	  On the other hand microdata enable more detailed analyses.
 	  </p>
 
       <p>The use of formal statistical classifications is very common
@@ -348,7 +354,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       properties include information about the funding, organizational
       affiliation, abstract, title, version, and other such high-level
       information. In some cases, where data collection is cyclic or
-      on-going, data sets may be released as a <b><code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code> </b>, where each
+      on-going, data sets may be released as a <b><code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code></b>, where each
       cycle or "wave" of the data collection activity produces one or
       more data sets. This is typical for longitudinal studies, panel
       studies, and other types of "series" (to use the DDI term). In
@@ -361,7 +367,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       holding that data. It is possible to format data files in many
       different ways, even if the logical content is the same. In our
       model the <b><code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code></b> represents the content of the file
-      (its organization into a set of variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) ). The <code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>
+      (its organization into a set of variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>)). The <code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>
       is an extension of the <code>dact:DataSet</code> class. Physical, distributed
       files are represented by the class <b> <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code></b> (not depicted in the diagram), which is itself an
       extension of the <code>dcat:Distribution</code>.</p>
@@ -426,7 +432,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       files.</p>
 
       <p>Not all of this information is useful in a data discovery
-      scenario—sampling and data collection methodologies is not
+      scenario—sampling and data collection methodologies are not
       typically indexed for searches. Information about the
       questionnaire is, as is detailed information about the variables
       contained in the files. We will look more closely at the
@@ -442,9 +448,9 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  
 	  The study instance further contains an abstract.
 	  
-	  Since a study is an versionable object in DDI, we attach a version to it.
+	  Since a study is a versionable object in DDI, we attach a version to it.
 	  
-	  A study further is described using various additional information, described further below. 
+	  A study is further described using additional information which is described further below. 
 
       
 <pre class="example">
@@ -853,9 +859,9 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		Studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>) may have <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code> connections with 0 to n data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) and data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) must have 
 		1 to n <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code> relationships to studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>).  
 		Studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>)  are associated with 0 to n variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>)  using the object property <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>.
-		On the other hand, variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) must be related to 1 to n studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>) .
+		On the other hand, variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) must be related to 1 to n studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>).
 		Studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>) may have 0 to n logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>) (<code><a href="#dfn-disco-product" class="internalDFN">product</a></code>) and logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>) must 
-        have 1 to n <code><a href="#dfn-disco-product" class="internalDFN">product</a></code> relationships to studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>) .		
+        have 1 to n <code><a href="#dfn-disco-product" class="internalDFN">product</a></code> relationships to studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>).		
 	  </p>
 	  
 	<section>
@@ -972,7 +978,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
  
 		<p>
 		  Any entity can have version information. As you can see in the next UML class diagram, the property owl:versionInfo has rdfs:Resource as domain. 
-          As a consequence, each DDI onject can have attachted versioning information.		  
+          As a consequence, each DDI object can have attached versioning information.		  
 		  However, the most typical cases are:</p>
  
 		<ul>
@@ -989,7 +995,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  
 	  <section>
 	  <h3>Access Rights Statements and Licenses</h3>
-	  <p>Every logical dataset may have access rights statements and licensing information attached to it. For those purposes, the dublin core properties <code>dcterms:accessRights</code> and <code>dcterms:license</code> are used.</p>
+	  <p>Every logical dataset may have access rights statements and licensing information attached to it. For those purposes, the Dublin Core properties <code>dcterms:accessRights</code> and <code>dcterms:license</code> are used.</p>
 	  
 	  <p>
 	    Access rights are defined in a <b><code>dcterms:RightsStatement</code></b> object, 
@@ -1281,8 +1287,8 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		 <code><a href="#dfn-disco-descriptivestatistics" class="internalDFN">DescriptiveStatistics</a></code> individuals.
 		 <code><a href="#dfn-disco-summarystatistics" class="internalDFN">SummaryStatistics</a></code> point to 0 to n variables 
 		 (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) using the object property 
-		 <code><a href="#dfn-disco-statisticsvariable" class="internalDFN">statisticsVariable</a></code>. Variables (
-		 <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>), however, may be in 0 to n of such relationships to 
+		 <code><a href="#dfn-disco-statisticsvariable" class="internalDFN">statisticsVariable</a></code>. Variables 
+		 (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>), however, may be in 0 to n of such relationships to 
 		 <code><a href="#dfn-disco-summarystatistics" class="internalDFN">SummaryStatistics</a></code> objects.
 		 <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code> may be connected with 0 to n 
 		 <code>skos:Concepts</code> using the property <code><a href="#dfn-disco-statisticscategory" class="internalDFN">statisticsCategory</a></code>
@@ -1800,14 +1806,14 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
             <li><b>Category linked to <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code>: </b><code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code> like frequencies and percentages are associated to the respectve Category using the object property statisticsCategory. <code>skos:Concept</code> represents categories.</li>
             <li><b>Concepts of questions: Questions (</b><code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) are associated with concepts via the object property concept.</li>
             
-<li><b><code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code>: </b>Each universe is also a <code>skos:Concept</code>. Therefore the porperties defined for <code>skos:Concept</code> can be reused for universes.</li>
+<li><b><code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code>: </b>Each universe is also a <code>skos:Concept</code>. Therefore the properties defined for <code>skos:Concept</code> can be reused for universes.</li>
             <li><b>Collection Mode: Questionnaires (</b><code><a href="#dfn-disco-questionnaire" class="internalDFN">Questionnaire</a></code>) may have multiple collection modes which are represented by <code>skos:Concept</code>.</li>
             <li><b>Concepts of variable definitions: </b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code> definitions are associated with concepts via the object property concept.</li>
             <li><b>Concepts of variables: Variables (</b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) are linked to concepts via the object property concept.</li>
 
             <li><b>Kind of data: </b>KindOfData describes, with a string or a term from a controlled vocabulary, the kind of data documented in the logical product(s) of a <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>. Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc. The range of kindOfData is <code>skos:Concept</code></li>
             <li><b>Format of data files: </b> Using the object property <code>dcterms:format</code>, data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) formats can be defined. Data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFiles</a></code>) must have exactly 1 <code>dcterms:format</code> relationship to an instance of the class <code>dcterms:MediaTypeOrExtend</code> which is a sub-class of <code>skos:Concept</code>.</li>
-            <li><b><code><a href="#dfn-disco-analysisunit" class="internalDFN">AnalysisUnit</a></code>: </b>Each analysis unit is also a <code>skos:Concept</code>. Therefore the porperties defined for <code>skos:Concept</code> can be reused for analysis units.</li>
+            <li><b><code><a href="#dfn-disco-analysisunit" class="internalDFN">AnalysisUnit</a></code>: </b>Each analysis unit is also a <code>skos:Concept</code>. Therefore the properties defined for <code>skos:Concept</code> can be reused for analysis units.</li>
           </ul>
         </div>
       </section>
@@ -1957,14 +1963,14 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 	  
 	  <p>
 	    You can describe (<code>dcterms:description</code>) instruments (<code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>) and associate labels
-        (<code>skos:prefLabel</code>) to instruments (<code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>). Instruments (
-		<code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>) may have (<code><a href="#dfn-disco-externaldocumentation" class="internalDFN">externalDocumentation</a></code>)
+        (<code>skos:prefLabel</code>) to instruments (<code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>). Instruments 
+		(<code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>) may have (<code><a href="#dfn-disco-externaldocumentation" class="internalDFN">externalDocumentation</a></code>)
 		multiple (0 - n) external documentations which are of the type <code>foaf:Documents</code>.
 		<code>Foaf:Documents</code> may be external documentations of 0 to n instruments (<code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>).
 		<code><a href="#dfn-disco-collectionmode" class="internalDFN">collectionMode</a></code> are special instruments having at
         least 1 (1 - n) collection mode (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>), which is a <code>skos:Concept</code>.
-		A specific collection mode can be associated with 0 to n questionnaires (<code><a href="#dfn-disco-questionnaire" class="internalDFN">Questionnaire</a></code>). Questionnaires (
-		<code><a href="#dfn-disco-questionnaire" class="internalDFN">Questionnaire</a></code>) must contain 1 to n questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) using the object property <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>.
+		A specific collection mode can be associated with 0 to n questionnaires (<code><a href="#dfn-disco-questionnaire" class="internalDFN">Questionnaire</a></code>). Questionnaires 
+		(<code><a href="#dfn-disco-questionnaire" class="internalDFN">Questionnaire</a></code>) must contain 1 to n questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) using the object property <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>.
 		Particular questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) may be contained in 0 to n questionnaires (<code><a href="#dfn-disco-questionnaire" class="internalDFN">Questionnaire</a></code>).
 	  </p>
 
@@ -2062,7 +2068,7 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 	  
 	  <p>
 	    Especially persons and organizations may hold one or more persistent identifiers of particular schemes and agencies 
-		(e.g. ORCID , FundRef ) that are not considered by the specific IDs of Disco. In order to include those identifiers 
+		(e.g. ORCID, FundRef) that are not considered by the specific IDs of Disco. In order to include those identifiers 
 		and for distinguishing between multiple identifiers for the same class, ADMS is utilized. As a profile of DCAT, 
 		ADMS aims to describe semantic assets, i.e. reusable metadata and reference data. The class adms:Identifier can be 
 		added to a rdfs:Resource by using the property adms:identifier. That identifier class can contain properties that define 
@@ -2077,7 +2083,7 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 	  
 	  <p>
 	    In order to represent detailed provenance information of Web data and metadata, classes and properties of PROV-O can be used. 
-		Thus, it can be used as a natural vo-cabulary to attach provenance information to Disco metadata. 
+		Thus, it can be used as a natural vocabulary to attach provenance information to Disco metadata. 
 		Terms of PROV-O are organized among three main classes: prov:Entity, prov:Activity and prov:Agent. 
 		While classes of Disco can be represented either as entities or agents, particular processes for, 
 		e.g. creating, maintaining and accessing data can be modeled as activities. Properties like prov:wasGeneratedBy, 
@@ -2133,7 +2139,7 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		sets of metadata describing statis-tical concepts. Hierarchies of DDI concepts can be built using the object peoperties 
 		skos:broader and skos:narrower. Topical coverage can be expressed using dcterms:subject. Disco foresees the use of skos:Concept 
 		for the description of topical coverage. Spatial, temporal, and topical coverage are directly attached to studies, logical datasets, 
-		and datafiles. Universes and AnalysisUnits are also skos:Concepts. Therefore the porperties defined for skos:Concept can be reused. 
+		and datafiles. Universes and AnalysisUnits are also skos:Concepts. Therefore the properties defined for skos:Concept can be reused. 
 		KindOfData, pointing to a skos:Concept , describes, with a string or a term from a controlled vocabulary, the kind of data documented 
 		in the logical product(s) of a Study. Using dcterms:format, DataFiles formats can be defined.
 	  </p>
@@ -2208,7 +2214,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
 		Aggregate data is derived from microdata by statistics on groups, or aggregates such as counts, means, or frequencies. 
 		Data cubes are often generated by tabulating or aggregating unit-record datasets. 
 		For example, if an observation in a census data cube indicates the population of a certain age group in a certain region is 12345, 
-		then this fact was obtained by aggregating that number of indi-vidual records from a unit-record dataset. 
+		then this fact was obtained by aggregating that number of individual records from a unit-record dataset. 
 		Disco contains a property “aggregation” that indicates that a Cube dataset was derived by tabulating a unit-record dataset. 
 		Data Cube provides for the description of the structure of such cubes, but also for the representation of the cube data itself, 
 		that is, the observations that make up the cube dataset [<cite><a class="bibref" href="#bib-Semantic-Statistics">Semantic Statistics</a></cite>]. This is not the case for Disco, 
@@ -2446,7 +2452,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           </section>
           
           <section>
-                <h4>General Metdata</h4>
+                <h4>General Metadata</h4>
                 
 <table style="text-align: left; font-size: 70%;">
   <tbody>
@@ -3476,7 +3482,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           </section>
           
           <section>
-                <h4>General Metdata</h4>
+                <h4>General Metadata</h4>
                 
 <table style="text-align: left; font-size: 70%;">
   <tbody>
@@ -4437,7 +4443,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
           </section>
           
           <section>
-                <h4>General Metdata</h4>
+                <h4>General Metadata</h4>
                 
 <table style="text-align: left; font-size: 70%;">
   <tbody>
