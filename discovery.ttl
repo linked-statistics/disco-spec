@@ -165,58 +165,6 @@ disco:caseQuantity a rdf:Property, owl:DatatypeProperty;
     rdfs:range xsd:nonNegativeInteger;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
-# ddi2_1identifier property
-# use if available in DDI
-disco:ddi2_1identifier a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "DDI 2.1 identifier"@en, "DDI 2.1 Identifikation"@de;
-    rdfs:domain rdfs:Resource;
-    rdfs:range xsd:anyURI;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
-    rdfs:subPropertyOf disco:internationalIdentifier.
-
-# ddi2_5identifier property
-# use if available in DDI
-disco:ddi2_5identifier a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "DDI 2.5 identifier"@en, "DDI 2.5 Identifikation"@de;
-    rdfs:domain rdfs:Resource;
-    rdfs:range xsd:anyURI;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
-    rdfs:subPropertyOf disco:internationalIdentifier.
-
-# ddi3_0identifier property
-# use if available in DDI
-disco:ddi3_0identifier a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "DDI 3.0 identifier"@en, "DDI 3.0 Identifikation"@de;
-    rdfs:domain rdfs:Resource;
-    rdfs:range xsd:anyURI;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
-    rdfs:subPropertyOf disco:internationalIdentifier.
-
-# ddi3_1identifier property
-# use if available in DDI
-disco:ddi3_1identifier a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "DDI 3.1 identifier"@en, "DDI 3.1 Identifikation"@de;
-    rdfs:domain rdfs:Resource;
-    rdfs:range xsd:anyURI;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
-    rdfs:subPropertyOf disco:internationalIdentifier.
-
-# ddi3_2identifier property
-# use if available in DDI
-disco:ddi3_2identifier a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "DDI 3.1 identifier"@en, "DDI 3.2 Identifikation"@de;
-    rdfs:domain rdfs:Resource;
-    rdfs:range xsd:anyURI;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
-    rdfs:subPropertyOf disco:internationalIdentifier.
-
-# internationalIdentifier property
-disco:internationalIdentifier a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "international identifier"@en, "DDI-Identifikation"@de;
-    rdfs:domain rdfs:Resource;
-    rdfs:range xsd:anyURI;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
 # frequency property
 disco:frequency a rdf:Property, owl:DatatypeProperty;
     rdfs:label "frequency"@en, "fréquence"@fr;
@@ -233,6 +181,14 @@ disco:isPublic a rdf:Property, owl:DatatypeProperty;
     rdfs:range xsd:boolean;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
+# isValid property
+disco:isValid a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "is valid"@en;
+    rdfs:domain skos:Concept;
+    rdfs:comment "Indicates if the code (represented by skos:Concept) is valid or missing."@en;
+    rdfs:range xsd:boolean;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+	
 # questionText property
 disco:questionText a rdf:Property, owl:DatatypeProperty;
     rdfs:label "question text"@en, "Fragetext"@de;
@@ -245,30 +201,22 @@ disco:questionText a rdf:Property, owl:DatatypeProperty;
 disco:percentage a rdf:Property, owl:DatatypeProperty;
     rdfs:label "percentage"@en, "pourcentage"@fr;
 	rdfs:comment "percentage"@en;
-    rdfs:domain disco:CategoryStatistics;
+    rdfs:domain [ owl:unionOf (disco:SummaryStatistics disco:CategoryStatistics)];
     rdfs:range xsd:decimal;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
+	
+# computationBase property
+disco:computationBase a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "computation base"@en, "pourcentage"@fr;
+	rdfs:comment "computation base"@en;
+    rdfs:domain [ owl:unionOf (disco:SummaryStatistics disco:CategoryStatistics)];
+    rdfs:range rdf:langString;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+	
 # cumulativePercentage property
 disco:cumulativePercentage a rdf:Property, owl:DatatypeProperty;
     rdfs:label "cumulative percentage"@en;
 	rdfs:comment "cumulative percentage"@en;
-    rdfs:domain disco:CategoryStatistics;
-    rdfs:range xsd:decimal;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
-# weightedCumulativePercentage property
-disco:weightedCumulativePercentage a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "weighted cumulative percentage"@en;
-	rdfs:comment "weighted cumulative percentage"@en;
-    rdfs:domain disco:CategoryStatistics;
-    rdfs:range xsd:decimal;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
-# weightedPercentage property
-disco:weightedPercentage a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "weighted percentage"@en;
-	rdfs:comment "weighted percentage"@en;
     rdfs:domain disco:CategoryStatistics;
     rdfs:range xsd:decimal;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
@@ -297,42 +245,10 @@ disco:standardDeviation a rdf:Property, owl:DatatypeProperty;
     rdfs:range xsd:decimal;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
-# weightedFrequency property
-disco:weightedFrequency a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "weighted frequency"@en, "fréquence pondérée"@fr;
-	rdfs:comment "weighted frequency"@en;
-    rdfs:domain disco:CategoryStatistics;
-    rdfs:range xsd:nonNegativeInteger;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
-# validCases property
-disco:validCases a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "valid cases"@en;
-	rdfs:comment "valid cases"@en;
-    rdfs:domain disco:SummaryStatistics;
-    rdfs:range xsd:nonNegativeInteger;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
-# weightedValidCases property
-disco:weightedValidCases a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "weighted valid cases"@en;
-	rdfs:comment "weighted valid cases"@en;
-    rdfs:domain disco:SummaryStatistics;
-    rdfs:range xsd:nonNegativeInteger;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
-# invalidCases property
-disco:invalidCases a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "invalid cases"@en;
-	rdfs:comment "invalid cases"@en;
-    rdfs:domain disco:SummaryStatistics;
-    rdfs:range xsd:nonNegativeInteger;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
-# weightedInvalidCases property
-disco:weightedInvalidCases a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "weighted invalid cases"@en;
-	rdfs:comment "weighted invalid cases"@en;
+# numberOfCases property
+disco:numberOfCases a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "number of cases"@en;
+	rdfs:comment "number of cases"@en;
     rdfs:domain disco:SummaryStatistics;
     rdfs:range xsd:nonNegativeInteger;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
@@ -353,26 +269,10 @@ disco:mean a rdf:Property, owl:DatatypeProperty;
     rdfs:range xsd:decimal;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
-# weightedMean property
-disco:weightedMean a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "weighted mean"@en;
-	rdfs:comment "weighted mean"@en;
-    rdfs:domain disco:SummaryStatistics;
-    rdfs:range xsd:decimal;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
 # median property
 disco:median a rdf:Property, owl:DatatypeProperty;
     rdfs:label "median"@en;
 	rdfs:comment "median"@en;
-    rdfs:domain disco:SummaryStatistics;
-    rdfs:range xsd:decimal;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
-# weightedMedian property
-disco:weightedMedian a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "weighted median"@en;
-	rdfs:comment "weighted median"@en;
     rdfs:domain disco:SummaryStatistics;
     rdfs:range xsd:decimal;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
@@ -389,14 +289,6 @@ disco:minimum a rdf:Property, owl:DatatypeProperty;
 disco:mode a rdf:Property, owl:DatatypeProperty;
     rdfs:label "mode"@en;
 	rdfs:comment "mode"@en;
-    rdfs:domain disco:SummaryStatistics;
-    rdfs:range xsd:decimal;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
-# weightedMode property
-disco:weightedMode a rdf:Property, owl:DatatypeProperty;
-    rdfs:label "weighted mode"@en;
-	rdfs:comment "weighted mode"@en;
     rdfs:domain disco:SummaryStatistics;
     rdfs:range xsd:decimal;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
@@ -607,6 +499,15 @@ disco:statisticsVariable a rdf:Property, owl:ObjectProperty;
     rdfs:range disco:Variable;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
+# weightedBy property
+# * SummaryStatistics, CategoryStatistics -> Variable 0,...,n / 0 .. 1
+disco:weightedBy a rdf:Property, owl:ObjectProperty;
+    rdfs:label "weighted by"@en, ""@fr;
+	rdfs:comment "SummaryStatistics or CategoryStatistics resources may be weighted by a specific Variable."@en;
+    rdfs:domain [ owl:unionOf (disco:SummaryStatistics disco:CategoryStatistics)];
+    rdfs:range disco:Variable;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+	
 # universe property
 # * Study/Study -> Universe 1,...,n / 0,...,n
 # * VariableDefinition -> Universe 0,...,n / 0,...,n (Note: VariableDefinition and Variable are the same thing in different states)
