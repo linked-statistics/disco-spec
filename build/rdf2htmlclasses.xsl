@@ -97,7 +97,7 @@
                 4. Data Collection
                 Question, Instrument, Questionnaire
                 -->
-                <h2>1. Studies and StudyGroups</h2>
+                <h3>1. Studies and StudyGroups</h3>
                 <dl class="classDefinitions">
                     <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Study')]"/>
                     <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'StudyGroup')]"/>
@@ -106,7 +106,7 @@
                     <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'DataDiscoveryDocument')]"/>
                 </dl>
                 
-                <h2>2. Data Sets, Data Files, and Descriptive Statistics</h2>
+                <h3>2. Data Sets, Data Files, and Descriptive Statistics</h3>
                 <dl class="classDefinitions">
                     <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'LogicalDataSet')]"/>
                     <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'DataFile')]"/>
@@ -115,25 +115,19 @@
                     <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'CategoryStatistics')]"/>
                 </dl>
                 
-                <h2>3. Variables, Variable Definitions, Representations, and Concepts</h2>
+                <h3>3. Variables, Variable Definitions, Representations, and Concepts</h3>
                 <dl class="classDefinitions">
                     <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Variable')]"/>
                     <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'VariableDefinition')]"/>
                     <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Representation')]"/>
                 </dl>
 
-                <h2>4. Data Collection</h2>
+                <h3>4. Data Collection</h3>
                 <dl class="classDefinitions">
                     <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Question')]"/>
                     <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Instrument')]"/>
                     <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Questionnaire')]"/>
                 </dl>
-                <!--
-                <h2>All Properties</h2>
-                <dl class="classDefinitions">
-                    <xsl:apply-templates select="owl:ObjectProperty"/>
-                </dl>      
-                -->
             </body>
         </html>
     </xsl:template>
@@ -155,10 +149,10 @@
             </xsl:if>
         </dt>
         <dd><xsl:value-of select="rdfs:comment"/></dd>
-        <div class="classProperties">
-            <xsl:apply-templates select="../..//owl:ObjectProperty[rdfs:domain/@rdf:resource=concat($prefix,$class) or rdfs:domain/owl:unionOf/owl:Class/@rdf:about=concat($prefix,$class)]"/>
-            <xsl:apply-templates select="../..//owl:DatatypeProperty[rdfs:domain/@rdf:resource=concat($prefix,$class) or rdfs:domain/owl:unionOf/owl:Class/@rdf:about=concat($prefix,$class)]"/>
-        </div>
+        
+        <xsl:apply-templates select="../..//owl:ObjectProperty[rdfs:domain/@rdf:resource=concat($prefix,$class) or rdfs:domain/owl:unionOf/owl:Class/@rdf:about=concat($prefix,$class)]"/>
+        <xsl:apply-templates select="../..//owl:DatatypeProperty[rdfs:domain/@rdf:resource=concat($prefix,$class) or rdfs:domain/owl:unionOf/owl:Class/@rdf:about=concat($prefix,$class)]"/>
+        
     </xsl:template>
     
     <xsl:template match="rdfs:subClassOf">
@@ -181,7 +175,7 @@
                 <xsl:with-param name="uri" select="@rdf:about" />
             </xsl:call-template>
         </xsl:variable>
-        <dt>
+        <dt class="classProperties">
             <xsl:choose>
                 <xsl:when test="name(.) = 'owl:DatatypeProperty'"><em>Datatype Property: </em></xsl:when>
                 <xsl:when test="name(.) = 'owl:ObjectProperty'"><em>Object Property: </em></xsl:when>
@@ -229,7 +223,7 @@
             </xsl:if>
             )
         </dt>
-        <dd><xsl:value-of select="rdfs:comment"/></dd>
+        <dd class="classProperties"><xsl:value-of select="rdfs:comment"/></dd>
     </xsl:template>
     
     <xsl:template name="string-replace-all">
