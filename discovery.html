@@ -2,15 +2,15 @@
 <html>
   <head>
     <title>DDI-RDF Discovery Vocabulary</title>
-    <meta http-equiv="content-type" content="text/html;" charset='utf-8'/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <style type="text/css">
       table { border: black 1px solid; border-collapse:collapse; border-spacing: 0; }
       table td { border: black 1px solid; padding: 3px; padding-left: 10px; padding-right: 10px; text-align: center; vertical-align: top;}
 	  .classDefinitions dd{margin-left: 25px;}
 	  .classProperties{margin-left:25px;margin-bottom: 15px;margin-top:15px;}
 	  .classProperties dt{margin-top: 15px;}        
-      .uml-diagram {
-        max-width: 100%;
+      .figcaption {
+        margin-top: 0.75em;
       }
 	  @media screen
 	  {
@@ -41,6 +41,28 @@
 			*/
 	  }
     </style>
+		<script type="text/javascript">
+//<![CDATA[
+// Adjustment of size of UML diagrams to 55% of original size or if wider than the screen to 90% of screen width.
+// UML diagrams must have the CSS class "uml-diagram" (no additional classes).
+var maxWidth = screen.width*0.9;
+var scaleFactor = 0.55;
+function adjustWidthOfImages() {
+	var images = document.getElementsByTagName( 'img' );
+	for ( var i=0; i<images.length; i++ ) {
+		var image = images[i];
+		if ( image.className.toLowerCase() == 'uml-diagram' ) { // works only if only this CSS class name exists
+			var imageWidth = Math.round( image.naturalWidth * scaleFactor );
+			if ( imageWidth > maxWidth ) {
+				elementWidth = maxWidth;
+			} else {
+				elementWidth = imageWidth;
+			}
+			image.style.width = ( elementWidth ).toString() + 'px';
+		}
+	}
+}
+//]]></script>
     <script type="text/javascript" src='http://darobin.github.com/respec/builds/respec-w3c-common.js' class='remove'></script>
     <script type="text/javascript" class='remove'>
       var respecConfig = {
@@ -111,6 +133,7 @@
           ],
           
 		  // generates various RDFa attributes if set to true
+		  // set to false for test purposes
 		  doRDFa: false,
           // name of the WG
 		  // Apparently, not used.
@@ -134,7 +157,7 @@
       };
     </script>
   </head>
-  <body>
+  <body onload="adjustWidthOfImages()">
     <section id='abstract'>
 This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats.
     </section>
@@ -344,7 +367,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
       <h2>Overview</h2>
 
       <div class="figure">
-        <img width="70%" class="uml-diagram" src="diagrams/overview.png" alt="Vocabulary Overview"/>
+        <img class="uml-diagram" src="diagrams/overview.png" alt="Vocabulary Overview"/>
       </div>
 
       <p>To understand the DDI Discovery Vocabulary, there are a few
@@ -869,7 +892,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	</section>
 
       <div class="figure">
-        <img width="90%" class="uml-diagram" src="diagrams/study-metadata.png" alt="Coverage, References to DDI-XML Files, and Kind of Data"/>
+        <img class="uml-diagram" src="diagrams/study-metadata.png" alt="Coverage, References to DDI-XML Files, and Kind of Data"/>
       </div>
 	  
 	  <p>
@@ -900,7 +923,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	</section>
 	  
       <div class="figure">
-        <img width="55%" class="uml-diagram" src="diagrams/study-agent.png" alt="Relationships to Agents"/>
+        <img class="uml-diagram" src="diagrams/study-agent.png" alt="Relationships to Agents"/>
       </div>
 	  
 	  <p>
@@ -931,7 +954,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  </p>
 	  
       <div class="figure">
-        <img width="55%" class="uml-diagram" src="diagrams/study-universe.png" alt="Study, Universe and AnalysisUnit"/>
+        <img class="uml-diagram" src="diagrams/study-universe.png" alt="Study, Universe and AnalysisUnit"/>
       </div>
 	  
 	  <p>
@@ -967,7 +990,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 	  </p>
 	  
 	  <div class="figure">
-        <img width="45%" class="uml-diagram" src="diagrams/Relations-DDI-XML.png" alt="Relations to DDI-XML Files"/>
+        <img class="uml-diagram" src="diagrams/Relations-DDI-XML.png" alt="Relations to DDI-XML Files"/>
       </div>
 	  
 	  </section>
@@ -988,7 +1011,7 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
 		</ul>
 		
 		<div class="figure">
-          <img width="50%" class="uml-diagram" src="diagrams/identification-versioning.png" alt="Versioning Information"/>
+          <img class="uml-diagram" src="diagrams/identification-versioning.png" alt="Versioning Information"/>
         </div>
 		
 	  </section>
@@ -1018,7 +1041,7 @@ ex:License1 dcterms:description "Published under Open Content License." ;
 	  </pre>
 	  
 	  <div class="figure">
-        <img width="55%" class="uml-diagram" src="diagrams/access-rights-statements-and-licenses.png" alt="Access Rights Statements and Licenses"/>
+        <img class="uml-diagram" src="diagrams/access-rights-statements-and-licenses.png" alt="Access Rights Statements and Licenses"/>
       </div>
 	  
 	  <p>
@@ -1040,7 +1063,7 @@ ex:Study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .
 		<p>In this example, <a href="http://www.geonames.org/">Geonames</a> is used to refer to a spatial region, in this case, the country Germany. Geonames provides URIs for continents, countries, regions, and cities, among others, and is therefore a possible option to use for describing spatial coverage.</p>
         
 		<div class="figure">
-          <img width="70%" class="uml-diagram" src="diagrams/study-coverage.png" alt="Study Coverage"/>
+          <img class="uml-diagram" src="diagrams/study-coverage.png" alt="Study Coverage"/>
         </div>
 		
 		<p>
@@ -1062,7 +1085,7 @@ ex:Study1 dcterms:temporal [
 		<p>This example describes a study that has been conducted between January 1st and January 31st.</p>
 		
 		<div class="figure">
-          <img width="45%" class="uml-diagram" src="diagrams/logical-data-set-coverage.png" alt="LogicalDataSet Coverage"/>
+          <img class="uml-diagram" src="diagrams/logical-data-set-coverage.png" alt="LogicalDataSet Coverage"/>
         </div>
 		
 		<p>Topical coverage can be expressed using <b><code>dcterms:subject</code></b>. DDI-RDF foresees the use <code>skos:Concept</code> for the description of topical coverage:</p>
@@ -1073,7 +1096,7 @@ ex:Study1 dcterms:subject [
 		</pre>
 		
 		<div class="figure">
-          <img width="50%" class="uml-diagram" src="diagrams/data-file-coverage.png" alt="DataFile Coverage"/>
+          <img class="uml-diagram" src="diagrams/data-file-coverage.png" alt="DataFile Coverage"/>
         </div>
 		
 		<p>
@@ -1116,7 +1139,7 @@ ex:Study1 dcterms:subject [
 			</p>
 			
 			<div class="figure">
-			  <img width="70%" class="uml-diagram" src="diagrams/identification-versioning.png" alt="Identification"/>
+			  <img class="uml-diagram" src="diagrams/identification-versioning.png" alt="Identification"/>
 			</div>
 			
 	 </section>
@@ -1140,7 +1163,7 @@ ex:Study1 dcterms:subject [
 	  <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) by the object property <code><a href="#dfn-disco-statisticsdatafile" class="internalDFN">statisticsDataFile</a></code>. </p>
 	  
       <div class="figure">
-        <img width="65%" class="uml-diagram" src="diagrams/overview-data-set.png" alt="Overview: Data Sets, Data Files, Descriptive Statistics"/>
+        <img class="uml-diagram" src="diagrams/overview-data-set.png" alt="Overview: Data Sets, Data Files, Descriptive Statistics"/>
       </div>
 	  
 	  <p>
@@ -1165,7 +1188,7 @@ ex:Study1 dcterms:subject [
 	  </p>
 
       <div class="figure">
-        <img width="70%" class="uml-diagram" src="diagrams/logical-data-set.png" alt="LogicalDataSet"/>
+        <img class="uml-diagram" src="diagrams/logical-data-set.png" alt="LogicalDataSet"/>
       </div>
 
       <p>
@@ -1221,7 +1244,7 @@ ex:Study1 dcterms:subject [
       </p>
 	  
 	  <div class="figure">
-        <img width="50%" class="uml-diagram" src="diagrams/data-file.png" alt="DataFile"/>
+        <img class="uml-diagram" src="diagrams/data-file.png" alt="DataFile"/>
 	  </div>
       
       <pre class="example">
@@ -1275,7 +1298,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
        </p>
 	   
 	   <div class="figure">
-        <img width="50%" class="uml-diagram" src="diagrams/descriptive-statistics.png" alt="DescriptiveStatistics"/>
+        <img class="uml-diagram" src="diagrams/descriptive-statistics.png" alt="DescriptiveStatistics"/>
       </div>
 	   
        <p>	   
@@ -1337,8 +1360,8 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		<table style="text-align: left; font-size: 70%;">
 		  <tbody>
 			<tr>
-			  <td style="vertical-align: middle; text-align: center; font-weight: bold;" rowspan='2'>Statistics Type<br/></td>
-			  <td style="vertical-align: top; text-align: center; font-weight: bold;" colspan='4'>computationBase<br/></td>
+			  <td style="vertical-align: middle; text-align: center; font-weight: bold;" rowspan="2">Statistics Type<br/></td>
+			  <td style="vertical-align: top; text-align: center; font-weight: bold;" colspan="4">computationBase<br/></td>
 			</tr>
 			<tr>
 			  <td style="vertical-align: top; text-align: center;">valid<br/></td>
@@ -1586,7 +1609,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	  </p>
 	  
 	  <div class="figure">
-        <img width="50%" class="uml-diagram" src="diagrams/variable.png" alt="Variables, Variable Definitions, Representations, and Concepts"/>
+        <img class="uml-diagram" src="diagrams/variable.png" alt="Variables, Variable Definitions, Representations, and Concepts"/>
       </div>
 	  
 	  <p>
@@ -1612,7 +1635,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	  </p>
 	 
 	  <div class="figure">
-        <img width="25%" class="uml-diagram" src="diagrams/variable-and-variable-definition.png" alt="Variables and VariableDefinitions"/>
+        <img class="uml-diagram" src="diagrams/variable-and-variable-definition.png" alt="Variables and VariableDefinitions"/>
       </div>
 	  
 	  <p>
@@ -1699,7 +1722,7 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 	  </p>
 
       <div class="figure">
-        <img width="45%" class="uml-diagram" src="diagrams/concept.png" alt="skos:Concept and skos:ConceptScheme"/>
+        <img class="uml-diagram" src="diagrams/concept.png" alt="skos:Concept and skos:ConceptScheme"/>
       </div>
 	  
 	  <p>
@@ -1901,7 +1924,7 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 	  </p>
 
       <div class="figure">
-        <img width="50%" class="uml-diagram" src="diagrams/representation.png" alt="Representation"/>
+        <img class="uml-diagram" src="diagrams/representation.png" alt="Representation"/>
       </div>
 	  
 	  <p>
@@ -1946,7 +1969,7 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
       <h2>Data Collection</h2>
 
 	  <div class="figure">
-        <img width="50%" class="uml-diagram" src="diagrams/data-collection.png" alt="DataCollection"/>
+        <img class="uml-diagram" src="diagrams/data-collection.png" alt="DataCollection"/>
       </div>
 	  
     <section>
