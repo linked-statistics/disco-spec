@@ -140,7 +140,7 @@
             </xsl:call-template>
         </xsl:variable>
         <dt>
-            <a><xsl:attribute name="name">dfn-disco-<xsl:value-of select="$class"/></xsl:attribute></a>
+            <a><xsl:attribute name="id">dfn-disco-<xsl:value-of select="$class"/></xsl:attribute></a>
             <em>Class: </em>
             <code><dfn>disco:<xsl:value-of select="$class"/></dfn></code>
             
@@ -176,6 +176,7 @@
             </xsl:call-template>
         </xsl:variable>
         <dt class="classProperties">
+            <a><xsl:attribute name="id">dfn-disco-<xsl:value-of select="$propertyName"/></xsl:attribute></a>
             <xsl:choose>
                 <xsl:when test="name(.) = 'owl:DatatypeProperty'"><em>Datatype Property: </em></xsl:when>
                 <xsl:when test="name(.) = 'owl:ObjectProperty'"><em>Object Property: </em></xsl:when>
