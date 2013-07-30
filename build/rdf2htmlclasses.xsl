@@ -128,6 +128,11 @@
                     <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Instrument')]"/>
                     <xsl:apply-templates select="owl:Class[@rdf:about=concat($prefix,'Questionnaire')]"/>
                 </dl>
+                
+                <h3>5. Other properties</h3>
+                <dl>
+                    <xsl:apply-templates select="owl:DatatypeProperty[not(contains(rdfs:domain/@rdf:resource, $prefix)) and not(contains(rdfs:domain/owl:unionOf/owl:Class/@rdf:about, $prefix))]"/>
+                </dl>
             </body>
         </html>
     </xsl:template>
@@ -152,7 +157,6 @@
         
         <xsl:apply-templates select="../..//owl:ObjectProperty[rdfs:domain/@rdf:resource=concat($prefix,$class) or rdfs:domain/owl:unionOf/owl:Class/@rdf:about=concat($prefix,$class)]"/>
         <xsl:apply-templates select="../..//owl:DatatypeProperty[rdfs:domain/@rdf:resource=concat($prefix,$class) or rdfs:domain/owl:unionOf/owl:Class/@rdf:about=concat($prefix,$class)]"/>
-        
     </xsl:template>
     
     <xsl:template match="rdfs:subClassOf">
@@ -215,9 +219,19 @@
             <code><xsl:value-of select="$rangeName"/></code>
             <xsl:if test="rdfs:subPropertyOf">
                 <xsl:variable name="subPropertyName">
-                    <xsl:call-template name="prefixify">
-                        <xsl:with-param name="uri" select="rdfs:subPropertyOf/@rdf:resource" />
-                    </xsl:call-template>
+                    <xsl:choose>
+                        <xsl:when test="rdfs:subPropertyOf/@rdf:resource">
+                            <xsl:call-template name="prefixify">
+                                <xsl:with-param name="uri" select="rdfs:subPropertyOf/@rdf:resource" />
+                            </xsl:call-template>                            
+                        </xsl:when>
+                        <xsl:when test="rdfs:subPropertyOf/owl:DatatypeProperty/@rdf:about">
+                            <xsl:call-template name="prefixify">
+                                <xsl:with-param name="uri" select="rdfs:subPropertyOf/owl:DatatypeProperty/@rdf:about" />
+                            </xsl:call-template>                               
+                        </xsl:when>
+                    </xsl:choose>
+
                 </xsl:variable>
                 <em>; sub property of: </em>
                 <code><xsl:value-of select="$subPropertyName"/></code>
