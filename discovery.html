@@ -1120,8 +1120,7 @@ ex:Study1 dcterms:subject [
 		<section>
 		  <h3>Identification</h3>
 			
-		    <p>
-	    Every entity defined in DDI-RDF is an <code>rdfs:Resource</code>. 
+		    <p>In DDI, a lot of entities hold particular identifiers. This can be identifiers for different versions of DDI, but also persistent identifiers for, e.g. persons or organizations, that are encoded in a particular identifier scheme, e.g. ORCID or FundRef. In general, such identifiers can be added to each entitiy in DDI-RDF, since every entity is defined as an <code>rdfs:Resource</code>. 
 	    General metadata elements which can be used on every resource in a DDI-RDF description include:
             </p>
 	  
@@ -1133,17 +1132,18 @@ ex:Study1 dcterms:subject [
 			<p>
 			  Each Disco resource must have an identifier (see figure below). 
 			  The identifier is stated using the object property adms:identifier pointing from any rdfs:Ressource to 1 to n idetifiers (adms:Identifier).
-			  The identifier is stated using the object property adms:identifier pointing from any rdfs:Ressource to 1 to n idetifiers (adms:Identifier).
-			  See section '<a href="#adms">Asset Description Metadata Schema (ADMS)</a>' for more information. 
-			</p>
+			  The class adms:Identifier can include the actual identifier itself and information on identifier scheme, its version, and its agency.
+			  </p>
 			
 			<div class="figure">
 			  <img class="uml-diagram" src="diagrams/identification-versioning.png" alt="Identification"/>
 			</div>
 			
 		  <pre class="example">
-		    Example for the usage of adms:identifier and adms:Identifier
+		    Example code for the usage of adms:identifier and adms:Identifier
 		  </pre>
+		  
+		  <p>See section '<a href="#adms">Asset Description Metadata Schema (ADMS)</a>' for more information. </p>
 			
 	 </section>
 
