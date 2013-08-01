@@ -59,12 +59,6 @@ disco:AnalysisUnit a rdfs:Class, owl:Class;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
     rdfs:subClassOf skos:Concept.
 
-# DataDiscoveryDocument class
-disco:DataDiscoveryDocument a rdfs:Class, owl:Class;
-    rdfs:label "data discovery document"@en, "Datenentdeckungsdokument"@de;
-    rdfs:comment "Data discovery document in DDI. Dct:publisher is used for the agency."@en;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
 # VariableDefinition class
 disco:VariableDefinition a rdfs:Class, owl:Class;
     rdfs:label "Data element"@en, "Élément de donnée"@fr;
