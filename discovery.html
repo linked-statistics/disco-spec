@@ -1820,7 +1820,7 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
         <h4>Uses of skos:Concept</h4>
         
         <div>
-          In this sub-section, we will describe all possible uses of the class <code>skos:Concept</code>.
+          In this sub-section, we describe all possible uses of the class <code>skos:Concept</code>.
           <ul>
             <li><b>Code values: </b>Code values are represented using the datatype property <code>skos:notation</code> with <code>skos:Concept</code> as domain.</li>
             <li><b>Category labels: </b>Use <code>skos:prefLabel</code> and the domain class <code>skos:Concept</code> to describe category values</li>
@@ -1846,13 +1846,11 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 	  
 	  <section>
         <h4>Uses of skos:OrderedCollection and skos:ConceptScheme </h4>
+		<p>
+		  In DDI, variables, questions, and categories are typically organized themselves in a particular order. For obtaining this order, <code>skos:OrderedCollection</code>s are used. For example, a collection of variables is represented as being of the type <code>skos:OrderedCollection</code> containing multiple variables (each represented as <code>skos:Concept</code>) in a <code>skos:memberList</code>.
+		</p>
 		
-		
-	  </section>
-	  
-	  
-	  
-	  
+
 	  
 	  <div class="example">
 		<div class="example-title">
@@ -1862,6 +1860,10 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		<div class="figure">
           <img width="35%" src="images/Example_ISSP2011_PARTLIV_Frequencies.png" alt="Example Category Statistics: Frequency Table of Variable PARTLIV (ISSP 2011)"/>
         </div>
+		  
+		  <p>
+		    The following example shows a ordered collection of categories in a abbreviated as well as a complete syntax.
+		  </p>
 		  
 		<pre>
 @prefix issp: &lt;http://www.issp.org/&gt;	  
@@ -1903,10 +1905,11 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
       </div>
 	  
 	  <p>
-	    In order to include variables and questions in unordered skos:ConceptSchemes,
-		it has to be stated that the classes Variable and Question are defined as sub-classes of skos:Concept.
+	    If no order inside a collection of variables and questions is necessary, they are represented as unordered <code>skos:ConceptSchemes</code>.
+	    The classes Variable and Question are defined as sub-classes of <code>skos:Concept</code>.
       </p>
 	  
+	  </section>
     </section>
 
     <section>
