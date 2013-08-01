@@ -978,21 +978,35 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
     <section id='metadata'>
       <h2>General Metadata</h2>
 
-      
-
-    <section>
-	  <h3>Relations to DDI-XML Files</h3>
+      <section>
+		  <h3>Identification</h3>
+			
+		    <p>In DDI, a lot of entities hold particular identifiers. This can be identifiers for different versions of DDI, but also persistent identifiers for, e.g. persons or organizations, that are encoded in a particular identifier scheme, e.g. ORCID or FundRef. In general, such identifiers can be added to each entitiy in DDI-RDF, since every entity is defined as an <code>rdfs:Resource</code>. 
+	    General metadata elements which can be used on every resource in a DDI-RDF description include:
+            </p>
 	  
-	  
-	  <p>
-	    Since the Discovery Vocabulary only covers a subset of an original DDI-XML file, it may be worthwile to have a relationship to the original DDI-XML file. Such a relationship can be represented using <code>dcterms:relation</code>. This way, every element can be related to any <code>foaf:Document</code>. The cardinalities are in both directions 0 to n.
-	  </p>
-	  
-	  <div class="figure">
-        <img class="uml-diagram" src="diagrams/Relations-DDI-XML.png" alt="Relations to DDI-XML Files"/>
-      </div>
-	  
-	  </section>
+		  <ul>
+			<li><code>skos:prefLabel</code> (<code>rdf:langString</code>): the preferred label of this element</li>
+			<li><code>adms:identifier</code> (<code>rdfs:Resource</code>, <code>adms:Identifier</code>): the identifier of this element</li>
+			
+		  </ul>			
+			<p>
+			  Each Disco resource must have an identifier (see figure below). 
+			  The identifier is stated using the object property adms:identifier pointing from any rdfs:Ressource to 1 to n idetifiers (adms:Identifier).
+			  The class adms:Identifier can include the actual identifier itself and information on identifier scheme, its version, and its agency.
+			  </p>
+			
+			<div class="figure">
+			  <img class="uml-diagram" src="diagrams/identification-versioning.png" alt="Identification"/>
+			</div>
+			
+		  <pre class="example">
+		    Example code for the usage of adms:identifier and adms:Identifier
+		  </pre>
+		  
+		  <p>See section '<a href="#adms">Asset Description Metadata Schema (ADMS)</a>' for more information. </p>
+			
+	 </section>
 	  
 	  <section>
 		<h3>Versioning Information</h3>
@@ -1013,6 +1027,20 @@ This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabular
           <img class="uml-diagram" src="diagrams/identification-versioning.png" alt="Versioning Information"/>
         </div>
 		
+	  </section>
+	  
+    <section>
+	  <h3>Relations to DDI-XML Files</h3>
+	  
+	  
+	  <p>
+	    Since the Discovery Vocabulary only covers a subset of an original DDI-XML file, it may be worthwile to have a relationship to the original DDI-XML file. Such a relationship can be represented using <code>dcterms:relation</code>. This way, every element can be related to any <code>foaf:Document</code>. The cardinalities are in both directions 0 to n.
+	  </p>
+	  
+	  <div class="figure">
+        <img class="uml-diagram" src="diagrams/Relations-DDI-XML.png" alt="Relations to DDI-XML Files"/>
+      </div>
+	  
 	  </section>
 	  
 	  <section>
@@ -1116,36 +1144,6 @@ ex:Study1 dcterms:subject [
 			</ul>
 			
 		</section>
-		
-		<section>
-		  <h3>Identification</h3>
-			
-		    <p>In DDI, a lot of entities hold particular identifiers. This can be identifiers for different versions of DDI, but also persistent identifiers for, e.g. persons or organizations, that are encoded in a particular identifier scheme, e.g. ORCID or FundRef. In general, such identifiers can be added to each entitiy in DDI-RDF, since every entity is defined as an <code>rdfs:Resource</code>. 
-	    General metadata elements which can be used on every resource in a DDI-RDF description include:
-            </p>
-	  
-		  <ul>
-			<li><code>skos:prefLabel</code> (<code>rdf:langString</code>): the preferred label of this element</li>
-			<li><code>adms:identifier</code> (<code>rdfs:Resource</code>, <code>adms:Identifier</code>): the identifier of this element</li>
-			
-		  </ul>			
-			<p>
-			  Each Disco resource must have an identifier (see figure below). 
-			  The identifier is stated using the object property adms:identifier pointing from any rdfs:Ressource to 1 to n idetifiers (adms:Identifier).
-			  The class adms:Identifier can include the actual identifier itself and information on identifier scheme, its version, and its agency.
-			  </p>
-			
-			<div class="figure">
-			  <img class="uml-diagram" src="diagrams/identification-versioning.png" alt="Identification"/>
-			</div>
-			
-		  <pre class="example">
-		    Example code for the usage of adms:identifier and adms:Identifier
-		  </pre>
-		  
-		  <p>See section '<a href="#adms">Asset Description Metadata Schema (ADMS)</a>' for more information. </p>
-			
-	 </section>
 
     </section>
 
