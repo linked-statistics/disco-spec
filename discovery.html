@@ -132,6 +132,15 @@ function adjustWidthOfImages() {
                 company: "GESIS - Leibniz Institute for the Social Sciences", companyURL: "http://www.gesis.org/" }
           ],
           
+          // If specified, defines an array of alternate formats in which document is available (e.g., XML, Postscript). The format of the array is:
+          // key description
+          //   uri    the relative or absolute URI to the alternate version.
+          //   label  the label to use for the version. 
+          alternateFormats: [
+		      { uri: "DDI-RDF_Discovery_Vocabulary.pdf",
+			    label: "PDF" }
+		  ],
+
 		  // generates various RDFa attributes if set to true
 		  // set to false for test purposes
 		  doRDFa: false,
