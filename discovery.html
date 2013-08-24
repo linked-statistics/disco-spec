@@ -5882,6 +5882,134 @@ WHERE {
   FILTER (regex(?variableDefinitionConcept, "Bufo alvarius", "i"))
 }
     </pre>
+	
+	<div class="example">
+		<div class="example-title">
+			<span>Which Persons and Organizations Are Associated with Specific Datasets?</span>
+	    </div>
+		
+		<p>
+			Within the context of Disco, we reuse other well elaborated and accepted vocabularies as often as possible and reasonable. 
+			DCMI, FOAF, ORG, ADMS, and PROV-O build one block of complementary vocabularies. Their use is shown in one combined use case. 
+			DCMI is used in order to describe general metadata, FOAF and ORG are used to describe persons and organizations, 
+			we use ADMS for the persistent identification of objects like persons and organizations, and PROV-O is used to provide provenance information. 
+			A typical scenario within the social sciences community could be the following one:
+		</p>
+		
+		<ul>
+			<li>
+				John (foaf:person) aggregates (disco:aggregation) microdata datasets (disco:LogicalDataSet) which are associated with 
+				(disco:product) the European study EU-SILC (disco:Study). The aggregate dataset is represented using qb:DataSet. 
+				The prov:Agent :john was associated with (prov:wasAssociatedWith) the prov:Activity :aggregationActivity. 
+				The :aggregationActivity used (prov:used) the prov:Entity :europeanDataSet (a European dataset), and generated (prov:wasGeneratedBy) 
+				a new prov:Entity :aggregatedEuropeanDataSet that aggregates the microdata in :europeanDataSet. 
+				The prov:Agent :john acted on behalf of (prov:actedOnBehalfOf) the organization :deri (prov:Agent, org:Organization). 
+				The European study (disco:Study) was funded by (disco:fundedBy) the research institution GESIS (org:Organization) 
+				for which John is working for (org:memberOf). In order to identify foaf:Persons and org:Organizations permanently, 
+				the object property adms:identifier is used pointing to adms:Identifiers. 
+				Further possible example queries using the vocabularies TERMS, FOAF, ORG, ADMS, and PROV-O would be: Which persons (foaf:Person), 
+				working for (org:memberOf) the research institute GESIS (org:Organization), created (dcterms:creator) the survey ALLBUS (Germany General Social Survey),
+				which is a particular group of studies (disco:StudyGroup) in Germany?
+			</li>
+			
+			<li>
+				Which organizations (org:Organization) and which persons (foaf:Person) contributed (dcterms:contributor) to the creation of the European study EU-SILC (disco:Study)?
+			</li>
+			
+			<li>
+				Which persistent identifier (adms:identifier) are assigned to persons and organizations (foaf:Agent) 
+				publishing (dcterms:publisher) the European study EU-LFS (disco:Study)?
+			</li>
+			
+		</ul>
+		  
+		<pre>
+		
+:europeanStudy
+  a disco:Study;
+  disco:product :europeanDataSet;
+  disco:fundedBy :gesis;
+
+:john 
+  a foaf:person;
+  a prov:Agent;
+  adms:identifier [ a adms:Identifier ];
+  prov:wasAssociatedWith :aggregationActivity;
+  prov:actedOnBehalfOf :deri;
+  org:memberOf :gesis.
+  
+:europeanDataSet
+  a disco:LogicalDataSet;
+  a prov:Entity;
+  disco:aggregation :aggregatedEuropeanDataSet.
+  
+:aggregatedEuropeanDataSet
+  a qb:DataSet;
+  a prov:Entity.
+  
+:aggregationActivity
+  a prov:Activity;
+  prov:used :europeanDataSet;
+  prov:wasGeneratedBy :aggregatedEuropeanDataSet;
+  
+:deri
+  a prov:Agent;
+  a org:Organization;
+  adms:identifier [ a adms:Identifier ].
+  
+:gesis
+  a org:Organization;
+  adms:identifier [ a adms:Identifier ].
+  
+-----
+
+SELECT 
+  ?person
+WHERE
+{
+  ?person rdf:type foaf:Person.
+  ?person org:memberOf ?gesis.
+  ?gesis a org:Organization.
+  ?allbus a disco:studyGroup.
+  ?allbus dcterms:creator ?person.
+}
+
+-----
+
+SELECT
+  ?organization ?person
+WHERE
+{
+  ?organization rdf:type org:Organization.
+  ?person rdf:type foaf:Person.
+  ?euSILC rdf:type disco:Study.
+  {?euSILC dcterms:contributor ?person}
+  UNION
+  {?euSILC dcterms:contributor ?organization}
+}
+
+-----
+
+SELECT
+  ?identifierOrganization ?identifierPerson
+WHERE
+{
+  ?organization rdf:type org:Organization.
+  ?orgnization rdf:type foaf:Agent.
+  ?organization adms:identifier ?identifierOrganization.
+  ?person rdf:type foaf:Person.
+  ?person rdf:type foaf:Agent.
+  ?person adms:identifier ?identifierPerson.
+  ?euLFS rdf:type disco:Study.
+  {?euLFS dcterms:publisher ?person}
+  UNION
+  {?euLFS dcterms:publisher ?organization}
+}
+
+		</pre>
+		
+	</div>
+	
     </section>
 
 
