@@ -6010,6 +6010,69 @@ WHERE
 		
 	</div>
 	
+	<div class="example">
+		<div class="example-title">
+			<span>Which Datasets Have A Specific Statistical Classification and What Are Its Semantic Relations?</span>
+	    </div>
+		
+		<p>
+			XKOS extends SKOS with two main objectives: the first one is to allow the description of statistical classifications, 
+			the second one is to introduce refinements of the semantic properties defined in SKOS. 
+			The semantic properties extend the possible relations that can be applied between pairs of skos:Concepts. 
+			SKOS allows the following relations: skos:broader than, skos:narrower than, and skos:related to. 
+			The first two are hierarchical relations, one in each direction. 
+			In Disco, these SKOS properties may be substituted by additional XKOS properties like 
+			xkos:generalizes, xkos:hasPart, xkos:caused, xkos:previous, and xkos:next.
+		</p>
+		
+		<p>
+			One question, typically asked by social science researchers, could be to query all the datasets (disco:LogicalDataSet) 
+			which have a specific statistical classification (skos:ConceptScheme) like ISCO (International Standard Classification of Occupations) or 
+			ANZSIC (Australian and New Zealand Industry Classification). It is also possible to query on the semantic relationships 
+			which are defined for statistical classifications using XKOS properties. 
+			By means of these properties not only hierar-chical relations can be queried but also for example part of relationships (xkos:hasPart), 
+			more general (xkos:generalizes) and more specific (xkos:specializes) concepts, and positions of concepts in lists (xkos:previous, xkos:next).
+		</p>
+		
+		<p>
+			The following figure gives an example inspired by the ANZSIC (Australian and New Zealand Industry Classification), 
+			which is a classification covering the field of economic activity. 
+			A small excerpt is shown here, limited to the classification object itself and its levels, 
+			as well as one item of the most detailed level (Class 6720 – Real Estate Services) and its parent items. 
+			Note that the URI employed in this example are entirely fictitious, since the ANZSIC has not yet been published as RDF.
+		</p>
+		
+		<p>
+			For clarity, the properties of the classification items (code, labels, notes) have not been included in the figure.
+		</p>
+		
+		<div class="figure">
+			<img src="images/example-anzsic.png" alt="Statistical classification – ANZSIC"/>
+		</div>
+		
+		<p>
+			On the left of the figure is the skos:ConceptScheme instance that corresponds to the ANZIC 2006 classification scheme, 
+			with its various SKOS and Dublin Core properties. Additionnal XKOS properties indicate that the classification has four levels and covers 
+			the field of economic activity, represented here as a concept from the EuroVoc thesaurus. In this case, the coverage is intended 
+			to be exhaustive and without overlap, so xkos:coversExhaustively and xkos:coversMutuallyExclusively could have been used together instead of xkos:covers.
+		</p>
+		
+		<p>
+			The four levels are instances of xkos:ClassificationLevel; they are organized as a rdf:List which is attached to the classification 
+			by the xkos:levels property. Some level information has been represented on the top level, for example its depth in the classification 
+			(xkos:depth) and the concept that characterizes the items it is composed of (xkos:organizedBy). In the same fashion, concepts of subdivision, 
+			group and class could be created to describe the items of the lower levels.
+		</p>
+		
+		<p>
+			The usual SKOS properties are used to connect the classification items to their respective level (skos:member) and to the classification 
+			(skos:inScheme or its specialization skos:topConceptOf) for the items of the first level). Similarly, skos:narrower is used to express the 
+			hierarchical relations between the items, but the subproperties defined in this specification could also be used. For example, xkos:hasPart 
+			could express the partitive relation between subdivision 67 ("Property Operators and Real Estate Services") and group 672 ("Real Estate Services").
+		</p>
+		
+	</div>
+	
     </section>
 
 
