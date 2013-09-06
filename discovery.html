@@ -5925,39 +5925,39 @@ WHERE {
 		  
 		<pre>
 		
-:europeanStudy
+:EuropeanStudy
   a disco:Study;
-  disco:product :europeanDataSet;
-  disco:fundedBy :gesis;
+  disco:product :EuropeanDataSet;
+  disco:fundedBy :GESIS;
 
-:john 
-  a foaf:person;
+:John 
+  a foaf:Person;
   a prov:Agent;
   adms:identifier [ a adms:Identifier ];
-  prov:wasAssociatedWith :aggregationActivity;
-  prov:actedOnBehalfOf :deri;
-  org:memberOf :gesis.
+  prov:wasAssociatedWith :AggregationActivity;
+  prov:actedOnBehalfOf :DERI;
+  org:memberOf :GESIS.
   
-:europeanDataSet
+:EuropeanDataSet
   a disco:LogicalDataSet;
   a prov:Entity;
-  disco:aggregation :aggregatedEuropeanDataSet.
+  disco:aggregation :AggregatedEuropeanDataSet.
   
-:aggregatedEuropeanDataSet
+:AggregatedEuropeanDataSet
   a qb:DataSet;
   a prov:Entity.
   
-:aggregationActivity
+:AggregationActivity
   a prov:Activity;
-  prov:used :europeanDataSet;
-  prov:wasGeneratedBy :aggregatedEuropeanDataSet;
+  prov:used :EuropeanDataSet;
+  prov:wasGeneratedBy :AggregatedEuropeanDataSet;
   
-:deri
+:DERI
   a prov:Agent;
   a org:Organization;
   adms:identifier [ a adms:Identifier ].
   
-:gesis
+:GESIS
   a org:Organization;
   adms:identifier [ a adms:Identifier ].
   
@@ -5970,7 +5970,7 @@ WHERE
   ?person rdf:type foaf:Person.
   ?person org:memberOf ?gesis.
   ?gesis a org:Organization.
-  ?allbus a disco:studyGroup.
+  ?allbus a disco:StudyGroup.
   ?allbus dcterms:creator ?person.
 }
 
@@ -6072,6 +6072,53 @@ WHERE
 		</p>
 		
 	</div>
+	
+      <div class="example">
+        <div class="example-title">
+          <span>Searching For Data in a Data Collection</span>
+        </div>
+        <p>While Disco and Data Cube provide terms for the description of datasets, both on a different level of aggregation, DCAT enables the representation of these datasets inside of data collections like repositories, catalogs or archives. The relationship be-tween data collections and their contained datasets is useful, since such collections are a typical entry point when searching for data.</p>
+        
+        <p>A search for data may consist of two phases. In a first phase, the user searches for different records described by dcat:CatalogRecord inside a data catalog. This search can differ according to the users’ information need. While it is possible to search for metadata provided inside such a record like dcterms:title, dcterms:description, etc., the user can also formulate a query to search for more detailed information about the dataset (represented as dcat:Dataset) or its distribution (dcat:Distribution), which are part of the record. For example, a user may want to search for datasets covering a particular topic (dcat:keyword), particular temporal and spatial coverages (dcterms:temporal and dcterms:spatial), or particular formats in which a distribution of the data is available (dcterms:format). Instances of dcat:DataSet are also described by specific themes they cover (dcat:theme). Since these themes are organized in a theme taxonomy (implemented by a skos:ConceptScheme and classes of skos:Concept), these themes can also be used for an overall search in all datasets of the data catalog.</p>
+        
+        <p>Nevertheless, the search of the first phase will result in one or presumably multiple hits of datasets. Hence, another search has to be executed in a second phase in order to find out which datasets are relevant for the user, e.g. particular universes or sam-ples. The search regarding particular criteria in multiple Disco datasets materializes as those described in the previous two use case sections and those presented in [9]. However, the user may find data sets which are published in Data Cube. In order to discover the original microdata source of a qb:DataSet, the property prov:wasDerivedFrom can hold the link the particular DDI data set dis-co:Study.</p>
+        <p>A user searching for data regarding dissatisfaction with politics in Europe may find the records :EuropeanStudy and :AggregatedEuropeanData in a :DataCatalog. By analyzing the information given in the themes and keywords of the associated data sets, the user can decide which data set is best suitable for his information need. He notices also that :AggregatedEuropeanDataset has been derived from :EuropeanDataset and seems to cover only a subset of the micro data set. If he is interested in the micro data instead of aggregated data, he is thus able to find the underlying micro data set.</p>
+        <pre>
+:DataCatalog
+a dcat:Catalog;
+dcat:record :EuropeanStudy;
+dcat:record :AggregatedEuropeanData;
+dcat:dataset :EuropeanDataset;
+dcat:dataset :AggregatedEuropeanDataset.
+          
+:EuropeanStudy
+a dcat:CatalogRecord;
+a disco:Study;
+foaf:primaryTopic :EuropeanDataset;
+disco:product :EuropeanDataset.
+          
+:AggregatedEuropeanData;
+a dcat:CatalogRecord;
+foaf:primaryTopic :AggregatedEuropeanDataset.
+          
+:EuropeanDataset
+a dcat:Dataset;
+a disco:LogicalDataSet;
+dcat:theme :topics#WellBeing;
+dcat:theme :topics#PoliticalAttitudes;
+dcat:keyword "Europe"@en;
+dcat:keyword "Politics"@en.
+          
+:AggregatedEuropeanDataset
+a dcat:Dataset;
+a qb:DataSet;
+dcat:theme :topics#PoliticalDissatisfaction;
+dcat:keyword "Europe"@en;
+dcat:keyword "Politics"@en;
+prov:wasDerivedFrom :EuropeanStudy.
+</pre>
+        
+      </div>
 	
     </section>
 
