@@ -24,27 +24,21 @@
 
 <http://rdf-vocabulary.ddialliance.org/discovery> a owl:Ontology;
     dc:title
-        "DDI discovery model ontology"@en,
-        "Ontologie pour le modèle DDI discovery"@fr,
-        "DDI-Entdeckungsontologie"@de;
+        "DDI-RDF Discovery Vocabulary"@en;
     rdfs:comment
-        "This ontology is based on the Data Documentation Initiative model, especially the elements useful for data discovery"@en;
+        "This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats."@en;
     dc:contributor
         "Thomas Bosch",
         "Franck Cotton",
         "Richard Cyganiak",
         "Arofan Gregory",
-        "Larry Hoyle",
         "Benedikt Kämpgen",
         "Olof Olsson",
 		"Heiko Paulheim",
-        "Dan Smith",
-        "Wendy Thomas",
-        "Johanna Vompras",
         "Joachim Wackerow",
         "Benjamin Zapilko";
     dc:creator "Franck Cotton";
-    owl:versionInfo "Version 0.6 - 2013-07-05".
+    owl:versionInfo "Version 0.6 - 2013-09-23".
 
 #################################################################
 # Classes
