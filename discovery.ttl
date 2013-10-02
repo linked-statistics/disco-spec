@@ -191,7 +191,7 @@ disco:questionText a rdf:Property, owl:DatatypeProperty;
 disco:percentage a rdf:Property, owl:DatatypeProperty;
     rdfs:label "percentage"@en, "pourcentage"@fr;
 	rdfs:comment "percentage"@en;
-#    rdfs:domain [ owl:unionOf (disco:SummaryStatistics disco:CategoryStatistics)];
+    rdfs:domain [a owl:Class; owl:unionOf (disco:SummaryStatistics disco:CategoryStatistics)];
     rdfs:range xsd:decimal;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 	
@@ -199,7 +199,7 @@ disco:percentage a rdf:Property, owl:DatatypeProperty;
 disco:computationBase a rdf:Property, owl:DatatypeProperty;
     rdfs:label "computation base"@en, "pourcentage"@fr;
 	rdfs:comment "computation base"@en;
-#    rdfs:domain [ owl:unionOf (disco:SummaryStatistics disco:CategoryStatistics)];
+    rdfs:domain [a owl:Class; owl:unionOf (disco:SummaryStatistics disco:CategoryStatistics)];
     rdfs:range rdf:langString;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 	
@@ -215,7 +215,7 @@ disco:cumulativePercentage a rdf:Property, owl:DatatypeProperty;
 disco:purpose a rdf:Property, owl:DatatypeProperty;
     rdfs:label "purpose"@en, "Grund"@de;
 	rdfs:comment "The purpose of a Study of a StudyGroup."@en;
-#    rdfs:domain [ owl:unionOf (disco:Study disco:StudyGroup)];
+    rdfs:domain [ a owl:Class; owl:unionOf (disco:Study disco:StudyGroup)];
     rdfs:range rdf:langString;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
@@ -223,7 +223,7 @@ disco:purpose a rdf:Property, owl:DatatypeProperty;
 disco:subtitle a rdf:Property, owl:DatatypeProperty;
     rdfs:label "subtitle"@en, "Untertitel"@de;
 	rdfs:comment "The sub-title of a Study of a StudyGroup."@en;
-#    rdfs:domain [ owl:unionOf (disco:Study disco:StudyGroup)];
+    rdfs:domain [ a owl:Class; owl:unionOf (disco:Study disco:StudyGroup)];
     rdfs:range rdf:langString;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
@@ -312,7 +312,7 @@ disco:endDate a rdf:Property, owl:DatatypeProperty;
 disco:analysisUnit a rdf:Property, owl:ObjectProperty;
     rdfs:label "analysis unit"@en, "Analyseeinheit"@de;
 	rdfs:comment "analysis unit of a Study, a StudyGroup, or a Variable."@en;
-#    rdfs:domain [ owl:unionOf ( owl:unionOf( disco:Study disco:StudyGroup) disco:Variable)];
+    rdfs:domain [a owl:Class; owl:unionOf ( disco:Study disco:StudyGroup disco:Variable)];
     rdfs:range disco:AnalysisUnit;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
@@ -349,7 +349,7 @@ disco:containsVariable a rdf:Property, owl:ObjectProperty;
 disco:concept a rdf:Property, owl:ObjectProperty;
     rdfs:label "concept"@en, "a pour concept"@fr;
 	rdfs:comment "points to the DDI concept of a VariableDefinition, a Variable, or a Question"@en;
-#    rdfs:domain [ owl:unionOf (disco:VariableDefinition disco:Question disco:Variable)];
+    rdfs:domain [a owl:Class; owl:unionOf (disco:VariableDefinition disco:Question disco:Variable)];
     rdfs:range skos:Concept;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
@@ -367,7 +367,7 @@ disco:aggregation a rdf:Property, owl:ObjectProperty;
 disco:dataFile a rdf:Property, owl:ObjectProperty;
     rdfs:label "data file"@en, "a pour fichier de données"@fr;
 	rdfs:comment "points to the DataFile of a Study or a LogicalDataSet."@en;
-#    rdfs:domain [ owl:unionOf (disco:Study disco:LogicalDataSet)];
+    rdfs:domain [a owl:Class; owl:unionOf (disco:Study disco:LogicalDataSet)];
     rdfs:range disco:DataFile;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
@@ -376,7 +376,7 @@ disco:dataFile a rdf:Property, owl:ObjectProperty;
 disco:ddifile a rdf:Property, owl:ObjectProperty;
     rdfs:label "DDI file"@en, "DDI-Datei"@de;
 	rdfs:comment "points from a Study or a StudyGroup to the original DDI file which is a foaf:Document."@en;
-#    rdfs:domain [ owl:unionOf (disco:Study disco:StudyGroup)];
+    rdfs:domain [a owl:Class; owl:unionOf (disco:Study disco:StudyGroup)];
     rdfs:range foaf:Document;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
@@ -393,7 +393,7 @@ disco:externalDocumentation a rdf:Property, owl:ObjectProperty;
 disco:fundedBy a rdf:Property, owl:ObjectProperty;
     rdfs:label "funded by"@en;
 	rdfs:comment "points from a Study or a StudyGroup to the funding foaf:Agent which is either a foaf:Person or a org:Organization."@en;
-#    rdfs:domain [ owl:unionOf ( disco:Study disco:StudyGroup ) ];
+    rdfs:domain [a owl:Class; owl:unionOf (disco:Study disco:StudyGroup)];
     rdfs:range foaf:Agent;
     rdfs:subPropertyOf dcterms:contributor;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
@@ -421,7 +421,7 @@ disco:inputVariable a rdf:Property, owl:ObjectProperty;
 disco:instrument a rdf:Property, owl:ObjectProperty;
     rdfs:label "instrument"@en, "a comme instrument"@fr;
 	rdfs:comment "Indicates the Instrument of a Study or a LogicalDataSet."@en;
-#    rdfs:domain [ owl:unionOf (disco:Study disco:LogicalDataSet)];
+    rdfs:domain [a owl:Class; owl:unionOf (disco:Study disco:LogicalDataSet)];
     rdfs:range disco:Instrument;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
@@ -429,7 +429,7 @@ disco:instrument a rdf:Property, owl:ObjectProperty;
 # (disco:Study disco:StudyGroup) -> skos:Concept 0,* / 0,1
 disco:kindOfData a rdf:Property, owl:ObjectProperty;
     rdfs:label "kind of data"@en;
-#    rdfs:domain [ owl:unionOf (disco:Study disco:StudyGroup)];
+    rdfs:domain [a owl:Class; owl:unionOf (disco:Study disco:StudyGroup)];
     rdfs:range skos:Concept;
     rdfs:comment "The general kind of data (e.g. geospatial, register, survey) collected in this study, given either as a skos:Concept, or as a blank node with attached free-text rdfs:label.";
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
@@ -449,7 +449,7 @@ disco:product a rdf:Property, owl:ObjectProperty;
 disco:question a rdf:Property, owl:ObjectProperty;
     rdfs:label "question"@en, "a comme question"@fr;
 	rdfs:comment "Indicates the Questions associated to Variables or contained in Questionnaires."@en;
-#    rdfs:domain [ owl:unionOf (disco:Variable disco:Questionnaire)];
+    rdfs:domain [a owl:Class; owl:unionOf (disco:Variable disco:Questionnaire)];
     rdfs:range disco:Question;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
@@ -458,8 +458,8 @@ disco:question a rdf:Property, owl:ObjectProperty;
 disco:representation a rdf:Property, owl:ObjectProperty;
     rdfs:label "representation"@en, "a pour représentation"@fr;
 	rdfs:comment "VariableDefinitions and Variables can have a Representation whose individuals are either of the class rdfs:Datatype (to represent values) or skos:ConceptScheme (to represent code lists)."@en;
-#    rdfs:domain [ owl:unionOf (disco:VariableDefinition disco:Variable)];
-#    rdfs:range [ owl:unionOf (skos:ConceptScheme rdfs:Datatype)];
+    rdfs:domain [a owl:Class; owl:unionOf (disco:VariableDefinition disco:Variable)];
+    rdfs:range [a owl:Class; owl:unionOf (skos:ConceptScheme rdfs:Datatype)];
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # statisticsCategory property
@@ -494,7 +494,7 @@ disco:statisticsVariable a rdf:Property, owl:ObjectProperty;
 disco:weightedBy a rdf:Property, owl:ObjectProperty;
     rdfs:label "weighted by"@en, ""@fr;
 	rdfs:comment "SummaryStatistics or CategoryStatistics resources may be weighted by a specific Variable."@en;
-#    rdfs:domain [ owl:unionOf (disco:SummaryStatistics disco:CategoryStatistics)];
+    rdfs:domain [a owl:Class; owl:unionOf (disco:SummaryStatistics disco:CategoryStatistics)];
     rdfs:range disco:Variable;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 	
@@ -507,7 +507,7 @@ disco:weightedBy a rdf:Property, owl:ObjectProperty;
 disco:universe a rdf:Property, owl:ObjectProperty;
     rdfs:label "universe"@en, "a comme univers"@fr;
 	rdfs:comment "Indicates the Universe(s) of Studies, StudyGrous, VariableDefinitions, Variables, Questions, and LogicalDataSets."@en;
-#    rdfs:domain [ owl:unionOf (disco:Study disco:StudyGroup disco:VariableDefinition disco:Variable disco:Question disco:LogicalDataSet)];
+    rdfs:domain [a owl:Class; owl:unionOf (disco:Study disco:StudyGroup disco:VariableDefinition disco:Variable disco:Question disco:LogicalDataSet)];
     rdfs:range disco:Universe;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
