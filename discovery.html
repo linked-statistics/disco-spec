@@ -51,7 +51,7 @@ function adjustWidthOfImages() {
 	var images = document.getElementsByTagName( 'img' );
 	for ( var i=0; i<images.length; i++ ) {
 		var image = images[i];
-		if ( image.className.toLowerCase() == 'uml-diagram' ) { // works only if only this CSS class name exists
+		if ( image.className.toLowerCase() == 'uml-diagram' ) { // works only if this single CSS class name exists
 			var imageWidth = Math.round( image.naturalWidth * scaleFactor );
 			if ( imageWidth > maxWidth ) {
 				elementWidth = maxWidth;
@@ -98,13 +98,13 @@ function adjustWidthOfImages() {
           // only "name" is required
           editors:  [
               { name: "Thomas Bosch", url: "http://boschthomas.blogspot.ie/",
-                company: "GESIS - Leibniz Institute for the Social Sciences", companyURL: "http://www.gesis.org/" },
+                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
               { name: "Richard Cyganiak", url: "http://richard.cyganiak.de/",
-                company: "DERI, NUI Galway", companyURL: "http://www.deri.ie/" },
+                company: "DERI - Digital Enterprise Research Institute, National University of Ireland", companyURL: "http://www.deri.ie/" },
 			  { name: "Joachim Wackerow",
-                company: "GESIS - Leibniz Institute for the Social Sciences", companyURL: "http://www.gesis.org/" },
+                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
               { name: "Benjamin Zapilko",
-                company: "GESIS - Leibniz Institute for the Social Sciences", companyURL: "http://www.gesis.org/" },
+                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
           ],
 
           // authors, add as many as you like. 
@@ -113,23 +113,23 @@ function adjustWidthOfImages() {
 
           authors:  [
               { name: "Thomas Bosch", url: "http://boschthomas.blogspot.ie/",
-                company: "GESIS - Leibniz Institute for the Social Sciences", companyURL: "http://www.gesis.org/" },
+                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
               { name: "Franck Cotton", //url: "http://example.org/",
-                company: "INSEE - Institut National de la Statistique et des Études Économiques", companyURL: "http://www.insee.fr/en/default.asp" },
+                company: "INSEE - Institut National de la Statistique et des Études Économiques, France", companyURL: "http://www.insee.fr/en/default.asp" },
               { name: "Richard Cyganiak", url: "http://richard.cyganiak.de/",
-                company: "DERI, NUI Galway", companyURL: "http://www.deri.ie/" },
+                company: "DERI - Digital Enterprise Research Institute, National University of Ireland", companyURL: "http://www.deri.ie/" },
               { name: "Arofan Gregory", //url: "http://example.org/",
-                company: "Open Data Foundation (ODaF)", companyURL: "http://www.opendatafoundation.org/" },
+                company: "ODaF - Open Data Foundation, USA", companyURL: "http://www.opendatafoundation.org/" },
               { name: "Benedikt Kämpgen", //url: "http://example.org/",
-                company: "Karlsruhe Institute of Technology", companyURL: "http://www.kit.edu/index.php" },
+                company: "KIT - Karlsruhe Institute of Technology, Germany", companyURL: "http://www.kit.edu/index.php" },
               { name: "Olof Olsson", //url: "http://example.org/",
                 company: "SND - Swedish National Data Service", companyURL: "http://snd.gu.se/en" },
               { name: "Heiko Paulheim", url: "http://www.heikopaulheim.com/",
-                company: "University of Mannheim", companyURL: "http://dws.informatik.uni-mannheim.de/" },
+                company: "University of Mannheim, Germany", companyURL: "http://dws.informatik.uni-mannheim.de/" },
               { name: "Joachim Wackerow", //url: "http://example.org/",
-                company: "GESIS - Leibniz Institute for the Social Sciences", companyURL: "http://www.gesis.org/" },
+                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
               { name: "Benjamin Zapilko",
-                company: "GESIS - Leibniz Institute for the Social Sciences", companyURL: "http://www.gesis.org/" }
+                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" }
           ],
           
           // If specified, defines an array of alternate formats in which document is available (e.g., XML, Postscript). The format of the array is:
@@ -168,13 +168,13 @@ function adjustWidthOfImages() {
   </head>
   <body onload="adjustWidthOfImages()">
     <section id='abstract'>
-This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats.
+This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on <a href="http://www.ddialliance.org/what">DDI (Data Documentation Initiative)</a> XML formats.
     </section>
     
     <section id="sotd">
-      <p>This document is a Working Draft produced by the
+      <p>This document is produced by the subgroup on Disco (chair Joachim Wackerow) of the
       <a href="http://www.ddialliance.org/alliance/working-groups#RDF">RDF Vocabularies Working Group</a>,
-      a working group at the <a href="http://www.ddialliance.org/">DDI Alliance</a>.</p>
+      a working group at the <a href="http://www.ddialliance.org/alliance">DDI Alliance</a>.</p>
 
       <p>Development resources:</p>
 
