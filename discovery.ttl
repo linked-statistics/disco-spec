@@ -47,6 +47,7 @@
 #################################################################
 
 # AnalysisUnit class
+# DDI3.1 r:AnalysisUnit
 disco:AnalysisUnit a rdfs:Class, owl:Class;
     rdfs:label "Analysis Unit"@en, "Analyseeinheit"@de;
 	rdfs:comment "The process collecting data is focusing on the analysis of a particular type of subject. If, for example, the adult population of Finland is being studied, the AnalysisUnit would be individuals or persons."@en;
@@ -80,6 +81,7 @@ disco:SummaryStatistics a rdfs:Class, owl:Class;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # CategoryStatistics class
+# DDI3.1 p:CategoryStatistics
 disco:CategoryStatistics a rdfs:Class, owl:Class;
     rdfs:label "Category statistics"@en;
     rdfs:comment "For CategoryStatistics, frequencies, percentages, and weighted percentages can be defined."@en;
@@ -88,6 +90,7 @@ disco:CategoryStatistics a rdfs:Class, owl:Class;
 
 # Instrument class (e.g., questionnaire, sensors, registers)
 # XXX: Additional subclasses to be discussed.
+# DDI3.1 d:Instrument
 disco:Instrument a rdfs:Class, owl:Class;
     rdfs:label "Instrument"@en;
 rdfs:label "Instrument de collecte"@fr;
@@ -103,6 +106,7 @@ disco:LogicalDataSet a rdfs:Class, owl:Class;
 
 # Question class
 # skos:prefLabel represents question name
+# DDI3.1 d:QuestionItem|d:MultipleQuestionItem
 disco:Question a rdfs:Class, owl:Class;
     rdfs:label "Question"@en, "Question"@fr;
     rdfs:comment "A Question is designed to get information upon a subject, or sequence of subjects, from a respondent."@en;
@@ -116,6 +120,7 @@ disco:Questionnaire a rdfs:Class, owl:Class;
     rdfs:subClassOf disco:Instrument.
 
 # Study class
+# DDI3.1 s:StudyUnit
 disco:Study a rdfs:Class, owl:Class;
     rdfs:label "Study"@en, "Étude"@fr;
     rdfs:comment "A Study represents the process by which a data set was generated or collected."@en;
@@ -128,6 +133,7 @@ disco:StudyGroup a rdfs:Class, owl:Class;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # Variable class
+# DDI3.1 l:Variable
 disco:Variable a rdfs:Class, owl:Class;
     rdfs:label "Variable"@en, "Variable"@fr;
     rdfs:comment "Variables provide a definition of the column in a rectangular data file. Variable is a characteristic of a unit being observed. A variable might be the answer of a question, have an administrative source, or be derived from other variables."@en;
@@ -136,6 +142,7 @@ disco:Variable a rdfs:Class, owl:Class;
 # Universe class
 # skos:Concept/skos:notation represents universe name
 # skos:Concept/skos:prefLabel represents universe label
+# DDI3.1 c:Universe
 disco:Universe a rdfs:Class, owl:Class;
     rdfs:label "Universe"@en, "Univers"@fr;
     rdfs:comment "A Universe is the total membership or population of a defined class of people, objects or events."@en;
@@ -148,6 +155,7 @@ disco:Universe a rdfs:Class, owl:Class;
 
 
 # caseQuantity property
+# DDI3.1 p:CaseQuantity
 disco:caseQuantity a rdf:Property, owl:DatatypeProperty;
     rdfs:label "number of cases"@en, "nombre d'observations"@fr;
 	rdfs:comment "case quantity of a DataFile."@en;
@@ -180,6 +188,7 @@ disco:isValid a rdf:Property, owl:DatatypeProperty;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 	
 # questionText property
+# DDI3.1 d:QuestionText
 disco:questionText a rdf:Property, owl:DatatypeProperty;
     rdfs:label "question text"@en, "Fragetext"@de;
 	rdfs:comment "question text"@en;
@@ -212,6 +221,7 @@ disco:cumulativePercentage a rdf:Property, owl:DatatypeProperty;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # purpose property
+# DDI3.1 s:Purpose
 disco:purpose a rdf:Property, owl:DatatypeProperty;
     rdfs:label "purpose"@en, "Grund"@de;
 	rdfs:comment "The purpose of a Study of a StudyGroup."@en;
@@ -220,6 +230,7 @@ disco:purpose a rdf:Property, owl:DatatypeProperty;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # subtitle property
+# DDI3.1 r:SubTitle
 disco:subtitle a rdf:Property, owl:DatatypeProperty;
     rdfs:label "subtitle"@en, "Untertitel"@de;
 	rdfs:comment "The sub-title of a Study of a StudyGroup."@en;
