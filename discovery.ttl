@@ -112,6 +112,16 @@ disco:Question a rdfs:Class, owl:Class;
     rdfs:comment "A Question is designed to get information upon a subject, or sequence of subjects, from a respondent."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
+# disco:responseDomain
+# cardinality at disco:Question: 0..n
+# cardinality at disco:Representation: 1..n
+disco:responseDomain a rdf:Property, owl:ObjectProperty;
+    rdfs:label "responseDomain"@en;
+	rdfs:comment "The response domain of questions."@en;
+    rdfs:domain disco:Question;
+    rdfs:range disco:Representation;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+
 # Questionnaire class
 disco:Questionnaire a rdfs:Class, owl:Class;
     rdfs:label "Questionnaire"@en, "Fragebogen"@de;
