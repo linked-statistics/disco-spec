@@ -469,7 +469,7 @@ disco:question a rdf:Property, owl:ObjectProperty;
 disco:representation a rdf:Property, owl:ObjectProperty;
     rdfs:label "representation"@en, "a pour représentation"@fr;
 	rdfs:comment "VariableDefinitions and Variables can have a Representation whose individuals are either of the class rdfs:Datatype (to represent values) or skos:ConceptScheme (to represent code lists)."@en;
-    rdfs:domain [a owl:Class; owl:unionOf (disco:VariableDefinition disco:Variable)];
+    rdfs:domain [a owl:Class; owl:unionOf (disco:VariableDefinition disco:Variable disco:Question)];
     rdfs:range [a owl:Class; owl:unionOf (skos:ConceptScheme rdfs:Datatype)];
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
