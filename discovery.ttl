@@ -61,10 +61,10 @@ disco:AnalysisUnit a rdfs:Class, owl:Class;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
     rdfs:subClassOf skos:Concept.
 
-# VariableDefinition class
-disco:VariableDefinition a rdfs:Class, owl:Class;
+# RepresentedVariable class
+disco:RepresentedVariable a rdfs:Class, owl:Class;
     rdfs:label "Data element"@en, "Élément de donnée"@fr;
-    rdfs:comment "VariableDefinitions encompasse study-independent, re-usable parts of variables like occupation classification."@en;
+    rdfs:comment "RepresentedVariables encompasse study-independent, re-usable parts of variables like occupation classification."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # DataFile class
@@ -345,12 +345,12 @@ disco:analysisUnit a rdf:Property, owl:ObjectProperty;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # basedOn property
-# * Variable -> VariableDefinition 0,1 / 0,...,n
+# * Variable -> RepresentedVariable 0,1 / 0,...,n
 disco:basedOn a rdf:Property, owl:ObjectProperty;
     rdfs:label "based on"@en, "utilise l'élément de donnée"@fr;
-    rdfs:comment "points to the VariableDefinition the Variable is based on."@en;
+    rdfs:comment "points to the RepresentedVariable the Variable is based on."@en;
     rdfs:domain disco:Variable;
-    rdfs:range disco:VariableDefinition;
+    rdfs:range disco:RepresentedVariable;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # collectionMode property
@@ -371,13 +371,13 @@ disco:containsVariable a rdf:Property, owl:ObjectProperty;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # concept property
-# * VariableDefinition -> Concept 1 / 0,...,n
+# * RepresentedVariable -> Concept 1 / 0,...,n
 # * Question -> Concept 1,...,n / 0,...,n
 # * Variable -> Concept 1 / 0,...,n
 disco:concept a rdf:Property, owl:ObjectProperty;
     rdfs:label "concept"@en, "a pour concept"@fr;
-	rdfs:comment "points to the DDI concept of a VariableDefinition, a Variable, or a Question"@en;
-    rdfs:domain [a owl:Class; owl:unionOf (disco:VariableDefinition disco:Question disco:Variable)];
+	rdfs:comment "points to the DDI concept of a RepresentedVariable, a Variable, or a Question"@en;
+    rdfs:domain [a owl:Class; owl:unionOf (disco:RepresentedVariable disco:Question disco:Variable)];
     rdfs:range skos:Concept;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
@@ -485,8 +485,8 @@ disco:question a rdf:Property, owl:ObjectProperty;
 # * Variable -> Representation 1 / 0,...,n
 disco:representation a rdf:Property, owl:ObjectProperty;
     rdfs:label "representation"@en, "a pour représentation"@fr;
-	rdfs:comment "VariableDefinitions and Variables can have a Representation whose individuals are either of the class rdfs:Datatype (to represent values) or skos:ConceptScheme (to represent code lists)."@en;
-    rdfs:domain [a owl:Class; owl:unionOf (disco:VariableDefinition disco:Variable disco:Question)];
+	rdfs:comment "RepresentedVariables and Variables can have a Representation whose individuals are either of the class rdfs:Datatype (to represent values) or skos:ConceptScheme (to represent code lists)."@en;
+    rdfs:domain [a owl:Class; owl:unionOf (disco:RepresentedVariable disco:Variable disco:Question)];
     rdfs:range [a owl:Class; owl:unionOf (skos:ConceptScheme rdfs:Datatype)];
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
@@ -528,14 +528,14 @@ disco:weightedBy a rdf:Property, owl:ObjectProperty;
 	
 # universe property
 # * Study/Study -> Universe 1,...,n / 0,...,n
-# * VariableDefinition -> Universe 0,...,n / 0,...,n (Note: VariableDefinition and Variable are the same thing in different states)
+# * RepresentedVariable -> Universe 0,...,n / 0,...,n (Note: RepresentedVariable and Variable are the same thing in different states)
 # * Variable -> Universe 1 / 0,...,n
 # * Question -> Universe 1 / 0,...,n
 # * LogicalDataSet -> Universe 1 / 0,...,n (Property: dataSetUniverse)
 disco:universe a rdf:Property, owl:ObjectProperty;
     rdfs:label "universe"@en, "a comme univers"@fr;
-	rdfs:comment "Indicates the Universe(s) of Studies, StudyGrous, VariableDefinitions, Variables, Questions, and LogicalDataSets."@en;
-    rdfs:domain [a owl:Class; owl:unionOf (disco:Study disco:StudyGroup disco:VariableDefinition disco:Variable disco:Question disco:LogicalDataSet)];
+	rdfs:comment "Indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables, Questions, and LogicalDataSets."@en;
+    rdfs:domain [a owl:Class; owl:unionOf (disco:Study disco:StudyGroup disco:RepresentedVariable disco:Variable disco:Question disco:LogicalDataSet)];
     rdfs:range disco:Universe;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
