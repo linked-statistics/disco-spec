@@ -324,6 +324,22 @@ disco:endDate a rdf:Property, owl:DatatypeProperty;
     rdfs:domain dcterms:PeriodOfTime;
     rdfs:range xsd:date;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+	
+# mappingDDI-L
+disco:mappingDDI-L a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "Mapping from and to DDI-L"@en;
+	rdfs:comment "Mapping from and to DDI-L"@en;
+    rdfs:domain rdfs:Resource;
+    rdfs:range rdf:langString;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+	
+# mappingDDI-C
+disco:mappingDDI-C a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "Mapping from and to DDI-C"@en;
+	rdfs:comment "Mapping from and to DDI-C"@en;
+    rdfs:domain rdfs:Resource;
+    rdfs:range rdf:langString;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 #################################################################
 # Object properties
