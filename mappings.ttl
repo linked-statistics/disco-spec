@@ -36,7 +36,7 @@ skos:notation
     a rdf:Property, owl:DatatypeProperty;
     disco:mapping [
         a disco:Mapping;
-        disco:mappingFrom31ToDisco "//l:Variable/l:VariableName";
+        disco:mappingDDI-L "//l:Variable/l:VariableName";
 	    disco:context "skos:notation represents variable label";
         disco:context "SELECT ?notation WHERE { ?notation rdfs:domain ?variable. ?variable a disco:Variable. }"
     ].
@@ -45,7 +45,7 @@ skos:notation
     a rdf:Property, owl:DatatypeProperty;
     disco:mapping [
         a disco:Mapping;
-        disco:mappingFrom31ToDisco "XXXXX";
+        disco:mappingDDI-L "XXXXX";
 	    disco:context "skos:notation represents code";
         disco:context "SELECT ?notation WHERE { ?notation rdfs:domain ?concept. ?concept a skos:Concept. ?concept disco:isValid ?isValid. FILTER ( ?isValid != '' )"
     ].
