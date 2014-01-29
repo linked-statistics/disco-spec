@@ -165,7 +165,13 @@ disco:Universe a rdfs:Class, owl:Class;
     rdfs:comment "A Universe is the total membership or population of a defined class of people, objects or events."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>;
     rdfs:subClassOf skos:Concept.
-
+	
+disco:Mapping
+    a rdfs:Class, owl:Class;
+    rdfs:label "Mapping"@en;
+    rdfs:comment "Mapping"@en;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+	
 #################################################################
 # Datatype properties
 #################################################################
@@ -325,19 +331,24 @@ disco:endDate a rdf:Property, owl:DatatypeProperty;
     rdfs:range xsd:date;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 	
-# mappingDDI-L
 disco:mappingDDI-L a rdf:Property, owl:DatatypeProperty;
     rdfs:label "Mapping from and to DDI-L"@en;
 	rdfs:comment "Mapping from and to DDI-L"@en;
-    rdfs:domain rdfs:Resource;
+    rdfs:domain disco:Mapping;
     rdfs:range rdf:langString;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 	
-# mappingDDI-C
 disco:mappingDDI-C a rdf:Property, owl:DatatypeProperty;
     rdfs:label "Mapping from and to DDI-C"@en;
 	rdfs:comment "Mapping from and to DDI-C"@en;
-    rdfs:domain rdfs:Resource;
+    rdfs:domain disco:Mapping;
+    rdfs:range rdf:langString;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+	
+disco:context a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "context specifies conditions which have to be fulfilled for specific mappings"@en;
+	rdfs:comment "context specifies conditions which have to be fulfilled for specific mappings"@en;
+    rdfs:domain disco:Mapping;
     rdfs:range rdf:langString;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
