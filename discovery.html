@@ -686,7 +686,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 
       <pre class="example">
 
-&lt;#SexVD&gt; a disco:VariableDefinition;
+&lt;#SexVD&gt; a disco:RepresentedVariable;
     disco:universe &lt;#UniversePerson&gt;;
     disco:representation &lt;#SexRepr&gt;;
     disco:concept &lt;#IpumsC1&gt;;
@@ -706,7 +706,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
     skos:prefLabel "Female"@en, "Femme"@fr;
     skos:inScheme &lt;#SexRepr&gt;.
     
-&lt;#ageVD&gt; a disco:VariableDefinition;
+&lt;#ageVD&gt; a disco:RepresentedVariable;
     disco:universe &lt;#UniversePerson&gt;;
     disco:representation &lt;#AgeRepr&gt;;
     disco:concept &lt;#IpumsC1&gt;;
@@ -733,7 +733,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
     skos:prefLabel "99";
     skos:inScheme &lt;#AgeRepr&gt;.
     
-&lt;#CitizenshipVD&gt; a disco:VariableDefinition;
+&lt;#CitizenshipVD&gt; a disco:RepresentedVariable;
     disco:universe &lt;#UniverseNonArgentines&gt;;
     disco:representation &lt;#CitizenshipRepr&gt;;
     disco:concept &lt;#IpumsC2&gt;;
@@ -1161,7 +1161,7 @@ ex:Study1 dcterms:subject [
 				<li><code>dcterms:alternativet</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>): an alternative name for the study</li>
 				<li><code>dcterms:available</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>): the date (or date range) at which this study has or will become available</li>
 				<li><code>dcterms:title</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>, <code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>): the element’s title</li>
-				<li><code>dcterms:description</code> (used with <code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>, <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>, <code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>, <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>, <code>dcterms:RightsStatement</code>): a human readable description of the element</li>
+				<li><code>dcterms:description</code> (used with <code><a href="#dfn-disco-representedVariable" class="internalDFN">RepresentedVariable</a></code>, <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>, <code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>, <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>, <code>dcterms:RightsStatement</code>): a human readable description of the element</li>
 				<li><code>dcterms:provenance</code> (used with <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>): defines the provenance information for the data file. The object is a <code>dcterms:ProvenanceStatement</code>.</li>
 			</ul>
 			
@@ -1627,7 +1627,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
         codes and categories (a "codelist") or may be one of other
         normal data types (dateTime, numeric, textual, etc.) Codes and
         Categories are represented using SKOS <b>Concepts</b> and concept
-        schemes. Variable definitions (<b><code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code></b>) encompasse study-independent, 
+        schemes. Variable definitions (<b><code><a href="#dfn-disco-representedVariable" class="internalDFN">RepresentedVariable</a></code></b>) encompasse study-independent, 
 		re-usable parts of variables like occupation classification. 
 	  </p>
 	  
@@ -1636,15 +1636,15 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
       </div>
 	  
 	  <p>
-	    Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) may be based on (<code><a href="#dfn-disco-basedon" class="internalDFN">basedOn</a></code>) 0 or 1 variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>)
-		and variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) can be in 0 to n <code><a href="#dfn-disco-basedon" class="internalDFN">basedOn</a></code> relationships to variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>).
-		Both variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) have <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> object properties 
+	    Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) may be based on (<code><a href="#dfn-disco-basedon" class="internalDFN">basedOn</a></code>) 0 or 1 variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>)
+		and variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) can be in 0 to n <code><a href="#dfn-disco-basedon" class="internalDFN">basedOn</a></code> relationships to variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>).
+		Both variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) have <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> object properties 
 		with the class <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> as range. 
-		Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) must have exactly 1 <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> and variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) may have 0 to n 
+		Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) must have exactly 1 <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> and variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) may have 0 to n 
         <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> connections to <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>.
-        On the other hand, representations have 0 to n links to variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) and to variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>).	
-        Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) as well as variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) have both 1 connection to the concept which should be measured.
-        Concepts have 0 to n relationships to variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) using the object property <code><a href="#dfn-disco-concept" class="internalDFN">concept</a></code>.		
+        On the other hand, representations have 0 to n links to variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) and to variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>).	
+        Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) as well as variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) have both 1 connection to the concept which should be measured.
+        Concepts have 0 to n relationships to variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) using the object property <code><a href="#dfn-disco-concept" class="internalDFN">concept</a></code>.		
 	  </p>
 	  
     <section>
@@ -1654,28 +1654,28 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	    <b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code></b>s provide a definition of the column in a rectangular data file.
 		<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code> is a characteristic of a unit being observed. A variable might be the 
 		answer of a question, have an administrative source, or be derived from other variables. 
-	    <b><code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code></b>s encompasse study-independent, re-usable parts of variables like occupation classification. 
+	    <b><code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code></b>s encompasse study-independent, re-usable parts of variables like occupation classification. 
 	  </p>
 	 
 	  <div class="figure">
-        <img class="uml-diagram" src="diagrams/variable-and-variable-definition.png" alt="Variables and VariableDefinitions"/>
+        <img class="uml-diagram" src="diagrams/variable-and-variable-definition.png" alt="Variables and RepresentedVariables"/>
       </div>
 	  
 	  <p>
 	  Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) can be described (<code>dcterms:description</code>), 
 		<code>skos:notation</code> is used to associate names to variables and
 		labels can be assigned to variables via the datatype property <code>skos:prefLabel</code>.
-		Variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) can also be described using <code>dcterms:description</code>.
-		Labels can be assigned to variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) via the datatype property 
+		Variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) can also be described using <code>dcterms:description</code>.
+		Labels can be assigned to variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) via the datatype property 
 		<code>skos:prefLabel</code>.
-		Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) may be based on (<code><a href="#dfn-disco-basedon" class="internalDFN">BasedOn</a></code>) 0 to 1 <code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>.
-		<code><a href="#dfn-disco-basedon" class="internalDFN">BasedOn</a></code> also connects variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) with 0 to n variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>).
-		Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) are connected with exactly 1 <code>skos:Concept</code> via <code><a href="#dfn-disco-concept" class="internalDFN">Concept</a></code>.
-		<code>skos:Concept</code> have this connection to 0 to n variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>).
-Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) are represented by 1 <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> and variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) are represented by multiple (0 - n) representations (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>).
+		Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) may be based on (<code><a href="#dfn-disco-basedon" class="internalDFN">BasedOn</a></code>) 0 to 1 <code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>.
+		<code><a href="#dfn-disco-basedon" class="internalDFN">BasedOn</a></code> also connects variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) with 0 to n variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>).
+		Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) are connected with exactly 1 <code>skos:Concept</code> via <code><a href="#dfn-disco-concept" class="internalDFN">Concept</a></code>.
+		<code>skos:Concept</code> have this connection to 0 to n variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>).
+Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) are represented by 1 <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> and variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) are represented by multiple (0 - n) representations (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>).
 		Representations (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>) may be linked to 0 to n variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and their definitions.
      Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) may have (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) 0 or more questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) and questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) may be associated with 0 to n variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>).
-		<code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code> is used to link 1 <code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code> to 0 to n variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and 0 to n universes (<code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code>) to 0 to n variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>).
+		<code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code> is used to link 1 <code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code> to 0 to n variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and 0 to n universes (<code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code>) to 0 to n variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>).
 		  
 	  </p>
 	  <p>The following example illustrates the three variables Sex, Age and Citizenship.</p>
@@ -1704,24 +1704,24 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
         disco:question &lt;#QuestionCitizenship&gt;.
       </pre>
       
-      <p>The three variables refer to universe, representations and concepts in their <code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>.</p>
+      <p>The three variables refer to universe, representations and concepts in their <code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>.</p>
       
       <pre class="example">
-      &lt;#SexVD&gt; a disco:VariableDefinition;
+      &lt;#SexVD&gt; a disco:RepresentedVariable;
         disco:universe &lt;#UniversePerson&gt;;
         disco:representation &lt;#SexRepr&gt;;
         disco:concept &lt;#IpumsC1&gt;;
         skos:prefLabel "Sex"@en, "Sexe"@fr;
         dcterms:description "Sex data element"@en.
                                 
-	    &lt;#AgeVD&gt; a disco:VariableDefinition;
+	    &lt;#AgeVD&gt; a disco:RepresentedVariable;
         disco:universe &lt;#UniversePerson&gt;;
         disco:representation &lt;#AgeRepr&gt;;
         disco:concept &lt;#IpumsC1&gt;;
         skos:prefLabel "Age"@en, "Sexe"@fr;
         dcterms:description "Age data element"@en.
     
-      &lt;#CitizenshipVD&gt; a disco:VariableDefinition;
+      &lt;#CitizenshipVD&gt; a disco:RepresentedVariable;
         disco:universe &lt;#UniverseNonArgentines&gt;;
         disco:representation &lt;#CitizenshipRepr&gt;;
         disco:concept &lt;#IpumsC2&gt;;
@@ -1941,7 +1941,7 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> is one of a set of values to which a numerical measure or a category 
 		from a classification can be assigned (e.g. income, age, and sex: male coded as 1). 
 		<code><a href="#dfn-disco-question" class="internalDFN">Questions</a></code> (<code><a href="#dfn-disco-responsedomain" class="internalDFN">ResponseDomain</a></code>), variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>)
-        (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>), and variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>) may have
+        (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>), and variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>) may have
         representations.
 		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> is defined as sub-class of the union of <b><code>rdfs:Datatype</code></b> (e.g. numeric or
         textual values), <b><code>skos:ConceptScheme</code></b>, and <b><code>skos:OrderedCollection</code></b>, as for example questions
@@ -1958,20 +1958,20 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		(<code><a href="#dfn-disco-responsedomain" class="internalDFN">responseDomain</a></code>), 
 		variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) 
 		(<code><a href="#dfn-disco-representation" class="internalDFN">representation</a></code>), and variable definitions (
-		<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>) 
+		<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) 
 		(<code><a href="#dfn-disco-representation" class="internalDFN">representation</a></code>) 
 		may have representations. 
 		Questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) must have 1 to n representations 
 		(<code><a href="#dfn-disco-representation" class="internalDFN">representation</a></code>), variables
 		(<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) must have exactly 1 
 		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>,
-		and variable definitions (<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>)
+		and variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>)
 		may have 0 to n representations (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>).
 		Each <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> can be in 0 to n 
 		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> relationships 
 		with questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>), variables 
 		(<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>), and variable definitions 
-		(<code><a href="#dfn-disco-variabledefinition" class="internalDFN">VariableDefinition</a></code>).
+		(<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>).
 	  </p>
       
       <p>The following example shows the representations of the three previously introduced variables Sex, Age and Citizenship. All of them refer to the particular concepts.</p>
@@ -2601,7 +2601,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
 	<tr>
       <td>11</td>
       <td>adms:identifier</td>
-      <td>disco:VariableDefinition</td>
+      <td>disco:RepresentedVariable</td>
       <td>adms:Identifier</td>
       <td></td>
 	  <td></td>
@@ -3166,7 +3166,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
       <td>13</td>
       <td>basedOn</td>
       <td>Variable</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td></td>
       <td></td>
     </tr> 
@@ -3197,7 +3197,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
     <tr>
       <td>17</td>
       <td>concept</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>skos:Concept</td>
       <td></td>
       <td></td>
@@ -3205,7 +3205,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
     <tr>
       <td>18</td>
       <td>universe</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>Universe</td>
       <td></td>
       <td></td>
@@ -3213,7 +3213,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
     <tr>
       <td>19</td>
       <td>representation</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>Representation</td>
       <td></td>
       <td></td>
@@ -3221,7 +3221,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
     <tr>
       <td>20</td>
       <td>dcterms:description</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>rdf:langString</td>
       <td></td>
       <td></td>
@@ -3229,7 +3229,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
     <tr>
       <td>21</td>
       <td>skos:prefLabel</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>rdf:langString</td>
       <td></td>
       <td></td>
@@ -3620,7 +3620,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
 	<tr>
       <td>11</td>
       <td>adms:identifier</td>
-      <td>disco:VariableDefinition</td>
+      <td>disco:RepresentedVariable</td>
       <td>adms:Identifier</td>
       <td></td>
     </tr> 
@@ -4131,7 +4131,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
       <td>13</td>
       <td>basedOn</td>
       <td>Variable</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td></td>
     </tr> 
     <tr>
@@ -4158,35 +4158,35 @@ and positions of concepts in lists (xkos:previous, xkos:next).
     <tr>
       <td>17</td>
       <td>concept</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>skos:Concept</td>
       <td></td>
     </tr> 
     <tr>
       <td>18</td>
       <td>universe</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>Universe</td>
       <td></td>
     </tr> 
     <tr>
       <td>19</td>
       <td>representation</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>Representation</td>
       <td></td>
     </tr> 
     <tr>
       <td>20</td>
       <td>dcterms:description</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>rdf:langString</td>
       <td></td>
     </tr> 
     <tr>
       <td>21</td>
       <td>skos:prefLabel</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>rdf:langString</td>
       <td></td>
     </tr> 
@@ -4581,7 +4581,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
 	<tr>
       <td>11</td>
       <td>adms:identifier</td>
-      <td>disco:VariableDefinition</td>
+      <td>disco:RepresentedVariable</td>
       <td>adms:Identifier</td>
       <td></td>
     </tr> 
@@ -5093,7 +5093,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
       <td>13</td>
       <td>basedOn</td>
       <td>Variable</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td></td>
     </tr> 
     <tr>
@@ -5120,35 +5120,35 @@ and positions of concepts in lists (xkos:previous, xkos:next).
     <tr>
       <td>17</td>
       <td>concept</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>skos:Concept</td>
       <td></td>
     </tr> 
     <tr>
       <td>18</td>
       <td>universe</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>Universe</td>
       <td></td>
     </tr> 
     <tr>
       <td>19</td>
       <td>representation</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>Representation</td>
       <td></td>
     </tr> 
     <tr>
       <td>20</td>
       <td>dcterms:description</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>rdf:langString</td> 
       <td></td>
     </tr> 
     <tr>
       <td>21</td>
       <td>skos:prefLabel</td>
-      <td>VariableDefinition</td>
+      <td>RepresentedVariable</td>
       <td>rdf:langString</td>
       <td></td>
     </tr> 
@@ -5300,11 +5300,11 @@ and positions of concepts in lists (xkos:previous, xkos:next).
          </dt>
          <dd class="classProperties">points from a Study to the StudyGroup which contains the Study.</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:universe"></a><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
-            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:RepresentedVariable</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
             )
             
          </dt>
-         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, VariableDefinitions, Variables,
+         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables,
             Questions, and LogicalDataSets.
          </dd>
          <dt class="classProperties"><a id="dfn-disco-disco:fundedBy"></a><em>Object Property: </em><code><dfn>disco:fundedBy</dfn></code>
@@ -5367,11 +5367,11 @@ and positions of concepts in lists (xkos:previous, xkos:next).
          </dt>
          <dd class="classProperties">points from a Study or a StudyGroup to the original DDI file which is a foaf:Document.</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:universe"></a><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
-            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:RepresentedVariable</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
             )
             
          </dt>
-         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, VariableDefinitions, Variables,
+         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables,
             Questions, and LogicalDataSets.
          </dd>
          <dt class="classProperties"><a id="dfn-disco-disco:fundedBy"></a><em>Object Property: </em><code><dfn>disco:fundedBy</dfn></code>
@@ -5429,11 +5429,11 @@ and positions of concepts in lists (xkos:previous, xkos:next).
          </dt>
          <dd class="classProperties">points to Variable contained in the LogicalDataSet</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:universe"></a><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
-            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:RepresentedVariable</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
             )
             
          </dt>
-         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, VariableDefinitions, Variables,
+         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables,
             Questions, and LogicalDataSets.
          </dd>
          <dt class="classProperties"><a id="dfn-disco-disco:dataFile"></a><em>Object Property: </em><code><dfn>disco:dataFile</dfn></code>
@@ -5612,20 +5612,20 @@ and positions of concepts in lists (xkos:previous, xkos:next).
          </dt>
          <dd class="classProperties">analysis unit of a Study, a StudyGroup, or a Variable.</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:representation"></a><em>Object Property: </em><code><dfn>disco:representation</dfn></code>
-            (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code></code>
+            (<em>Domain:</em><code></code><code>disco:RepresentedVariable</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code></code>
             )
             
          </dt>
-         <dd class="classProperties">VariableDefinitions and Variables can have a Representation whose individuals are
+         <dd class="classProperties">RepresentedVariables and Variables can have a Representation whose individuals are
             either of the class rdfs:Datatype (to represent values) or skos:ConceptScheme (to
             represent code lists).
          </dd>
          <dt class="classProperties"><a id="dfn-disco-disco:universe"></a><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
-            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:RepresentedVariable</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
             )
             
          </dt>
-         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, VariableDefinitions, Variables,
+         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables,
             Questions, and LogicalDataSets.
          </dd>
          <dt class="classProperties"><a id="dfn-disco-disco:question"></a><em>Object Property: </em><code><dfn>disco:question</dfn></code>
@@ -5635,44 +5635,44 @@ and positions of concepts in lists (xkos:previous, xkos:next).
          </dt>
          <dd class="classProperties">Indicates the Questions associated to Variables or contained in Questionnaires.</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:basedOn"></a><em>Object Property: </em><code><dfn>disco:basedOn</dfn></code>
-            (<em>Domain:</em><code>disco:Variable</code><em> -&gt; Range: </em><code>disco:VariableDefinition</code>
+            (<em>Domain:</em><code>disco:Variable</code><em> -&gt; Range: </em><code>disco:RepresentedVariable</code>
             )
             
          </dt>
-         <dd class="classProperties">points to the VariableDefinition the Variable is based on.</dd>
+         <dd class="classProperties">points to the RepresentedVariable the Variable is based on.</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:concept"></a><em>Object Property: </em><code><dfn>disco:concept</dfn></code>
-            (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>skos:Concept</code>
+            (<em>Domain:</em><code></code><code>disco:RepresentedVariable</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>skos:Concept</code>
             )
             
          </dt>
-         <dd class="classProperties">points to the DDI concept of a VariableDefinition, a Variable, or a Question</dd>
-         <dt><a id="dfn-disco-VariableDefinition"></a><em>Class: </em><code><dfn>disco:VariableDefinition</dfn></code></dt>
-         <dd>VariableDefinitions encompasse study-independent, re-usable parts of variables like
+         <dd class="classProperties">points to the DDI concept of a RepresentedVariable, a Variable, or a Question</dd>
+         <dt><a id="dfn-disco-RepresentedVariable"></a><em>Class: </em><code><dfn>disco:RepresentedVariable</dfn></code></dt>
+         <dd>RepresentedVariables encompasse study-independent, re-usable parts of variables like
             occupation classification.
          </dd>
          <dt class="classProperties"><a id="dfn-disco-disco:representation"></a><em>Object Property: </em><code><dfn>disco:representation</dfn></code>
-            (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code></code>
+            (<em>Domain:</em><code></code><code>disco:RepresentedVariable</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code></code>
             )
             
          </dt>
-         <dd class="classProperties">VariableDefinitions and Variables can have a Representation whose individuals are
+         <dd class="classProperties">RepresentedVariables and Variables can have a Representation whose individuals are
             either of the class rdfs:Datatype (to represent values) or skos:ConceptScheme (to
             represent code lists).
          </dd>
          <dt class="classProperties"><a id="dfn-disco-disco:universe"></a><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
-            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:RepresentedVariable</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
             )
             
          </dt>
-         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, VariableDefinitions, Variables,
+         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables,
             Questions, and LogicalDataSets.
          </dd>
          <dt class="classProperties"><a id="dfn-disco-disco:concept"></a><em>Object Property: </em><code><dfn>disco:concept</dfn></code>
-            (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>skos:Concept</code>
+            (<em>Domain:</em><code></code><code>disco:RepresentedVariable</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>skos:Concept</code>
             )
             
          </dt>
-         <dd class="classProperties">points to the DDI concept of a VariableDefinition, a Variable, or a Question</dd>
+         <dd class="classProperties">points to the DDI concept of a RepresentedVariable, a Variable, or a Question</dd>
       </dl>
       <h3>4. Data Collection</h3>
       <dl class="classDefinitions">
@@ -5681,19 +5681,19 @@ and positions of concepts in lists (xkos:previous, xkos:next).
             from a respondent.
          </dd>
          <dt class="classProperties"><a id="dfn-disco-disco:universe"></a><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
-            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:RepresentedVariable</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
             )
             
          </dt>
-         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, VariableDefinitions, Variables,
+         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables,
             Questions, and LogicalDataSets.
          </dd>
          <dt class="classProperties"><a id="dfn-disco-disco:concept"></a><em>Object Property: </em><code><dfn>disco:concept</dfn></code>
-            (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>skos:Concept</code>
+            (<em>Domain:</em><code></code><code>disco:RepresentedVariable</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>skos:Concept</code>
             )
             
          </dt>
-         <dd class="classProperties">points to the DDI concept of a VariableDefinition, a Variable, or a Question</dd>
+         <dd class="classProperties">points to the DDI concept of a RepresentedVariable, a Variable, or a Question</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:questionText"></a><em>Datatype Property: </em><code><dfn>disco:questionText</dfn></code>
             (<em>Domain:</em><code>disco:Question</code><em> -&gt; Range: </em><code>rdf:langString</code>
             )
@@ -5737,19 +5737,19 @@ and positions of concepts in lists (xkos:previous, xkos:next).
             from a respondent.
          </dd>
          <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
-            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:VariableDefinition</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:RepresentedVariable</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
             )
             
          </dt>
-         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, VariableDefinitions, Variables,
+         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables,
             Questions, and LogicalDataSets.
          </dd>
          <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:concept</dfn></code>
-            (<em>Domain:</em><code></code><code>disco:VariableDefinition</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>skos:Concept</code>
+            (<em>Domain:</em><code></code><code>disco:RepresentedVariable</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>skos:Concept</code>
             )
             
          </dt>
-         <dd class="classProperties">points to the DDI concept of a VariableDefinition, a Variable, or a Question</dd>
+         <dd class="classProperties">points to the DDI concept of a RepresentedVariable, a Variable, or a Question</dd>
          <dt class="classProperties"><em>Datatype Property: </em><code><dfn>disco:questionText</dfn></code>
             (<em>Domain:</em><code>disco:Question</code><em> -&gt; Range: </em><code>rdf:langString</code>
             )
@@ -5890,9 +5890,9 @@ WHERE {
   ?variable disco:concept ?variableConcept .
   FILTER (regex(?variableConcept, "species", "i"))
 
-  ?variable disco:baseOn ?variableDefinition .
-  ?variableDefinition disco:concept ?variableDefinitionConcept .
-  FILTER (regex(?variableDefinitionConcept, "Bufo alvarius", "i"))
+  ?variable disco:baseOn ?representedVariable .
+  ?representedVariable disco:concept ?representedVariableConcept .
+  FILTER (regex(?representedVariableConcept, "Bufo alvarius", "i"))
 }
     </pre>
 	
