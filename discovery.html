@@ -1052,18 +1052,37 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 	  </section>
 	  
     <section>
-	  <h3>Relations to DDI-XML Files</h3>
-	  
-	  
-	  <p>
-	    Since the Discovery Vocabulary only covers a subset of an original DDI-XML file, it may be worthwile to have a relationship to the original DDI-XML file. Such a relationship can be represented using <code>dcterms:relation</code>. This way, every element can be related to any <code>foaf:Document</code>. The cardinalities are in both directions 0 to n.
-	  </p>
+	  <h3>Links to Related Files</h3>
 	  
 	  <div class="figure">
-        <img class="uml-diagram" src="diagrams/Relations-DDI-XML.png" alt="Relations to DDI-XML Files"/>
-      </div>
+	    <img class="uml-diagram" src="diagrams/Relations-DDI-XML.png" alt="Links to Related Files"/>
+	  </div>
+	  
+	  <section>
+	  
+		<h4>Relations to DDI-XML Files</h4>
+		
+		<p>
+			Since the Discovery Vocabulary only covers a subset of an original DDI-XML file, it may be worthwile to have a relationship to the original DDI-XML file. Such a relationship can be represented using <code>dcterms:relation</code>. This way, every element can be related to any <code>foaf:Document</code>. The cardinalities are in both directions 0 to n.
+		</p>
+	  
+		
 	  
 	  </section>
+	  
+	  <section>
+	  
+		<h4>Relations Between Publications and Studies</h4>
+		
+		<p>
+			So far, we can use the general property <code>dcterms:relation</code> for relations between publications and studies. 
+			The domain of <code>dcterms:relation</code> is <code>rdfs:Resource</code> and the range is <code>foaf:Document</code>.
+            Other kinds of relations could be primaryLiterature and secondaryLiterature.
+		</p>
+	  
+	  </section>
+	  
+	</section>
 	  
 	  <section>
 	  <h3>Access Rights Statements and Licenses</h3>
