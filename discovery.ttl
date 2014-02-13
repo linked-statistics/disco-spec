@@ -12,8 +12,6 @@
 @prefix adms: <http://www.w3.org/ns/adms#>.
 @prefix org: <http://www.w3.org/ns/org#>.
 @prefix prov: <http://www.w3.org/ns/prov#>.
-@prefix schema: <http://schema.org/>.
-@prefix swrc: <http://swrc.ontoware.org/ontology#>.
 @prefix xkos: <http://purl.org/linked-data/xkos#>.
 
 
@@ -29,12 +27,12 @@
         "DDI-RDF Discovery Vocabulary"@en;
     rdfs:comment
         "This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats."@en;
-    swrc:editor
+    dc:contributor
         "Thomas Bosch",
         "Richard Cyganiak",
         "Joachim Wackerow",
         "Benjamin Zapilko";
-    schema:author
+    dc:creator
         "Thomas Bosch",
         "Franck Cotton",
         "Richard Cyganiak",
@@ -44,7 +42,6 @@
 	"Heiko Paulheim",
         "Joachim Wackerow",
         "Benjamin Zapilko";
-    dc:creator "Franck Cotton";
     owl:versionInfo "Version 0.6 - 2013-09-30".
 
 #################################################################
