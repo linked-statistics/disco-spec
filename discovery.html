@@ -234,7 +234,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       standard queries to programmatically identify data sets, whether
       made available by government or held within a data archive.</p>
       
-      <p>The document [<cite><a class="bibref" href="#bib-Scenarios">Scenarios</a></cite>] by Vompras, Gregory, Bosch, Capadisli, and Wackerow describes typical use cases for the applicability of the DDI-RDF Discovery vocabulary. In the Section <a class="bibref" href="#example-queries">Example Queries</a> of the Appendix additional discovery use cases are illustrated by several SPARQL queries.</p>
+      <p>The document [<cite><a class="bibref" href="#bib-Scenarios">Scenarios</a></cite>] by Vompras, Gregory, Bosch, Capadisli, and Wackerow describes typical use cases for the applicability of the DDI-RDF Discovery vocabulary. In the Section <a class="bibref" href="#example-queries">Use Cases and Example Queries</a> of the Appendix additional discovery use cases are illustrated by several SPARQL queries.</p>
     </section>
 
 	  <p>
@@ -5825,7 +5825,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
     </section>
 
     <section class='appendix'>
-      <h2>Example Queries</h2>
+      <h2>Use Cases and Example Queries</h2>
 
 	  <p>
 	      Vompras, Gregory, Bosch, Capadisli, and Wackerow [<cite><a class="bibref" href="#bib-Scenarios">Scenarios</a></cite>] have written a paper describing typical use cases associated with the DDI-RDF Discovery Vocabulary. 
@@ -5833,6 +5833,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
 	      We now show a couple of representative use cases associated with the DDI-RDF Discovery Vocabulary.
 	  </p>
 	  
+<h4>Searching for subjects and temporal coverage</h4>
       <p>Find studies from years 2000 and after about climate change.</p>
       <pre class="example">
 SELECT ?studyTitle ?studyAbstract ?logicalDataSetTitle
@@ -5850,7 +5851,8 @@ WHERE {
   FILTER (?date >= 2000)
 }
       </pre>
-
+      
+<h4>Searching for particular access conditions and rights</h4>
       <p>Find titles of data sets which are publicly available under the Canadian Data Liberation Initiative Community policy. Optionally give links to the rights statement and the license.</p>
       <pre class="example">
 SELECT ?logicalDataSetTitle
@@ -5876,7 +5878,7 @@ WHERE {
 }
       </pre>
 
-
+<h4>Searching for particular questions</h4>
     <p>Find all studies with questions about commuting to work.</p>
       <pre class="example">
 SELECT ?studyTitle ?studyAbstract
@@ -5894,7 +5896,7 @@ WHERE {
 }
     </pre>
 
-
+<h4>Searching for particular variables</h4>
     <p>Find study groups where the study uses the species variable and has a variable defined as Bufo alvarius</p>
       <pre class="example">
 SELECT ?studyGroupTitle ?studyGroupAbstract
@@ -5914,11 +5916,10 @@ WHERE {
   FILTER (regex(?representedVariableConcept, "Bufo alvarius", "i"))
 }
     </pre>
-	
-	<div class="example">
-		<div class="example-title">
-			<span>Which Persons and Organizations Are Associated with Specific Datasets?</span>
-	    </div>
+
+<h4>Representing relationships between persons, organizations and datasets</h4>
+
+
 		
 		<p>
 			Within the context of Disco, we reuse other well elaborated and accepted vocabularies as often as possible and reasonable. 
@@ -5955,7 +5956,7 @@ WHERE {
 			
 		</ul>
 		  
-		<pre>
+		<pre class="example">
 		
 :EuropeanStudy
   a disco:Study;
@@ -6040,12 +6041,11 @@ WHERE
 
 		</pre>
 		
-	</div>
 	
-	<div class="example">
-		<div class="example-title">
-			<span>Which Datasets Have A Specific Statistical Classification and What Are Its Semantic Relations?</span>
-	    </div>
+      <h4>Representing datasets using specific statistical classifications</h4>
+	
+
+
 		
 		<p>
 			XKOS extends SKOS with two main objectives: the first one is to allow the description of statistical classifications, 
@@ -6102,20 +6102,21 @@ WHERE
 			hierarchical relations between the items, but the subproperties defined in this specification could also be used. For example, xkos:hasPart 
 			could express the partitive relation between subdivision 67 ("Property Operators and Real Estate Services") and group 672 ("Real Estate Services").
 		</p>
-		
-	</div>
 	
-      <div class="example">
-        <div class="example-title">
-          <span>Searching For Data in a Data Collection</span>
-        </div>
+	
+      <h4>Representing relationships between datasets, collections and data catalogs</h4>
+	
+      
+
         <p>While Disco and Data Cube provide terms for the description of datasets, both on a different level of aggregation, DCAT enables the representation of these datasets inside of data collections like repositories, catalogs or archives. The relationship be-tween data collections and their contained datasets is useful, since such collections are a typical entry point when searching for data.</p>
         
         <p>A search for data may consist of two phases. In a first phase, the user searches for different records described by dcat:CatalogRecord inside a data catalog. This search can differ according to the users’ information need. While it is possible to search for metadata provided inside such a record like dcterms:title, dcterms:description, etc., the user can also formulate a query to search for more detailed information about the dataset (represented as dcat:Dataset) or its distribution (dcat:Distribution), which are part of the record. For example, a user may want to search for datasets covering a particular topic (dcat:keyword), particular temporal and spatial coverages (dcterms:temporal and dcterms:spatial), or particular formats in which a distribution of the data is available (dcterms:format). Instances of dcat:DataSet are also described by specific themes they cover (dcat:theme). Since these themes are organized in a theme taxonomy (implemented by a skos:ConceptScheme and classes of skos:Concept), these themes can also be used for an overall search in all datasets of the data catalog.</p>
         
         <p>Nevertheless, the search of the first phase will result in one or presumably multiple hits of datasets. Hence, another search has to be executed in a second phase in order to find out which datasets are relevant for the user, e.g. particular universes or sam-ples. The search regarding particular criteria in multiple Disco datasets materializes as those described in the previous two use case sections and those presented in [9]. However, the user may find data sets which are published in Data Cube. In order to discover the original microdata source of a qb:DataSet, the property prov:wasDerivedFrom can hold the link the particular DDI data set dis-co:Study.</p>
         <p>A user searching for data regarding dissatisfaction with politics in Europe may find the records :EuropeanStudy and :AggregatedEuropeanData in a :DataCatalog. By analyzing the information given in the themes and keywords of the associated data sets, the user can decide which data set is best suitable for his information need. He notices also that :AggregatedEuropeanDataset has been derived from :EuropeanDataset and seems to cover only a subset of the micro data set. If he is interested in the micro data instead of aggregated data, he is thus able to find the underlying micro data set.</p>
-        <pre>
+
+ 
+      <pre class="example">
 :DataCatalog
 a dcat:Catalog;
 dcat:record :EuropeanStudy;
@@ -6150,7 +6151,6 @@ dcat:keyword "Politics"@en;
 prov:wasDerivedFrom :EuropeanStudy.
 </pre>
         
-      </div>
 	
     </section>
 
