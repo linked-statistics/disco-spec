@@ -1382,7 +1382,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	  
 	    <p>
 		  Available category statistics types are frequency, percentage, and cumulativePercentage. 
-		  Available summary statistics types are frequency, percentage, maximum, mean, median, minimum, mode, and standardDeviation.
+		  Available summary statistics types are organized in the controlled vocabulary SummaryStatisticsType. It is represented in SKOS format, where each summary statistics type is a skos:Concept. Particular summary statistics types are included into a disco:SummaryStatistics class with the property disco:summaryStatisticType. The particular value is modelled with rdf:value. More information on the SKOS representation of the controlled vocabulary SummaryStatisticsType can be found at the <a href="https://github.com/linked-statistics/DDI-controlled-vocabularies">DDI-controlled-vocabularies project page</a>.
 		</p>
 		<p>
           There are two properties which describe details of a category or summary statistic value, computationBase and weightedBy.
@@ -1580,12 +1580,82 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
   disco:computationBase 'validOnly'.
   
 # optional: harmonized CategoryStatistics resource if computationBase and category is the same
-&lt;issp:XYZ_13&gt;
+&lt;issp:XYZ_7&gt;
   a disco:CategoryStatistics;
   disco:statisticsCategory &lt;issp:Category_1&gt;;
   disco:percentage 63.7;
   disco:cumulativePercentage 63.7;
   disco:computationBase 'validOnly'.
+
+# SummaryStatistics of variable PARTLIV
+&lt;issp:XYZ_8&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:summaryStatisticType &lt;ddicv-sumstats:ValidCases&gt;;
+  rdf:value "24965".
+
+&lt;issp:XYZ_9&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:summaryStatisticType &lt;ddicv-sumstats:PercentOfValidCases&gt;;
+  rdf:value "95.2".
+
+&lt;issp:XYZ_10&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:summaryStatisticType &lt;ddicv-sumstats:InvalidCases&gt;;
+  rdf:value "1251".
+  
+&lt;issp:XYZ_11&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:summaryStatisticType &lt;ddicv-sumstats:PercentOfInvalidCases&gt;;
+  rdf:value "4.8".
+  
+&lt;issp:XYZ_12&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:summaryStatisticType &lt;ddicv-sumstats:TotalNumberOfCases&gt;;
+  rdf:value "26216".
+
+# SummaryStatistics of variable WRKHS
+&lt;issp:XYZ_13&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:WRKHRS&gt;;
+  disco:summaryStatisticType &lt;ddicv-sumstats:ValidCases&gt;;
+  rdf:value "14237".
+
+&lt;issp:XYZ_14&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:WRKHRS&gt;;
+  disco:summaryStatisticType &lt;ddicv-sumstats:Minimum&gt;;
+  rdf:value "1".
+
+&lt;issp:XYZ_15&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:WRKHRS&gt;;
+  disco:summaryStatisticType &lt;ddicv-sumstats:Maximum&gt;;
+  rdf:value "96".
+
+&lt;issp:XYZ_16&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:WRKHRS&gt;;
+  disco:summaryStatisticType &lt;ddicv-sumstats:ArithmeticMean&gt;;
+  rdf:value "41.74".
+
+&lt;issp:XYZ_17&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:WRKHRS&gt;;
+  disco:summaryStatisticType &lt;ddicv-sumstats:StandardDeviation&gt;;
+  rdf:value "14.265".
+
+&lt;issp:XYZ_18&gt;
+  a disco:SummaryStatistics;
+  disco:statisticsVariable &lt;issp:WRKHRS&gt;;
+  disco:summaryStatisticType &lt;ddicv-sumstats:Other&gt;;
+  rdfs:label "Specified Label of the Other Element, i.e. some statistic which is not available in the controlled vocabulary";
+  rdf:value "47".
+<!-- old example
   
 &lt;issp:XYZ_7&gt;
   a disco:SummaryStatistics;
@@ -1625,7 +1695,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
   disco:maximum 96;
   disco:mean 41.74;
   disco:standardDeviation 14.265;
-  disco:computationBase 'validOnly'.  
+  disco:computationBase 'validOnly'.  -->
 	      </pre>
 		
 		</div>
