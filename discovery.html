@@ -1615,7 +1615,8 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 &lt;issp:XYZ_12&gt;
   a disco:SummaryStatistics;
   disco:statisticsVariable &lt;issp:PARTLIV&gt;;
-  disco:summaryStatisticType &lt;ddicv-sumstats:TotalNumberOfCases&gt;;
+  disco:summaryStatisticType &lt;ddicv-sumstats:Other&gt;;
+  rdfs:label "Total number of cases";
   rdf:value "26216".
 
 # SummaryStatistics of variable WRKHS
@@ -1648,14 +1649,13 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
   disco:statisticsVariable &lt;issp:WRKHRS&gt;;
   disco:summaryStatisticType &lt;ddicv-sumstats:StandardDeviation&gt;;
   rdf:value "14.265".
-
+<!-- old example
 &lt;issp:XYZ_18&gt;
   a disco:SummaryStatistics;
   disco:statisticsVariable &lt;issp:WRKHRS&gt;;
   disco:summaryStatisticType &lt;ddicv-sumstats:Other&gt;;
   rdfs:label "Specified Label of the Other Element, i.e. some statistic which is not available in the controlled vocabulary";
   rdf:value "47".
-<!-- old example
   
 &lt;issp:XYZ_7&gt;
   a disco:SummaryStatistics;
