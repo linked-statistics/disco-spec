@@ -2380,19 +2380,61 @@ XSLTs for converting any XML output of DDI-C and DDI-L are available at the <a h
 	<li>There is an official document containing all bidirectional DDI 3.1 mappings: 
 		<a href="https://docs.google.com/spreadsheet/ccc?key=0AnXXOuMQghwxdG1wU1EzLVJybHp6SDI5ZHJOTUlzOVE&usp=sharing">mapping document</a>
 	</li>
-	<li>To avoid inconsistencies, we only provide DDI 3.1 mappings.</li>
-	<li>There are various mapping documents from DDI 3.1 to other DDI versions (like 3.2 and 2.1) on the <a href="http://www.ddialliance.org/">DDI Alliance website</a>.</li>
+</ul>
+
+<b>Bidirectional DDI 3.2 Mapping</b>
+<ul>
+	<li>DDI-L --> disco. This should be a straight-forward mapping for all items used in disco.</li>
+    <li>disco --> DDI-L. This should be a straight-forward mapping for all items in the disco namespace.</li>
+	<li>Only the standard XPath expression is defined as mapping (although there are several other XPath expressions for each mapping)</li>
+	<li>Context: The items from other vocabularies - used in disco - need a context; then there could be a clear mapping path.</li>
+</ul>
+
+<b>Mappings of other DDI-Versions</b>
+<p>
+If we can use the existing mapping from DDI-L to DDI-C, it would be possible to use only DDI 3.1 for the mapping to and from disco. 
+The other DDI versions should be covered by mappings independently from disco.
+To avoid inconsistencies, we only provide DDI 3.1 mappings.
+There are various mapping documents from DDI 3.1 to other DDI versions (like 3.2 and 2.1) on the <a href="http://www.ddialliance.org/">DDI Alliance website</a>.
+</p>
+
+<b>DDI 4 Mapping</b>
+<p>
+DDI 4 should have a clear mapping from DDI-XML 3.2. 
+We assume that all items used in Disco will have a clear mapping to DDI-XML 3.2, 
+and these items in DDI-XML 3.2 will have a clear mapping to items in the DDI 4 model (therefore to a representation in OWL/RDF as well). 
+If the latter shouldn't be possible, then a mapping of items in DDI-XML 3.2 to DDI 4 XML and DDI 4 RDF should be possible. 
+</p>
+
+<b>Mapping Tables</b>
+<ul>
 	<li>The follwoing mapping tables are generated out of this mapping document completely automatically to avoid inconsistencies.</li>
 	<li>The mapping tables are structured in classes, object, and data properties.</li>
-	<li>There can be classes and properties specified within the disco namespace or within any other namespace. 
+	<li>There can be classes and properties specified within the disco namespace or within any other namespace.</li> 
 </ul>
 		
 		<section><h3>Representation of Mappings in RDF</h3>
 		
-			<ul>
-				<li>There is also ontology (in Turtle syntax) containing all mapping triples: <a href="https://github.com/linked-statistics/disco-spec/blob/master/mappings.ttl">mappings.ttl</a></li>
-				<li>This Turtle file is generated out of the official mapping document automatically</li>
-			</ul>
+<ul>
+	<li>There is also ontology (in Turtle syntax) containing all mapping triples: <a href="https://github.com/linked-statistics/disco-spec/blob/master/mappings.ttl">mappings.ttl</a></li>
+	<li>This Turtle file is generated out of the official mapping document automatically</li>
+</ul>
+
+<div class="figure">
+	<img class="uml-diagram" src="diagrams/mappings.png" alt="Representation of Mappings in RDF"/>
+</div>
+			
+<div class="example">
+
+	<div class="example-title">
+		<span>Mapping Examples</span>
+	</div>
+		
+<p>
+...
+</p>
+		
+</div>	
 		
 		</section>
 		
