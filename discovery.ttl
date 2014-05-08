@@ -166,7 +166,7 @@ disco:Universe a rdfs:Class, owl:Class;
 disco:Mapping
     a rdfs:Class, owl:Class;
     rdfs:label "Mapping"@en;
-    rdfs:comment "Mapping"@en;
+    rdfs:comment "Mappings betwenn DDI-RDF and DDI-XML"@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 	
 #################################################################
