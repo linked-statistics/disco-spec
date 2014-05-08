@@ -2371,9 +2371,28 @@ and positions of concepts in lists (xkos:previous, xkos:next).
 
     <section id='mapping-from-DDI-XML-to-DDI-RDF'><h2>DDI-XML Bidirectional Mappings</h2>
 
-		<p>In this section a detailed mapping from DDI Codebook and Lifecycle is provided. It allows an easy adoption of the DDI Discovery Vocabulary for existing DDI metadata. XSLTs for converting any XML output of DDI-C and DDI-L are available at the <a href="https://github.com/linked-statistics/DDI-RDF-tools">DDI-RDF-tools project page</a>.</p>
-        
-		<section><h3>Process to Generate Mapping Tables</h3>
+<p>
+In this section, a detailed mapping from DDI Codebook and Lifecycle is provided. 
+It allows an easy adoption of the DDI Discovery Vocabulary for existing DDI metadata. 
+XSLTs for converting any XML output of DDI-C and DDI-L are available at the <a href="https://github.com/linked-statistics/DDI-RDF-tools">DDI-RDF-tools project page</a>.
+</p>
+<ul>
+	<li>There is an official document containing all bidirectional DDI 3.1 mappings: 
+		<a href="https://docs.google.com/spreadsheet/ccc?key=0AnXXOuMQghwxdG1wU1EzLVJybHp6SDI5ZHJOTUlzOVE&usp=sharing">mapping document</a>
+	</li>
+	<li>To avoid inconsistencies, we only provide DDI 3.1 mappings.</li>
+	<li>There are various mapping documents from DDI 3.1 to other DDI versions (like 3.2 and 2.1) on the <a href="http://www.ddialliance.org/">DDI Alliance website</a>.</li>
+	<li>The follwoing mapping tables are generated out of this mapping document completely automatically to avoid inconsistencies.</li>
+	<li>The mapping tables are structured in classes, object, and data properties.</li>
+	<li>There can be classes and properties specified within the disco namespace or within any other namespace. 
+</ul>
+		
+		<section><h3>Representation of Mappings in RDF</h3>
+		
+			<ul>
+				<li>There is also ontology (in Turtle syntax) containing all mapping triples: <a href="https://github.com/linked-statistics/disco-spec/blob/master/mappings.ttl">mappings.ttl</a></li>
+				<li>This Turtle file is generated out of the official mapping document automatically</li>
+			</ul>
 		
 		</section>
 		
