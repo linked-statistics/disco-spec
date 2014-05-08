@@ -2424,17 +2424,24 @@ If the latter shouldn't be possible, then a mapping of items in DDI-XML 3.2 to D
 	<img class="uml-diagram" src="diagrams/mappings.png" alt="Representation of Mappings in RDF"/>
 </div>
 			
-<div class="example">
+	  <div class="example">
+		<div class="example-title">
+          <span>Mapping Examples</span>
+	    </div>
+		
 
-	<div class="example-title">
-		<span>Mapping Examples</span>
-	</div>
+		  
+		<pre>
+
+skos:notation a rdfs:Class, owl:Class ;
+disco:mapping [
+    a disco:Mapping ;
+    disco:DDI3.1XPath '//l:Variable/l:VariableName' ;
+    disco:context 'skos:notation represents variable label' ;
+    disco:sparql 'SELECT ?notation WHERE { ?notation rdfs:domain ?variable. ?variable a disco:Variable. }' ]
+	    </pre>
 		
-<p>
-...
-</p>
-		
-</div>	
+      </div>
 		
 		</section>
 		
