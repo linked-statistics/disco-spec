@@ -13,9 +13,9 @@ do
 		echo "$entity a rdfs:Class, owl:Class;"
 		echo "disco:mapping ["
 		echo "  disco:DDI3.1XPath '$ddi_l';"
-		if [ -n "${ddi_c-}" ]; then
-			echo "  disco:DDI2.1XPath '$ddi_c';"
-		fi
+		#if [ -n "${ddi_c-}" ]; then
+			#echo "  disco:DDI2.1XPath '$ddi_c';"
+		#fi
 		if [ -n "${context-}" ]; then
 			echo "  disco:context '$context';"
 		fi
