@@ -1,0 +1,123 @@
+disco:AnalysisUnit a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath 'r:AnalysisUnit';
+]
+disco:CategoryStatistics a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath 'p:CategoryStatistics';
+]
+disco:Instrument a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath 'd:Instrument';
+]
+disco:Question a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath 'd:QuestionItem | d:MultipleQuestionItem';
+]
+disco:Questionnaire a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath 'd:QuestionItem | d:MultipleQuestionItem';
+  disco:context 'The instument of the study';
+]
+disco:Study a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath 's:StudyUnit';
+]
+disco:Variable a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath '//l:Variable';
+]
+skos:notation a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath '//l:Variable/l:VariableName';
+  disco:context 'skos:notation represents variable label';
+  disco:sparql 'SELECT ?notation WHERE { ?notation rdfs:domain ?variable. ?variable a disco:Variable. }';
+]
+disco:frequency a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath 'p:CaseQuantity';
+]
+disco:questionText a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath 'd:QuestionText';
+]
+disco:purpose a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath 's:Purpose';
+]
+disco:subtitle a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath 'r:SubTitle';
+]
+disco:concept a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath '//l:Vaiable/l:ConceptReference';
+  disco:context 'Varialbe has a concept';
+  disco:sparql 'SELECT ?concept WHERE{?variable a disco:Variable . ?variable disco:concept ?concept.}';
+]
+disco:concept a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath '//d:QuestionItem/r:ConceptReference';
+  disco:context 'Question is defined by concept';
+  disco:sparql '"SELECT ?concept WHERE{?question a disco:Question . ?question disco:concept ?concept.}';
+]
+disco:instrument a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath '//d:DataCollection/[d:QuestionItem d:MultipleQuestionItem]';
+  disco:context 'The instrument of the study questionaire ';
+  disco:sparql 'SELECT ?instrument WHERE{?study a disco:Study . ?study disco:instrument ?instrument.}';
+]
+disco:question a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath '//l:Variable/l:QuestionReference';
+  disco:context 'Variable can have a question';
+  disco:sparql 'SELECT ?question WHERE{?variable a disco:Variable . ?variable disco:question ?question.}';
+]
+disco:question a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath '//[d:QuestionItem d:MultipleQuestionItem]';
+  disco:context 'Questions in a questionaire';
+  disco:sparql 'SELECT ?question WHERE{?study a disco:Study . ?study disco:instrument ?instrument. ?instrument disco:question ?question.}';
+]
+disco:representation a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath '//l:Variable/l:Representation/l:CodeRepresentation/[r:CodeSchemeReference l:NumericRepresentation l:TextRepresentation l:DateTimeRepresentation]';
+  disco:context 'Variables can have a representation';
+  disco:sparql 'SELECT ?representation WHERE{?variable a disco:Variable . ?variable disco:representation ?representation.}';
+]
+disco:universe a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath 'disco:universe';
+  disco:context 'Variable can have a concept';
+  disco:sparql 'SELECT ?universe WHERE{?variable a disco:Variable . ?variable disco:universe ?universe.}';
+]
+skos:ConceptScheme a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath '//l:Variable/l:CodeScheme';
+  disco:context 'Variables can have a coded representaion';
+  disco:sparql 'SELECT ?codeScheme WHERE{?variable a disco:Variable . ?variable disco:representation ?representation. ?representation skos:ConceptScheme ?codeScheme.}';
+]
+skos:notation a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath '//l:Variable/l:VariableName';
+  disco:context 'skos:notation represents variable label';
+  disco:sparql 'SELECT ?notation WHERE { ?notation rdfs:domain ?variable. ?variable a disco:Variable. }';
+]
+dcterms:identifier a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath '//l:Variable/l:VariableName';
+  disco:context 'dcterms:identifier represents variable label';
+  disco:sparql 'SELECT ?identifier WHERE { ?variable a disco:Variable . ?variable dcterms:identifier ?identifier. }';
+]
+skos:prefLabel a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath '//l:Variable/r:Label';
+  disco:context 'skos:prefLabel represents the label of the variable';
+  disco:sparql 'SELECT ?label WHERE{?variable a disco:Variable . ?variable skos:prefLabel ?label.}';
+]
+skos:prefLabel a rdfs:Class, owl:Class;
+disco:mapping [
+  disco:DDI3.1XPath '//d:QuestionItem/d:QuestionItemName';
+  disco:context 'Name of question';
+  disco:sparql 'SELECT ?label WHERE{?question a disco:Question . ?question skos:prefLabel ?label.}';
+]
