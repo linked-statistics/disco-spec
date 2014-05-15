@@ -2372,52 +2372,72 @@ and positions of concepts in lists (xkos:previous, xkos:next).
     <section id='mapping-from-DDI-XML-to-DDI-RDF'><h2>DDI-XML Bidirectional Mappings</h2>
 
 <p>
-In this section, a detailed mapping from DDI Codebook and Lifecycle is provided. 
+In this section, bidirectional mappings between disco and DDI Lifecycle (DDI-L) is provided. 
 It allows an easy adoption of the DDI Discovery Vocabulary for existing DDI metadata. 
-XSLTs for converting any XML output of DDI-C and DDI-L are available at the <a href="https://github.com/linked-statistics/DDI-RDF-tools">DDI-RDF-tools project page</a>.
+XSLTs for converting any XML output of DDI Codebook (DDI-C) and DDI-L are available at the 
+<a href="https://github.com/linked-statistics/DDI-RDF-tools">DDI-RDF-tools project page</a>.
 </p>
-<ul>
-	<li>There is an official document containing all bidirectional DDI 3.1 mappings: 
-		<a href="https://docs.google.com/spreadsheet/ccc?key=0AnXXOuMQghwxdG1wU1EzLVJybHp6SDI5ZHJOTUlzOVE&usp=sharing">mapping document</a>
-	</li>
-</ul>
 
-<b>Bidirectional DDI 3.2 Mapping</b>
+<b>Official Mapping Document</b>
+<p>
+There is also an official document containing all bidirectional mappings between disco and DDI-L: 
+<a href="https://docs.google.com/spreadsheet/ccc?key=0AnXXOuMQghwxdG1wU1EzLVJybHp6SDI5ZHJOTUlzOVE&usp=sharing">official mapping document</a>
+These mapping tables will be transformed to the official specification in form of a turtle file and in form of html tables in this html specification.
+</p>
+
+<b>Bidirectional Mappings between Disco and DDI-L</b>
 <ul>
-	<li>DDI-L --> disco. This should be a straight-forward mapping for all items used in disco.</li>
-    <li>disco --> DDI-L. This should be a straight-forward mapping for all items in the disco namespace.</li>
+	<li>DDI-L &#10513; disco. This should be a straight-forward mapping for all items used in disco.</li>
+    <li>disco &#10513; DDI-L. This should be a straight-forward mapping for all items in the disco namespace.</li>
 	<li>Only the standard XPath expression is defined as mapping (although there are several other XPath expressions for each mapping)</li>
-	<li>Context: The items from other vocabularies - used in disco - need a context; then there could be a clear mapping path.</li>
+	<li>Context:</li>
+	<ul>
+		<li>The items from other vocabularies - used in disco - need a context; then there could be a clear mapping path.</li>
+		<li>We need context information for mappings, as for example skos:notation can be mapped to variable labels and to codes.</li>
+		<li>Context information can be either a SPARQL query or an informal description as plain literal.</li>
+		</li>
+	</ul>
 </ul>
 
-<b>Mappings of other DDI-Versions</b>
+<b>Mappings between Disco and other Versions of DDI-XML</b>
 <p>
-If we can use the existing mapping from DDI-L to DDI-C, it would be possible to use only DDI 3.1 for the mapping to and from disco. 
-The other DDI versions should be covered by mappings independently from disco.
-To avoid inconsistencies, we only provide DDI 3.1 mappings.
-There are various mapping documents from DDI 3.1 to other DDI versions (like 3.2 and 2.1) on the <a href="http://www.ddialliance.org/">DDI Alliance website</a>.
+In order to avoid inconsistencies (as mapping tables may changes over time), we only offer mappings between disco and the concrete version DDI 3.1 od DDI-L.
+There are various mapping documents between DDI 3.1 and other DDI versions (like DDI 3.2 and DDI 2.1) on the <a href="http://www.ddialliance.org/">DDI Alliance website</a>.
 </p>
 
-<b>DDI 4 Mapping</b>
+<b>Mappings between Disco and DDI 4</b>
 <p>
+DDI 4 will be the next model-driven specification of DDI including mappings to multiple representations such as RDF, XML, relational databases, and Java. 
 DDI 4 should have a clear mapping from DDI-XML 3.2. 
-We assume that all items used in Disco will have a clear mapping to DDI-XML 3.2, 
+We assume that all items used in disco will have a clear mapping to DDI-XML 3.2, 
 and these items in DDI-XML 3.2 will have a clear mapping to items in the DDI 4 model (therefore to a representation in OWL/RDF as well). 
 If the latter shouldn't be possible, then a mapping of items in DDI-XML 3.2 to DDI 4 XML and DDI 4 RDF should be possible. 
 </p>
 
+<b>Turtle File Containing Mappings in RDF</b>
+<p>
+The mappings are defined within a separate turtle file
+<ul>
+<li>in order to execute SPARQL queries on the turtle file</li>
+<li>in order to generate mapping tables for the html spec out of the turtle file</li>
+<li>there is 1 turtle file containing mappings for disco axioms and axioms of reused external vocabularies</li>
+</ul>
+</p>
+
 <b>Mapping Tables</b>
 <ul>
-	<li>The follwoing mapping tables are generated out of this mapping document completely automatically to avoid inconsistencies.</li>
+	<li>The follwoing mapping tables are generated out of the official mapping document completely automatically to avoid inconsistencies.</li>
 	<li>The mapping tables are structured in classes, object, and data properties.</li>
-	<li>There can be classes and properties specified within the disco namespace or within any other namespace.</li> 
+	<li>There can be classes and properties specified within the disco namespace or within any other namespace which are then used by disco.</li> 
 </ul>
 		
 		<section><h3>Representation of Mappings in RDF</h3>
 		
 <ul>
-	<li>There is also ontology (in Turtle syntax) containing all mapping triples: <a href="https://github.com/linked-statistics/disco-spec/blob/master/mappings.ttl">mappings.ttl</a></li>
+	<li>There is an ontology (in Turtle syntax) containing all mapping triples: <a href="https://github.com/linked-statistics/disco-spec/blob/master/mappings.ttl">mappings.ttl</a></li>
 	<li>This Turtle file is generated out of the official mapping document automatically</li>
+	<li>The next figure shows how the mappings between disco and DDI-L is represented in RDF</li>
+	<li>We also give an example of a concrete mapping between disco and DDI-L</li>
 </ul>
 
 <div class="figure">
@@ -2436,9 +2456,10 @@ If the latter shouldn't be possible, then a mapping of items in DDI-XML 3.2 to D
 skos:notation a rdfs:Class, owl:Class ;
 disco:mapping [
     a disco:Mapping ;
-    disco:DDI3.1XPath '//l:Variable/l:VariableName' ;
-    disco:context 'skos:notation represents variable label' ;
-    disco:sparql 'SELECT ?notation WHERE { ?notation rdfs:domain ?variable. ?variable a disco:Variable. }' ]
+    disco:ddi-L-XPath "//l:Variable/l:VariableName" ;
+    disco:ddi-L-Documentation "http://www.ddialliance.org/Specification/DDI-Lifecycle/3.1/XMLSchema/FieldLevelDocumentation/logicalproduct_xsd/elements/Variable.html" 
+    disco:context "skos:notation represents variable label" ;
+    disco:context "SELECT ?notation WHERE { ?notation rdfs:domain ?variable. ?variable a disco:Variable. }" ]
 	    </pre>
 		
       </div>
