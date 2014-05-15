@@ -11,26 +11,31 @@ IFS=,
 echo '<table style="text-align: left; font-size: 70%;">'
 echo '<thead>'
 echo '      <tr>'
-echo '          <td style="font-weight: bold;">#<br/></td>'
-echo '          <td style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></td>'
-echo '          <td style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></td>'
-echo '          <td style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></td>'
-#echo '          <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-C<br/></td>'
-echo '          <td style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></td>'
+echo '          <th style="font-weight: bold;">#<br/></td>'
+echo '          <th style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></tH>'
+echo '          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></th>'
+echo '          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></th>'
+echo '          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></th>'
+echo '          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation<br/></th>'
 echo '      </tr>'
 echo '  </thead>'
 echo '  <tbody>'
 
 COUNTER=1
-sed 1d $INPUT | while read entity ddi_c ddi_l context sparql
+sed 1d $INPUT | while read entity ddi_c ddi_l context sparql ddi_l_documentation
 do
 	echo "    <tr>"
 	echo "      <td>#$COUNTER</td>"
 	echo "      <td>$entity</td>"
-#	echo "      <td>$ddi_c</td>"
-	echo "      <td>$ddi_l</td>"
+	echo "      <td></td>"
+	echo "      <td></td>"
+	echo "      <td>$ddi_l</td>"	
 	echo "      <td>$context</td>"
-	echo "      <td>$sparql</td>"
+	if [ -n "${ddi_l_documentation-}" ]; then
+		echo "  <td><a href='$ddi_l_documentation'>DDI-L Documentation</a>"
+	else
+		echo "  <td></td>"
+	fi		
 	echo "    </tr>"
 	let COUNTER=COUNTER+1
 done
