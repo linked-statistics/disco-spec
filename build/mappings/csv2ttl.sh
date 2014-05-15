@@ -12,7 +12,8 @@ do
 	if [ -n "${ddi_l-}" ]; then
 		echo "$entity a rdfs:Class, owl:Class;"
 		echo "disco:mapping ["
-		echo "  disco:DDI3.1XPath '$ddi_l';"
+		echo "a disco:Mapping ;"
+		echo "  disco:ddi-L-XPath '$ddi_l' ;"
 		#if [ -n "${ddi_c-}" ]; then
 			#echo "  disco:DDI2.1XPath '$ddi_c';"
 		#fi
@@ -20,7 +21,7 @@ do
 			echo "  disco:context '$context';"
 		fi
 		if [ -n "${sparql-}" ]; then
-			echo "  disco:sparql '$sparql';"
+			echo "  disco:context '$sparql';"
 		fi
 		echo "]"
 	fi
