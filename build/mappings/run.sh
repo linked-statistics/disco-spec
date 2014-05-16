@@ -36,6 +36,7 @@ for i in $(ls);do
 		echo "label: $l"
 		#command="/<!--begin-${l}-->/{p=1;print;print \"${html}\"}/<!--end-${l}-->/{p=0}!p"
 		#echo $command
+		rm "${l}.html"
 		sh csv2html.sh $i >> "${l}.html"
 		
 		rm $i
