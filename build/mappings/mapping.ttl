@@ -1,123 +1,190 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix qb: <http://purl.org/linked-data/cube#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix disco: <http://rdf-vocabulary.ddialliance.org/discovery#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix adms: <http://www.w3.org/ns/adms#>.
+@prefix org: <http://www.w3.org/ns/org#>.
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix schema: <http://schema.org/>.
+@prefix swrc: <http://swrc.ontoware.org/ontology#>.
+@prefix xkos: <http://purl.org/linked-data/xkos#>.
+
+#################
+# mappings from disco-classes.csv
+
 disco:AnalysisUnit a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath 'r:AnalysisUnit';
+a disco:Mapping ;
+  disco:ddi-L-XPath 'r:AnalysisUnit' ;
 ]
 disco:CategoryStatistics a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath 'p:CategoryStatistics';
+a disco:Mapping ;
+  disco:ddi-L-XPath 'p:CategoryStatistics' ;
 ]
 disco:Instrument a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath 'd:Instrument';
+a disco:Mapping ;
+  disco:ddi-L-XPath 'd:Instrument' ;
 ]
 disco:Question a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath 'd:QuestionItem | d:MultipleQuestionItem';
+a disco:Mapping ;
+  disco:ddi-L-XPath 'd:QuestionItem | d:MultipleQuestionItem' ;
 ]
 disco:Questionnaire a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath 'd:QuestionItem | d:MultipleQuestionItem';
+a disco:Mapping ;
+  disco:ddi-L-XPath 'd:QuestionItem | d:MultipleQuestionItem' ;
   disco:context 'The instument of the study';
 ]
 disco:Study a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath 's:StudyUnit';
+a disco:Mapping ;
+  disco:ddi-L-XPath 's:StudyUnit' ;
 ]
 disco:Variable a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath '//l:Variable';
+a disco:Mapping ;
+  disco:ddi-L-XPath '//l:Variable' ;
 ]
+
+#################
+# mappings from disco-datatype-properties.csv
+
 skos:notation a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath '//l:Variable/l:VariableName';
+a disco:Mapping ;
+  disco:ddi-L-XPath '//l:Variable/l:VariableName' ;
+  disco:ddi-L-Documentation  'http://www.ddialliance.org/Specification/DDI-Lifecycle/3.1/XMLSchema/FieldLevelDocumentation/logicalproduct_xsd/elements/Variable.html' ;
   disco:context 'skos:notation represents variable label';
-  disco:sparql 'SELECT ?notation WHERE { ?notation rdfs:domain ?variable. ?variable a disco:Variable. }';
+  disco:context 'SELECT ?notation WHERE { ?notation rdfs:domain ?variable. ?variable a disco:Variable. }';
 ]
 disco:frequency a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath 'p:CaseQuantity';
+a disco:Mapping ;
+  disco:ddi-L-XPath 'p:CaseQuantity' ;
 ]
 disco:questionText a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath 'd:QuestionText';
+a disco:Mapping ;
+  disco:ddi-L-XPath 'd:QuestionText' ;
 ]
 disco:purpose a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath 's:Purpose';
+a disco:Mapping ;
+  disco:ddi-L-XPath 's:Purpose' ;
 ]
 disco:subtitle a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath 'r:SubTitle';
+a disco:Mapping ;
+  disco:ddi-L-XPath 'r:SubTitle' ;
 ]
+
+#################
+# mappings from disco-object-properties.csv
+
 disco:concept a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath '//l:Vaiable/l:ConceptReference';
+a disco:Mapping ;
+  disco:ddi-L-XPath '//l:Vaiable/l:ConceptReference' ;
   disco:context 'Varialbe has a concept';
-  disco:sparql 'SELECT ?concept WHERE{?variable a disco:Variable . ?variable disco:concept ?concept.}';
+  disco:context 'SELECT ?concept WHERE{?variable a disco:Variable . ?variable disco:concept ?concept.}';
 ]
 disco:concept a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath '//d:QuestionItem/r:ConceptReference';
+a disco:Mapping ;
+  disco:ddi-L-XPath '//d:QuestionItem/r:ConceptReference' ;
   disco:context 'Question is defined by concept';
-  disco:sparql '"SELECT ?concept WHERE{?question a disco:Question . ?question disco:concept ?concept.}';
+  disco:context '"SELECT ?concept WHERE{?question a disco:Question . ?question disco:concept ?concept.}';
 ]
 disco:instrument a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath '//d:DataCollection/[d:QuestionItem d:MultipleQuestionItem]';
+a disco:Mapping ;
+  disco:ddi-L-XPath '//d:DataCollection/[d:QuestionItem d:MultipleQuestionItem]' ;
   disco:context 'The instrument of the study questionaire ';
-  disco:sparql 'SELECT ?instrument WHERE{?study a disco:Study . ?study disco:instrument ?instrument.}';
+  disco:context 'SELECT ?instrument WHERE{?study a disco:Study . ?study disco:instrument ?instrument.}';
 ]
 disco:question a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath '//l:Variable/l:QuestionReference';
+a disco:Mapping ;
+  disco:ddi-L-XPath '//l:Variable/l:QuestionReference' ;
   disco:context 'Variable can have a question';
-  disco:sparql 'SELECT ?question WHERE{?variable a disco:Variable . ?variable disco:question ?question.}';
+  disco:context 'SELECT ?question WHERE{?variable a disco:Variable . ?variable disco:question ?question.}';
 ]
 disco:question a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath '//[d:QuestionItem d:MultipleQuestionItem]';
+a disco:Mapping ;
+  disco:ddi-L-XPath '//[d:QuestionItem d:MultipleQuestionItem]' ;
   disco:context 'Questions in a questionaire';
-  disco:sparql 'SELECT ?question WHERE{?study a disco:Study . ?study disco:instrument ?instrument. ?instrument disco:question ?question.}';
+  disco:context 'SELECT ?question WHERE{?study a disco:Study . ?study disco:instrument ?instrument. ?instrument disco:question ?question.}';
 ]
 disco:representation a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath '//l:Variable/l:Representation/l:CodeRepresentation/[r:CodeSchemeReference l:NumericRepresentation l:TextRepresentation l:DateTimeRepresentation]';
+a disco:Mapping ;
+  disco:ddi-L-XPath '//l:Variable/l:Representation/l:CodeRepresentation/[r:CodeSchemeReference l:NumericRepresentation l:TextRepresentation l:DateTimeRepresentation]' ;
   disco:context 'Variables can have a representation';
-  disco:sparql 'SELECT ?representation WHERE{?variable a disco:Variable . ?variable disco:representation ?representation.}';
+  disco:context 'SELECT ?representation WHERE{?variable a disco:Variable . ?variable disco:representation ?representation.}';
 ]
 disco:universe a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath 'disco:universe';
+a disco:Mapping ;
+  disco:ddi-L-XPath 'disco:universe' ;
   disco:context 'Variable can have a concept';
-  disco:sparql 'SELECT ?universe WHERE{?variable a disco:Variable . ?variable disco:universe ?universe.}';
+  disco:context 'SELECT ?universe WHERE{?variable a disco:Variable . ?variable disco:universe ?universe.}';
 ]
+
+#################
+# mappings from external-classes.csv
+
 skos:ConceptScheme a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath '//l:Variable/l:CodeScheme';
+a disco:Mapping ;
+  disco:ddi-L-XPath '//l:Variable/l:CodeScheme' ;
   disco:context 'Variables can have a coded representaion';
-  disco:sparql 'SELECT ?codeScheme WHERE{?variable a disco:Variable . ?variable disco:representation ?representation. ?representation skos:ConceptScheme ?codeScheme.}';
+  disco:context 'SELECT ?codeScheme WHERE{?variable a disco:Variable . ?variable disco:representation ?representation. ?representation skos:ConceptScheme ?codeScheme.}';
 ]
+
+#################
+# mappings from external-datatype-properties.csv
+
 skos:notation a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath '//l:Variable/l:VariableName';
+a disco:Mapping ;
+  disco:ddi-L-XPath '//l:Variable/l:VariableName' ;
+  disco:ddi-L-Documentation  'http://www.ddialliance.org/Specification/DDI-Lifecycle/3.1/XMLSchema/FieldLevelDocumentation/logicalproduct_xsd/elements/Variable.html' ;
   disco:context 'skos:notation represents variable label';
-  disco:sparql 'SELECT ?notation WHERE { ?notation rdfs:domain ?variable. ?variable a disco:Variable. }';
+  disco:context 'SELECT ?notation WHERE { ?notation rdfs:domain ?variable. ?variable a disco:Variable. }';
 ]
+
+#################
+# mappings from external-object-properties.csv
+
 dcterms:identifier a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath '//l:Variable/l:VariableName';
+a disco:Mapping ;
+  disco:ddi-L-XPath '//l:Variable/l:VariableName' ;
   disco:context 'dcterms:identifier represents variable label';
-  disco:sparql 'SELECT ?identifier WHERE { ?variable a disco:Variable . ?variable dcterms:identifier ?identifier. }';
+  disco:context 'SELECT ?identifier WHERE { ?variable a disco:Variable . ?variable dcterms:identifier ?identifier. }';
 ]
 skos:prefLabel a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath '//l:Variable/r:Label';
+a disco:Mapping ;
+  disco:ddi-L-XPath '//l:Variable/r:Label' ;
   disco:context 'skos:prefLabel represents the label of the variable';
-  disco:sparql 'SELECT ?label WHERE{?variable a disco:Variable . ?variable skos:prefLabel ?label.}';
+  disco:context 'SELECT ?label WHERE{?variable a disco:Variable . ?variable skos:prefLabel ?label.}';
 ]
 skos:prefLabel a rdfs:Class, owl:Class;
 disco:mapping [
-  disco:DDI3.1XPath '//d:QuestionItem/d:QuestionItemName';
+a disco:Mapping ;
+  disco:ddi-L-XPath '//d:QuestionItem/d:QuestionItemName' ;
   disco:context 'Name of question';
-  disco:sparql 'SELECT ?label WHERE{?question a disco:Question . ?question skos:prefLabel ?label.}';
+  disco:context 'SELECT ?label WHERE{?question a disco:Question . ?question skos:prefLabel ?label.}';
 ]

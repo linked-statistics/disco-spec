@@ -8,6 +8,8 @@ OLDIFS=$IFS
 IFS=,
 [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
 
+COUNTER=1
+
 echo '<table style="text-align: left; font-size: 70%;">'
 echo '<thead>'
 echo '      <tr>'
@@ -21,11 +23,10 @@ echo '      </tr>'
 echo '  </thead>'
 echo '  <tbody>'
 
-COUNTER=1
 sed 1d $INPUT | while read entity ddi_c ddi_l context sparql ddi_l_documentation
 do
 	echo "    <tr>"
-	echo "      <td>#$COUNTER</td>"
+	echo "      <td>#$COUNTER </td>"
 	echo "      <td>$entity</td>"
 	echo "      <td></td>"
 	echo "      <td></td>"
@@ -37,9 +38,11 @@ do
 		echo "  <td></td>"
 	fi		
 	echo "    </tr>"
-	let COUNTER=COUNTER+1
+	
+	COUNTER=$((COUNTER+1))
 done
 
 echo '  </tbody>'
 echo '</table>'
+
 IFS=$OLDIFS
