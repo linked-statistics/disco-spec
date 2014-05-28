@@ -2434,7 +2434,7 @@ The mappings are defined within a separate turtle file
 		<section><h3>Representation of Mappings in RDF</h3>
 		
 <ul>
-	<li>There is an ontology (in Turtle syntax) containing all mapping triples: <a href="https://github.com/linked-statistics/disco-spec/blob/master/mapping.ttl">mappings.ttl</a></li>
+	<li>There is an ontology (in Turtle syntax) containing all mapping triples: <a href="https://github.com/linked-statistics/disco-spec/blob/master/mappings.ttl">mappings.ttl</a></li>
 	<li>This Turtle file is generated out of the official mapping document automatically</li>
 	<li>The next figure shows how the mappings between disco and DDI-L is represented in RDF</li>
 	<li>We also give an example of a concrete mapping between disco and DDI-L</li>
@@ -2470,175 +2470,12 @@ disco:mapping [
 		
 			<section><h4>Disco</h4>
 		
-<table style="text-align: left; font-size: 70%;">
-<thead>
-      <tr>
-          <th style="font-weight: bold;">#<br/></td>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></tH>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation<br/></th>
-      </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>#1 </td>
-      <td>disco:AnalysisUnit</td>
-      <td></td>
-      <td></td>
-      <td>r:AnalysisUnit</td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#2 </td>
-      <td>disco:RepresentedVariable</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#3 </td>
-      <td>disco:DataFile</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#4 </td>
-      <td>disco:DescriptiveStatistics</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#5 </td>
-      <td>disco:SummaryStatistics</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#6 </td>
-      <td>disco:CategoryStatistics</td>
-      <td></td>
-      <td></td>
-      <td>p:CategoryStatistics</td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#7 </td>
-      <td>disco:Instrument</td>
-      <td></td>
-      <td></td>
-      <td>d:Instrument</td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#8 </td>
-      <td>disco:LogicalDataSet</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#9 </td>
-      <td>disco:Question</td>
-      <td></td>
-      <td></td>
-      <td>d:QuestionItem | d:MultipleQuestionItem</td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#10 </td>
-      <td>disco:responseDomain</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#11 </td>
-      <td>disco:Questionnaire</td>
-      <td></td>
-      <td></td>
-      <td>d:QuestionItem | d:MultipleQuestionItem</td>
-      <td>The instument of the study</td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#12 </td>
-      <td>disco:Study</td>
-      <td></td>
-      <td></td>
-      <td>s:StudyUnit</td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#13 </td>
-      <td>disco:StudyGroup</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#14 </td>
-      <td>disco:Variable</td>
-      <td></td>
-      <td></td>
-      <td>//l:Variable</td>
-      <td></td>
-  <td></td>
-    </tr>
-  </tbody>
-</table>
 
 		
 			</section>
 			
 			<section><h4>External</h4>
 		
-<table style="text-align: left; font-size: 70%;">
-<thead>
-      <tr>
-          <th style="font-weight: bold;">#<br/></td>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></tH>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation<br/></th>
-      </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>#1 </td>
-      <td>skos:ConceptScheme</td>
-      <td></td>
-      <td></td>
-      <td>//l:Variable/l:CodeScheme</td>
-      <td>Variables can have a coded representaion</td>
-  <td></td>
-    </tr>
-  </tbody>
-</table>
 		
 		
 			</section>
@@ -2649,292 +2486,12 @@ disco:mapping [
 		
 			<section><h4>Disco</h4>
 		
-<table style="text-align: left; font-size: 70%;">
-<thead>
-      <tr>
-          <th style="font-weight: bold;">#<br/></td>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></tH>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation<br/></th>
-      </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>#1 </td>
-      <td>disco:analysisUnit</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#2 </td>
-      <td>disco:basedOn</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#3 </td>
-      <td>disco:collectionMode</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#4 </td>
-      <td>disco:containsVariable</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#5 </td>
-      <td>disco:concept</td>
-      <td></td>
-      <td></td>
-      <td>//l:Vaiable/l:ConceptReference</td>
-      <td>Varialbe has a concept</td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#6 </td>
-      <td>disco:concept</td>
-      <td></td>
-      <td></td>
-      <td>//d:QuestionItem/r:ConceptReference</td>
-      <td>Question is defined by concept</td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#7 </td>
-      <td>"</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#8 </td>
-      <td>disco:aggregation</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#9 </td>
-      <td>disco:dataFile</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#10 </td>
-      <td>disco:ddifile</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#11 </td>
-      <td>disco:externalDocumentation</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#12 </td>
-      <td>disco:fundedBy</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#13 </td>
-      <td>disco:inGroup</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#14 </td>
-      <td>disco:inputVariable</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#15 </td>
-      <td>disco:instrument</td>
-      <td></td>
-      <td></td>
-      <td>//d:DataCollection/[d:QuestionItem d:MultipleQuestionItem]</td>
-      <td>The instrument of the study questionaire </td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#16 </td>
-      <td>disco:kindOfData</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#17 </td>
-      <td>disco:product</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#18 </td>
-      <td>disco:question</td>
-      <td></td>
-      <td></td>
-      <td>//l:Variable/l:QuestionReference</td>
-      <td>Variable can have a question</td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#19 </td>
-      <td>disco:question</td>
-      <td></td>
-      <td></td>
-      <td>//[d:QuestionItem d:MultipleQuestionItem]</td>
-      <td>Questions in a questionaire</td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#20 </td>
-      <td>disco:representation</td>
-      <td></td>
-      <td></td>
-      <td>//l:Variable/l:Representation/l:CodeRepresentation/[r:CodeSchemeReference l:NumericRepresentation l:TextRepresentation l:DateTimeRepresentation]</td>
-      <td>Variables can have a representation</td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#21 </td>
-      <td>disco:statisticsCategory</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#22 </td>
-      <td>disco:statisticsDataFile</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#23 </td>
-      <td>disco:statisticsVariable</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#24 </td>
-      <td>disco:weightedBy</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#25 </td>
-      <td>disco:universe</td>
-      <td></td>
-      <td></td>
-      <td>disco:universe</td>
-      <td>Variable can have a concept</td>
-  <td></td>
-    </tr>
-  </tbody>
-</table>
 		
 		
 			</section>
 			
 			<section><h4>External</h4>
 		
-<table style="text-align: left; font-size: 70%;">
-<thead>
-      <tr>
-          <th style="font-weight: bold;">#<br/></td>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></tH>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation<br/></th>
-      </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>#1 </td>
-      <td>dcterms:identifier</td>
-      <td></td>
-      <td></td>
-      <td>//l:Variable/l:VariableName</td>
-      <td>dcterms:identifier represents variable label</td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#2 </td>
-      <td>skos:prefLabel</td>
-      <td></td>
-      <td></td>
-      <td>//l:Variable/r:Label</td>
-      <td>skos:prefLabel represents the label of the variable</td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#3 </td>
-      <td>skos:prefLabel</td>
-      <td></td>
-      <td></td>
-      <td>//d:QuestionItem/d:QuestionItemName</td>
-      <td>Name of question</td>
-  <td></td>
-    </tr>
-  </tbody>
-</table>
 		
 		
 			</section>
@@ -2945,220 +2502,12 @@ disco:mapping [
 		
 			<section><h4>Disco</h4>
 		
-<table style="text-align: left; font-size: 70%;">
-<thead>
-      <tr>
-          <th style="font-weight: bold;">#<br/></td>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></tH>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation<br/></th>
-      </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>#1 </td>
-      <td>skos:notation</td>
-      <td></td>
-      <td></td>
-      <td>//l:Variable/l:VariableName</td>
-      <td>skos:notation represents variable label</td>
-  <td><a href='http://www.ddialliance.org/Specification/DDI-Lifecycle/3.1/XMLSchema/FieldLevelDocumentation/logicalproduct_xsd/elements/Variable.html'>DDI-L Documentation</a>
-    </tr>
-    <tr>
-      <td>#2 </td>
-      <td>disco:frequency</td>
-      <td></td>
-      <td></td>
-      <td>p:CaseQuantity</td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#3 </td>
-      <td>disco:isPublic</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#4 </td>
-      <td>disco:isValid</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#5 </td>
-      <td>disco:questionText</td>
-      <td></td>
-      <td></td>
-      <td>d:QuestionText</td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#6 </td>
-      <td>disco:percentage</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#7 </td>
-      <td>disco:computationBase</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#8 </td>
-      <td>disco:cumulativePercentage</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#9 </td>
-      <td>disco:purpose</td>
-      <td></td>
-      <td></td>
-      <td>s:Purpose</td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#10 </td>
-      <td>disco:subtitle</td>
-      <td></td>
-      <td></td>
-      <td>r:SubTitle</td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#11 </td>
-      <td>disco:standardDeviation</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#12 </td>
-      <td>disco:numberOfCases</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#13 </td>
-      <td>disco:maximum</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#14 </td>
-      <td>disco:mean</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#15 </td>
-      <td>disco:median</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#16 </td>
-      <td>disco:minimum</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#17 </td>
-      <td>disco:mode</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-    <tr>
-      <td>#18 </td>
-      <td>disco:startDate</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-  <td></td>
-    </tr>
-  </tbody>
-</table>
 		
 		
 			</section>
 			
 			<section><h4>External</h4>
 		
-<table style="text-align: left; font-size: 70%;">
-<thead>
-      <tr>
-          <th style="font-weight: bold;">#<br/></td>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></tH>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation<br/></th>
-      </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>#1 </td>
-      <td>skos:notation</td>
-      <td></td>
-      <td></td>
-      <td>//l:Variable/l:VariableName</td>
-      <td>skos:notation represents variable label</td>
-  <td><a href='http://www.ddialliance.org/Specification/DDI-Lifecycle/3.1/XMLSchema/FieldLevelDocumentation/logicalproduct_xsd/elements/Variable.html'>DDI-L Documentation</a>
-    </tr>
-    <tr>
-      <td>#2 </td>
-      <td>skos:notation</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>skos:notation represents code</td>
-  <td></td>
-    </tr>
-  </tbody>
-</table>
 		
 		
 			</section>
@@ -6163,18 +5512,72 @@ disco:mapping [
             
          </dt>
          <dd class="classProperties">Indicates the Variable of a Study.</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:ddifile"></a><em>Object Property: </em><code><dfn>disco:ddifile</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>foaf:Document</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">points from a Study or a StudyGroup to the original DDI file which is a foaf:Document.</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:inGroup"></a><em>Object Property: </em><code><dfn>disco:inGroup</dfn></code>
             (<em>Domain:</em><code>disco:Study</code><em> -&gt; Range: </em><code>disco:StudyGroup</code>
             )
             
          </dt>
          <dd class="classProperties">points from a Study to the StudyGroup which contains the Study.</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:universe"></a><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:RepresentedVariable</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables,
+            Questions, and LogicalDataSets.
+         </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:fundedBy"></a><em>Object Property: </em><code><dfn>disco:fundedBy</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>foaf:Agent</code><em>; sub property of: </em><code>dcterms:contributor</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">points from a Study or a StudyGroup to the funding foaf:Agent which is either a foaf:Person
+            or a org:Organization.
+         </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:dataFile"></a><em>Object Property: </em><code><dfn>disco:dataFile</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:DataFile</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">points to the DataFile of a Study or a LogicalDataSet.</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:kindOfData"></a><em>Object Property: </em><code><dfn>disco:kindOfData</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>skos:Concept</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">The general kind of data (e.g. geospatial, register, survey) collected in this study,
+            given either as a skos:Concept, or as a blank node with attached free-text rdfs:label.
+         </dd>
          <dt class="classProperties"><a id="dfn-disco-disco:product"></a><em>Object Property: </em><code><dfn>disco:product</dfn></code>
             (<em>Domain:</em><code>disco:Study</code><em> -&gt; Range: </em><code>http://purl.org/linked-data/cube#LogicalDataSet</code>
             )
             
          </dt>
          <dd class="classProperties">Indicates the LogicalDataSets of a Studies.</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:instrument"></a><em>Object Property: </em><code><dfn>disco:instrument</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Instrument</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">Indicates the Instrument of a Study or a LogicalDataSet.</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:subtitle"></a><em>Datatype Property: </em><code><dfn>disco:subtitle</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>rdf:langString</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">The sub-title of a Study of a StudyGroup.</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:purpose"></a><em>Datatype Property: </em><code><dfn>disco:purpose</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>rdf:langString</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">The purpose of a Study of a StudyGroup.</dd>
          <dt><a id="dfn-disco-StudyGroup"></a><em>Class: </em><code><dfn>disco:StudyGroup</dfn></code></dt>
          <dd>In some cases, where data collection is cyclic or on-going, data sets may be released
             as a StudyGroup, where each cycle or wave of the data collection activity produces
@@ -6182,6 +5585,48 @@ disco:mapping [
             other types of series (to use the DDI term). In this case, a number of Study objects
             would be collected into a single StudyGroup.
          </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:ddifile"></a><em>Object Property: </em><code><dfn>disco:ddifile</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>foaf:Document</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">points from a Study or a StudyGroup to the original DDI file which is a foaf:Document.</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:universe"></a><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:RepresentedVariable</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables,
+            Questions, and LogicalDataSets.
+         </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:fundedBy"></a><em>Object Property: </em><code><dfn>disco:fundedBy</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>foaf:Agent</code><em>; sub property of: </em><code>dcterms:contributor</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">points from a Study or a StudyGroup to the funding foaf:Agent which is either a foaf:Person
+            or a org:Organization.
+         </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:kindOfData"></a><em>Object Property: </em><code><dfn>disco:kindOfData</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>skos:Concept</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">The general kind of data (e.g. geospatial, register, survey) collected in this study,
+            given either as a skos:Concept, or as a blank node with attached free-text rdfs:label.
+         </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:subtitle"></a><em>Datatype Property: </em><code><dfn>disco:subtitle</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>rdf:langString</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">The sub-title of a Study of a StudyGroup.</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:purpose"></a><em>Datatype Property: </em><code><dfn>disco:purpose</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code><em> -&gt; Range: </em><code>rdf:langString</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">The purpose of a Study of a StudyGroup.</dd>
          <dt><a id="dfn-disco-AnalysisUnit"></a><em>Class: </em><code><dfn>disco:AnalysisUnit</dfn></code>
             Sub Class of: <code>skos:Concept</code></dt>
          <dd>The process collecting data is focusing on the analysis of a particular type of subject.
@@ -6208,12 +5653,32 @@ disco:mapping [
             
          </dt>
          <dd class="classProperties">points to Variable contained in the LogicalDataSet</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:universe"></a><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:RepresentedVariable</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables,
+            Questions, and LogicalDataSets.
+         </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:dataFile"></a><em>Object Property: </em><code><dfn>disco:dataFile</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:DataFile</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">points to the DataFile of a Study or a LogicalDataSet.</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:aggregation"></a><em>Object Property: </em><code><dfn>disco:aggregation</dfn></code>
             (<em>Domain:</em><code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>http://purl.org/linked-data/cube#DataSet</code>
             )
             
          </dt>
          <dd class="classProperties">points to the aggregated data set of a microdata data set.</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:instrument"></a><em>Object Property: </em><code><dfn>disco:instrument</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Instrument</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">Indicates the Instrument of a Study or a LogicalDataSet.</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:isPublic"></a><em>Datatype Property: </em><code><dfn>disco:isPublic</dfn></code>
             (<em>Domain:</em><code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>xsd:boolean</code>
             )
@@ -6248,23 +5713,83 @@ disco:mapping [
          <dd>For SummaryStatistics, maximum values, minimum values, and standard deviations can
             be defined.
          </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:weightedBy"></a><em>Object Property: </em><code><dfn>disco:weightedBy</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:SummaryStatistics</code>, <code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>disco:Variable</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">SummaryStatistics or CategoryStatistics resources may be weighted by a specific Variable.</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:statisticsVariable"></a><em>Object Property: </em><code><dfn>disco:statisticsVariable</dfn></code>
             (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>disco:Variable</code>
             )
             
          </dt>
          <dd class="classProperties">Indicates the Variable of a specific SummaryStatistics individual.</dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:summaryStatisticsType"></a><em>Object Property: </em><code><dfn>disco:summaryStatisticsType</dfn></code>
-            (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>skos:Concept</code>
+         <dt class="classProperties"><a id="dfn-disco-disco:standardDeviation"></a><em>Datatype Property: </em><code><dfn>disco:standardDeviation</dfn></code>
+            (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>xsd:decimal</code>
             )
             
          </dt>
-         <dd class="classProperties">summary statistics type</dd>
+         <dd class="classProperties">standard deviation</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:minimum"></a><em>Datatype Property: </em><code><dfn>disco:minimum</dfn></code>
+            (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>xsd:decimal</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">minimum</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:median"></a><em>Datatype Property: </em><code><dfn>disco:median</dfn></code>
+            (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>xsd:decimal</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">median</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:mean"></a><em>Datatype Property: </em><code><dfn>disco:mean</dfn></code>
+            (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>xsd:decimal</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">mean</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:percentage"></a><em>Datatype Property: </em><code><dfn>disco:percentage</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:SummaryStatistics</code>, <code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>xsd:decimal</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">percentage</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:numberOfCases"></a><em>Datatype Property: </em><code><dfn>disco:numberOfCases</dfn></code>
+            (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>xsd:nonNegativeInteger</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">number of cases</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:mode"></a><em>Datatype Property: </em><code><dfn>disco:mode</dfn></code>
+            (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>xsd:decimal</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">mode</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:computationBase"></a><em>Datatype Property: </em><code><dfn>disco:computationBase</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:SummaryStatistics</code>, <code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>rdf:langString</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">computation base</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:maximum"></a><em>Datatype Property: </em><code><dfn>disco:maximum</dfn></code>
+            (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>xsd:decimal</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">maximum</dd>
          <dt><a id="dfn-disco-CategoryStatistics"></a><em>Class: </em><code><dfn>disco:CategoryStatistics</dfn></code>
             Sub Class of: <code>disco:DescriptiveStatistics</code></dt>
          <dd>For CategoryStatistics, frequencies, percentages, and weighted percentages can be
             defined.
          </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:weightedBy"></a><em>Object Property: </em><code><dfn>disco:weightedBy</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:SummaryStatistics</code>, <code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>disco:Variable</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">SummaryStatistics or CategoryStatistics resources may be weighted by a specific Variable.</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:statisticsCategory"></a><em>Object Property: </em><code><dfn>disco:statisticsCategory</dfn></code>
             (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>skos:Concept</code>
             )
@@ -6280,13 +5805,13 @@ disco:mapping [
          </dt>
          <dd class="classProperties">frequency</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:percentage"></a><em>Datatype Property: </em><code><dfn>disco:percentage</dfn></code>
-            (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>xsd:decimal</code>
+            (<em>Domain:</em><code></code><code>disco:SummaryStatistics</code>, <code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>xsd:decimal</code>
             )
             
          </dt>
          <dd class="classProperties">percentage</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:computationBase"></a><em>Datatype Property: </em><code><dfn>disco:computationBase</dfn></code>
-            (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>rdf:langString</code>
+            (<em>Domain:</em><code></code><code>disco:SummaryStatistics</code>, <code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>rdf:langString</code>
             )
             
          </dt>
@@ -6305,12 +5830,74 @@ disco:mapping [
             is a characteristic of a unit being observed. A variable might be the answer of a
             question, have an administrative source, or be derived from other variables.
          </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:analysisUnit"></a><em>Object Property: </em><code><dfn>disco:analysisUnit</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:StudyGroup</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>disco:AnalysisUnit</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">analysis unit of a Study, a StudyGroup, or a Variable.</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:representation"></a><em>Object Property: </em><code><dfn>disco:representation</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:RepresentedVariable</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code></code>
+            )
+            
+         </dt>
+         <dd class="classProperties">RepresentedVariables and Variables can have a Representation whose individuals are
+            either of the class rdfs:Datatype (to represent values) or skos:ConceptScheme (to
+            represent code lists).
+         </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:universe"></a><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:RepresentedVariable</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables,
+            Questions, and LogicalDataSets.
+         </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:question"></a><em>Object Property: </em><code><dfn>disco:question</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Variable</code>, <code>disco:Questionnaire</code><em> -&gt; Range: </em><code>disco:Question</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">Indicates the Questions associated to Variables or contained in Questionnaires.</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:basedOn"></a><em>Object Property: </em><code><dfn>disco:basedOn</dfn></code>
             (<em>Domain:</em><code>disco:Variable</code><em> -&gt; Range: </em><code>disco:RepresentedVariable</code>
             )
             
          </dt>
          <dd class="classProperties">points to the RepresentedVariable the Variable is based on.</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:concept"></a><em>Object Property: </em><code><dfn>disco:concept</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:RepresentedVariable</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>skos:Concept</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">points to the DDI concept of a RepresentedVariable, a Variable, or a Question</dd>
+         <dt><a id="dfn-disco-RepresentedVariable"></a><em>Class: </em><code><dfn>disco:RepresentedVariable</dfn></code></dt>
+         <dd>RepresentedVariables encompasse study-independent, re-usable parts of variables like
+            occupation classification.
+         </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:representation"></a><em>Object Property: </em><code><dfn>disco:representation</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:RepresentedVariable</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code></code>
+            )
+            
+         </dt>
+         <dd class="classProperties">RepresentedVariables and Variables can have a Representation whose individuals are
+            either of the class rdfs:Datatype (to represent values) or skos:ConceptScheme (to
+            represent code lists).
+         </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:universe"></a><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:RepresentedVariable</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables,
+            Questions, and LogicalDataSets.
+         </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:concept"></a><em>Object Property: </em><code><dfn>disco:concept</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:RepresentedVariable</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>skos:Concept</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">points to the DDI concept of a RepresentedVariable, a Variable, or a Question</dd>
       </dl>
       <h3>4. Data Collection</h3>
       <dl class="classDefinitions">
@@ -6318,12 +5905,20 @@ disco:mapping [
          <dd>A Question is designed to get information upon a subject, or sequence of subjects,
             from a respondent.
          </dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:responseDomain"></a><em>Object Property: </em><code><dfn>disco:responseDomain</dfn></code>
-            (<em>Domain:</em><code>disco:Question</code><em> -&gt; Range: </em><code>disco:Representation</code>
+         <dt class="classProperties"><a id="dfn-disco-disco:universe"></a><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:RepresentedVariable</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
             )
             
          </dt>
-         <dd class="classProperties">The response domain of questions.</dd>
+         <dd class="classProperties">Indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables,
+            Questions, and LogicalDataSets.
+         </dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:concept"></a><em>Object Property: </em><code><dfn>disco:concept</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:RepresentedVariable</code>, <code>disco:Question</code>, <code>disco:Variable</code><em> -&gt; Range: </em><code>skos:Concept</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">points to the DDI concept of a RepresentedVariable, a Variable, or a Question</dd>
          <dt class="classProperties"><a id="dfn-disco-disco:questionText"></a><em>Datatype Property: </em><code><dfn>disco:questionText</dfn></code>
             (<em>Domain:</em><code>disco:Question</code><em> -&gt; Range: </em><code>rdf:langString</code>
             )
@@ -6334,7 +5929,7 @@ disco:mapping [
          <dd>The data for the study are collected by an Instrument. The purpose of an Instrument,
             i.e. an interview, a questionnaire or another entity used as a means of data collection,
             is in the case of a survey to record the flow of a questionnaire, its use of questions,
-            and additional component parts. A questionnaire contains a flow of questions.
+            and additional component parts. A questionnaire contains a flow of questions. 
          </dd>
          <dt class="classProperties"><a id="dfn-disco-disco:externalDocumentation"></a><em>Object Property: </em><code><dfn>disco:externalDocumentation</dfn></code>
             (<em>Domain:</em><code>disco:Instrument</code><em> -&gt; Range: </em><code>foaf:Document</code>
@@ -6353,6 +5948,12 @@ disco:mapping [
             
          </dt>
          <dd class="classProperties">mode of collection of a Questionnaire</dd>
+         <dt class="classProperties"><a id="dfn-disco-disco:question"></a><em>Object Property: </em><code><dfn>disco:question</dfn></code>
+            (<em>Domain:</em><code></code><code>disco:Variable</code>, <code>disco:Questionnaire</code><em> -&gt; Range: </em><code>disco:Question</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">Indicates the Questions associated to Variables or contained in Questionnaires.</dd>
       </dl>
       <h3>5. Other properties</h3>
       <dl>

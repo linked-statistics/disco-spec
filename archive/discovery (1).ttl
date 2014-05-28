@@ -220,7 +220,7 @@ disco:questionText a rdf:Property, owl:DatatypeProperty;
 disco:percentage a rdf:Property, owl:DatatypeProperty;
     rdfs:label "percentage"@en, "pourcentage"@fr;
 	rdfs:comment "percentage"@en;
-    rdfs:domain disco:CategoryStatistics;
+    rdfs:domain [a owl:Class; owl:unionOf (disco:SummaryStatistics disco:CategoryStatistics)];
     rdfs:range xsd:decimal;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 	
@@ -228,7 +228,7 @@ disco:percentage a rdf:Property, owl:DatatypeProperty;
 disco:computationBase a rdf:Property, owl:DatatypeProperty;
     rdfs:label "computation base"@en, "pourcentage"@fr;
 	rdfs:comment "computation base"@en;
-    rdfs:domain disco:CategoryStatistics;
+    rdfs:domain [a owl:Class; owl:unionOf (disco:SummaryStatistics disco:CategoryStatistics)];
     rdfs:range rdf:langString;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 	
@@ -256,6 +256,62 @@ disco:subtitle a rdf:Property, owl:DatatypeProperty;
 	rdfs:comment "The sub-title of a Study of a StudyGroup."@en;
     rdfs:domain [ a owl:Class; owl:unionOf (disco:Study disco:StudyGroup)];
     rdfs:range rdf:langString;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+
+# standardDeviation property
+disco:standardDeviation a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "standard deviation"@en;
+	rdfs:comment "standard deviation"@en;
+    rdfs:domain disco:SummaryStatistics;
+    rdfs:range xsd:decimal;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+
+# numberOfCases property
+disco:numberOfCases a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "number of cases"@en;
+	rdfs:comment "number of cases"@en;
+    rdfs:domain disco:SummaryStatistics;
+    rdfs:range xsd:nonNegativeInteger;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+
+# maximum property
+disco:maximum a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "maximum"@en;
+	rdfs:comment "maximum"@en;
+    rdfs:domain disco:SummaryStatistics;
+    rdfs:range xsd:decimal;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+
+# mean property
+disco:mean a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "mean"@en;
+	rdfs:comment "mean"@en;
+    rdfs:domain disco:SummaryStatistics;
+    rdfs:range xsd:decimal;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+
+# median property
+disco:median a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "median"@en;
+	rdfs:comment "median"@en;
+    rdfs:domain disco:SummaryStatistics;
+    rdfs:range xsd:decimal;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+
+# minimum property
+disco:minimum a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "minimum"@en;
+	rdfs:comment "minimum"@en;
+    rdfs:domain disco:SummaryStatistics;
+    rdfs:range xsd:decimal;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+
+# mode property
+disco:mode a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "mode"@en;
+	rdfs:comment "mode"@en;
+    rdfs:domain disco:SummaryStatistics;
+    rdfs:range xsd:decimal;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 disco:startDate a rdf:Property, owl:DatatypeProperty;
@@ -514,11 +570,4 @@ disco:variable a rdf:Property, owl:ObjectProperty;
 	rdfs:comment "Indicates the Variable of a Study."@en;
     rdfs:domain disco:Study;
     rdfs:range disco:Variable;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-	
-disco:summaryStatisticsType a rdf:Property, owl:ObjectProperty;
-    rdfs:label "summary statistics type"@en;
-	rdfs:comment "summary statistics type"@en;
-    rdfs:domain disco:SummaryStatistics;
-    rdfs:range skos:Concept;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.

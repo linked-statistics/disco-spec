@@ -1,0 +1,60 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix qb: <http://purl.org/linked-data/cube#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix disco: <http://rdf-vocabulary.ddialliance.org/discovery#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix adms: <http://www.w3.org/ns/adms#>.
+@prefix org: <http://www.w3.org/ns/org#>.
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix schema: <http://schema.org/>.
+@prefix swrc: <http://swrc.ontoware.org/ontology#>.
+@prefix xkos: <http://purl.org/linked-data/xkos#>.
+
+#################################################################
+# Classes ( disco )
+#################################################################
+
+#################################################################
+# Classes ( external vocabularies )
+#################################################################
+
+#################################################################
+# Datatype properties ( disco )
+#################################################################
+
+#################################################################
+# Datatype properties ( external vocabularies )
+#################################################################
+
+skos:notation
+    a rdf:Property, owl:DatatypeProperty;
+    disco:mapping [
+        a disco:Mapping;
+        disco:mappingDDI-L "//l:Variable/l:VariableName";
+	    disco:context "skos:notation represents variable label";
+        disco:context "SELECT ?notation WHERE { ?notation rdfs:domain ?variable. ?variable a disco:Variable. }"
+    ].
+
+skos:notation
+    a rdf:Property, owl:DatatypeProperty;
+    disco:mapping [
+        a disco:Mapping;
+        disco:mappingDDI-L "XXXXX";
+	    disco:context "skos:notation represents code";
+        disco:context "SELECT ?notation WHERE { ?notation rdfs:domain ?concept. ?concept a skos:Concept. ?concept disco:isValid ?isValid. FILTER ( ?isValid != '' )"
+    ].
+
+#################################################################
+# Object properties ( disco )
+#################################################################
+
+#################################################################
+# Object properties ( external vocabularies )
+#################################################################
+
