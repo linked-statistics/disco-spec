@@ -445,7 +445,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       represented by the <b><code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code></b> class and the <b><code><a href="#dfn-disco-analysisunit" class="internalDFN">AnalysisUnit</a></code></b> class.
       If, for example, the adult population of Finland is being
       studied, the <code><a href="#dfn-disco-analysisunit" class="internalDFN">AnalysisUnit</a></code>
- would be individuals or persons.
+ would be individuals or persons and the <b><code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code></b> would be the adult population of Finland.
       Bosch, Cyganiak, Wackerow, and Zapilko give a detailed overview of
  the DDI-RDF Discovery Vocabulary in a full paper written for the Dublin
  Core conference [<cite><a class="bibref" href="#bib-Linked-Statistical-Data">Linked-Statistical-Data</a></cite>]. 
@@ -2186,6 +2186,7 @@ Please note that only code and categories are part of the turtle example.</li>
 		and delineating code lists, category schemes, mappings between them, and concepts like topics 
 		using the Simple Knowledge Organization System (SKOS) [<cite><a class="bibref" href="#bib-SKOS">SKOS</a></cite>]. Furthermore, the external vocabularies Friend of a Friend (FOAF) [<cite><a class="bibref" href="#bib-FOAF">FOAF</a></cite>], 
 		the Organization Ontology (ORG) [<cite><a class="bibref" href="#bib-ORG">ORG</a></cite>], the Asset Description Metadata Schema (ADMS) [<cite><a class="bibref" href="#bib-ADMS">ADMS</a></cite>], and the PROV Ontology (PROV-O) [<cite><a class="bibref" href="#bib-PROV-O">PROV-O</a></cite>] are used.
+		Wherever terms from other vocabularies are used within the disco context, these terms are not re-defined but only applied for the purposes of disco.
 	  </p>
 	  
 	  <p>
@@ -2396,13 +2397,6 @@ and positions of concepts in lists (xkos:previous, xkos:next).
 	  
 	  </section>
 	  
-    </section>
-
-    <section id='literals-to-identifiers'>
-      <h2>From Literals to Globally Unique Identifiers</h2>
-
-      <p class="issue">This section should talk about
-      <a href="https://github.com/linked-statistics/disco-spec/issues/27">Issue #27</a>.</p>
     </section>
 
     <section id='mapping-from-DDI-XML-to-DDI-RDF'><h2>DDI-XML Bidirectional Mappings</h2>
