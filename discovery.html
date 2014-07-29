@@ -1495,7 +1495,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		</table>
 		
 		<p>
-		  Legend: ++ used frequently, + not used frequently, n/a not applicable
+		  Legend: ++ used frequently, + rarely used, n/a not applicable
 		</p>
 
          <p>		
@@ -1772,7 +1772,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	  <p>
 	    <b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code></b>s provide a definition of the column in a rectangular data file.
 		<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code> is a characteristic of a unit being observed. A variable might be the 
-		answer of a question, have an administrative source, or be derived from other variables. 
+		answer of a question, have an administrative source, or be derived from other variables (e.g. age group derived from age). 
 	    <b><code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code></b>s encompasse study-independent, re-usable parts of variables like occupation classification. 
 	  </p>
 	 
@@ -1850,8 +1850,65 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
     </section>
 
     <section>
-      <h3>skos:Concept and skos:ConceptScheme</h3>
+      <h3>Representation</h3>
 
+	  <p>
+	    The <b><code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code></b> of a variable is the combination of a value domain, 
+		datatype, and, if necessary, a unit of measure or a character set. 
+		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> is one of a set of values to which a numerical measure or a category 
+		from a classification can be assigned (e.g. income, age, and sex: male coded as 1). 
+		<code><a href="#dfn-disco-question" class="internalDFN">Questions</a></code> (<code><a href="#dfn-disco-responsedomain" class="internalDFN">ResponseDomain</a></code>), variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>)
+        (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>), and variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>) may have
+        representations.
+		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> is defined as sub-class of the union of <b><code>rdfs:Datatype</code></b> (e.g. numeric or
+        textual values), <b><code>skos:ConceptScheme</code></b>, and <b><code>skos:OrderedCollection</code></b>, as for example questions
+        may have as response domain a mixture of a numeric response domain containing numeric values (<code>rdfs:Datatype</code>) and 
+		an unordered code response domain (<code>skos:ConceptScheme</code>) as well as an ordered code response domain (<code>skos:OrderedCollection</code>).
+	  </p>
+
+      <div class="figure">
+        <img class="uml-diagram" src="diagrams/representation.png" alt="Representation"/>
+      </div>
+	  
+	  <p>
+	    Questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) 
+		(<code><a href="#dfn-disco-responsedomain" class="internalDFN">responseDomain</a></code>), 
+		variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) 
+		(<code><a href="#dfn-disco-representation" class="internalDFN">representation</a></code>), and variable definitions (
+		<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) 
+		(<code><a href="#dfn-disco-representation" class="internalDFN">representation</a></code>) 
+		may have representations. 
+		Questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) must have 1 to n representations 
+		(<code><a href="#dfn-disco-representation" class="internalDFN">representation</a></code>), variables
+		(<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) must have exactly 1 
+		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>,
+		and variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>)
+		may have 0 to n representations (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>).
+		Each <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> can be in 0 to n 
+		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> relationships 
+		with questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>), variables 
+		(<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>), and variable definitions 
+		(<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>).
+	  </p>
+      
+      <p>The following example shows the representations of the three previously introduced variables Sex, Age and Citizenship. All of them refer to the particular concepts.</p>
+      
+      <pre class="example">
+        &lt;#SexRepr&gt; a skos:ConceptScheme, disco:Representation;
+          skos:hasTopConcept &lt;#SexM&gt;, &lt;#SexF&gt;.
+            
+      &lt;#AgeRepr&gt; a skos:ConceptScheme, disco:Representation;
+        skos:hasTopConcept &lt;#Age0&gt;, &lt;#Age1&gt;, &lt;#Age99&gt;.
+          
+      &lt;#CitizenshipRepr&gt; a skos:ConceptScheme, disco:Representation;
+        skos:hasTopConcept &lt;#CYes&gt;, &lt;#CNo&gt;, &lt;#CUnknown&gt;, &lt;#CNIU&gt;.    
+	  </pre>
+
+    </section>
+	
+	<section>
+      <h3>Codes and Categories</h3>
+	  
 	  <p>
 	    SKOS defines the term <b><code>skos:Concept</code></b>, which is a unit of knowledge created by a unique 
 		combination of characteristics. In context of statistical (meta)data, concepts 
@@ -1955,36 +2012,16 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		
       </div>
 	  
-	    <section>
-        <h4>Uses of skos:Concept</h4>
-        
-        <div>
-          In this sub-section, we describe all possible uses of the class <code>skos:Concept</code>.
-          <ul>
-            <li><b>Code values: </b>Code values are represented using the datatype property <code>skos:notation</code> with <code>skos:Concept</code> as domain.</li>
-            <li><b>Category labels: </b>Use <code>skos:prefLabel</code> and the domain class <code>skos:Concept</code> to describe category values</li>
-            <li><b>DDI concepts: </b>DDI concepts are described by the property <code>skos:definition</code> pointing from <code>skos:Concept</code> classes.</li>
-            <li><b>Hierarchies of DDI concepts: </b>Hierarchies of DDI concepts can be built using the object properties <code>skos:broader</code> and <code>skos:narrower</code>. The domains and the ranges of <code>skos:broader</code> and <code>skos:narrower</code> are <code>skos:Concept</code>. </li> 
-            <li><b>Organization in <code>skos:ConceptSchemes</code>: </b><code>Skos:Concepts</code> may be organized in <code>skos:ConceptSchemes</code> by means of <code>skos:inScheme</code>. The top concept in a specific ConceptScheme is indicated by <code>skos:hasTopConcept</code> pointing to top <code>skos:Concept</code>.</li>
-           
- <li><b>Topical coverage: </b>Topical coverage can be expressed using <code>dcterms:subject</code>. DDI-RDF foresees the use of <code>skos:Concept</code> for the description of topical coverage. Spatial, temporal, and topical coverage are directly attached to studies, logical datasets, and datafiles.</li>
-            <li><b>Category linked to <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code>: </b><code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code> like frequencies and percentages are associated to the respectve Category using the object property statisticsCategory. <code>skos:Concept</code> represents categories.</li>
-            <li><b>Concepts of questions: Questions (</b><code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) are associated with concepts via the object property concept.</li>
-            
-<li><b><code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code>: </b>Each universe is also a <code>skos:Concept</code>. Therefore the properties defined for <code>skos:Concept</code> can be reused for universes.</li>
-            <li><b>Collection Mode: Questionnaires (</b><code><a href="#dfn-disco-questionnaire" class="internalDFN">Questionnaire</a></code>) may have multiple collection modes which are represented by <code>skos:Concept</code>.</li>
-            <li><b>Concepts of variable definitions: </b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code> definitions are associated with concepts via the object property concept.</li>
-            <li><b>Concepts of variables: Variables (</b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) are linked to concepts via the object property concept.</li>
+<div class="note">
 
-            <li><b>Kind of data: </b>KindOfData describes, with a string or a term from a controlled vocabulary, the kind of data documented in the logical product(s) of a <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>. Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc. The range of kindOfData is <code>skos:Concept</code></li>
-            <li><b>Format of data files: </b> Using the object property <code>dcterms:format</code>, data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) formats can be defined. Data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFiles</a></code>) must have exactly 1 <code>dcterms:format</code> relationship to an instance of the class <code>dcterms:MediaTypeOrExtend</code> which is a sub-class of <code>skos:Concept</code>.</li>
-            <li><b><code><a href="#dfn-disco-analysisunit" class="internalDFN">AnalysisUnit</a></code>: </b>Each analysis unit is also a <code>skos:Concept</code>. Therefore the properties defined for <code>skos:Concept</code> can be reused for analysis units.</li>
-          </ul>
-        </div>
-      </section>
+<p>
+Please note that only code and categories are part of the turtle example.</li>
+</p>
+
+</div>
 	  
 	  <section>
-        <h4>Uses of skos:OrderedCollection and skos:ConceptScheme </h4>
+        <h4>Representing the Order of Codes and Categories </h4>
 		<p>
 		  In DDI, variables, questions, and categories are typically organized themselves in a particular order. For obtaining this order, <code>skos:OrderedCollection</code>s are used. For example, a collection of variables is represented as being of the type <code>skos:OrderedCollection</code> containing multiple variables (each represented as <code>skos:Concept</code>) in a <code>skos:memberList</code>.
 		</p>
@@ -2049,64 +2086,8 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
       </p>
 	  
 	  </section>
-    </section>
-
-    <section>
-      <h3>Representation</h3>
-
-	  <p>
-	    The <b><code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code></b> of a variable is the combination of a value domain, 
-		datatype, and, if necessary, a unit of measure or a character set. 
-		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> is one of a set of values to which a numerical measure or a category 
-		from a classification can be assigned (e.g. income, age, and sex: male coded as 1). 
-		<code><a href="#dfn-disco-question" class="internalDFN">Questions</a></code> (<code><a href="#dfn-disco-responsedomain" class="internalDFN">ResponseDomain</a></code>), variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>)
-        (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>), and variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>) may have
-        representations.
-		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> is defined as sub-class of the union of <b><code>rdfs:Datatype</code></b> (e.g. numeric or
-        textual values), <b><code>skos:ConceptScheme</code></b>, and <b><code>skos:OrderedCollection</code></b>, as for example questions
-        may have as response domain a mixture of a numeric response domain containing numeric values (<code>rdfs:Datatype</code>) and 
-		an unordered code response domain (<code>skos:ConceptScheme</code>) as well as an ordered code response domain (<code>skos:OrderedCollection</code>).
-	  </p>
-
-      <div class="figure">
-        <img class="uml-diagram" src="diagrams/representation.png" alt="Representation"/>
-      </div>
 	  
-	  <p>
-	    Questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) 
-		(<code><a href="#dfn-disco-responsedomain" class="internalDFN">responseDomain</a></code>), 
-		variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) 
-		(<code><a href="#dfn-disco-representation" class="internalDFN">representation</a></code>), and variable definitions (
-		<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) 
-		(<code><a href="#dfn-disco-representation" class="internalDFN">representation</a></code>) 
-		may have representations. 
-		Questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) must have 1 to n representations 
-		(<code><a href="#dfn-disco-representation" class="internalDFN">representation</a></code>), variables
-		(<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) must have exactly 1 
-		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>,
-		and variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>)
-		may have 0 to n representations (<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code>).
-		Each <code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> can be in 0 to n 
-		<code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code> relationships 
-		with questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>), variables 
-		(<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>), and variable definitions 
-		(<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>).
-	  </p>
-      
-      <p>The following example shows the representations of the three previously introduced variables Sex, Age and Citizenship. All of them refer to the particular concepts.</p>
-      
-      <pre class="example">
-        &lt;#SexRepr&gt; a skos:ConceptScheme, disco:Representation;
-          skos:hasTopConcept &lt;#SexM&gt;, &lt;#SexF&gt;.
-            
-      &lt;#AgeRepr&gt; a skos:ConceptScheme, disco:Representation;
-        skos:hasTopConcept &lt;#Age0&gt;, &lt;#Age1&gt;, &lt;#Age99&gt;.
-          
-      &lt;#CitizenshipRepr&gt; a skos:ConceptScheme, disco:Representation;
-        skos:hasTopConcept &lt;#CYes&gt;, &lt;#CNo&gt;, &lt;#CUnknown&gt;, &lt;#CNIU&gt;.    
-	  </pre>
-	  
-    </section>
+	</section>
 
     </section>
 
@@ -2282,37 +2263,6 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		using the terms prov:Revision, prov:hadGeneration and prov:hadUsage.
 	  </p>
 	  
-	  <div class="example">
-		<div class="example-title">
-          <span>Which Persons and Organizations Are Associated with Specific Datasets?</span>
-	    </div>
-		<div>
-		 
-		  
-		<p>
-		  Within the context of Disco, we reuse other well elaborated and accepted vocabularies as often as possible and reasonable. 
-		  DCMI, FOAF, ORG, ADMS, and PROV-O build one block of complementary vocabularies. Their use is shown in one combined use case. 
-		  DCMI is used in order to describe general metadata, FOAF and ORG are used to describe persons and organizations, 
-		  we use ADMS for the persistent identification of objects like persons and organizations, and PROV-O is used to provide provenance information. 
-		  A typical scenario within the social sciences community could be the following one:
-		</p>
-		
-		<ul>
-		  <li>
-		    John (foaf:person) aggregates (disco:aggregation) microdata datasets (disco:LogicalDataSet) which are associated with (disco:product) the European study EU-SILC (disco:Study). The aggregate dataset is represented using qb:DataSet. The prov:Agent :john was associated with (prov:wasAssociatedWith) the prov:Activity :aggregationActivity. The :aggregationActivity used (prov:used) the prov:Entity :europeanDataSet (a European dataset), and generated (prov:wasGeneratedBy) a new prov:Entity :aggregatedEuropeanDataSet that aggregates the microdata in :europeanDataSet. The prov:Agent :john acted on behalf of (prov:actedOnBehalfOf) the organization :deri (prov:Agent, org:Organization). The European study (disco:Study) was funded by (disco:fundedBy) the research institution GESIS (org:Organization) for which John is working for (org:memberOf). In order to identify foaf:Persons and org:Organizations permanently, the object property adms:identifier is used pointing to adms:Identifiers. Further possible example queries using the vocabularies TERMS, FOAF, ORG, ADMS, and PROV-O would be:Which persons (foaf:Person), working for (org:memberOf) the research institute GESIS (org:Organization) created (dcterms:creator) the survey ALLBUS (Germany General Social Survey), which is a particular group of studies (disco:StudyGroup) in Germany?
-		  </li>
-		  <li>
-		    Which organizations (org:Organization) and which persons (foaf:Person) contributed (dcterms:contributor) to the creation of the European study EU-SILC (disco:Study)?
-		  </li>
-		  <li>
-		    Which persistent identifier (adms:identifier) are assigned to persons and organizations (foaf:Agent) publishing (dcterms:publisher) the European study EU-LFS (disco:Study)?
-		  </li>
-		</ul>
-		
-		
-		</div>
-	  </div>
-	  
 	  </section>
 	  
 	  <section>
@@ -2332,6 +2282,34 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		KindOfData, pointing to a skos:Concept , describes, with a string or a term from a controlled vocabulary, the kind of data documented 
 		in the logical product(s) of a Study. Using dcterms:format, DataFiles formats can be defined.
 	  </p>
+	  
+	    <section>
+        <h4>Uses of skos:Concept</h4>
+        
+        <div>
+          In this sub-section, we describe all possible uses of the class <code>skos:Concept</code>.
+          <ul>
+            <li><b>Code values: </b>Code values are represented using the datatype property <code>skos:notation</code> with <code>skos:Concept</code> as domain.</li>
+            <li><b>Category labels: </b>Use <code>skos:prefLabel</code> and the domain class <code>skos:Concept</code> to describe category values</li>
+            <li><b>DDI concepts: </b>DDI concepts are described by the property <code>skos:definition</code> pointing from <code>skos:Concept</code> classes.</li>
+            <li><b>Hierarchies of DDI concepts: </b>Hierarchies of DDI concepts can be built using the object properties <code>skos:broader</code> and <code>skos:narrower</code>. The domains and the ranges of <code>skos:broader</code> and <code>skos:narrower</code> are <code>skos:Concept</code>. </li> 
+            <li><b>Organization in <code>skos:ConceptSchemes</code>: </b><code>Skos:Concepts</code> may be organized in <code>skos:ConceptSchemes</code> by means of <code>skos:inScheme</code>. The top concept in a specific ConceptScheme is indicated by <code>skos:hasTopConcept</code> pointing to top <code>skos:Concept</code>.</li>
+           
+ <li><b>Topical coverage: </b>Topical coverage can be expressed using <code>dcterms:subject</code>. DDI-RDF foresees the use of <code>skos:Concept</code> for the description of topical coverage. Spatial, temporal, and topical coverage are directly attached to studies, logical datasets, and datafiles.</li>
+            <li><b>Category linked to <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code>: </b><code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code> like frequencies and percentages are associated to the respectve Category using the object property statisticsCategory. <code>skos:Concept</code> represents categories.</li>
+            <li><b>Concepts of questions: Questions (</b><code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) are associated with concepts via the object property concept.</li>
+            
+<li><b><code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code>: </b>Each universe is also a <code>skos:Concept</code>. Therefore the properties defined for <code>skos:Concept</code> can be reused for universes.</li>
+            <li><b>Collection Mode: Questionnaires (</b><code><a href="#dfn-disco-questionnaire" class="internalDFN">Questionnaire</a></code>) may have multiple collection modes which are represented by <code>skos:Concept</code>.</li>
+            <li><b>Concepts of variable definitions: </b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code> definitions are associated with concepts via the object property concept.</li>
+            <li><b>Concepts of variables: Variables (</b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) are linked to concepts via the object property concept.</li>
+
+            <li><b>Kind of data: </b>KindOfData describes, with a string or a term from a controlled vocabulary, the kind of data documented in the logical product(s) of a <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>. Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc. The range of kindOfData is <code>skos:Concept</code></li>
+            <li><b>Format of data files: </b> Using the object property <code>dcterms:format</code>, data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) formats can be defined. Data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFiles</a></code>) must have exactly 1 <code>dcterms:format</code> relationship to an instance of the class <code>dcterms:MediaTypeOrExtend</code> which is a sub-class of <code>skos:Concept</code>.</li>
+            <li><b><code><a href="#dfn-disco-analysisunit" class="internalDFN">AnalysisUnit</a></code>: </b>Each analysis unit is also a <code>skos:Concept</code>. Therefore the properties defined for <code>skos:Concept</code> can be reused for analysis units.</li>
+          </ul>
+        </div>
+      </section>
 	  
 	  </section>
 	  
