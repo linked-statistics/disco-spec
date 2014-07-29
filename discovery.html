@@ -257,6 +257,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 	  
 	  <p>
 		Disco could be used to discover datasets by searching for specific questions, topics, and geographical coverage.
+		Depending on the complexity of the search respectively of the data portal, parts of disco could be used, the complete disco, or disco together with related vocabularies. 
 		The document [<cite><a class="bibref" href="#bib-Scenarios">Scenarios</a></cite>] by Vompras, Gregory, Bosch, Capadisli, and Wackerow describes typical use cases for the applicability of the DDI-RDF Discovery vocabulary. In the Section <a class="bibref" href="#example-queries">Use Cases and Example Queries</a> of the Appendix additional discovery use cases are illustrated by several SPARQL queries.</p>
     </section>
 
@@ -675,6 +676,14 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       </div>
       
       <p>Any variable has a text and is based on a variable definition.</p>
+	  
+<div class="note">
+
+<p>
+Please note that the turtle example describes the variable labels from the screenshot above and references to the related represented variable and question.</li>
+</p>
+
+</div>
 
       <pre class="example">
 
@@ -832,19 +841,20 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 
 </pre>
 
-	The usage of a variable definition within a data file can be described using statistics. 
+	The variable within a data file can be described using category statistics. 
+	In the following example, absolute and relative frequencies of the variable categories are described.
+	This variable represents the sex of the respondent. 
 	
       <pre class="example">
 
-&lt;#Dstat1&gt; a disco:DescriptiveStatistic;
+&lt;#Dstat1&gt; a disco:CategoryStatistics;
     disco:frequency 13314444;
-    # is that correct? 
     disco:percentage 49.97;
     disco:statisticsVariable &lt;#AR80A401&gt;;
     disco:statisticsCategory &lt;#SexM&gt;;
     disco:statisticsDatafile &lt;#Datafile&gt;.
 
-&lt;#Dstat2&gt; a disco:DescriptiveStatistic;
+&lt;#Dstat2&gt; a disco:CategoryStatistics;
     disco:frequency 1336270;
     disco:statisticsVariable &lt;#AR80A401&gt;;
     disco:statisticsCategory &lt;#SexF&gt;;
@@ -1049,7 +1059,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
   ].
 		  </pre>
 		  
-		  <p>See section '<a href="#adms">Asset Description Metadata Schema (ADMS)</a>' for more information. </p>
+		  <p>See section '<a href="#adms">Asset Description Metadata Schema (ADMS)</a>' for more information about the reuse of ADMS for representing identifiers. </p>
 			
 	 </section>
 	  
@@ -1146,7 +1156,9 @@ ex:License1 dcterms:description "Published under Open Content License." ;
 	  
 	  <section>
 	    <h3>Coverage of Studies, Logical Datasets, and Data Files</h3>
-		<p>Coverage comprehends the key features of the scope of the data (e.g. geographic product occupation). Studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>), logical datasets, and data files may have a spatial, temporal, and topical coverage. Unlike in DDI-XML, there is no dedicated Coverage type in DDI-RDF. In contrast, spatial, temporal, and topical coverage are directly attached to the respective study, logical dataset, and datafile.</p>
+		<p>Coverage comprehends the key features of the scope of the data (e.g. geographic product occupation). 
+		Studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>), logical datasets, and data files may have a spatial, temporal, and topical coverage. 
+		Unlike in DDI-XML, there is no dedicated Coverage type in DDI-RDF. The comprehensive description by spatial, temporal, and topical coverage is directly attached to the respective study, logical dataset, and datafile (using DCMI terms).</p>
 		<p>For spatial coverage, <b><code>dcterms:spatial</code></b> is used, pointing to any geographic location (<code>dcterms:Location</code>):</p>
 	    <pre class="example">
 ex:Study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .		
@@ -1388,15 +1400,14 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	  </p>
 	  
       <pre class="example">
-      &lt;#Dstat1&gt; a disco:DescriptiveStatistic;
+      &lt;#Dstat1&gt; a disco:CategoryStatistics;
         disco:frequency 13314444;
-        # is that correct?
         disco:percentage 49.97;
         disco:statisticsVariable &lt;#AR80A401&gt;;
         disco:statisticsCategory &lt;#SexM&gt;;
         disco:statisticsDatafile &lt;#Datafile&gt;.
               
-      &lt;#Dstat2&gt; a disco:DescriptiveStatistic;
+      &lt;#Dstat2&gt; a disco:CategoryStatistics;
         disco:frequency 1336270;
         disco:statisticsVariable &lt;#AR80A401&gt;;
         disco:statisticsCategory &lt;#SexF&gt;;
@@ -1405,7 +1416,10 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	  
 	    <p>
 		  Available category statistics types are frequency, percentage, and cumulativePercentage. 
-		  Available summary statistics types are organized in the controlled vocabulary SummaryStatisticsType. It is represented in SKOS format, where each summary statistics type is a skos:Concept. Particular summary statistics types are included into a disco:SummaryStatistics class with the property disco:summaryStatisticType. The particular value is modelled with rdf:value. More information on the SKOS representation of the controlled vocabulary SummaryStatisticsType can be found at the <a href="https://github.com/linked-statistics/DDI-controlled-vocabularies">DDI-controlled-vocabularies project page</a>.
+		  Available summary statistics types are organized in the controlled vocabulary SummaryStatisticsType. It is represented in SKOS format, where each summary statistics type is a skos:Concept. Particular summary statistics types are included into a disco:SummaryStatistics class with the property disco:summaryStatisticType. The particular value is modelled with rdf:value. More information on the SKOS representation of the controlled vocabulary SummaryStatisticsType can be found at the <a href="http://www.ddialliance.org/Specification/DDI-CV/">DDI-controlled-vocabularies project page</a>.
+		  There are two possibilities to define new types of summary statistics.
+		  First, the term 'other' with a new value can be used in association with the existing vocabulary. 
+		  Second, a new vocabulary can be defined. 
 		</p>
 		<p>
           There are two properties which describe details of a category or summary statistic value, computationBase and weightedBy.
@@ -1443,20 +1457,20 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
 			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
 			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
-			  <td style="vertical-align: top; text-align: center;">X<br/></td>
+			  <td style="vertical-align: top; text-align: center;">++<br/></td>
 			</tr>
 			<tr>
 			  <td style="vertical-align: top; text-align: center;">percentage<br/></td>
-			  <td style="vertical-align: top; text-align: center;">X<br/></td>
-			  <td style="vertical-align: top; text-align: center;">x<br/></td>
-			  <td style="vertical-align: top; text-align: center;">X<br/></td>
+			  <td style="vertical-align: top; text-align: center;">++<br/></td>
+			  <td style="vertical-align: top; text-align: center;">+<br/></td>
+			  <td style="vertical-align: top; text-align: center;">++<br/></td>
 			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
 			</tr>
 			<tr>
 			  <td style="vertical-align: top; text-align: center;">cumulativePercentage<br/></td>
-			  <td style="vertical-align: top; text-align: center;">X<br/></td>
-			  <td style="vertical-align: top; text-align: center;">x<br/></td>
-			  <td style="vertical-align: top; text-align: center;">X<br/></td>
+			  <td style="vertical-align: top; text-align: center;">++<br/></td>
+			  <td style="vertical-align: top; text-align: center;">+<br/></td>
+			  <td style="vertical-align: top; text-align: center;">++<br/></td>
 			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
 			</tr>
 			<tr>
@@ -1465,23 +1479,23 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 			</tr>
 			<tr>
 			  <td style="vertical-align: top; text-align: center;">percentage<br/></td>
-			  <td style="vertical-align: top; text-align: center;">X<br/></td>
-			  <td style="vertical-align: top; text-align: center;">x<br/></td>
+			  <td style="vertical-align: top; text-align: center;">++<br/></td>
+			  <td style="vertical-align: top; text-align: center;">+<br/></td>
 			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
 			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
 			</tr>
 			<tr>
 			  <td style="vertical-align: top; text-align: center;">Any other summary statistics type<br/></td>
-			  <td style="vertical-align: top; text-align: center;">X<br/></td>
-			  <td style="vertical-align: top; text-align: center;">x<br/></td>
-			  <td style="vertical-align: top; text-align: center;">X<br/></td>
+			  <td style="vertical-align: top; text-align: center;">++<br/></td>
+			  <td style="vertical-align: top; text-align: center;">+<br/></td>
+			  <td style="vertical-align: top; text-align: center;">++<br/></td>
 			  <td style="vertical-align: top; text-align: center;">n/a<br/></td>
 			</tr>
 		  </tbody>
 		</table>
 		
 		<p>
-		  Legend: X – used frequently, x – not used frequently, n/a – not applicable
+		  Legend: ++ used frequently, + not used frequently, n/a not applicable
 		</p>
 
          <p>		
