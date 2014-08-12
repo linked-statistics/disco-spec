@@ -233,7 +233,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       researchers, and only afterwards disseminated by archives. Other
       data-producing organizations such as research centers and
       statistical agencies are also increasingly interested in the
-      DDI standards for documenting their own micro-data. In general
+      DDI standards for documenting their own microdata. In general
       terms, most DDI metadata describes data sets for the social,
       behavioural, and economic sciences. This data is fairly
       consistent in format, consisting of rectangular data files with
@@ -268,7 +268,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 		use cases in the area of data discovery. This section gives an overview of the conceptual model. 
 		More detailed descriptions of all the properties are given in the specification and two conference papers [<cite><a class="bibref" href="#bib-Linked-Statistical-Data">Linked-Statistical-Data</a></cite>] [<cite><a class="bibref" href="#bib-DDI-RDF-Discovery-Vocabulary">DDI-RDF-Discovery-Vocabulary</a></cite>]. 
 		Disco is intended to provide means to describe microdata by essential metadata for the discovery purpose. 
-		Existing DDI-XML instances can be transformed into this RDF format and therefore exposed in the Web of Linked Data. 
+		Existing DDI-XML instances can be transformed into this RDF format and therefore exposed as Linked Data. 
 		The vice-versa process is not intended, as we have defined Disco components and reused components of other 
 		RDF vocabularies which make only sense in the Linked Data field.
 	  </p>
@@ -288,18 +288,16 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       and libraries, producers of research data, secure data centers,
       and statistical agencies.</p>
 
-      <p>There are two major versions of DDI: the
+      <p>There are two major versions of DDI (both serialied in XML format): the
       “<a href="http://www.ddialliance.org/Specification/DDI-Codebook/">codebook</a>”
-      version, which is an XML format for holding general information
+      version, which allows for holding general information
       about a study, along with its data dictionary; and the
       “<a href="http://www.ddialliance.org/Specification/DDI-Lifecycle/">Lifecycle</a>”
       version of DDI, which allows for the description of more complex
       multi-wave studies, throughout the data lifecycle, from study 
       conception through data collection and processing.</p>
 
-      <p>This vocabulary is not specific to either of these versions,
-      but represents the major types of metadata they contain in a
-      highly simplified form, for the purposes of discovery. The XML
+      <p>This vocabulary contains a selection of the major types of metadata defined by these two versions in a highly simplified form, for the purposes of discovery. The XML
       Codebook and Lifecycle versions of DDI are very broad: these
       standards contain hundreds of metadata elements, providing
       enough information to programmatically work with the data files
@@ -325,7 +323,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       <h2>Relationship to Data Cube, DCAT and XKOS</h2>
 
       <p>The Discovery Vocabulary is aligned to several other metadata
-      vocabularies used in the RDF community.</p>
+      vocabularies used in the RDF community. Disco is designed to be used in conjunction with other vocaularies.</p>
 
       <p>The <a href="http://www.w3.org/TR/vocab-dcat/">Data Catalog
       Vocabulary</a> (DCAT) is a W3C standard for describing catalogs
@@ -347,6 +345,8 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
         <li>Providing information about the logical structure (variables, concepts, etc.) of tabular datasets in a data catalog (disco)</li>
       </ul>
 
+      <p>DCAT is richer for the description of collections and catalogue. Disco supports richer descriptions of groups of datasets or individual datasets. In this spec, some of our examples are partially based on DCAT (and we will indicate when this is the case).</p>
+
       <p>The <a href="http://www.w3.org/TR/vocab-data-cube/">Data Cube
       vocabulary</a> is a W3C standard for representing data cubes,
       that is, multidimensional aggregate data. Data cubes are often
@@ -366,7 +366,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       only describes the structure of a dataset, but is not concerned
       with representing the actual data in it. The actual data is
       assumed to sit in a data file (e.g., a CSV file, or in a
-      proprietary stats package file format) that is not represented
+      proprietary statistics package file format) that is not represented
       in RDF.</p>
 	  
 	  <p>
@@ -388,6 +388,9 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       to allow for a more complete description of such
       classifications. While the use of XKOS is not required by this
       vocabulary, the two are designed to work in complementary fashion.</p>
+      
+      <p>More details on the relationship to Data Cube, DCAT and XKOS as well as to other vocabularies are provided in Section 9.</p>
+      
     </section>
     
      <section>
@@ -458,13 +461,12 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 
       <p>We have a sample of a survey which has been documented using
       DDI XML—the 1980 Argentine National Population and Housing
-      Census. The version of this data we are using as our example is
-      the one disseminated by <a href="http://www.ipums.org/">IPUMS</a>,
+      Census. We are using for this example the version disseminated by <a href="http://www.ipums.org/">IPUMS</a>,
       which provides internationally harmonized census data, to make
       it more useful for cross-border research. Thus, this data set is
       produced by two organizations: The Argentine National Institute
       of Statistics and Censuses, and the Minnesota Population Center
-      housed in the University of Minnesota.</p>
+      hosted in the University of Minnesota.</p>
 
       <p>To give some idea of what is contained in the metadata set,
       we will use some screen shots from OpenMetadata Survey Catalog, 
@@ -479,7 +481,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       </div>
 
       <p>Figure 2 shows us the overview page for this study, giving us
-      some basic information - title, an identifier for the study, data producers, year, country, and
+      some basic information - title, identifier for the study, data producers, year, country, and
       a link to the access policies. If we look at the right-hand
       panel, we see an outline of the metadata contents of the file,
       including information about the questionnaire used, sampling
@@ -496,7 +498,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       
       Using RDF and the DDI Discovery Vocabulary, the study can also be described in triples:
       
-      An instance of type of <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> is given the title and the identifier; also, the two 
+      an instance of type of <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> is given the title and the identifier; also, the two 
       data producers are linked and further described.
       
       The year and country are described in the form of a temporal and spatial coverage of the study. 
@@ -559,7 +561,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 		Population Center, and Sun Microsystems.";    
 
     owl:versionInfo "Version 1.0. This version contains selected variables from
-		the original census micro data plus harmonized variables from the IPUMS
+		the original census microdata plus harmonized variables from the IPUMS
 		International data base."@en; 
 
     disco:universe &lt;#Universe&gt;;
@@ -591,7 +593,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 
 	Using a type of instrument - a questionnaire -, the study produced a dataset. The dataset has access rights. 
 	
-	The dataset has a concrete data file that will populate certain variables.
+	The dataset has a concrete data file populated by certain variables.
 	
       <pre class="example">
 &lt;#Dataset&gt; a disco:LogicalDataset;
@@ -613,7 +615,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
         <img src="images/example-access-policy.png" alt="Access Policy"/>
       </div>
       
-      <p>The Units of Analysis and Kind of Data further describe the study.</p>
+      <p>The Unit of Analysis and Kind of Data further describe the study.</p>
 
       <pre class="example">
 
@@ -6169,7 +6171,7 @@ disco:mapping [
     </section>
 
     <section id='mappings'>
-      <h2>Mappings</h2>
+      <h2>Mappings to other Models</h2>
 	  
       <section>
         <h3>GSIM</h3>
@@ -6748,7 +6750,7 @@ WHERE
         <p>A search for data may consist of two phases. In a first phase, the user searches for different records described by dcat:CatalogRecord inside a data catalog. This search can differ according to the users’ information need. While it is possible to search for metadata provided inside such a record like dcterms:title, dcterms:description, etc., the user can also formulate a query to search for more detailed information about the dataset (represented as dcat:Dataset) or its distribution (dcat:Distribution), which are part of the record. For example, a user may want to search for datasets covering a particular topic (dcat:keyword), particular temporal and spatial coverages (dcterms:temporal and dcterms:spatial), or particular formats in which a distribution of the data is available (dcterms:format). Instances of dcat:DataSet are also described by specific themes they cover (dcat:theme). Since these themes are organized in a theme taxonomy (implemented by a skos:ConceptScheme and classes of skos:Concept), these themes can also be used for an overall search in all datasets of the data catalog.</p>
         
         <p>Nevertheless, the search of the first phase will result in one or presumably multiple hits of datasets. Hence, another search has to be executed in a second phase in order to find out which datasets are relevant for the user, e.g. particular universes or sam-ples. The search regarding particular criteria in multiple Disco datasets materializes as those described in the previous two use case sections and those presented in [9]. However, the user may find data sets which are published in Data Cube. In order to discover the original microdata source of a qb:DataSet, the property prov:wasDerivedFrom can hold the link the particular DDI data set dis-co:Study.</p>
-        <p>A user searching for data regarding dissatisfaction with politics in Europe may find the records :EuropeanStudy and :AggregatedEuropeanData in a :DataCatalog. By analyzing the information given in the themes and keywords of the associated data sets, the user can decide which data set is best suitable for his information need. He notices also that :AggregatedEuropeanDataset has been derived from :EuropeanDataset and seems to cover only a subset of the micro data set. If he is interested in the micro data instead of aggregated data, he is thus able to find the underlying micro data set.</p>
+        <p>A user searching for data regarding dissatisfaction with politics in Europe may find the records :EuropeanStudy and :AggregatedEuropeanData in a :DataCatalog. By analyzing the information given in the themes and keywords of the associated data sets, the user can decide which data set is best suitable for his information need. He notices also that :AggregatedEuropeanDataset has been derived from :EuropeanDataset and seems to cover only a subset of the microdata set. If he is interested in the microdata instead of aggregated data, he is thus able to find the underlying microdata set.</p>
 
  
       <pre class="example">
