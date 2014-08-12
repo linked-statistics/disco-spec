@@ -598,7 +598,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 	The dataset has a concrete data file (physical representation or distributed file) populated by certain variables.
 	
       <pre class="example">
-&lt;#Dataset&gt; a disco:LogicalDataset;
+&lt;#Dataset&gt; a disco:LogicalDataSet;
     disco:instrument &lt;#Questionnaire&gt;;
     dcterms:accessRights &lt;#AccessRights&gt;;
     disco:dataFile &lt;#Datafile&gt;;
@@ -855,13 +855,13 @@ Please note that the turtle example describes the variable labels from the scree
     disco:percentage 49.97;
     disco:statisticsVariable &lt;#AR80A401&gt;;
     disco:statisticsCategory &lt;#SexM&gt;;
-    disco:statisticsDatafile &lt;#Datafile&gt;.
+    disco:statisticsDataFile &lt;#Datafile&gt;.
 
 &lt;#Dstat2&gt; a disco:CategoryStatistics;
     disco:frequency 1336270;
     disco:statisticsVariable &lt;#AR80A401&gt;;
     disco:statisticsCategory &lt;#SexF&gt;;
-    disco:statisticsDatafile &lt;#Datafile&gt;.
+    disco:statisticsDataFile &lt;#Datafile&gt;.
 
 </pre>
 
@@ -1130,14 +1130,14 @@ Please note that the turtle example describes the variable labels from the scree
 		For <code>dcterms:RightsStatements</code> descriptions (<code>dcterms:description</code>) and labels (<code>skos:prefLabel</code>) can be assigned: 
 	  </p>
 	    <pre class="example">
-ex:Dataset1 a disco:LogicalDataset ;
+ex:Dataset1 a disco:LogicalDataSet ;
   dcterms:accessRights ex:AccessRights1 .
 ex:AccessRights1 dcterms:description "Everybody may see access this document." ;
   rdfs:seeAlso &lt;http://www.example.org/access.html&gt; . 
 	  </pre>
 	  <p>License information is captured in a <b><code>dcterms:LicenseDocument</code></b>, which is a subtype of <code>dcterms:RightsStatements</code>:</p>
 	    <pre class="example">
-ex:Dataset1 a disco:LogicalDataset ;
+ex:Dataset1 a disco:LogicalDataSet ;
   dcterms:license ex:License1 .
 ex:License1 dcterms:description "Published under Open Content License." ;
   skos:prefLabel "OCL 1.0" ;
@@ -1408,13 +1408,13 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
         disco:percentage 49.97;
         disco:statisticsVariable &lt;#AR80A401&gt;;
         disco:statisticsCategory &lt;#SexM&gt;;
-        disco:statisticsDatafile &lt;#Datafile&gt;.
+        disco:statisticsDataFile &lt;#Datafile&gt;.
               
       &lt;#Dstat2&gt; a disco:CategoryStatistics;
         disco:frequency 1336270;
         disco:statisticsVariable &lt;#AR80A401&gt;;
         disco:statisticsCategory &lt;#SexF&gt;;
-        disco:statisticsDatafile &lt;#Datafile&gt;.
+        disco:statisticsDataFile &lt;#Datafile&gt;.
 </pre>	  
 	  
 	    <p>
@@ -6526,11 +6526,9 @@ WHERE {
 SELECT ?studyTitle ?studyAbstract
 WHERE {
   ?study a disco:Study ;
-    disco:instrument ?instrument ;
+    disco:instrument ?questionnaire ;
     dcterms:title ?studyTitle ;
     dcterms:abstract ?studyAbstract .
-
-  ?instrument disco:questionnaire ?questionnaire .
   ?questionnaire disco:question ?question .
   ?question disco:questionText ?questionText .
 
@@ -6553,7 +6551,7 @@ WHERE {
   ?variable disco:concept ?variableConcept .
   FILTER (regex(?variableConcept, "species", "i"))
 
-  ?variable disco:baseOn ?representedVariable .
+  ?variable disco:basedOn ?representedVariable .
   ?representedVariable disco:concept ?representedVariableConcept .
   FILTER (regex(?representedVariableConcept, "Bufo alvarius", "i"))
 }
