@@ -114,6 +114,8 @@ function adjustWidthOfImages() {
           authors:  [ 
               { name: "Thomas Bosch", url: "http://boschthomas.blogspot.ie/",
                 company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
+                { name: "Sarven Capadisli", url: "http://csarven.ca/#i",
+                company: "Bern University of Applied Sciences", companyURL: "http://bfh.ch/" },
               { name: "Franck Cotton", //url: "http://example.org/",
                 company: "INSEE - Institut National de la Statistique et des Études Économiques, France", companyURL: "http://www.insee.fr/en/default.asp" },
               { name: "Richard Cyganiak", url: "http://richard.cyganiak.de/",
@@ -258,14 +260,14 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 	  <p>
 		Disco could be used to discover datasets by searching for specific questions, topics, and geographical coverage.
 		Depending on the complexity of the search respectively of the data portal, parts of disco could be used, the complete disco, or disco together with related vocabularies. 
-		The document [<cite><a class="bibref" href="#bib-Scenarios">Scenarios</a></cite>] by Vompras, Gregory, Bosch, Capadisli, and Wackerow describes typical use cases for the applicability of the DDI-RDF Discovery vocabulary. In the Section <a class="bibref" href="#example-queries">Use Cases and Example Queries</a> of the Appendix additional discovery use cases are illustrated by several SPARQL queries.</p>
+		The document [<cite><a class="bibref" href="#bib-Scenarios">Scenarios</a></cite>] by Vompras, Gregory, Bosch, Capadisli, and Wackerow describes typical use cases for the applicability of the DDI-RDF Discovery vocabulary. In the Section <a class="bibref" href="#use-cases-and-example-queries">Use Cases and Example Queries</a> of the Appendix additional discovery use cases are illustrated by several SPARQL queries.</p>
     </section>
 
 	  <p>
 	    Statistical domain experts (core members of the DDI Alliance Technical Implementation Committee, 
 		representatives of national statistical institutes, national data archives) and Linked Open Data community 
 		members have selected the DDI elements which are seen as most important to solve problems associated with 
-		use cases in the area of data discovery. This section gives an overview of the conceptual model. 
+		use cases in the area of data discovery. Section 2 gives an overview of the conceptual model. 
 		More detailed descriptions of all the properties are given in the specification and two conference papers [<cite><a class="bibref" href="#bib-Linked-Statistical-Data">Linked-Statistical-Data</a></cite>] [<cite><a class="bibref" href="#bib-DDI-RDF-Discovery-Vocabulary">DDI-RDF-Discovery-Vocabulary</a></cite>]. 
 		Disco is intended to provide means to describe microdata by essential metadata for the discovery purpose. 
 		Existing DDI-XML instances can be transformed into this RDF format and therefore exposed as Linked Data. 
@@ -289,7 +291,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       and statistical agencies.</p>
 
       <p>There are two major versions of DDI (both serialied in XML format): the
-      “<a href="http://www.ddialliance.org/Specification/DDI-Codebook/">codebook</a>”
+      “<a href="http://www.ddialliance.org/Specification/DDI-Codebook/">Codebook</a>”
       version, which allows for holding general information
       about a study, along with its data dictionary; and the
       “<a href="http://www.ddialliance.org/Specification/DDI-Lifecycle/">Lifecycle</a>”
@@ -322,7 +324,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
     <section>
       <h2>Relationship to Data Cube, DCAT and XKOS</h2>
 
-      <p>The Discovery Vocabulary is aligned to several other metadata
+      <p>The Discovery Vocabulary (Disco) is aligned to several other metadata
       vocabularies used in the RDF community. Disco is designed to be used in conjunction with other vocaularies.</p>
 
       <p>The <a href="http://www.w3.org/TR/vocab-dcat/">Data Catalog
@@ -395,6 +397,8 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
     
      <section>
         <h2>Limitations</h2>
+       <div class="issue">See Issue #43</div>
+       
       </section>
 
     </section>
@@ -427,14 +431,14 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       different ways, even if the logical content is the same. In our
       model the <b><code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code></b> represents the content of the file
       (its organization into a set of variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>)). The <code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>
-      is an extension of the <code>dact:DataSet</code> class. Physical, distributed
+      is an extension of the <code>dcat:DataSet</code> class. Physical, distributed
       files are represented by the class <b> <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code></b> (not depicted in the diagram), which is itself an
       extension of the <code>dcat:Distribution</code>.</p>
  
       <p>When it comes to understanding the contents of the data set,
       this is done using the <b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code></b> class. Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) provide a
       definition of the column in a rectangular data file, and can
-      associate it with a Concept, and a <b><code><a href="#dfn-disco-question" class="internalDFN">Question</a></code></b> (the <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> in the
+      associate it with a particular Concept, and a <b><code><a href="#dfn-disco-question" class="internalDFN">Question</a></code></b> (the <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> in the
       <b><code><a href="#dfn-disco-questionnaire" class="internalDFN">Questionnaire</a></code></b> which was used to collect the data). Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) are
       related to a representation of some form, which may be a set of
       codes and categories (a "codelist") or may be one of other
@@ -485,9 +489,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       a link to the access policies. If we look at the right-hand
       panel, we see an outline of the metadata contents of the file,
       including information about the questionnaire used, sampling
-      methodology, and data collection activities, as well as detailed
-      information about the variables contained in the two data
-      files.</p>
+      methodology, and data collection activities, as well as the two data files which contains detailed information about its variables.</p>
 
       <p>Not all of this information is useful in a data discovery
       scenario—sampling and data collection methodologies are not
@@ -508,7 +510,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 	  
 	  Since a study is a versionable object in DDI, we attach a version to it.
 	  
-	  A study is further described using additional information which is described further below. 
+	  A study is further described using additional information which is described in the following Example 1. 
 
       
 <pre class="example">
@@ -530,8 +532,8 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 		disco:startDate "1980-10-22"^^xsd:date;
 		disco:endDate "1980-10-22"^^xsd:date;
 		rdfs:comment "The interviews take place on the expected census day. In
-			some areas the enumeration took place the following day because of
-			access problems due to heavy rains.";
+		  	      some areas the enumeration took place the following day because of
+		  	      access problems due to heavy rains.";
     ];
   dcterms:spatial [
       # This is the DC-strictly compatible way to do it
@@ -546,23 +548,23 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 		skos:definition "Group Quarters Variables -- HOUSEHOLD"@en ;
     ] ;
 	dcterms:abstract "IPUMS-International is an effort to inventory, preserve,
-		harmonize, and disseminate census microdata from around the world. The
-		project has collected the world's largest archive of publicly available
-		census samples. The data are coded and documented consistently across
-		countries and over time to facilitate comparative research. IPUMS-
-		International makes these data available to qualified researchers free
-		of charge through a web dissemination system. The IPUMS project is a
-		collaboration of the Minnesota Population Center, National Statistical
-		Offices, and international data archives. Major funding is provided by
-		the U.S. National Science Foundation and the Demographic and Behavioral
-		Sciences Branch of the National Institute of Child Health and Human
-		Development. Additional support is provided by the University of
-		Minnesota Office of the Vice President for Research, the Minnesota
-		Population Center, and Sun Microsystems.";    
+		         harmonize, and disseminate census microdata from around the world. The
+		         project has collected the world's largest archive of publicly available
+         		 census samples. The data are coded and documented consistently across
+		         countries and over time to facilitate comparative research. IPUMS-
+		         International makes these data available to qualified researchers free
+		         of charge through a web dissemination system. The IPUMS project is a
+		         collaboration of the Minnesota Population Center, National Statistical
+		         Offices, and international data archives. Major funding is provided by
+		         the U.S. National Science Foundation and the Demographic and Behavioral
+		         Sciences Branch of the National Institute of Child Health and Human
+		         Development. Additional support is provided by the University of
+		         Minnesota Office of the Vice President for Research, the Minnesota
+		         Population Center, and Sun Microsystems.";    
 
     owl:versionInfo "Version 1.0. This version contains selected variables from
-		the original census microdata plus harmonized variables from the IPUMS
-		International data base."@en; 
+		    the original census microdata plus harmonized variables from the IPUMS
+		    International data base."@en; 
 
     disco:universe &lt;#Universe&gt;;
     disco:instrument &lt;#Questionnaire&gt;;
@@ -593,7 +595,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 
 	Using a type of instrument - a questionnaire -, the study produced a dataset. The dataset has access rights. 
 	
-	The dataset has a concrete data file populated by certain variables.
+	The dataset has a concrete data file (physical representation or distributed file) populated by certain variables.
 	
       <pre class="example">
 &lt;#Dataset&gt; a disco:LogicalDataset;
@@ -715,8 +717,7 @@ Please note that the turtle example describes the variable labels from the scree
 
 	Any variable definition has a representation defining the possible values of a variable. 
 	
-	Also, a variable definition has its own universe (possibly the same as the study, possibly a 
-	narrower one) and (DDI) concepts further describing the variable.   
+	Also, a variable definition has its own universe (may be the same as the study or possibly narrower) and (DDI) concepts further describing the variable.   
 
       <pre class="example">
 
@@ -826,7 +827,7 @@ Please note that the turtle example describes the variable labels from the scree
         <img src="images/example-concept.png" alt="Concept-Variable Link"/>
       </div>
 	
-      <p>Also in Disco, DDI concepts can be hierarchically structured</p>
+      <p>In Disco, DDI concepts can be hierarchically structured</p>
 	
       <pre class="example">
 
@@ -992,7 +993,7 @@ Please note that the turtle example describes the variable labels from the scree
 		as the coverage of the survey) is the population from which information can be 
 		obtained in the survey. 
 
-		<b><code><a href="#dfn-disco-analysisunit" class="internalDFN">AnalysisUnit</a></code></b> is defined as follows: The process collecting data is focusing 
+		<b><code><a href="#dfn-disco-analysisunit" class="internalDFN">AnalysisUnit</a></code></b> is defined as follows: The process of collecting data focuses 
 		on the analysis of a particular type of subject. If, for example, the adult population
 		of Finland is being studied, the <code><a href="#dfn-disco-analysisunit" class="internalDFN">AnalysisUnit</a></code> would be individuals or persons.
 	  </p>
@@ -1036,7 +1037,7 @@ Please note that the turtle example describes the variable labels from the scree
 		  </ul>			
 			<p>
 			  Each Disco resource must have an identifier (see figure below). 
-			  The identifier is stated using the object property adms:identifier pointing from any rdfs:Ressource to 1 to n idetifiers (adms:Identifier).
+			  The identifier is stated using the object property adms:identifier pointing from any rdfs:Ressource to 1 to n identifiers (adms:Identifier).
 			  The class adms:Identifier can include the actual identifier itself and information on identifier scheme, its version, and its agency.
 			  </p>
 			
@@ -1214,7 +1215,7 @@ ex:Study1 dcterms:subject [
 			<p>The following elements from Dublin Core may be used to describe general metadata of DDI-RDF elements (see the DC definitions for more detailed descriptions):</p>
 			<ul>
 				<li><code>dcterms:abstract</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>): an abstract of the study</li>
-				<li><code>dcterms:alternativet</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>): an alternative name for the study</li>
+				<li><code>dcterms:alternative</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>): an alternative name for the study</li>
 				<li><code>dcterms:available</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>): the date (or date range) at which this study has or will become available</li>
 				<li><code>dcterms:title</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>, <code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>): the element’s title</li>
 				<li><code>dcterms:description</code> (used with <code><a href="#dfn-disco-representedVariable" class="internalDFN">RepresentedVariable</a></code>, <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>, <code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>, <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>, <code>dcterms:RightsStatement</code>): a human readable description of the element</li>
@@ -1235,7 +1236,7 @@ ex:Study1 dcterms:subject [
       different ways, even if the logical content is the same. In our
       model the <b><code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code></b> represents the content of the file
       (its organization into a set of variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>)). The <code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>
-      is an extension of the <code>dact:DataSet</code> class. Physical, distributed
+      is an extension of the <code>dcat:DataSet</code> class. Physical, distributed
       files are represented by the class <b><code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code></b>, which is itself an
       extension of the <code>dcat:Distribution</code>. <b><code><a href="#dfn-disco-descriptivestatistics" class="internalDFN">DescriptiveStatistics</a></code></b>
 	  , i.e. <code><a href="#dfn-disco-summarystatistics" class="internalDFN">SummaryStatistics</a></code> as well as <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code>, are accociated with data files (
@@ -1418,7 +1419,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	  
 	    <p>
 		  Available category statistics types are frequency, percentage, and cumulativePercentage. 
-		  Available summary statistics types are organized in the controlled vocabulary SummaryStatisticsType. It is represented in SKOS format, where each summary statistics type is a skos:Concept. Particular summary statistics types are included into a disco:SummaryStatistics class with the property disco:summaryStatisticType. The particular value is modelled with rdf:value. More information on the SKOS representation of the controlled vocabulary SummaryStatisticsType can be found at the <a href="http://www.ddialliance.org/Specification/DDI-CV/">DDI-controlled-vocabularies project page</a>.
+		  Available summary statistics types are organized in the controlled vocabulary SummaryStatisticsType. Each summary statistics type is a skos:Concept. Particular summary statistics types are included into a disco:SummaryStatistics class with the property disco:summaryStatisticType. The particular value is modelled with rdf:value. More information on the SKOS representation of the controlled vocabulary SummaryStatisticsType can be found at the <a href="http://www.ddialliance.org/Specification/DDI-CV/">DDI-controlled-vocabularies project page</a>.
 		  There are two possibilities to define new types of summary statistics.
 		  First, the term 'other' with a new value can be used in association with the existing vocabulary. 
 		  Second, a new vocabulary can be defined. 
@@ -1531,21 +1532,23 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		  </tbody>
 		</table>
 		
+      <p>
+        The following example shows different categories of an ISSP data set and the values of the related summary and category statistics.
+        Each category is defined as a skos:Concept and the used name is &lt;issp:category_X&gt;, which is the corresponding category value in the 
+        frequency table above (see Figure 23, second column).
+      </p>
+      <p>
+        The category &lt;issp:category_1&gt; is the category with the code 1 (skos:notation '1'), the category label ‘Yes, have partner; live 
+        in same household’ (skos:prefLabel 'Yes, have partner; live in same household') and which is valid (disco:isValid true). 
+        &lt;issp:XYZ_1&gt; defines the frequency (disco:frequency '15893') of the category &lt;issp:category_1&gt; ( disco:statisticsCategory &lt;issp:category_1&gt;).  
+      </p>
+		
 		<div class="example">
 		  <div class="example-title">
-		    <span>ISSP 2011 (International Social Survey Programme)</span>
+		    <span>EXAMPLE: ISSP 2011 (International Social Survey Programme)</span>
 	      </div>
 		  
-		  <p>
-		    The following example shows different categories of an ISSP data set and the values of the related summary and category statistics.
-            Each category is defined as a skos:Concept and the used name is &lt;issp:category_X&gt;, which is the corresponding category value in the 
-			frequency table above (see Figure 23, second column).
-          </p>
-		  <p>
-            The category &lt;issp:category_1&gt; is the category with the code 1 (skos:notation '1'), the category label ‘Yes, have partner; live 
-			in same household’ (skos:preflabel 'Yes, have partner; live in same household') and which is valid (disco:isValid true). 
-			&lt;issp:XYZ_1&gt; defines the frequency (disco:frequency '15893') of the category &lt;issp:category_1&gt; ( disco:statisticsCategory &lt;issp:category_1&gt;).  
-		  </p>
+
 		  
 		  <div class="figure">
             <img width="35%" src="images/Example_ISSP2011_PARTLIV_Frequencies.png" alt="Example Category Statistics: Frequency Table of Variable PARTLIV (ISSP 2011)"/>
@@ -1565,23 +1568,23 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 &lt;issp:Category_1&gt;
   a skos:Concept;
   skos:notation '1';
-  skos:preflabel 'Yes, have partner; live in same household';
+  skos:prefLabel 'Yes, have partner; live in same household';
   disco:isValid true.
   
 &lt;issp:Category_3&gt;
   a skos:Concept;
-  skos:preflabel 'valid total';
+  skos:prefLabel 'valid total';
   disco:isValid true.
 
 &lt;issp:Category_2&gt;
   a skos:Concept;
   skos:notation '0';
-  skos:preflabel 'Not available (GB))';
+  skos:prefLabel 'Not available (GB))';
   disco:isValid false.
 
 &lt;issp:Category_4&gt;
   a skos:Concept;
-  skos:preflabel 'missing total';
+  skos:prefLabel 'missing total';
   disco:isValid false.
 
 &lt;issp:XYZ_1&gt;
@@ -1743,12 +1746,11 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	    When it comes to understanding the contents of the data set,
         this is done using the <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code> class. Variables (<b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code></b>) provide a
         definition of the column in a rectangular data file, and can
-        associate it with a <b>Concept</b>, and a <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>. Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) are
+        associate it with a Concept, and a <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>. Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) are
         related to a <b><code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code></b> of some form, which may be a set of
         codes and categories (a "codelist") or may be one of other
         normal data types (dateTime, numeric, textual, etc.) Codes and
-        Categories are represented using SKOS <b>Concepts</b> and concept
-        schemes. Variable definitions (<b><code><a href="#dfn-disco-representedVariable" class="internalDFN">RepresentedVariable</a></code></b>) encompasse study-independent, 
+        Categories are represented using skos:Concept and skos:ConceptScheme. Variable definitions (<b><code><a href="#dfn-disco-representedVariable" class="internalDFN">RepresentedVariable</a></code></b>) encompasse study-independent, 
 		re-usable parts of variables like occupation classification. 
 	  </p>
 	  
@@ -1766,6 +1768,10 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
         On the other hand, representations have 0 to n links to variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) and to variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>).	
         Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) as well as variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) have both 1 connection to the concept which should be measured.
         Concepts have 0 to n relationships to variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>) using the object property <code><a href="#dfn-disco-concept" class="internalDFN">concept</a></code>.		
+	  </p>
+	  
+	  <p>
+	    Disco variables are inline with statistical variables, where experiments examine the relationship between variables. In the RDF Data Cube vocabulary, variables are used as dimensions, measures, or attributes to identify and describe observations.
 	  </p>
 	  
     <section>
@@ -1957,7 +1963,7 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 
 	  <div class="example">
 		<div class="example-title">
-          <span>ISSP 2011 (International Social Survey Programme)</span>
+          <span>EXAMPLE: ISSP 2011 (International Social Survey Programme)</span>
 	    </div>
 		
 		<div class="figure">
@@ -1970,19 +1976,19 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 &lt;issp:Category_1&gt;
   a skos:Concept;
   skos:notation '1';
-  skos:preflabel 'Yes, have partner; live in same household';
+  skos:prefLabel 'Yes, have partner; live in same household';
   disco:isValid true.
   
 &lt;issp:Category_2&gt;
   a skos:Concept;
   skos:notation '2';
-  skos:preflabel 'Yes, have partner; don't live in same household';
+  skos:prefLabel 'Yes, have partner; don't live in same household';
   disco:isValid true.
   
 &lt;issp:Category_3&gt;
   a skos:Concept;
   skos:notation '3';
-  skos:preflabel 'No partner';
+  skos:prefLabel 'No partner';
   disco:isValid true.
   
 &lt;issp:Category_4&gt;
@@ -1992,19 +1998,19 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 &lt;issp:Category_5&gt;
   a skos:Concept;
   skos:notation '0';
-  skos:preflabel 'Not available (GB))';
+  skos:prefLabel 'Not available (GB))';
   disco:isValid false.
   
 &lt;issp:Category_6&gt;
   a skos:Concept;
   skos:notation '7';
-  skos:preflabel 'Refused';
+  skos:prefLabel 'Refused';
   disco:isValid false.
   
 &lt;issp:Category_7&gt;
   a skos:Concept;
   skos:notation '9';
-  skos:preflabel 'No answer';
+  skos:prefLabel 'No answer';
   disco:isValid false.
 
 &lt;issp:Category_8&gt;
@@ -2032,7 +2038,7 @@ Please note that only code and categories are part of the turtle example.</li>
 	  
 	  <div class="example">
 		<div class="example-title">
-          <span>ISSP 2011 (International Social Survey Programme)</span>
+          <span>EXAMPLE: ISSP 2011 (International Social Survey Programme)</span>
 	    </div>
 		
 		<div class="figure">
@@ -2040,7 +2046,7 @@ Please note that only code and categories are part of the turtle example.</li>
         </div>
 		  
 		  <p>
-		    The following example shows a ordered collection of categories in a abbreviated as well as a complete syntax.
+		    The following example shows an ordered collection of categories represented using abbreviated and complete syntax forms.
 		  </p>
 		  
 		<pre>
@@ -2049,7 +2055,7 @@ Please note that only code and categories are part of the turtle example.</li>
 &lt;issp:XYZ_1&gt;
   a disco:Variable;
   skos:notation 'PARTLIV';
-  skos:preflabel 'Living in steady partnership';
+  skos:prefLabel 'Living in steady partnership';
   disco:representation &lt;issp:OrderedCollection1&gt;.
 
 # abbreviated syntax:
@@ -2113,8 +2119,7 @@ Please note that only code and categories are part of the turtle example.</li>
 	  </p>
 	  
 	  <p>
-	    You can describe (<code>dcterms:description</code>) instruments (<code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>) and associate labels
-        (<code>skos:prefLabel</code>) to instruments (<code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>). Instruments 
+	    Instruments (<code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>) can be labeled and described using (<code>dcterms:description</code>) and (<code>skos:prefLabel</code>). Instruments 
 		(<code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>) may have (<code><a href="#dfn-disco-externaldocumentation" class="internalDFN">externalDocumentation</a></code>)
 		multiple (0 - n) external documentations which are of the type <code>foaf:Documents</code>.
 		<code>Foaf:Documents</code> may be external documentations of 0 to n instruments (<code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>).
@@ -2334,7 +2339,7 @@ Please note that only code and categories are part of the turtle example.</li>
 	    </div>
 		
 		<p>
-XKOS extends SKOS with two main objectives: the first one is to allow the descrip-tion of statistical classifications, 
+XKOS extends SKOS with two main objectives: the first one is to allow the description of statistical classifications, 
 the second one is to introduce refinements of the semantic properties defined in SKOS. 
 The semantic properties extend the possible relations that can be applied between pairs of skos:Concepts. 
 SKOS allows the following relations: skos:broader than, skos:narrower than, and skos:related to. The first two are hierarchical relations, one in each direction. 
@@ -2369,7 +2374,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
 		</ul>
 	  
 	  <p>
-	    The LogicalDataSet is an extension of the dcat:DataSet. Physical, dis-tributed files are represented by the DataFile, 
+	    The LogicalDataSet is an extension of the dcat:DataSet. Physical, distributed files are represented by the DataFile, 
 		which is itself an extension of dcat:Distribution.
 	  </p>
 	    
@@ -6568,7 +6573,7 @@ WHERE {
 		
 		<ul>
 			<li>
-				John (foaf:person) aggregates (disco:aggregation) microdata datasets (disco:LogicalDataSet) which are associated with 
+				John (foaf:Person) aggregates (disco:aggregation) microdata datasets (disco:LogicalDataSet) which are associated with 
 				(disco:product) the European study EU-SILC (disco:Study). The aggregate dataset is represented using qb:DataSet. 
 				The prov:Agent :john was associated with (prov:wasAssociatedWith) the prov:Activity :aggregationActivity. 
 				The :aggregationActivity used (prov:used) the prov:Entity :europeanDataSet (a European dataset), and generated (prov:wasGeneratedBy) 
@@ -6745,7 +6750,7 @@ WHERE
 	
       
 
-        <p>While Disco and Data Cube provide terms for the description of datasets, both on a different level of aggregation, DCAT enables the representation of these datasets inside of data collections like repositories, catalogs or archives. The relationship be-tween data collections and their contained datasets is useful, since such collections are a typical entry point when searching for data.</p>
+        <p>While Disco and Data Cube provide terms for the description of datasets, both on a different level of aggregation, DCAT enables the representation of these datasets inside of data collections like repositories, catalogs or archives. The relationship between data collections and their contained datasets is useful, since such collections are a typical entry point when searching for data.</p>
         
         <p>A search for data may consist of two phases. In a first phase, the user searches for different records described by dcat:CatalogRecord inside a data catalog. This search can differ according to the users’ information need. While it is possible to search for metadata provided inside such a record like dcterms:title, dcterms:description, etc., the user can also formulate a query to search for more detailed information about the dataset (represented as dcat:Dataset) or its distribution (dcat:Distribution), which are part of the record. For example, a user may want to search for datasets covering a particular topic (dcat:keyword), particular temporal and spatial coverages (dcterms:temporal and dcterms:spatial), or particular formats in which a distribution of the data is available (dcterms:format). Instances of dcat:DataSet are also described by specific themes they cover (dcat:theme). Since these themes are organized in a theme taxonomy (implemented by a skos:ConceptScheme and classes of skos:Concept), these themes can also be used for an overall search in all datasets of the data catalog.</p>
         
@@ -6863,54 +6868,57 @@ prov:wasDerivedFrom :EuropeanStudy.
             <section>
                 <h3>Normative references</h3>
 <dl class="bibliography">
-	<dt id="bib-ADMS">[ADMS]</dt><dd>Asset Description Metadata Schema (ADMS), <a href="http://www.w3.org/TR/vocab-adms/"><cite>http://www.w3.org/TR/vocab-adms/</cite></a></dd>
-	<dt id="bib-DCAT">[DCAT]</dt><dd>Data Catalog Vocabulary (DCAT), <a href="http://www.w3.org/TR/vocab-dcat/"><cite>http://www.w3.org/TR/vocab-dcat/</cite></a></dd>
+<dt id="bib-DCAT">[DCAT]</dt><dd>Data Catalog Vocabulary (DCAT), <a href="http://www.w3.org/TR/vocab-dcat/"><cite>http://www.w3.org/TR/vocab-dcat/</cite></a></dd>
 	<dt id="bib-DCMI">[DCMI]</dt><dd>DCMI Metadata Terms (DCMI), <a href="http://dublincore.org/documents/dcmi-terms/"><cite>http://dublincore.org/documents/dcmi-terms/</cite></a></dd>
-	<dt id="bib-DDI-RDF-Discovery-Vocabulary">[DDI-RDF-Discovery-Vocabulary]</dt>
-	  <dd>
-		Bosch, T., Cyganiak, R., Gregory, A., Wackerow, J. 
-		<a href="http://ceur-ws.org/Vol-996/papers/ldow2013-paper-12.pdf">
-		  <cite>DDI-RDF Discovery Vocabulary: A Metadata Vocabulary for Documenting Research and Survey Data.</cite>
-		</a> 
-		2013. Proceedings of the WWW2013 Workshop on Linked Data on the Web. 
-		URL: <a href="http://ceur-ws.org/Vol-996/papers/ldow2013-paper-12.pdf">http://ceur-ws.org/Vol-996/papers/ldow2013-paper-12.pdf</a>
-	  </dd>
-	<dt id="bib-eXtended-Knowledge-Organization-System">[eXtended Knowledge Organization System]</dt>
-	  <dd>
-		Dan Gillman, Franck Cotton, and Yves Jaques
-		<a href="http://www.unece.org/stats/documents/2013.05.metis.html">
-		  <cite>eXtended Knowledge Organization System (XKOS).</cite>
-		</a> 
-		2013. METIS, Work Session on Statistical Metadata. 
-		URL: <a href="http://www.unece.org/stats/documents/2013.05.metis.html">http://www.unece.org/stats/documents/2013.05.metis.html</a>
-	  </dd>
 	<dt id="bib-FOAF">[FOAF]</dt><dd>Friend of a Friend (FOAF), <a href="http://www.foaf-project.org/"><cite>http://www.foaf-project.org/</cite></a></dd>
 	<dt id="bib-FundRef">[FundRef]</dt><dd>FundRef, <a href="http://www.crossref.org/fundref/"><cite>http://www.crossref.org/fundref/</cite></a></dd>
-	<dt id="bib-Linked-Statistical-Data">[Linked-Statistical-Data]</dt><dd>Bosch, T., Cyganiak, R., Wackerow, J., and Zapilko, B. <a href="http://dcpapers.dublincore.org/pubs/article/view/3654"><cite>Leveraging the DDI Model for Linked Statistical Data in the Social, Behavioural, and Economic Sciences.</cite></a> 2012. International Conference on Dublin Core and Metadata Applications. URL: <a href="http://dcpapers.dublincore.org/pubs/article/view/3654">http://dcpapers.dublincore.org/pubs/article/view/3654</a></dd>
 	<dt id="bib-ORCID">[ORCID]</dt><dd>ORCID, <a href="http://orcid.org/"><cite>http://orcid.org/</cite></a></dd>
 	<dt id="bib-ORG">[ORG]</dt><dd>Organization Ontology (ORG), <a href="http://www.w3.org/TR/vocab-org/"><cite>http://www.w3.org/TR/vocab-org/</cite></a></dd>
 	<dt id="bib-PROV-O">[PROV-O]</dt><dd>PROV Ontology (PROV-O), <a href="http://www.w3.org/TR/prov-o/"><cite>http://www.w3.org/TR/prov-o/</cite></a></dd>
 	<dt id="bib-RDF-Data-Cube-Vocabulary">[RDF Data Cube Vocabulary]</dt><dd>RDF Data Cube Vocabulary, <a href="http://www.w3.org/TR/vocab-data-cube/"><cite>http://www.w3.org/TR/vocab-data-cube/</cite></a></dd>
-	<dt id="bib-Scenarios">[Scenarios]</dt><dd>Vompras, J., Gregory, A., Bosch, T., Capadisli, and Wackerow, J.<a href="http://dx.doi.org/10.3886/DDISemanticWeb02"><cite>Scenarios for the DDI-RDF Discovery Vocabulary.</cite></a> May 2013. DDI Working Paper Series – Semantic Web 2. DOI: in preparation</dd>
-	<!--
-	<dt id="bib-Scenarios">[Scenarios]</dt><dd>Vompras, J., Gregory, A., Bosch, T., Capadisli, and Wackerow, J.<a href="http://dx.doi.org/10.3886/DDISemanticWeb02"><cite>Scenarios for the DDI-RDF Discovery Vocabulary.</cite></a> May 2013. DDI Working Paper Series – Semantic Web 2. DOI: <a href="http://dx.doi.org/10.3886/DDISemanticWeb02">http://dx.doi.org/10.3886/DDISemanticWeb02</a></dd>
-	-->
-	<dt id="bib-Semantic-Statistics">[Semantic Statistics]</dt>
-	  <dd>
-		Cyganiak, R., Field, S., Gregory, A., Halb, W., Tennison, J.
-		<a href="http://ceur-ws.org/Vol-628/ldow2010_paper03.pdf">
-		  <cite>Semantic Statistics: Bringing Together SDMX and SCOVO.</cite>
-		</a> 
-		2010. Proceedings of the WWW2010 Workshop on Linked Data on the Web.
-		URL: <a href="http://ceur-ws.org/Vol-628/ldow2010_paper03.pdf">http://ceur-ws.org/Vol-628/ldow2010_paper03.pdf</a>
-	  </dd>
 	<dt id="bib-SKOS">[SKOS]</dt><dd>Simple Knowledge Organization System (SKOS), <a href="http://www.w3.org/2004/02/skos/"><cite>http://www.w3.org/2004/02/skos/</cite></a></dd>
-	<dt id="bib-XKOS">[XKOS]</dt><dd>SKOS Extension for Statistics (XKOS), <a href="http://htmlpreview.github.io/?https://github.com/linked-statistics/xkos/blob/master/xkos.html"><cite>http://htmlpreview.github.io/?https://github.com/linked-statistics/xkos/blob/master/xkos.html</cite></a></dd>
 </dl>
             </section>
             
             <section>
                 <h3>Informative references</h3>
+              <dl class="bibliography">
+                <dt id="bib-ADMS">[ADMS]</dt><dd>Asset Description Metadata Schema (ADMS), <a href="http://www.w3.org/TR/vocab-adms/"><cite>http://www.w3.org/TR/vocab-adms/</cite></a></dd>
+                <dt id="bib-DDI-RDF-Discovery-Vocabulary">[DDI-RDF-Discovery-Vocabulary]</dt>
+                <dd>
+                  Bosch, T., Cyganiak, R., Gregory, A., Wackerow, J. 
+                  <a href="http://ceur-ws.org/Vol-996/papers/ldow2013-paper-12.pdf">
+                    <cite>DDI-RDF Discovery Vocabulary: A Metadata Vocabulary for Documenting Research and Survey Data.</cite>
+                  </a> 
+                  2013. Proceedings of the WWW2013 Workshop on Linked Data on the Web. 
+                  URL: <a href="http://ceur-ws.org/Vol-996/papers/ldow2013-paper-12.pdf">http://ceur-ws.org/Vol-996/papers/ldow2013-paper-12.pdf</a>
+                </dd>
+                <dt id="bib-eXtended-Knowledge-Organization-System">[eXtended Knowledge Organization System]</dt>
+                <dd>
+                  Dan Gillman, Franck Cotton, and Yves Jaques
+                  <a href="http://www.unece.org/stats/documents/2013.05.metis.html">
+                    <cite>eXtended Knowledge Organization System (XKOS).</cite>
+                  </a> 
+                  2013. METIS, Work Session on Statistical Metadata. 
+                  URL: <a href="http://www.unece.org/stats/documents/2013.05.metis.html">http://www.unece.org/stats/documents/2013.05.metis.html</a>
+                </dd>
+                <dt id="bib-Linked-Statistical-Data">[Linked-Statistical-Data]</dt><dd>Bosch, T., Cyganiak, R., Wackerow, J., and Zapilko, B. <a href="http://dcpapers.dublincore.org/pubs/article/view/3654"><cite>Leveraging the DDI Model for Linked Statistical Data in the Social, Behavioural, and Economic Sciences.</cite></a> 2012. International Conference on Dublin Core and Metadata Applications. URL: <a href="http://dcpapers.dublincore.org/pubs/article/view/3654">http://dcpapers.dublincore.org/pubs/article/view/3654</a></dd>
+                <dt id="bib-Scenarios">[Scenarios]</dt><dd>Vompras, J., Gregory, A., Bosch, T., Capadisli, and Wackerow, J.<a href="http://dx.doi.org/10.3886/DDISemanticWeb02"><cite>Scenarios for the DDI-RDF Discovery Vocabulary.</cite></a> May 2013. DDI Working Paper Series – Semantic Web 2. DOI: in preparation</dd>
+                <!--
+                  <dt id="bib-Scenarios">[Scenarios]</dt><dd>Vompras, J., Gregory, A., Bosch, T., Capadisli, and Wackerow, J.<a href="http://dx.doi.org/10.3886/DDISemanticWeb02"><cite>Scenarios for the DDI-RDF Discovery Vocabulary.</cite></a> May 2013. DDI Working Paper Series – Semantic Web 2. DOI: <a href="http://dx.doi.org/10.3886/DDISemanticWeb02">http://dx.doi.org/10.3886/DDISemanticWeb02</a></dd>
+                -->
+                <dt id="bib-Semantic-Statistics">[Semantic Statistics]</dt>
+                <dd>
+                  Cyganiak, R., Field, S., Gregory, A., Halb, W., Tennison, J.
+                  <a href="http://ceur-ws.org/Vol-628/ldow2010_paper03.pdf">
+                    <cite>Semantic Statistics: Bringing Together SDMX and SCOVO.</cite>
+                  </a> 
+                  2010. Proceedings of the WWW2010 Workshop on Linked Data on the Web.
+                  URL: <a href="http://ceur-ws.org/Vol-628/ldow2010_paper03.pdf">http://ceur-ws.org/Vol-628/ldow2010_paper03.pdf</a>
+                </dd>
+                <dt id="bib-XKOS">[XKOS]</dt><dd>SKOS Extension for Statistics (XKOS), <a href="http://htmlpreview.github.io/?https://github.com/linked-statistics/xkos/blob/master/xkos.html"><cite>http://htmlpreview.github.io/?https://github.com/linked-statistics/xkos/blob/master/xkos.html</cite></a></dd>
+                
+              </dl>
             </section>
     </section>
         
