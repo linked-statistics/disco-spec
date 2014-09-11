@@ -1099,7 +1099,7 @@ Please note that the turtle example describes the variable labels from the scree
 		<h4>Relations to DDI-XML Files</h4>
 		
 		<p>
-			Since the Discovery Vocabulary only covers a subset of an original DDI-XML file, it may be worthwile to have a relationship to the original DDI-XML file. Such a relationship can be represented using <code>dcterms:relation</code>. This way, every element can be related to any <code>foaf:Document</code>. The cardinalities are in both directions 0 to n.
+			Since the Discovery Vocabulary only covers a subset of an original DDI-XML file, it may be worthwhile to have a relationship to the original DDI-XML file. Such a relationship can be represented using <code>dcterms:relation</code>. This way, every element can be related to any <code>foaf:Document</code>. The cardinalities are in both directions 0 to n.
 		</p>
 	  
 		
@@ -1231,7 +1231,7 @@ ex:Study1 dcterms:subject [
 
 	  <p>Data sets have two representations in our model: a logical
       representation, which describes the contents of the data set,
-      and a physical representation, which is a distribuited file
+      and a physical representation, which is a distributed file
       holding that data. It is possible to format data files in many
       different ways, even if the logical content is the same. In our
       model the <b><code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code></b> represents the content of the file
@@ -1239,7 +1239,7 @@ ex:Study1 dcterms:subject [
       is an extension of the <code>dcat:DataSet</code> class. Physical, distributed
       files are represented by the class <b><code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code></b>, which is itself an
       extension of the <code>dcat:Distribution</code>. <b><code><a href="#dfn-disco-descriptivestatistics" class="internalDFN">DescriptiveStatistics</a></code></b>
-	  , i.e. <code><a href="#dfn-disco-summarystatistics" class="internalDFN">SummaryStatistics</a></code> as well as <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code>, are accociated with data files (
+	  , i.e. <code><a href="#dfn-disco-summarystatistics" class="internalDFN">SummaryStatistics</a></code> as well as <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code>, are associated with data files (
 	  <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) by the object property <code><a href="#dfn-disco-statisticsdatafile" class="internalDFN">statisticsDataFile</a></code>. </p>
 	  
       <div class="figure">
@@ -1316,7 +1316,7 @@ ex:Study1 dcterms:subject [
 	  <p>
 	    The collected data result in the microdata represented by the <b><code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code></b>.
 	    Data sets have a logical representation, which describes the contents of the data set,
-        and a physical representation, which is a distribuited file
+        and a physical representation, which is a distributed file
         holding that data. It is possible to format data files in many
         different ways, even if the logical content is the same. 
         data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>), which are also <code>dcterms:Datasets</code> as well as <code>dcat:Distributions</code>,
@@ -2029,7 +2029,7 @@ Please note that only code and categories are part of the turtle example.</li>
 </div>
 	  
 	  <section>
-        <h4>Representing the Order of Codes and Categories </h4>
+        <h4>Representing the Order of Codes and Categories</h4>
 		<p>
 		  In DDI, variables, questions, and categories are typically organized themselves in a particular order. For obtaining this order, <code>skos:OrderedCollection</code>s are used. For example, a collection of variables is represented as being of the type <code>skos:OrderedCollection</code> containing multiple variables (each represented as <code>skos:Concept</code>) in a <code>skos:memberList</code>.
 		</p>
@@ -2186,9 +2186,9 @@ Please note that only code and categories are part of the turtle example.</li>
 	  <p>
 	    Widely accepted and adopted vocabularies are reused to a large extend. 
 		There are features of DDI which can be addressed through other vocabularies, such as: 
-		describ-ing metadata for citation purposes using the DCMI Metadata Terms (DCMI) [<cite><a class="bibref" href="#bib-DCMI">DCMI</a></cite>], 
-		de-scribing catalogues of datasets using the Data Catalog Vocabulary (DCAT) [<cite><a class="bibref" href="#bib-DCAT">DCAT</a></cite>], 
-		describ-ing aggregate data like multi-dimensional tables using the RDF Data Cube Vocabulary [<cite><a class="bibref" href="#bib-RDF-Data-Cube-Vocabulary">RDF Data Cube Vocabulary</a></cite>], 
+		describing metadata for citation purposes using the DCMI Metadata Terms (DCMI) [<cite><a class="bibref" href="#bib-DCMI">DCMI</a></cite>],
+		describing catalogues of datasets using the Data Catalog Vocabulary (DCAT) [<cite><a class="bibref" href="#bib-DCAT">DCAT</a></cite>],
+		describing aggregate data like multi-dimensional tables using the RDF Data Cube Vocabulary [<cite><a class="bibref" href="#bib-RDF-Data-Cube-Vocabulary">RDF Data Cube Vocabulary</a></cite>],
 		describing formal statistical classifications using the SKOS Extension for Statistics (XKOS) [<cite><a class="bibref" href="#bib-XKOS">XKOS</a></cite>], 
 		and delineating code lists, category schemes, mappings between them, and concepts like topics 
 		using the Simple Knowledge Organization System (SKOS) [<cite><a class="bibref" href="#bib-SKOS">SKOS</a></cite>]. Furthermore, the external vocabularies Friend of a Friend (FOAF) [<cite><a class="bibref" href="#bib-FOAF">FOAF</a></cite>], 
@@ -2233,10 +2233,10 @@ Please note that only code and categories are part of the turtle example.</li>
 	  <h3>Friend of a Friend (FOAF) and Organization Ontology (ORG)</h3>
 	  
 	  <p>
-		With-in the context of Disco, FOAF as well as ORG are reused. Creators (dcterms:creator), 
+		Within the context of Disco, FOAF as well as ORG are reused. Creators (dcterms:creator),
 		contributors (dcterms:contributor), and publishers (dcterms:publisher) of Studies and StudyGroups are foaf:Agents which 
 		are either foaf:Persons or org:Organizations whose members are foaf:Persons. Studies and StudyGroups may be funded by (disco:fundedBy) foaf:Agents. 
-		The object property disco:fundedBy is de-fined as sub-property of dcterms:contributor.
+		The object property disco:fundedBy is defined as sub-property of dcterms:contributor.
 	  </p>
 	  
 	  </section>
@@ -2283,7 +2283,7 @@ Please note that only code and categories are part of the turtle example.</li>
 		attitudes or characteristics which are seen as having something in common. Skos:Concepts may be associated with variables, 
 		variable definitions, and questions and are reused to a large extent to represent DDI concepts (skos:prefLabel), 
 		codes (skos:notation), and category labels (skos:prefLabel). Skos:Concepts may be organized in skos:ConceptSchemes (skos:inScheme), 
-		sets of metadata describing statis-tical concepts. Hierarchies of DDI concepts can be built using the object peoperties 
+		sets of metadata describing statistical concepts. Hierarchies of DDI concepts can be built using the object properties
 		skos:broader and skos:narrower. Topical coverage can be expressed using dcterms:subject. Disco foresees the use of skos:Concept 
 		for the description of topical coverage. Spatial, temporal, and topical coverage are directly attached to studies, logical datasets, 
 		and datafiles. Universes and AnalysisUnits are also skos:Concepts. Therefore the properties defined for skos:Concept can be reused. 
@@ -2347,7 +2347,7 @@ In Disco, these SKOS properties may be substituted by additional XKOS properties
         </p>
 		<p>
 One question, typically asked by social science researchers, could be to query all the datasets (disco:LogicalDataSet) 
-which have a specific statistical classifi-cation (skos:ConceptScheme) like ISCO (International Standard Classification of Occupations) 
+which have a specific statistical classification (skos:ConceptScheme) like ISCO (International Standard Classification of Occupations)
 or ANZSIC (Australian and New Zealand Industry Classification). It is also possible to query on the semantic relationships 
 which are defined for statistical classifications using XKOS properties. By means of these properties not only hierarchical relations can be queries 
 but also for example part of relationships (xkos:hasPart), more general (xkos:generalizes) and more specific (xkos:specializes) concepts, 
@@ -2379,7 +2379,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
 	  </p>
 	    
 	    <pre class="example">
-	      Example for the usage of dcat vocabulary
+	      Example for the usage of DCAT vocabulary
 	    </pre>
 	    
 	  
@@ -2398,7 +2398,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
 		Disco contains a property “aggregation” that indicates that a Cube dataset was derived by tabulating a unit-record dataset. 
 		Data Cube provides for the description of the structure of such cubes, but also for the representation of the cube data itself, 
 		that is, the observations that make up the cube dataset [<cite><a class="bibref" href="#bib-Semantic-Statistics">Semantic Statistics</a></cite>]. This is not the case for Disco, 
-		which only describes the structure of a da-taset, but is not concerned with representing the actual data in it. 
+		which only describes the structure of a dataset, but is not concerned with representing the actual data in it.
 		The actual data are assumed to sit in a data file (e.g. a CSV  file, or in a proprietary statistical package file format) that is not represented in RDF.
 	  </p>
 	  
@@ -2438,7 +2438,7 @@ These mapping tables will be transformed to the official specification in form o
 
 <b>Mappings between Disco and other Versions of DDI-XML</b>
 <p>
-In order to avoid inconsistencies (as mapping tables may changes over time), we only offer mappings between disco and the concrete version DDI 3.1 od DDI-L.
+In order to avoid inconsistencies (as mapping tables may changes over time), we only offer mappings between disco and the concrete version DDI 3.1 of DDI-L.
 There are various mapping documents between DDI 3.1 and other DDI versions (like DDI 3.2 and DDI 2.1) on the <a href="http://www.ddialliance.org/">DDI Alliance website</a>.
 </p>
 
@@ -2448,7 +2448,7 @@ DDI 4 will be the next model-driven specification of DDI including mappings to m
 DDI 4 should have a clear mapping from DDI-XML 3.2. 
 We assume that all items used in disco will have a clear mapping to DDI-XML 3.2, 
 and these items in DDI-XML 3.2 will have a clear mapping to items in the DDI 4 model (therefore to a representation in OWL/RDF as well). 
-If the latter shouldn't be possible, then a mapping of items in DDI-XML 3.2 to DDI 4 XML and DDI 4 RDF should be possible. 
+If the latter should not be possible, then a mapping of items in DDI-XML 3.2 to DDI 4 XML and DDI 4 RDF should be possible.
 </p>
 
 <b>Turtle File Containing Mappings in RDF</b>
@@ -2456,14 +2456,14 @@ If the latter shouldn't be possible, then a mapping of items in DDI-XML 3.2 to D
 The mappings are defined within a separate turtle file
 <ul>
 <li>in order to execute SPARQL queries on the turtle file</li>
-<li>in order to generate mapping tables for the html spec out of the turtle file</li>
+<li>in order to generate mapping tables for the HTML spec out of the turtle file</li>
 <li>there is 1 turtle file containing mappings for disco axioms and axioms of reused external vocabularies</li>
 </ul>
 </p>
 
 <b>Mapping Tables</b>
 <ul>
-	<li>The follwoing mapping tables are generated out of the official mapping document completely automatically to avoid inconsistencies.</li>
+	<li>The following mapping tables are generated out of the official mapping document completely automatically to avoid inconsistencies.</li>
 	<li>The mapping tables are structured in classes, object, and data properties.</li>
 	<li>There can be classes and properties specified within the disco namespace or within any other namespace which are then used by disco.</li> 
 </ul>
@@ -6702,7 +6702,7 @@ WHERE
 			which have a specific statistical classification (skos:ConceptScheme) like ISCO (International Standard Classification of Occupations) or 
 			ANZSIC (Australian and New Zealand Industry Classification). It is also possible to query on the semantic relationships 
 			which are defined for statistical classifications using XKOS properties. 
-			By means of these properties not only hierar-chical relations can be queried but also for example part of relationships (xkos:hasPart), 
+			By means of these properties not only hierarchical relations can be queried but also for example part of relationships (xkos:hasPart),
 			more general (xkos:generalizes) and more specific (xkos:specializes) concepts, and positions of concepts in lists (xkos:previous, xkos:next).
 		</p>
 		
@@ -6752,7 +6752,7 @@ WHERE
         
         <p>A search for data may consist of two phases. In a first phase, the user searches for different records described by dcat:CatalogRecord inside a data catalog. This search can differ according to the users’ information need. While it is possible to search for metadata provided inside such a record like dcterms:title, dcterms:description, etc., the user can also formulate a query to search for more detailed information about the dataset (represented as dcat:Dataset) or its distribution (dcat:Distribution), which are part of the record. For example, a user may want to search for datasets covering a particular topic (dcat:keyword), particular temporal and spatial coverages (dcterms:temporal and dcterms:spatial), or particular formats in which a distribution of the data is available (dcterms:format). Instances of dcat:DataSet are also described by specific themes they cover (dcat:theme). Since these themes are organized in a theme taxonomy (implemented by a skos:ConceptScheme and classes of skos:Concept), these themes can also be used for an overall search in all datasets of the data catalog.</p>
         
-        <p>Nevertheless, the search of the first phase will result in one or presumably multiple hits of datasets. Hence, another search has to be executed in a second phase in order to find out which datasets are relevant for the user, e.g. particular universes or sam-ples. The search regarding particular criteria in multiple Disco datasets materializes as those described in the previous two use case sections and those presented in [9]. However, the user may find data sets which are published in Data Cube. In order to discover the original microdata source of a qb:DataSet, the property prov:wasDerivedFrom can hold the link the particular DDI data set dis-co:Study.</p>
+        <p>Nevertheless, the search of the first phase will result in one or presumably multiple hits of datasets. Hence, another search has to be executed in a second phase in order to find out which datasets are relevant for the user, e.g. particular universes or samples. The search regarding particular criteria in multiple Disco datasets materializes as those described in the previous two use case sections and those presented in [9]. However, the user may find data sets which are published in Data Cube. In order to discover the original microdata source of a qb:DataSet, the property prov:wasDerivedFrom can hold the link the particular DDI data set disco:Study.</p>
         <p>A user searching for data regarding dissatisfaction with politics in Europe may find the records :EuropeanStudy and :AggregatedEuropeanData in a :DataCatalog. By analyzing the information given in the themes and keywords of the associated data sets, the user can decide which data set is best suitable for his information need. He notices also that :AggregatedEuropeanDataset has been derived from :EuropeanDataset and seems to cover only a subset of the microdata set. If he is interested in the microdata instead of aggregated data, he is thus able to find the underlying microdata set.</p>
 
  
