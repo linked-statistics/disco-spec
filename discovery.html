@@ -2190,6 +2190,7 @@ Please note that only code and categories are part of the turtle example.</li>
 		describing catalogues of datasets using the Data Catalog Vocabulary (DCAT) [<cite><a class="bibref" href="#bib-DCAT">DCAT</a></cite>],
 		describing aggregate data like multi-dimensional tables using the RDF Data Cube Vocabulary [<cite><a class="bibref" href="#bib-RDF-Data-Cube-Vocabulary">RDF Data Cube Vocabulary</a></cite>],
 		describing formal statistical classifications using the SKOS Extension for Statistics (XKOS) [<cite><a class="bibref" href="#bib-XKOS">XKOS</a></cite>], 
+        describing arbitrary (real, hypothesized, virtual, fictional) objects, processes and their attributes [<cite><a class="bibref" href="#bib-SIO">SIO</a></cite>],
 		and delineating code lists, category schemes, mappings between them, and concepts like topics 
 		using the Simple Knowledge Organization System (SKOS) [<cite><a class="bibref" href="#bib-SKOS">SKOS</a></cite>]. Furthermore, the external vocabularies Friend of a Friend (FOAF) [<cite><a class="bibref" href="#bib-FOAF">FOAF</a></cite>], 
 		the Organization Ontology (ORG) [<cite><a class="bibref" href="#bib-ORG">ORG</a></cite>], the Asset Description Metadata Schema (ADMS) [<cite><a class="bibref" href="#bib-ADMS">ADMS</a></cite>], and the PROV Ontology (PROV-O) [<cite><a class="bibref" href="#bib-PROV-O">PROV-O</a></cite>] are used.
@@ -2214,6 +2215,7 @@ Please note that only code and categories are part of the turtle example.</li>
 			<li>RDF Data Cube Vocabulary</li>
 			<li>XKOS</li>
 			<li>PROV-O</li>
+			<li>SIO</li>
 		</ul>
 	  </p>
 	  
@@ -2404,6 +2406,12 @@ and positions of concepts in lists (xkos:previous, xkos:next).
 	  
 	  </section>
 	  
+
+	  <section>
+	  <h3>Semanticscience Integrated Ontology (SIO)</h3>
+	  <p>The Semanticscience Integrated Ontology (SIO) provides a simple, integrated ontology of types and relations for rich description of objects, processes and their attributes. A <code>sio:SIO_000367</code> (Variable) represents a value that may change within the scope of a given or set of operations. For instance, in the context of a mathematics or statistics, a sio Variable is an information content entity that can be used to indicate the independent, dependent, or control variables of a study or experiment. Here, the similarity between sio Variable and <code>disco:Variable</code> is that, they are both associated to a concept e.g., Sex, Age and Citizenship.</p>
+	  </section>
+
     </section>
 
     <section id='mapping-from-DDI-XML-to-DDI-RDF'><h2>DDI-XML Bidirectional Mappings</h2>
@@ -6875,6 +6883,7 @@ prov:wasDerivedFrom :EuropeanStudy.
 	<dt id="bib-PROV-O">[PROV-O]</dt><dd>PROV Ontology (PROV-O), <a href="http://www.w3.org/TR/prov-o/"><cite>http://www.w3.org/TR/prov-o/</cite></a></dd>
 	<dt id="bib-RDF-Data-Cube-Vocabulary">[RDF Data Cube Vocabulary]</dt><dd>RDF Data Cube Vocabulary, <a href="http://www.w3.org/TR/vocab-data-cube/"><cite>http://www.w3.org/TR/vocab-data-cube/</cite></a></dd>
 	<dt id="bib-SKOS">[SKOS]</dt><dd>Simple Knowledge Organization System (SKOS), <a href="http://www.w3.org/2004/02/skos/"><cite>http://www.w3.org/2004/02/skos/</cite></a></dd>
+	<dt id="bib-SIO">[SIO]</dt><dd>Semanticscience Integrated Ontology, <a href="https://code.google.com/p/semanticscience/wiki/SIO"><cite>https://code.google.com/p/semanticscience/wiki/SIO</cite></a></dd>
 </dl>
             </section>
             
