@@ -523,3 +523,7 @@ disco:summaryStatisticsType a rdf:Property, owl:ObjectProperty;
     rdfs:domain disco:SummaryStatistics;
     rdfs:range skos:Concept;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+
+# Ontology mappings
+# XXX: Temporarily listed here
+disco:Variable owl:equivalentClass <http://semanticscience.org/resource/SIO_000367> .
