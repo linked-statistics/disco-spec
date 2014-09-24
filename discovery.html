@@ -2418,6 +2418,70 @@ and positions of concepts in lists (xkos:previous, xkos:next).
 		The actual data are assumed to sit in a data file (e.g. a CSV  file, or in a proprietary statistical package file format) that is not represented in RDF.
 	  </p>
 	  
+		<section><h4>Examples</h4>
+		
+			<section><h5>Simple case: provenance of aggregated data / relationship from aggregated data to microdata</h5>
+			
+				<div class="example">
+					<div class="example-title">
+						<span>Simple case</span>
+							<pre>
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+							
+:AggregatedDataSet
+    a prov:Entity;
+    prov:wasDerivedFrom :MicrodataDataSet.
+
+:MicrodataDataSet a prov:Entity .
+						</pre>
+					</div>
+				</div>
+				
+			</section>
+			
+			<section><h5>Complex case: detailed description of microdata variables resulting dimensions in aggregated data and aggregation method</h5>
+			
+				<div class="example">
+					<div class="example-title">
+						<span>Complex case</span>
+							<pre>
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+							
+:AggregatedDataSet
+    a prov:Entity;
+    prov:wasDerivedFrom :MicrodataDataSet;
+    prov:wasGeneratedBy :AggregationActivity;
+    prov:qualifiedDerivation [
+        a prov:Derivation;
+        prov:entity :MicrodataDataSet;
+        prov:hadActivity :AggregationActivity ].
+
+:AggregationActivity
+    a prov:Activity .
+
+:MicrodataDataSet
+    a prov:Entity;
+						</pre>
+					</div>
+				</div>
+				
+				<div class="note">
+					<ul>
+						<li>prov:Activity</li>
+						<ul>
+							<li>reference to aggregation method described by CV</li>
+							<li>description of variables in the microdata data set / 0..n independent variables / 1..n dependent variables</li>
+							<li>description of the dimension in data cube</li>
+							<li>1 activity per dimension</li>
+							<li>see more information in DDI-L field level documentation DDI 3.2 Aggregation</li>
+						</ul>
+					</ul>
+				</div>
+				
+			</section>
+			
+		</section>
+	  
 	  </section>
 	  
 
