@@ -330,15 +330,6 @@ disco:collectionMode a rdf:Property, owl:ObjectProperty;
     rdfs:range skos:Concept;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
-# containsVariable property
-# * LogicalDataSet -> Variable 0,...,n / 1,...,n
-disco:containsVariable a rdf:Property, owl:ObjectProperty;
-    rdfs:label "contains variable"@en, "contient la variable"@fr;
-	rdfs:comment "points to Variable contained in the LogicalDataSet"@en;
-    rdfs:domain disco:LogicalDataSet;
-    rdfs:range disco:Variable;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
-
 # concept property
 # * RepresentedVariable -> Concept 1 / 0,...,n
 # * Question -> Concept 1,...,n / 0,...,n
@@ -510,10 +501,11 @@ disco:universe a rdf:Property, owl:ObjectProperty;
 
 # variable property
 # * Study -> Variable 0,...,n / 1,...,n
+# * LogicalDataSet -> Variable 0,...,n / 1,...,n
 disco:variable a rdf:Property, owl:ObjectProperty;
     rdfs:label "variable"@en, "Variable"@de;
-	rdfs:comment "Indicates the Variable of a Study."@en;
-    rdfs:domain disco:Study;
+	rdfs:comment "Indicates the Variable of a Study and points to Variable contained in the LogicalDataSet."@en;
+	rdfs:domain [a owl:Class; owl:unionOf (disco:Study disco:LogicalDataSet)];
     rdfs:range disco:Variable;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 	
