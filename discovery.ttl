@@ -222,7 +222,7 @@ disco:percentage a rdf:Property, owl:DatatypeProperty;
     rdfs:label "percentage"@en, "pourcentage"@fr;
 	rdfs:comment "percentage"@en;
     rdfs:domain disco:CategoryStatistics;
-    rdfs:range xsd:decimal;
+    rdfs:range xsd:double;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 	
 # computationBase property
@@ -238,7 +238,7 @@ disco:cumulativePercentage a rdf:Property, owl:DatatypeProperty;
     rdfs:label "cumulative percentage"@en;
 	rdfs:comment "cumulative percentage"@en;
     rdfs:domain disco:CategoryStatistics;
-    rdfs:range xsd:decimal;
+    rdfs:range xsd:double;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # purpose property
