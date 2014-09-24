@@ -1,47 +1,128 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html prefix="bibo: http://purl.org/ontology/bibo/ w3p: http://www.w3.org/2001/02pd/rec54#" content="en" property="dcterms:language" about="" typeof="bibo:Document " dir="ltr" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>DDI-RDF Discovery Vocabulary</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <style type="text/css">
-      table { border: black 1px solid; border-collapse:collapse; border-spacing: 0; }
-      table td { border: black 1px solid; padding: 3px; padding-left: 10px; padding-right: 10px; text-align: center; vertical-align: top;}
-	  .classDefinitions dd{margin-left: 25px;}
-	  .classProperties{margin-left:25px;margin-bottom: 15px;margin-top:15px;}
-	  .classProperties dt{margin-top: 15px;}        
-      .figcaption {
-        margin-top: 0.75em;
-      }
-	  @media screen
-	  {
-		.screen-hidden {
-		  display: none;
-		}
-		#combined-uml-diagram-object-properties-only {
-		  width: 88%;
-		}
-	  }
-	  @media print
-	  {
-        img {
-          width: 95%;
-        }
-		#combined-uml-diagram-object-properties-only {
-		  width: 88%;
-		}
-		.print-hidden {
-		  display: none;
-		}
-		.table {
-		  width: 100%;
-		}
-			/*
-			IE: OK
-			Firefox: 11.3.3 "Data Sets, Data Files, and Descriptive Statistics" too wide.
-			*/
-	  }
-    </style>
-		<script type="text/javascript">
+    <meta charset="utf-8">
+    
+    
+  <style>/*****************************************************************
+ * ReSpec 3 CSS
+ * Robin Berjon - http://berjon.com/
+ *****************************************************************/
+
+/* --- INLINES --- */
+em.rfc2119 { 
+    text-transform:     lowercase;
+    font-variant:       small-caps;
+    font-style:         normal;
+    color:              #900;
+}
+
+h1 acronym, h2 acronym, h3 acronym, h4 acronym, h5 acronym, h6 acronym, a acronym,
+h1 abbr, h2 abbr, h3 abbr, h4 abbr, h5 abbr, h6 abbr, a abbr {
+    border: none;
+}
+
+dfn {
+    font-weight:    bold;
+}
+
+a.internalDFN {
+    color:  inherit;
+    border-bottom:  1px solid #99c;
+    text-decoration:    none;
+}
+
+a.externalDFN {
+    color:  inherit;
+    border-bottom:  1px dotted #ccc;
+    text-decoration:    none;
+}
+
+a.bibref {
+    text-decoration:    none;
+}
+
+cite .bibref {
+    font-style: normal;
+}
+
+code {
+    color:  #C83500;
+}
+
+/* --- TOC --- */
+.toc a, .tof a {
+    text-decoration:    none;
+}
+
+a .secno, a .figno {
+    color:  #000;
+}
+
+ul.tof, ol.tof {
+    list-style: none outside none;
+}
+
+.caption {
+    margin-top: 0.5em;
+    font-style:   italic;
+}
+
+/* --- TABLE --- */
+table.simple {
+    border-spacing: 0;
+    border-collapse:    collapse;
+    border-bottom:  3px solid #005a9c;
+}
+
+.simple th {
+    background: #005a9c;
+    color:  #fff;
+    padding:    3px 5px;
+    text-align: left;
+}
+
+.simple th[scope="row"] {
+    background: inherit;
+    color:  inherit;
+    border-top: 1px solid #ddd;
+}
+
+.simple td {
+    padding:    3px 10px;
+    border-top: 1px solid #ddd;
+}
+
+.simple tr:nth-child(even) {
+    background: #f0f6ff;
+}
+
+/* --- DL --- */
+.section dd > p:first-child {
+    margin-top: 0;
+}
+
+.section dd > p:last-child {
+    margin-bottom: 0;
+}
+
+.section dd {
+    margin-bottom:  1em;
+}
+
+.section dl.attrs dd, .section dl.eldef dd {
+    margin-bottom:  0;
+}
+
+@media print {
+    .removeOnSave {
+        display: none;
+    }
+}
+</style><link href="respec/W3C-ED.css" rel="stylesheet"><!--[if lt IE 9]><script src='https://www.w3.org/2008/site/js/html5shiv.js'></script><![endif]-->
+
+<script type="text/javascript">
 //<![CDATA[
 // Adjustment of size of UML diagrams to 55% of original size or if wider than the screen to 90% of screen width.
 // UML diagrams must have the CSS class "uml-diagram" (no additional classes).
@@ -63,113 +144,148 @@ function adjustWidthOfImages() {
 	}
 }
 //]]></script>
-    <script type="text/javascript" src='respec/respec-w3c-common.js' class='remove'></script>
-    <script type="text/javascript" class='remove'>
-      var respecConfig = {
-          // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
-          specStatus:           "unofficial",
+
+</head>
+  <body id="respecDocument" role="document" class="h-entry"><div id="respecHeader" role="contentinfo" class="head">
+  <p>
+    
+      <a href="http://www.w3.org/"><img src="respec/w3c_home.png" alt="W3C" height="48" width="72"></a>
+    
+  </p>
+  <h1 class="title p-name" id="title" property="dcterms:title">This Is The Name Of Your Specification</h1>
+  
+  <h2 id="w3c-editor-s-draft-22-september-2014" property="dcterms:issued" datatype="xsd:dateTime" content="2014-09-22T15:22:41.000Z"><abbr title="World Wide Web Consortium">W3C</abbr> Editor's Draft <time class="dt-published" datetime="2014-09-22">22 September 2014</time></h2>
+  <dl>
+    
+      <dt>This version:</dt>
+      <dd><a class="u-url" href=""></a></dd>
+      <dt>Latest published version:</dt>
+      <dd><a href="http://www.w3.org/TR/xxx-xxx/">http://www.w3.org/TR/xxx-xxx/</a></dd>
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    <dt>Editor:</dt>
+    <dd class="p-author h-card vcard" rel="bibo:editor" inlist=""><span typeof="foaf:Person"><a class="u-url url p-name fn" rel="foaf:homepage" property="foaf:name" content="Your Name" href="http://example.org/">Your Name</a>, <a rel="foaf:workplaceHomepage" class="p-org org h-org h-card" href="http://example.com/">Your Company</a>, <span class="ed_mailto"><a class="u-email email" rel="foaf:mbox" href="mailto:you@example.org">you@example.org</a></span></span>
+</dd>
+
+    
+    
+  </dl>
+  
+  
+  
+  
+    
+      <p class="copyright">
+        <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©
+        2014
+        
+        <a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+        (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+        <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+        <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>), 
+        
+        All Rights Reserved.
+        
+        <abbr title="World Wide Web Consortium">W3C</abbr> <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+        <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+        
+          <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>
+        
+        rules apply.
+      </p>
+    
+  
+  <hr>
+</div>
+    <section rel="bibo:Chapter" resource="#abstract" typeof="bibo:Chapter" datatype="" property="dcterms:abstract" class="introductory" id="abstract"><h2 id="h2_abstract" role="heading" aria-level="1">Abstract</h2>
+      <p>
+        This is the abstract for your specification.
+      </p>
+    </section><section rel="bibo:Chapter" resource="#sotd" typeof="bibo:Chapter" id="sotd" class="introductory"><h2 id="h2_sotd" role="heading" aria-level="1">Status of This Document</h2>
+  
+    
+      
+        <p>
+          <em>This section describes the status of this document at the time of its publication.
+          Other documents may supersede this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the
+          latest revision of this technical report can be found in the <a href="http://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at
+          http://www.w3.org/TR/.</em>
+        </p>
+        
+      <p>
+        You need to have a custom SotD paragraph. Maybe give a succinct description of your spec's
+        status.
+      </p>
+    
+        <p>
+          This document was published by the <a href="http://example.org/really-cool-wg">In Charge Of This Document Working Group</a> as an Editor's Draft.
           
-          // the specification's short name, as in http://www.w3.org/TR/short-name/
-          shortName:            "Disco",
-
-          // if your specification has a subtitle that goes below the main
-          // formal title, define it here
-          subtitle   :  "A vocabulary for publishing metadata about data sets (research and survey data) into the Web of Linked Data",
-
-          // if you wish the publication date to be other than today, set this
-          // publishDate:  "2009-08-06",
-
-          // if the specification's copyright date is a range of years, specify
-          // the start date here:
-          copyrightStart: "2013",
-
-          // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
-          // and its maturity status
-          // previousPublishDate:  "1977-03-15",
-          // previousMaturity:  "WD",
-
-          // if there a publicly available Editor's Draft, this is the link
-          edDraftURI:           "https://raw.github.com/linked-statistics/disco-spec/master/discovery.html",
-
-          // if this is a LCWD, uncomment and set the end of its review period
-          // lcEnd: "2009-08-05",
-
-          // editors, add as many as you like
-          // only "name" is required
-          editors:  [
-              { name: "Thomas Bosch", url: "http://boschthomas.blogspot.ie/",
-                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
-              { name: "Richard Cyganiak", url: "http://richard.cyganiak.de/",
-                company: "DERI - Digital Enterprise Research Institute, National University of Ireland", companyURL: "http://www.deri.ie/" },
-			  { name: "Joachim Wackerow",
-                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
-              { name: "Benjamin Zapilko",
-                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
-          ],
-
-          // authors, add as many as you like. 
-          // This is optional, uncomment if you have authors as well as editors.
-          // only "name" is required. Same format as editors.
-
-          authors:  [ 
-              { name: "Thomas Bosch", url: "http://boschthomas.blogspot.ie/",
-                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
-                { name: "Sarven Capadisli", url: "http://csarven.ca/#i",
-                company: "Bern University of Applied Sciences", companyURL: "http://bfh.ch/" },
-              { name: "Franck Cotton", //url: "http://example.org/",
-                company: "INSEE - Institut National de la Statistique et des Études Économiques, France", companyURL: "http://www.insee.fr/en/default.asp" },
-              { name: "Richard Cyganiak", url: "http://richard.cyganiak.de/",
-                company: "DERI - Digital Enterprise Research Institute, National University of Ireland", companyURL: "http://www.deri.ie/" },
-              { name: "Arofan Gregory", //url: "http://example.org/",
-                company: "ODaF - Open Data Foundation, USA", companyURL: "http://www.opendatafoundation.org/" },
-              { name: "Benedikt Kämpgen", //url: "http://example.org/",
-                company: "KIT - Karlsruhe Institute of Technology, Germany", companyURL: "http://www.kit.edu/index.php" },
-              { name: "Olof Olsson", //url: "http://example.org/",
-                company: "SND - Swedish National Data Service", companyURL: "http://snd.gu.se/en" },
-              { name: "Heiko Paulheim", url: "http://www.heikopaulheim.com/",
-                company: "University of Mannheim, Germany", companyURL: "http://dws.informatik.uni-mannheim.de/" },
-              { name: "Joachim Wackerow", //url: "http://example.org/",
-                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
-              { name: "Benjamin Zapilko",
-                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" }
-          ],
           
-          // If specified, defines an array of alternate formats in which document is available (e.g., XML, Postscript). The format of the array is:
-          // key description
-          //   uri    the relative or absolute URI to the alternate version.
-          //   label  the label to use for the version. 
-          alternateFormats: [
-		      { uri: "DDI-RDF_Discovery_Vocabulary.pdf",
-			    label: "PDF" }
-		  ],
-
-		  // generates various RDFa attributes if set to true
-		  // set to false for test purposes
-		  doRDFa: false,
-          // name of the WG
-		  // Apparently, not used.
-          wg:           "DDI Alliance RDF Vocabularies Working Group",
+            If you wish to make comments regarding this document, please send them to 
+            <a href="mailto:spec-writers-anonymous@w3.org">spec-writers-anonymous@w3.org</a> 
+            (<a href="mailto:spec-writers-anonymous-request@w3.org?subject=subscribe">subscribe</a>,
+            <a href="http://lists.w3.org/Archives/Public/spec-writers-anonymous/">archives</a>).
           
-          // URI of the public WG page
-		  // Apparently, not used.
-          wgURI:        "http://www.ddialliance.org/alliance/working-groups#RDF",
           
-          // name (without the @w3c.org) of the public mailing to which comments are due
-		  // Apparently, this has to be a W3C address.
-		  // Apparently, not used.
-          wgPublicList: "ddi-rdf-vocabulary@googlegroups.com",
           
-          // URI of the patent status for this WG, for Rec-track documents
-          // !!!! IMPORTANT !!!!
-          // This is important for Rec-track documents, do not copy a patent URI from a random
-          // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-          // Team Contact.
-//          wgPatentURI:  "",
-      };
-    </script>
-  </head>
-  <body onload="adjustWidthOfImages()">
-    <section id='abstract'>
+          
+            All comments are welcome.
+          
+        </p>
+        
+        
+          <p>
+            Publication as an Editor's Draft does not imply endorsement by the <abbr title="World Wide Web Consortium">W3C</abbr>
+            Membership. This is a draft document and may be updated, replaced or obsoleted by other
+            documents at any time. It is inappropriate to cite this document as other than work in
+            progress.
+          </p>
+        
+        
+        
+        <p>
+          
+            This document was produced by a group operating under the 
+            <a id="sotd_patent" about="" rel="w3p:patentRules" href="http://www.w3.org/Consortium/Patent-Policy-20040205/">5 February 2004 <abbr title="World Wide Web Consortium">W3C</abbr> Patent
+            Policy</a>.
+          
+          
+          
+            
+              <abbr title="World Wide Web Consortium">W3C</abbr> maintains a <a href="" rel="disclosure">public list of any patent
+              disclosures</a> 
+            
+            made in connection with the deliverables of the group; that page also includes
+            instructions for disclosing a patent. An individual who has actual knowledge of a patent
+            which the individual believes contains
+            <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential">Essential
+            Claim(s)</a> must disclose the information in accordance with
+            <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure">section
+            6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+          
+          
+        </p>
+        
+          <p>This document is governed by the <a id="w3c_process_revision" href="http://www.w3.org/2014/Process-20140801/">1 August 2014 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+          </p>
+        
+        
+      
+    
+  
+</section><section id="toc"><h2 id="h2_toc" role="heading" aria-level="1" class="introductory">Table of Contents</h2><ul id="respecContents" role="directory" class="toc"><li class="tocline"><a class="tocxref" href="#section-title"><span class="secno">1. </span>Section Title</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><span class="secno">A. </span>Acknowledgements</a></li></ul></section>
+    
+    
+    
+   <section id='abstract'>
 This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on <a href="http://www.ddialliance.org/what">DDI (Data Documentation Initiative)</a> XML formats.
     </section>
     
@@ -6942,7 +7058,8 @@ prov:wasDerivedFrom :EuropeanStudy.
               </dl>
             </section>
     </section>
-        
-    
-  </body>
-</html>
+	
+
+  
+
+<div style="position: fixed; top: 20px; right: 20px; width: 202px; text-align: right;" id="respec-ui" class="removeOnSave"><button style="background: none repeat scroll 0% 0% rgb(255, 255, 255); font-weight: bold; border: 1px solid rgb(204, 204, 204); border-radius: 5px;">ReSpec</button><button style="background: none repeat scroll 0% 0% rgb(255, 102, 0); color: rgb(255, 255, 255); font-weight: bold; border: medium none; border-radius: 5px; margin-left: 5px;">1</button><div style="background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 1px solid rgb(0, 0, 0); width: 200px; display: none; text-align: left; margin-top: 5px; margin-right: 5px;"><button style="background: none repeat scroll 0% 0% rgb(255, 255, 255); border-width: medium medium 1px; border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color rgb(204, 204, 204); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; width: 100%; text-align: left; font-size: inherit;">Save Snapshot</button><button style="background: none repeat scroll 0% 0% rgb(255, 255, 255); border-width: medium medium 1px; border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color rgb(204, 204, 204); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; width: 100%; text-align: left; font-size: inherit;">About ReSpec</button><button style="background: none repeat scroll 0% 0% rgb(255, 255, 255); border-width: medium medium 1px; border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color rgb(204, 204, 204); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; width: 100%; text-align: left; font-size: inherit;">Search Specref DB</button></div></div></body></html>
