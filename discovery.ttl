@@ -293,6 +293,13 @@ disco:context a rdf:Property, owl:DatatypeProperty;
     rdfs:domain disco:Mapping;
     rdfs:range rdf:langString;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+	
+disco:variableQuantity a rdf:Property, owl:DatatypeProperty;
+    rdfs:label "variable quantity"@en;
+	rdfs:comment "Variable quantity"@en;
+    rdfs:domain [ a owl:Class; owl:unionOf (disco:LogicalDataSet disco:DataFile)];
+    rdfs:range xsd:nonNegativeInteger;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 #################################################################
 # Object properties
