@@ -979,7 +979,10 @@ Please note that the turtle example describes the variable labels from the scree
 	(<code><a href="#dfn-disco-fundedby" class="internalDFN">fundedBy</a></code>) 
 	    <code>foaf:Agents</code>. The object property <code><a href="#dfn-disco-fundedby" class="internalDFN">fundedBy</a></code> is defined as sub-property of 
 	    <code>dcterms:contributor</code>. The cardinalities of these object properties are in both
-        directions always 0 to n.		
+        directions always 0 to n.
+		<code>foaf:Agents</code> may have roles such as analyst, data modeler, programmer, and co-investigator. 
+		These roles are represented using <code>skos:Concepts</code>. <code>foaf:Agents</code> and <code>skos:Concepts</code> are related by <code>prov:hadRole</code>.
+		Roles can be defined (<code>skos:definition</code>), identified (<code>skos:notation</code>), and described (<code>skos:prefLabel</code>).
 	  </p>
 	  
     <section>
