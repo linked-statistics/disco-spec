@@ -602,7 +602,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
     disco:instrument &lt;#Questionnaire&gt;;
     dcterms:accessRights &lt;#AccessRights&gt;;
     disco:dataFile &lt;#Datafile&gt;;
-    disco:containsVariable &lt;#AR80A401&gt;, &lt;#AR80A402&gt;, &lt;#AR80A404&gt;, &lt;#AR80A407&gt;, &lt;#AR80A411&gt;.
+    disco:variable &lt;#AR80A401&gt;, &lt;#AR80A402&gt;, &lt;#AR80A404&gt;, &lt;#AR80A407&gt;, &lt;#AR80A411&gt;.
 
 &lt;#AccessRights&gt; dcterms:description "IPUMS-International distributes
 	integrated microdata of individuals and households only by agreement ... 
@@ -684,7 +684,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 <div class="note">
 
 <p>
-Please note that the turtle example describes the variable labels from the screenshot above and references to the related represented variable and question.</li>
+Please note that the turtle example describes the variable labels from the screenshot above and references to the related represented variable and question.
 </p>
 
 </div>
@@ -1293,7 +1293,7 @@ ex:Study1 dcterms:subject [
 		one specific <code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code> may be in multiple (0 - n) <code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code> 
 		relations to logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>).	
 	
-		Logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>) may contain (<code><a href="#dfn-disco-containsvariable" class="internalDFN">containsVariable</a></code>) 0 to n variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and variables (
+		Logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>) may contain (<code><a href="#dfn-disco-variable" class="internalDFN">variable</a></code>) 0 to n variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) and variables (
 		<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) must be contained in 1 to n logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>).
 
 		Logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>) can be aggregated (<code><a href="#dfn-disco-aggregation" class="internalDFN">aggregation</a></code>) to 0 to n data sets (<code>qb:DataSet</code>) and data sets (
@@ -1320,7 +1320,7 @@ ex:Study1 dcterms:subject [
     dcterms:accessRights &lt;AccessRights&gt;;
     disco:dataFile &lt;#Datafile&gt;;
     disco:instrument &lt;#Questionnaire&gt;;
-    disco:containsVariable &lt;#AR80A401&gt;, &lt;#AR80A402&gt;, &lt;#AR80A404&gt;, &lt;#AR80A407&gt;, &lt;#AR80A411&gt;.
+    disco:variable &lt;#AR80A401&gt;, &lt;#AR80A402&gt;, &lt;#AR80A404&gt;, &lt;#AR80A407&gt;, &lt;#AR80A411&gt;.
       </pre>
 	  
     </section>
@@ -2837,7 +2837,7 @@ disco:mapping [
     </tr>
     <tr>
       <td>#4 </td>
-      <td>disco:containsVariable</td>
+      <td>disco:variable</td>
       <td></td>
       <td></td>
       <td></td>
@@ -3775,7 +3775,7 @@ disco:mapping [
     </tr> 
     <tr>
       <td>4</td>
-      <td>containsVariable</td>
+      <td>variable</td>
       <td>LogicalDataSet</td>
       <td>Variable</td>
       <td></td>
@@ -4783,7 +4783,7 @@ disco:mapping [
     </tr> 
     <tr>
       <td>4</td>
-      <td>containsVariable</td>
+      <td>variable</td>
       <td>LogicalDataSet</td>
       <td>Variable</td>
       <td></td>
@@ -5744,7 +5744,7 @@ disco:mapping [
     </tr> 
     <tr>
       <td>4</td>
-      <td>containsVariable</td>
+      <td>variable</td>
       <td>LogicalDataSet</td>
       <td>Variable</td>
       <td></td>
@@ -6349,7 +6349,7 @@ disco:mapping [
             the time of collection or later during cleaning, and re-coding. LogicalDataSet represents
             the microdata dataset.
          </dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:containsVariable"></a><em>Object Property: </em><code><dfn>disco:containsVariable</dfn></code>
+         <dt class="classProperties"><a id="dfn-disco-disco:variable"></a><em>Object Property: </em><code><dfn>disco:variable</dfn></code>
             (<em>Domain:</em><code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Variable</code>
             )
             
