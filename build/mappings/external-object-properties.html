@@ -2,11 +2,11 @@
 <thead>
       <tr>
           <th style="font-weight: bold;">#<br/></td>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></tH>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation<br/></th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">property</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation</th>
       </tr>
   </thead>
   <tbody>
@@ -15,8 +15,8 @@
       <td>dcterms:identifier</td>
       <td></td>
       <td></td>
-      <td>//l:Variable/l:VariableName</td>
       <td>dcterms:identifier represents variable label</td>
+      <td>SELECT ?identifier WHERE { ?variable a disco:Variable . ?variable dcterms:identifier ?identifier. }</td>
   <td></td>
     </tr>
     <tr>
@@ -24,8 +24,8 @@
       <td>skos:prefLabel</td>
       <td></td>
       <td></td>
-      <td>//l:Variable/r:Label</td>
       <td>skos:prefLabel represents the label of the variable</td>
+      <td>SELECT ?label WHERE{?variable a disco:Variable . ?variable skos:prefLabel ?label.}</td>
   <td></td>
     </tr>
     <tr>
@@ -33,8 +33,8 @@
       <td>skos:prefLabel</td>
       <td></td>
       <td></td>
-      <td>//d:QuestionItem/d:QuestionItemName</td>
       <td>Name of question</td>
+      <td>SELECT ?label WHERE{?question a disco:Question . ?question skos:prefLabel ?label.}</td>
   <td></td>
     </tr>
   </tbody>

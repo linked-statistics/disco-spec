@@ -2,11 +2,11 @@
 <thead>
       <tr>
           <th style="font-weight: bold;">#<br/></td>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></tH>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation<br/></th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">property</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation</th>
       </tr>
   </thead>
   <tbody>
@@ -51,8 +51,8 @@
       <td>disco:concept</td>
       <td></td>
       <td></td>
-      <td>//l:Vaiable/l:ConceptReference</td>
       <td>Varialbe has a concept</td>
+      <td>SELECT ?concept WHERE{?variable a disco:Variable . ?variable disco:concept ?concept.}</td>
   <td></td>
     </tr>
     <tr>
@@ -60,8 +60,8 @@
       <td>disco:concept</td>
       <td></td>
       <td></td>
-      <td>//d:QuestionItem/r:ConceptReference</td>
       <td>Question is defined by concept</td>
+      <td>"SELECT ?concept WHERE{?question a disco:Question . ?question disco:concept ?concept.}</td>
   <td></td>
     </tr>
     <tr>
@@ -141,8 +141,8 @@
       <td>disco:instrument</td>
       <td></td>
       <td></td>
-      <td>//d:DataCollection/[d:QuestionItem d:MultipleQuestionItem]</td>
       <td>The instrument of the study questionaire </td>
+      <td>SELECT ?instrument WHERE{?study a disco:Study . ?study disco:instrument ?instrument.}</td>
   <td></td>
     </tr>
     <tr>
@@ -168,8 +168,8 @@
       <td>disco:question</td>
       <td></td>
       <td></td>
-      <td>//l:Variable/l:QuestionReference</td>
       <td>Variable can have a question</td>
+      <td>SELECT ?question WHERE{?variable a disco:Variable . ?variable disco:question ?question.}</td>
   <td></td>
     </tr>
     <tr>
@@ -177,8 +177,8 @@
       <td>disco:question</td>
       <td></td>
       <td></td>
-      <td>//[d:QuestionItem d:MultipleQuestionItem]</td>
       <td>Questions in a questionaire</td>
+      <td>SELECT ?question WHERE{?study a disco:Study . ?study disco:instrument ?instrument. ?instrument disco:question ?question.}</td>
   <td></td>
     </tr>
     <tr>
@@ -186,8 +186,8 @@
       <td>disco:representation</td>
       <td></td>
       <td></td>
-      <td>//l:Variable/l:Representation/l:CodeRepresentation/[r:CodeSchemeReference l:NumericRepresentation l:TextRepresentation l:DateTimeRepresentation]</td>
       <td>Variables can have a representation</td>
+      <td>SELECT ?representation WHERE{?variable a disco:Variable . ?variable disco:representation ?representation.}</td>
   <td></td>
     </tr>
     <tr>
@@ -231,8 +231,8 @@
       <td>disco:universe</td>
       <td></td>
       <td></td>
-      <td>disco:universe</td>
       <td>Variable can have a concept</td>
+      <td>SELECT ?universe WHERE{?variable a disco:Variable . ?variable disco:universe ?universe.}</td>
   <td></td>
     </tr>
   </tbody>

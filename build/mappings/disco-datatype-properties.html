@@ -2,11 +2,11 @@
 <thead>
       <tr>
           <th style="font-weight: bold;">#<br/></td>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">property<br/></tH>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L<br/></th>
-          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation<br/></th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">property</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation</th>
       </tr>
   </thead>
   <tbody>
@@ -15,16 +15,16 @@
       <td>skos:notation</td>
       <td></td>
       <td></td>
-      <td>//l:Variable/l:VariableName</td>
       <td>skos:notation represents variable label</td>
-  <td><a href='http://www.ddialliance.org/Specification/DDI-Lifecycle/3.1/XMLSchema/FieldLevelDocumentation/logicalproduct_xsd/elements/Variable.html'>DDI-L Documentation</a>
+      <td>SELECT ?notation WHERE { ?notation rdfs:domain ?variable. ?variable a disco:Variable. }</td>
+  <td></td>
     </tr>
     <tr>
       <td>#2 </td>
       <td>disco:frequency</td>
       <td></td>
       <td></td>
-      <td>p:CaseQuantity</td>
+      <td></td>
       <td></td>
   <td></td>
     </tr>
@@ -51,7 +51,7 @@
       <td>disco:questionText</td>
       <td></td>
       <td></td>
-      <td>d:QuestionText</td>
+      <td></td>
       <td></td>
   <td></td>
     </tr>
@@ -87,7 +87,7 @@
       <td>disco:purpose</td>
       <td></td>
       <td></td>
-      <td>s:Purpose</td>
+      <td></td>
       <td></td>
   <td></td>
     </tr>
@@ -96,7 +96,7 @@
       <td>disco:subtitle</td>
       <td></td>
       <td></td>
-      <td>r:SubTitle</td>
+      <td></td>
       <td></td>
   <td></td>
     </tr>

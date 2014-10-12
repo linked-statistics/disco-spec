@@ -1,8 +1,6 @@
-#!/bin/bash
-
+﻿#! /bin/bash
 #get latest csv-files from google drive
 sh getcsv.sh
-
 #prepare turtle mapping file
 rm -f mapping.ttl
 touch mapping.ttl
@@ -23,7 +21,6 @@ echo "@prefix prov: <http://www.w3.org/ns/prov#>." >> mapping.ttl
 echo "@prefix schema: <http://schema.org/>." >> mapping.ttl
 echo "@prefix swrc: <http://swrc.ontoware.org/ontology#>." >> mapping.ttl
 echo "@prefix xkos: <http://purl.org/linked-data/xkos#>." >> mapping.ttl
-
 
 EXT=csv
 for i in $(ls);do

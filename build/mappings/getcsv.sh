@@ -1,4 +1,5 @@
-#!/bin/bash 
+﻿#!/bin/bash 
+
 #$BASEURI="https://docs.google.com/spreadsheet/pub?key=";
 #$KEY="0AnXXOuMQghwxdG1wU1EzLVJybHp6SDI5ZHJOTUlzOVE";
 
