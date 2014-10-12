@@ -39,3 +39,42 @@ for i in $(ls);do
 		rm $i
     fi
 done
+
+rm -f mapping.html
+touch mapping.html
+
+echo "<section>"  >> mapping.html
+echo "	<h4>Classes ( disco )</h4>"  >> mapping.html
+cat disco-classes.html  >> mapping.html
+echo "</section>"  >> mapping.html
+rm disco-classes.html
+
+echo "<section>"  >> mapping.html
+echo "	<h4>Object properties ( disco )</h4>"  >> mapping.html
+cat disco-object-properties.html  >> mapping.html
+echo "</section>"  >> mapping.html
+rm disco-object-properties.html
+
+echo "<section>"  >> mapping.html
+echo "	<h4>Datatype properties ( disco )</h4>"  >> mapping.html
+cat disco-datatype-properties.html  >> mapping.html
+echo "</section>"  >> mapping.html
+rm disco-datatype-properties.html
+
+echo "<section>"  >> mapping.html
+echo "	<h4>Classes ( external vocabularies )</h4>"  >> mapping.html
+cat external-classes.html  >> mapping.html
+echo "</section>"  >> mapping.html
+rm external-classes.html
+
+echo "<section>"  >> mapping.html
+echo "	<h4>Object properties ( external vocabularies )</h4>"  >> mapping.html
+cat external-object-properties.html  >> mapping.html
+echo "</section>"  >> mapping.html
+rm external-object-properties.html
+
+echo "<section>"  >> mapping.html
+echo "	<h4>Datatype properties ( external vocabularies )</h4>"  >> mapping.html
+cat external-datatype-properties.html  >> mapping.html
+echo "</section>"  >> mapping.html
+rm external-datatype-properties.html

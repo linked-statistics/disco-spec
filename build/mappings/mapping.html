@@ -1,0 +1,669 @@
+<section>
+	<h4>Classes ( disco )</h4>
+<table style="text-align: left; font-size: 70%;">
+  <thead>
+      <tr>
+          <th style="font-weight: bold;">#<br/></td>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">property</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>#1 </td>
+      <td>disco:AnalysisUnit</td>
+      <td></td>
+      <td></td>
+      <td>r:AnalysisUnit</td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#2 </td>
+      <td>disco:RepresentedVariable</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#3 </td>
+      <td>disco:DataFile</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#4 </td>
+      <td>disco:DescriptiveStatistics</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#5 </td>
+      <td>disco:SummaryStatistics</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#6 </td>
+      <td>disco:CategoryStatistics</td>
+      <td></td>
+      <td></td>
+      <td>p:CategoryStatistics</td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#7 </td>
+      <td>disco:Instrument</td>
+      <td></td>
+      <td></td>
+      <td>d:Instrument</td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#8 </td>
+      <td>disco:LogicalDataSet</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#9 </td>
+      <td>disco:Question</td>
+      <td></td>
+      <td></td>
+      <td>d:QuestionItem | d:MultipleQuestionItem</td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#10 </td>
+      <td>disco:responseDomain</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#11 </td>
+      <td>disco:Questionnaire</td>
+      <td></td>
+      <td></td>
+      <td>d:QuestionItem | d:MultipleQuestionItem</td>
+      <td>The instument of the study</td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#12 </td>
+      <td>disco:Study</td>
+      <td></td>
+      <td></td>
+      <td>s:StudyUnit</td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#13 </td>
+      <td>disco:StudyGroup</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#14 </td>
+      <td>disco:Variable</td>
+      <td></td>
+      <td></td>
+      <td>//l:Variable</td>
+      <td></td>
+  <td></td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section>
+	<h4>Object properties ( disco )</h4>
+<table style="text-align: left; font-size: 70%;">
+  <thead>
+      <tr>
+          <th style="font-weight: bold;">#<br/></td>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">property</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>#1 </td>
+      <td>disco:analysisUnit</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#2 </td>
+      <td>disco:basedOn</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#3 </td>
+      <td>disco:collectionMode</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#4 </td>
+      <td>disco:containsVariable</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#5 </td>
+      <td>disco:concept</td>
+      <td></td>
+      <td></td>
+      <td>Varialbe has a concept</td>
+      <td>SELECT ?concept WHERE{?variable a disco:Variable . ?variable disco:concept ?concept.}</td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#6 </td>
+      <td>disco:concept</td>
+      <td></td>
+      <td></td>
+      <td>Question is defined by concept</td>
+      <td>"SELECT ?concept WHERE{?question a disco:Question . ?question disco:concept ?concept.}</td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#7 </td>
+      <td>"</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#8 </td>
+      <td>disco:aggregation</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#9 </td>
+      <td>disco:dataFile</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#10 </td>
+      <td>disco:ddifile</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#11 </td>
+      <td>disco:externalDocumentation</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#12 </td>
+      <td>disco:fundedBy</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#13 </td>
+      <td>disco:inGroup</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#14 </td>
+      <td>disco:inputVariable</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#15 </td>
+      <td>disco:instrument</td>
+      <td></td>
+      <td></td>
+      <td>The instrument of the study questionaire </td>
+      <td>SELECT ?instrument WHERE{?study a disco:Study . ?study disco:instrument ?instrument.}</td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#16 </td>
+      <td>disco:kindOfData</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#17 </td>
+      <td>disco:product</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#18 </td>
+      <td>disco:question</td>
+      <td></td>
+      <td></td>
+      <td>Variable can have a question</td>
+      <td>SELECT ?question WHERE{?variable a disco:Variable . ?variable disco:question ?question.}</td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#19 </td>
+      <td>disco:question</td>
+      <td></td>
+      <td></td>
+      <td>Questions in a questionaire</td>
+      <td>SELECT ?question WHERE{?study a disco:Study . ?study disco:instrument ?instrument. ?instrument disco:question ?question.}</td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#20 </td>
+      <td>disco:representation</td>
+      <td></td>
+      <td></td>
+      <td>Variables can have a representation</td>
+      <td>SELECT ?representation WHERE{?variable a disco:Variable . ?variable disco:representation ?representation.}</td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#21 </td>
+      <td>disco:statisticsCategory</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#22 </td>
+      <td>disco:statisticsDataFile</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#23 </td>
+      <td>disco:statisticsVariable</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#24 </td>
+      <td>disco:weightedBy</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#25 </td>
+      <td>disco:universe</td>
+      <td></td>
+      <td></td>
+      <td>Variable can have a concept</td>
+      <td>SELECT ?universe WHERE{?variable a disco:Variable . ?variable disco:universe ?universe.}</td>
+  <td></td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section>
+	<h4>Datatype properties ( disco )</h4>
+<table style="text-align: left; font-size: 70%;">
+  <thead>
+      <tr>
+          <th style="font-weight: bold;">#<br/></td>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">property</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>#1 </td>
+      <td>skos:notation</td>
+      <td></td>
+      <td></td>
+      <td>skos:notation represents variable label</td>
+      <td>SELECT ?notation WHERE { ?notation rdfs:domain ?variable. ?variable a disco:Variable. }</td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#2 </td>
+      <td>disco:frequency</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#3 </td>
+      <td>disco:isPublic</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#4 </td>
+      <td>disco:isValid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#5 </td>
+      <td>disco:questionText</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#6 </td>
+      <td>disco:percentage</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#7 </td>
+      <td>disco:computationBase</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#8 </td>
+      <td>disco:cumulativePercentage</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#9 </td>
+      <td>disco:purpose</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#10 </td>
+      <td>disco:subtitle</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#11 </td>
+      <td>disco:standardDeviation</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#12 </td>
+      <td>disco:numberOfCases</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#13 </td>
+      <td>disco:maximum</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#14 </td>
+      <td>disco:mean</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#15 </td>
+      <td>disco:median</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#16 </td>
+      <td>disco:minimum</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#17 </td>
+      <td>disco:mode</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#18 </td>
+      <td>disco:startDate</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  <td></td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section>
+	<h4>Classes ( external vocabularies )</h4>
+<table style="text-align: left; font-size: 70%;">
+  <thead>
+      <tr>
+          <th style="font-weight: bold;">#<br/></td>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">property</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>#1 </td>
+      <td>skos:ConceptScheme</td>
+      <td></td>
+      <td></td>
+      <td>//l:Variable/l:CodeScheme</td>
+      <td>Variables can have a coded representaion</td>
+  <td></td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section>
+	<h4>Object properties ( external vocabularies )</h4>
+<table style="text-align: left; font-size: 70%;">
+  <thead>
+      <tr>
+          <th style="font-weight: bold;">#<br/></td>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">property</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>#1 </td>
+      <td>dcterms:identifier</td>
+      <td></td>
+      <td></td>
+      <td>dcterms:identifier represents variable label</td>
+      <td>SELECT ?identifier WHERE { ?variable a disco:Variable . ?variable dcterms:identifier ?identifier. }</td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#2 </td>
+      <td>skos:prefLabel</td>
+      <td></td>
+      <td></td>
+      <td>skos:prefLabel represents the label of the variable</td>
+      <td>SELECT ?label WHERE{?variable a disco:Variable . ?variable skos:prefLabel ?label.}</td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#3 </td>
+      <td>skos:prefLabel</td>
+      <td></td>
+      <td></td>
+      <td>Name of question</td>
+      <td>SELECT ?label WHERE{?question a disco:Question . ?question skos:prefLabel ?label.}</td>
+  <td></td>
+    </tr>
+  </tbody>
+</table>
+</section>
+<section>
+	<h4>Datatype properties ( external vocabularies )</h4>
+<table style="text-align: left; font-size: 70%;">
+  <thead>
+      <tr>
+          <th style="font-weight: bold;">#<br/></td>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">property</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L</th>
+          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>#1 </td>
+      <td>skos:notation</td>
+      <td></td>
+      <td></td>
+      <td>skos:notation represents variable label</td>
+      <td>SELECT ?notation WHERE { ?notation rdfs:domain ?variable. ?variable a disco:Variable. }</td>
+  <td></td>
+    </tr>
+    <tr>
+      <td>#2 </td>
+      <td>skos:notation</td>
+      <td></td>
+      <td></td>
+      <td>skos:notation represents code</td>
+      <td>SELECT ?notation WHERE { ?notation rdfs:domain ?concept. ?concept a skos:Concept. ?concept disco:isValid ?isValid. FILTER ( ?isValid != '' )</td>
+  <td></td>
+    </tr>
+  </tbody>
+</table>
+</section>
