@@ -18,6 +18,7 @@ echo '          <th style="vertical-align: top; text-align: center; font-weight:
 echo '          <th style="vertical-align: top; text-align: center; font-weight: bold;">domain class</th>'
 echo '          <th style="vertical-align: top; text-align: center; font-weight: bold;">range class</th>'
 echo '          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L</th>'
+echo '          <th style="vertical-align: top; text-align: center; font-weight: bold;">Context</th>'
 echo '          <th style="vertical-align: top; text-align: center; font-weight: bold;">DDI-L Documentation</th>'
 echo '      </tr>'
 echo '  </thead>'
