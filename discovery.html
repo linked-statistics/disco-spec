@@ -1444,21 +1444,21 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 </pre>	  
 	  
 	    <p>
-		  Available category statistics types are frequency, percentage, and cumulativePercentage. 
+	      Available category statistics types are <code><a href="#dfn-disco-frequency" class="internalDFN">frequency</a></code>, <code><a href="#dfn-disco-percentage" class="internalDFN">percentage</a></code>, and <code><a href="#dfn-disco-cumulativepercentage" class="internalDFN">cumulativePercentage</a></code>. 
 		  Available summary statistics types are organized in the controlled vocabulary SummaryStatisticsType. Each summary statistics type is a skos:Concept. Particular summary statistics types are included into a disco:SummaryStatistics class with the property disco:summaryStatisticType. The particular value is modelled with rdf:value. More information on the SKOS representation of the controlled vocabulary SummaryStatisticsType can be found at the <a href="http://www.ddialliance.org/Specification/DDI-CV/">DDI-controlled-vocabularies project page</a>.
 		  There are two possibilities to define new types of summary statistics.
 		  First, the term 'other' with a new value can be used in association with the existing vocabulary. 
 		  Second, a new vocabulary can be defined. In the ISSP example below, the term 'other' is used in class &lt;issp:XYZ_17&gt;, though not included in the following tables.
 		</p>
 		<p>
-          There are two properties which describe details of a category or summary statistic value, computationBase and weightedBy.
+		  There are two properties which describe details of a category or summary statistic value, <code><a href="#dfn-disco-computationbase" class="internalDFN">computationBase</a></code> and <code><a href="#dfn-disco-weightedby" class="internalDFN">weightedBy</a></code>.
 		</p>
 	  
         <p>		
-          computationBase expresses if the cases - which are the basis of the computation of a statistics value - 
-		  are valid, invalid or the total of both. The usage of computationBase for frequency differs from the usage for the 
-		  percentage statistics and the summary statistics. A distinction regarding computationBase doesn’t apply to frequency as category statistic. 
-		  The following table describes the details of usage of computationBase in dependency of the respective statistics type.
+          <code><a href="#dfn-disco-computationbase" class="internalDFN">computationBase</a></code> expresses if the cases - which are the basis of the computation of a statistics value - 
+          are valid, invalid or the total of both. The usage of <code><a href="#dfn-disco-computationbase" class="internalDFN">computationBase</a></code> for frequency differs from the usage for the 
+          percentage statistics and the summary statistics. A distinction regarding <code><a href="#dfn-disco-computationbase" class="internalDFN">computationBase</a></code> doesn’t apply to frequency as category statistic. 
+          The following table describes the details of usage of <code><a href="#dfn-disco-computationbase" class="internalDFN">computationBase</a></code> in dependency of the respective statistics type.
 		</p>
 		
 		<p>
