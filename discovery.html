@@ -1448,7 +1448,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		  Available summary statistics types are organized in the controlled vocabulary SummaryStatisticsType. Each summary statistics type is a skos:Concept. Particular summary statistics types are included into a disco:SummaryStatistics class with the property disco:summaryStatisticType. The particular value is modelled with rdf:value. More information on the SKOS representation of the controlled vocabulary SummaryStatisticsType can be found at the <a href="http://www.ddialliance.org/Specification/DDI-CV/">DDI-controlled-vocabularies project page</a>.
 		  There are two possibilities to define new types of summary statistics.
 		  First, the term 'other' with a new value can be used in association with the existing vocabulary. 
-		  Second, a new vocabulary can be defined. 
+		  Second, a new vocabulary can be defined. In the ISSP example below, the term 'other' is used in class &lt;issp:XYZ_17&gt;, though not included in the following tables.
 		</p>
 		<p>
           There are two properties which describe details of a category or summary statistic value, computationBase and weightedBy.
@@ -1528,9 +1528,9 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		</p>
 
          <p>		
-          weightedBy defines the weight variable of a category or summary statistic computation respectively value. 
+           <code><a href="#dfn-disco-weightedby" class="internalDFN">weightedBy</a></code> defines the weight variable of a category or summary statistic computation respectively value. 
 		  It can also be used to indicate if a weight variable is used but the related variable is not known. 
-		  weightedBy may be assigned to a category statistic value or to a summary statistic value.
+           <code><a href="#dfn-disco-weightedby" class="internalDFN">weightedBy</a></code> may be assigned to a category statistic value or to a summary statistic value.
 		</p>
 		
 		<p>
@@ -1633,7 +1633,8 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
   a disco:CategoryStatistics;
   disco:statisticsCategory &lt;issp:Category_2&gt;;
   disco:percentage 3.6;
-  disco:computationBase 'total'.
+  disco:computationBase 'total';
+  disco:weightedBy &lt;issp:WeightVariable_1&gt;.
   
 &lt;issp:XYZ_5&gt;
   a disco:CategoryStatistics;
@@ -1710,14 +1711,16 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
   disco:statisticsVariable &lt;issp:WRKHRS&gt;;
   disco:summaryStatisticType &lt;ddicv-sumstats:StandardDeviation&gt;;
   rdf:value "14.265".
-<!-- old example
-&lt;issp:XYZ_18&gt;
+
+# SummaryStatistics of variable WRKHS not included in the tables
+&lt;issp:XYZ_17&gt;
   a disco:SummaryStatistics;
   disco:statisticsVariable &lt;issp:WRKHRS&gt;;
   disco:summaryStatisticType &lt;ddicv-sumstats:Other&gt;;
-  rdfs:label "Specified Label of the Other Element, i.e. some statistic which is not available in the controlled vocabulary";
-  rdf:value "47".
-  
+  rdfs:label "Gini Coefficient";
+  rdf:value "0.63".
+
+<!-- old example
 &lt;issp:XYZ_7&gt;
   a disco:SummaryStatistics;
   disco:statisticsVariable &lt;issp:PARTLIV&gt;;
