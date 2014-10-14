@@ -2227,7 +2227,7 @@ A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is
 	  
 	  <p>
 	    Widely accepted and adopted vocabularies are reused to a large extend. 
-		There are features of DDI which can be addressed through other vocabularies, such as: 
+		Many features of DDI can be addressed by classes and properties of other vocabularies, such as: 
 		describing metadata for citation purposes using the DCMI Metadata Terms (DCMI) [<cite><a class="bibref" href="#bib-DCMI">DCMI</a></cite>],
 		describing catalogues of datasets using the Data Catalog Vocabulary (DCAT) [<cite><a class="bibref" href="#bib-DCAT">DCAT</a></cite>],
 		describing aggregate data like multi-dimensional tables using the RDF Data Cube Vocabulary [<cite><a class="bibref" href="#bib-RDF-Data-Cube-Vocabulary">RDF Data Cube Vocabulary</a></cite>],
@@ -2236,11 +2236,15 @@ A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is
 		and delineating code lists, category schemes, mappings between them, and concepts like topics 
 		using the Simple Knowledge Organization System (SKOS) [<cite><a class="bibref" href="#bib-SKOS">SKOS</a></cite>]. Furthermore, the external vocabularies Friend of a Friend (FOAF) [<cite><a class="bibref" href="#bib-FOAF">FOAF</a></cite>], 
 		the Organization Ontology (ORG) [<cite><a class="bibref" href="#bib-ORG">ORG</a></cite>], the Asset Description Metadata Schema (ADMS) [<cite><a class="bibref" href="#bib-ADMS">ADMS</a></cite>], and the PROV Ontology (PROV-O) [<cite><a class="bibref" href="#bib-PROV-O">PROV-O</a></cite>] are used.
-		Wherever terms from other vocabularies are used within the disco context, these terms are not re-defined but only applied for the purposes of disco.
+		Whenever terms from other vocabularies are used within the disco context, these terms are not re-defined but only applied for the purposes of disco.
+	  </p>
+	  <p>
+	    It is distinguished between required, recommended and optional vocabularies that are reused. Required vocabularies contain classes and properties that are required in order to represent particular aspects of Disco completely. Recommended vocabularies hold classes and properties that are recommended to be used for representing particular aspects of Disco. Finally, optional vocabularies contain classes and properties that may support the modelling of particular aspects of Disco. This strongly depends on in which extent and for which purpose data is represented in Disco. Terms of optional vocabularies are not necessarily required for representing DDI metadata in Disco.
 	  </p>
 	  
+	  
 	  <p>
-		Required vocabularies needed to use disco are:
+		Required vocabularies are:
 		<ul>
 			<li>DCMI</li>
 			<li>SKOS</li>
@@ -2248,15 +2252,15 @@ A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is
 		</ul>
 		Recommended vocabularies are:
 		<ul>
-			<li>ADMS</li>
 			<li>FOAF</li>
 			<li>ORG</li>
+		  <li>ADMS</li>
 		</ul>
 		Optional vocabularies are:
 		<ul>
+		  <li>PROV-O</li>
 			<li>RDF Data Cube Vocabulary</li>
 			<li>XKOS</li>
-			<li>PROV-O</li>
 			<li>SIO</li>
 		</ul>
 	  </p>
@@ -2272,6 +2276,81 @@ A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is
 	    </p>
 	  
 	  </section>
+	  
+      <section>
+        <h3>Simple Knowledge Organization System (SKOS)</h3>
+        
+        <p>
+          Skos:Concept is reused to a large extent to represent DDI concepts, codes, and categories. 
+          SKOS defines the term skos:Concept, which is a unit of knowledge created by a unique combination of characteristics. 
+          In context of statistical (meta)data, concepts are abstract summaries, general notions, knowledge of a whole set of behaviours, 
+          attitudes or characteristics which are seen as having something in common. Skos:Concepts may be associated with variables, 
+          variable definitions, and questions and are reused to a large extent to represent DDI concepts (skos:prefLabel), 
+          codes (skos:notation), and category labels (skos:prefLabel). Skos:Concepts may be organized in skos:ConceptSchemes (skos:inScheme), 
+          sets of metadata describing statistical concepts. Hierarchies of DDI concepts can be built using the object properties
+          skos:broader and skos:narrower. Topical coverage can be expressed using dcterms:subject. Disco foresees the use of skos:Concept 
+          for the description of topical coverage. Spatial, temporal, and topical coverage are directly attached to studies, logical datasets, 
+          and datafiles. Universes and AnalysisUnits are also skos:Concepts. Therefore the properties defined for skos:Concept can be reused. 
+          KindOfData, pointing to a skos:Concept , describes, with a string or a term from a controlled vocabulary, the kind of data documented 
+          in the logical product(s) of a Study. Using dcterms:format, DataFiles formats can be defined.
+        </p>
+        
+        <section>
+          <h4>Uses of skos:Concept</h4>
+          
+          <div>
+            In this sub-section, we describe all possible uses of the class <code>skos:Concept</code>.
+            <ul>
+              <li><b>Code values: </b>Code values are represented using the datatype property <code>skos:notation</code> with <code>skos:Concept</code> as domain.</li>
+              <li><b>Category labels: </b>Use <code>skos:prefLabel</code> and the domain class <code>skos:Concept</code> to describe category values</li>
+              <li><b>DDI concepts: </b>DDI concepts are described by the property <code>skos:definition</code> pointing from <code>skos:Concept</code> classes.</li>
+              <li><b>Hierarchies of DDI concepts: </b>Hierarchies of DDI concepts can be built using the object properties <code>skos:broader</code> and <code>skos:narrower</code>. The domains and the ranges of <code>skos:broader</code> and <code>skos:narrower</code> are <code>skos:Concept</code>. </li> 
+              <li><b>Organization in <code>skos:ConceptSchemes</code>: </b><code>Skos:Concepts</code> may be organized in <code>skos:ConceptSchemes</code> by means of <code>skos:inScheme</code>. The top concept in a specific ConceptScheme is indicated by <code>skos:hasTopConcept</code> pointing to top <code>skos:Concept</code>.</li>
+              
+              <li><b>Topical coverage: </b>Topical coverage can be expressed using <code>dcterms:subject</code>. DDI-RDF foresees the use of <code>skos:Concept</code> for the description of topical coverage. Spatial, temporal, and topical coverage are directly attached to studies, logical datasets, and datafiles.</li>
+              <li><b>Category linked to <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code>: </b><code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code> like frequencies and percentages are associated to the respectve Category using the object property statisticsCategory. <code>skos:Concept</code> represents categories.</li>
+              <li><b>Concepts of questions: Questions (</b><code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) are associated with concepts via the object property concept.</li>
+              
+              <li><b><code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code>: </b>Each universe is also a <code>skos:Concept</code>. Therefore the properties defined for <code>skos:Concept</code> can be reused for universes.</li>
+              <li><b>Collection Mode: Questionnaires (</b><code><a href="#dfn-disco-questionnaire" class="internalDFN">Questionnaire</a></code>) may have multiple collection modes which are represented by <code>skos:Concept</code>.</li>
+              <li><b>Concepts of variable definitions: </b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code> definitions are associated with concepts via the object property concept.</li>
+              <li><b>Concepts of variables: Variables (</b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) are linked to concepts via the object property concept.</li>
+              
+              <li><b>Kind of data: </b>KindOfData describes, with a string or a term from a controlled vocabulary, the kind of data documented in the logical product(s) of a <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>. Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc. The range of kindOfData is <code>skos:Concept</code></li>
+              <li><b>Format of data files: </b> Using the object property <code>dcterms:format</code>, data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) formats can be defined. Data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFiles</a></code>) must have exactly 1 <code>dcterms:format</code> relationship to an instance of the class <code>dcterms:MediaTypeOrExtend</code> which is a sub-class of <code>skos:Concept</code>.</li>
+              <li><b><code><a href="#dfn-disco-analysisunit" class="internalDFN">AnalysisUnit</a></code>: </b>Each analysis unit is also a <code>skos:Concept</code>. Therefore the properties defined for <code>skos:Concept</code> can be reused for analysis units.</li>
+            </ul>
+          </div>
+        </section>
+        
+      </section>
+	  
+      <section>
+        <h3>Data Catalog Vocabulary (DCAT)</h3>
+        
+        <p>
+          DCAT is a W3C standard for describing catalogs of datasets. DCAT makes few assumptions about the kind of datasets being described, 
+          and focuses on general metadata about the datasets (mostly using Dublin Core), and on different ways of distributing and accessing the dataset, 
+          including availability of the dataset in multiple formats. Combining terms from both DCAT and Disco can be useful for a number of reasons:
+        </p>
+        <ul>
+          <li>Describing collections (catalogs) of research datasets</li>
+          <li>Providing additional information about physical aspects (file size, file formats) of research data files</li>
+          <li>Providing information about the data collection that produced the datasets in a data catalog</li>
+          <li>Providing information about the logical structure (variables, concepts, etc.) of tabular datasets in a data catalog</li>
+        </ul>
+        
+        <p>
+          The LogicalDataSet is an extension of the dcat:DataSet. Physical, distributed files are represented by the DataFile, 
+          which is itself an extension of dcat:Distribution.
+        </p>
+        
+        <pre class="example">
+	      Example for the usage of DCAT vocabulary
+	    </pre>
+        
+        
+      </section>
 	  
 	  <section>
 	  <h3>Friend of a Friend (FOAF) and Organization Ontology (ORG)</h3>
@@ -2300,70 +2379,105 @@ A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is
 	  
 	  </section>
 	  
-	  <section>
-	  <h3>PROV Ontology (PROV-O)</h3>
-	  
-	  <p>
-	    In order to represent detailed provenance information of Web data and metadata, classes and properties of PROV-O can be used. 
-		Thus, it can be used as a natural vocabulary to attach provenance information to Disco metadata. 
-		Terms of PROV-O are organized among three main classes: prov:Entity, prov:Activity and prov:Agent. 
-		While classes of Disco can be represented either as entities or agents, particular processes for, 
-		e.g. creating, maintaining and accessing data can be modeled as activities. Properties like prov:wasGeneratedBy, 
-		prov:hadPrimarySource, prov:wasInvalidatedBy, or prov:wasDerivedFrom describe the relationship between classes 
-		for the generation of data in more detail. In order to link from a disco:Study to its original DDI XML file, 
-		the property prov:wasDerivedFrom can be used. Moreover, PROV-O allows for representing versioning information by e.g., 
-		using the terms prov:Revision, prov:hadGeneration and prov:hadUsage.
-	  </p>
-	  
-	  </section>
-	  
-	  <section>
-	  <h3>Simple Knowledge Organization System (SKOS)</h3>
-	  
-	  <p>
-	    Skos:Concept is reused to a large extent to represent DDI concepts, codes, and categories. 
-		SKOS defines the term skos:Concept, which is a unit of knowledge created by a unique combination of characteristics. 
-		In context of statistical (meta)data, concepts are abstract summaries, general notions, knowledge of a whole set of behaviours, 
-		attitudes or characteristics which are seen as having something in common. Skos:Concepts may be associated with variables, 
-		variable definitions, and questions and are reused to a large extent to represent DDI concepts (skos:prefLabel), 
-		codes (skos:notation), and category labels (skos:prefLabel). Skos:Concepts may be organized in skos:ConceptSchemes (skos:inScheme), 
-		sets of metadata describing statistical concepts. Hierarchies of DDI concepts can be built using the object properties
-		skos:broader and skos:narrower. Topical coverage can be expressed using dcterms:subject. Disco foresees the use of skos:Concept 
-		for the description of topical coverage. Spatial, temporal, and topical coverage are directly attached to studies, logical datasets, 
-		and datafiles. Universes and AnalysisUnits are also skos:Concepts. Therefore the properties defined for skos:Concept can be reused. 
-		KindOfData, pointing to a skos:Concept , describes, with a string or a term from a controlled vocabulary, the kind of data documented 
-		in the logical product(s) of a Study. Using dcterms:format, DataFiles formats can be defined.
-	  </p>
-	  
-	    <section>
-        <h4>Uses of skos:Concept</h4>
+      <section>
+        <h3>PROV Ontology (PROV-O)</h3>
         
-        <div>
-          In this sub-section, we describe all possible uses of the class <code>skos:Concept</code>.
-          <ul>
-            <li><b>Code values: </b>Code values are represented using the datatype property <code>skos:notation</code> with <code>skos:Concept</code> as domain.</li>
-            <li><b>Category labels: </b>Use <code>skos:prefLabel</code> and the domain class <code>skos:Concept</code> to describe category values</li>
-            <li><b>DDI concepts: </b>DDI concepts are described by the property <code>skos:definition</code> pointing from <code>skos:Concept</code> classes.</li>
-            <li><b>Hierarchies of DDI concepts: </b>Hierarchies of DDI concepts can be built using the object properties <code>skos:broader</code> and <code>skos:narrower</code>. The domains and the ranges of <code>skos:broader</code> and <code>skos:narrower</code> are <code>skos:Concept</code>. </li> 
-            <li><b>Organization in <code>skos:ConceptSchemes</code>: </b><code>Skos:Concepts</code> may be organized in <code>skos:ConceptSchemes</code> by means of <code>skos:inScheme</code>. The top concept in a specific ConceptScheme is indicated by <code>skos:hasTopConcept</code> pointing to top <code>skos:Concept</code>.</li>
-           
- <li><b>Topical coverage: </b>Topical coverage can be expressed using <code>dcterms:subject</code>. DDI-RDF foresees the use of <code>skos:Concept</code> for the description of topical coverage. Spatial, temporal, and topical coverage are directly attached to studies, logical datasets, and datafiles.</li>
-            <li><b>Category linked to <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code>: </b><code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code> like frequencies and percentages are associated to the respectve Category using the object property statisticsCategory. <code>skos:Concept</code> represents categories.</li>
-            <li><b>Concepts of questions: Questions (</b><code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) are associated with concepts via the object property concept.</li>
-            
-<li><b><code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code>: </b>Each universe is also a <code>skos:Concept</code>. Therefore the properties defined for <code>skos:Concept</code> can be reused for universes.</li>
-            <li><b>Collection Mode: Questionnaires (</b><code><a href="#dfn-disco-questionnaire" class="internalDFN">Questionnaire</a></code>) may have multiple collection modes which are represented by <code>skos:Concept</code>.</li>
-            <li><b>Concepts of variable definitions: </b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code> definitions are associated with concepts via the object property concept.</li>
-            <li><b>Concepts of variables: Variables (</b><code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) are linked to concepts via the object property concept.</li>
-
-            <li><b>Kind of data: </b>KindOfData describes, with a string or a term from a controlled vocabulary, the kind of data documented in the logical product(s) of a <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>. Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc. The range of kindOfData is <code>skos:Concept</code></li>
-            <li><b>Format of data files: </b> Using the object property <code>dcterms:format</code>, data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) formats can be defined. Data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFiles</a></code>) must have exactly 1 <code>dcterms:format</code> relationship to an instance of the class <code>dcterms:MediaTypeOrExtend</code> which is a sub-class of <code>skos:Concept</code>.</li>
-            <li><b><code><a href="#dfn-disco-analysisunit" class="internalDFN">AnalysisUnit</a></code>: </b>Each analysis unit is also a <code>skos:Concept</code>. Therefore the properties defined for <code>skos:Concept</code> can be reused for analysis units.</li>
-          </ul>
-        </div>
+        <p>
+          In order to represent detailed provenance information of Web data and metadata, classes and properties of PROV-O can be used. 
+          Thus, it can be used as a natural vocabulary to attach provenance information to Disco metadata. 
+          Terms of PROV-O are organized among three main classes: prov:Entity, prov:Activity and prov:Agent. 
+          While classes of Disco can be represented either as entities or agents, particular processes for, 
+          e.g. creating, maintaining and accessing data can be modeled as activities. Properties like prov:wasGeneratedBy, 
+          prov:hadPrimarySource, prov:wasInvalidatedBy, or prov:wasDerivedFrom describe the relationship between classes 
+          for the generation of data in more detail. In order to link from a disco:Study to its original DDI XML file, 
+          the property prov:wasDerivedFrom can be used. Moreover, PROV-O allows for representing versioning information by e.g., 
+          using the terms prov:Revision, prov:hadGeneration and prov:hadUsage.
+        </p>
+        
       </section>
 	  
-	  </section>
+      <section>
+        <h3>RDF Data Cube Vocabulary (QB)</h3>
+        
+        <p>
+          The RDF Data Cube Vocabulary is a W3C standard for representing data cubes, that is, multidimensional aggregate data. 
+          A <code>qb:DataSet</code> represents aggregate data such as multi-dimensional tables. 
+          Aggregate data is derived from microdata by statistics on groups, or aggregates such as counts, means, or frequencies. 
+          Data cubes are often generated by tabulating or aggregating unit-record datasets. 
+          For example, if an observation in a census data cube indicates the population of a certain age group in a certain region is 12345, 
+          then this fact was obtained by aggregating that number of individual records from a unit-record dataset. 
+          Disco contains a property “aggregation” that indicates that a Cube dataset was derived by tabulating a unit-record dataset. 
+          Data Cube provides for the description of the structure of such cubes, but also for the representation of the cube data itself, 
+          that is, the observations that make up the cube dataset [<cite><a class="bibref" href="#bib-Semantic-Statistics">Semantic Statistics</a></cite>]. This is not the case for Disco, 
+          which only describes the structure of a dataset, but is not concerned with representing the actual data in it.
+          The actual data are assumed to sit in a data file (e.g. a CSV  file, or in a proprietary statistical package file format) that is not represented in RDF.
+        </p>
+        
+        <section><h4>Examples</h4>
+          
+          <section><h5>Simple case: provenance of aggregated data / relationship from aggregated data to microdata</h5>
+            
+            <div class="example">
+              <div class="example-title">
+                <span>Simple case</span>
+                <pre>
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+							
+:AggregatedDataSet
+    a prov:Entity;
+    prov:wasDerivedFrom :MicrodataDataSet.
+
+:MicrodataDataSet a prov:Entity .
+						</pre>
+              </div>
+            </div>
+            
+          </section>
+          
+          <section><h5>Complex case: detailed description of microdata variables resulting dimensions in aggregated data and aggregation method</h5>
+            
+            <div class="example">
+              <div class="example-title">
+                <span>Complex case</span>
+                <pre>
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+							
+:AggregatedDataSet
+    a prov:Entity;
+    prov:wasDerivedFrom :MicrodataDataSet;
+    prov:wasGeneratedBy :AggregationActivity;
+    prov:qualifiedDerivation [
+        a prov:Derivation;
+        prov:entity :MicrodataDataSet;
+        prov:hadActivity :AggregationActivity ].
+
+:AggregationActivity
+    a prov:Activity .
+
+:MicrodataDataSet
+    a prov:Entity;
+						</pre>
+              </div>
+            </div>
+            
+            <div class="note">
+              <ul>
+                <li>prov:Activity</li>
+                <ul>
+                  <li>reference to aggregation method described by CV</li>
+                  <li>description of variables in the microdata data set / 0..n independent variables / 1..n dependent variables</li>
+                  <li>description of the dimension in data cube</li>
+                  <li>1 activity per dimension</li>
+                  <li>see more information in DDI-L field level documentation DDI 3.2 Aggregation</li>
+                </ul>
+              </ul>
+            </div>
+            
+          </section>
+          
+        </section>
+        
+      </section>
 	  
 	  <section>
 	  <h3>SKOS Extension for Statistics (XKOS)</h3>
@@ -2402,115 +2516,6 @@ and positions of concepts in lists (xkos:previous, xkos:next).
 	  
 	  </section>
 	  
-	  <section>
-	  <h3>Data Catalog Vocabulary (DCAT)</h3>
-	  
-	  <p>
-	    DCAT is a W3C standard for describing catalogs of datasets. DCAT makes few assumptions about the kind of datasets being described, 
-		and focuses on general metadata about the datasets (mostly using Dublin Core), and on different ways of distributing and accessing the dataset, 
-		including availability of the dataset in multiple formats. Combining terms from both DCAT and Disco can be useful for a number of reasons:
-	  </p>
-	    <ul>
-		  <li>Describing collections (catalogs) of research datasets</li>
-		  <li>Providing additional information about physical aspects (file size, file formats) of research data files</li>
-		  <li>Providing information about the data collection that produced the datasets in a data catalog</li>
-		  <li>Providing information about the logical structure (variables, concepts, etc.) of tabular datasets in a data catalog</li>
-		</ul>
-	  
-	  <p>
-	    The LogicalDataSet is an extension of the dcat:DataSet. Physical, distributed files are represented by the DataFile, 
-		which is itself an extension of dcat:Distribution.
-	  </p>
-	    
-	    <pre class="example">
-	      Example for the usage of DCAT vocabulary
-	    </pre>
-	    
-	  
-	  </section>
-	  
-	  <section>
-	  <h3>RDF Data Cube Vocabulary (QB)</h3>
-	  
-	  <p>
-	    The RDF Data Cube Vocabulary is a W3C standard for representing data cubes, that is, multidimensional aggregate data. 
-		A <code>qb:DataSet</code> represents aggregate data such as multi-dimensional tables. 
-		Aggregate data is derived from microdata by statistics on groups, or aggregates such as counts, means, or frequencies. 
-		Data cubes are often generated by tabulating or aggregating unit-record datasets. 
-		For example, if an observation in a census data cube indicates the population of a certain age group in a certain region is 12345, 
-		then this fact was obtained by aggregating that number of individual records from a unit-record dataset. 
-		Disco contains a property “aggregation” that indicates that a Cube dataset was derived by tabulating a unit-record dataset. 
-		Data Cube provides for the description of the structure of such cubes, but also for the representation of the cube data itself, 
-		that is, the observations that make up the cube dataset [<cite><a class="bibref" href="#bib-Semantic-Statistics">Semantic Statistics</a></cite>]. This is not the case for Disco, 
-		which only describes the structure of a dataset, but is not concerned with representing the actual data in it.
-		The actual data are assumed to sit in a data file (e.g. a CSV  file, or in a proprietary statistical package file format) that is not represented in RDF.
-	  </p>
-	  
-		<section><h4>Examples</h4>
-		
-			<section><h5>Simple case: provenance of aggregated data / relationship from aggregated data to microdata</h5>
-			
-				<div class="example">
-					<div class="example-title">
-						<span>Simple case</span>
-							<pre>
-@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
-							
-:AggregatedDataSet
-    a prov:Entity;
-    prov:wasDerivedFrom :MicrodataDataSet.
-
-:MicrodataDataSet a prov:Entity .
-						</pre>
-					</div>
-				</div>
-				
-			</section>
-			
-			<section><h5>Complex case: detailed description of microdata variables resulting dimensions in aggregated data and aggregation method</h5>
-			
-				<div class="example">
-					<div class="example-title">
-						<span>Complex case</span>
-							<pre>
-@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
-							
-:AggregatedDataSet
-    a prov:Entity;
-    prov:wasDerivedFrom :MicrodataDataSet;
-    prov:wasGeneratedBy :AggregationActivity;
-    prov:qualifiedDerivation [
-        a prov:Derivation;
-        prov:entity :MicrodataDataSet;
-        prov:hadActivity :AggregationActivity ].
-
-:AggregationActivity
-    a prov:Activity .
-
-:MicrodataDataSet
-    a prov:Entity;
-						</pre>
-					</div>
-				</div>
-				
-				<div class="note">
-					<ul>
-						<li>prov:Activity</li>
-						<ul>
-							<li>reference to aggregation method described by CV</li>
-							<li>description of variables in the microdata data set / 0..n independent variables / 1..n dependent variables</li>
-							<li>description of the dimension in data cube</li>
-							<li>1 activity per dimension</li>
-							<li>see more information in DDI-L field level documentation DDI 3.2 Aggregation</li>
-						</ul>
-					</ul>
-				</div>
-				
-			</section>
-			
-		</section>
-	  
-	  </section>
 	  
 
 	  <section>
