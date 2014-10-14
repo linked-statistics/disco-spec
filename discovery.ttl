@@ -201,6 +201,7 @@ disco:isPublic a rdf:Property, owl:DatatypeProperty;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # isValid property
+#Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.
 disco:isValid a rdf:Property, owl:DatatypeProperty;
     rdfs:label "is valid"@en;
     rdfs:domain skos:Concept;
@@ -259,6 +260,7 @@ disco:subtitle a rdf:Property, owl:DatatypeProperty;
     rdfs:range rdf:langString;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
+#Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.
 disco:startDate a rdf:Property, owl:DatatypeProperty;
     rdfs:label "start date"@en;
 	rdfs:comment "start date"@en;
@@ -266,6 +268,7 @@ disco:startDate a rdf:Property, owl:DatatypeProperty;
     rdfs:range xsd:date;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
+#Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.
 disco:endDate a rdf:Property, owl:DatatypeProperty;
     rdfs:label "end date"@en;
 	rdfs:comment "end date"@en;
@@ -404,6 +407,7 @@ disco:inGroup a rdf:Property, owl:ObjectProperty;
 
 # inputVariable property (links DataSets to DDI variables)
 # * qb:DataSet -> Variable 0,...,n / 0,...,n
+#Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.
 disco:inputVariable a rdf:Property, owl:ObjectProperty;
     rdfs:label "input variable"@en, "variable en entrée"@fr;
 	rdfs:comment "Indicates the original Variable of an aggregated qb:DataSet."@en;
