@@ -515,7 +515,9 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 
       
 <pre class="example">
-&lt;#Study&gt; a disco:Study;
+# We will use the namespace 'ddi' in all of our examples.
+
+ddi:Study_1 a disco:Study;
     dcterms:title "National Population and Housing Census, 1980"@en;
     dcterms:identifier "ARG_1980_PHC_v01_A_IPUMS";
     dcterms:creator [
@@ -567,15 +569,15 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 		    the original census microdata plus harmonized variables from the IPUMS
 		    International data base."@en; 
 
-    disco:universe &lt;#Universe&gt;;
-    disco:instrument &lt;#Questionnaire&gt;;
-    disco:product &lt;#Dataset&gt;;
+    disco:universe ddi:Universe_1;
+    disco:instrument ddi:Questionnaire_1;
+    disco:product ddi:Dataset_1;
     
-    disco:analysisUnit &lt;#AnalysisUnit&gt;;
-    disco:kindOfData &lt;#KindOfData&gt;;
+    disco:analysisUnit ddi:AnalysisUnit_1;
+    disco:kindOfData ddi:KindOfData_1;
 
     # stdyInfo/notes currently not represented. 
-    disco:variable &lt;#AR80A401&gt;, &lt;#AR80A402&gt;, &lt;#AR80A404&gt;, &lt;#AR80A407&gt;, &lt;#AR80A411&gt;.
+    disco:variable ddi:AR80A401, ddi:AR80A402, ddi:AR80A404, ddi:AR80A407, ddi:AR80A411.
 </pre>
 	  
       <p>While the sampling methodology may not be of great interest
@@ -590,7 +592,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       <p>Thus, the study refers to a specific universe.</p>
 	
 <pre class="example">
-&lt;#Universe&gt; a disco:Universe;
+ddi:Universe_1 a disco:Universe;
     skos:definition "All the population in the national territory at the moment the census is carried out."@en .
 </pre>
 
@@ -599,13 +601,14 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 	The dataset has a concrete data file (physical representation or distributed file) populated by certain variables.
 	
       <pre class="example">
-&lt;#Dataset&gt; a disco:LogicalDataSet;
-    disco:instrument &lt;#Questionnaire&gt;;
-    dcterms:accessRights &lt;#AccessRights&gt;;
-    disco:dataFile &lt;#Datafile&gt;;
-    disco:variable &lt;#AR80A401&gt;, &lt;#AR80A402&gt;, &lt;#AR80A404&gt;, &lt;#AR80A407&gt;, &lt;#AR80A411&gt;.
+ddi:Dataset_1 a disco:LogicalDataSet;
+    disco:instrument ddi:Questionnaire_1;
+    dcterms:accessRights ddi:AccessRights_1;
+    disco:dataFile ddi:Datafile_1;
+    disco:variable ddi:AR80A401, ddi:AR80A402, ddi:AR80A404, ddi:AR80A407, ddi:AR80A411.
 
-&lt;#AccessRights&gt; dcterms:description "IPUMS-International distributes
+ddi:AccessRights_1 a dctermsRightsStatement;
+  dcterms:description "IPUMS-International distributes
 	integrated microdata of individuals and households only by agreement ... 
 	designed to extend this record.";
     rdfs:seeAlso &lt;http://microdata.worldbank.org/index.php/catalog/442/accesspolicy&gt;.
@@ -622,10 +625,10 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 
       <pre class="example">
 
-&lt;#AnalysisUnit&gt; a disco:AnalysisUnit ;
+ddi:AnalysisUnit_1 a disco:AnalysisUnit ;
     skos:definition "Dwelling, quarter dwelling, census household, and population"@en .
 
-&lt;#KindOfData&gt; a skos:Concept ;
+ddi:KindOfData_1 a skos:Concept ;
 	rdfs:label "Census/enumeration data [cen]"@en .
 	
 </pre>
@@ -645,21 +648,21 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 	<p>The following example illustrates three questions. Each question does have a text.</p>
 
       <pre class="example">
-&lt;#Questionnaire&gt; a disco:Questionnaire;
-    disco:question &lt;#QuestionGender&gt;;
-    disco:question &lt;#QuestionAge&gt;;
-    disco:question &lt;#QuestionCitizenship&gt;.
+ddi:Questionnaire_1 a disco:Questionnaire;
+    disco:question ddi:QuestionGender;
+    disco:question ddi:QuestionAge;
+    disco:question ddi:QuestionCitizenship.
 
-&lt;#QuestionGender&gt; a disco:Question;
+ddi:QuestionGender a disco:Question;
     disco:questionText "2. Is the person a man or a woman? [] Man, [] Woman"@en.
 
-&lt;#QuestionAge&gt; a disco:Question;
+ddi:QuestionAge a disco:Question;
     disco:questionText "3. What is his or her age? _ _ Mark the age in completed
 		years at the date of the census for those younger than one year old mark
 		00. For those younger than 10 years old, mark 01, 02, 03, etc. For those
 		older than 99 years old, mark 99."@en.
 
-&lt;#QuestionCitizenship&gt; a disco:Question;
+ddi:QuestionCitizenship a disco:Question;
     disco:questionText "6. [Immigration status] Only for persons who have usual
 		residence in Argentina and were born in another country. [Questions 6A
 		and 6B asked only of persons born outside Argentina and who currently
@@ -692,27 +695,27 @@ Please note that the turtle example describes the variable labels from the scree
 
       <pre class="example">
 
-&lt;#AR80A401&gt; a disco:Variable;
+ddi:AR80A401 a disco:Variable;
     dcterms:identifier "AR80A401";
     skos:prefLabel "Sex"@en, "Sexe"@fr;
     dcterms:description "This variable indicates the person's gender."@en;
-    disco:basedOn &lt;#SexVD&gt;;
-    disco:question &lt;#QuestionGender&gt;.
+    disco:basedOn ddi:SexVD;
+    disco:question ddi:QuestionGender.
 
-&lt;#AR80A402&gt; a disco:Variable;
+ddi:AR80A402 a disco:Variable;
     dcterms:identifier "AR80A402";
     dcterms:description "This variable indicates the person's age in years."@en;
     skos:prefLabel "Age"@en, "Âge"@fr.
-    disco:basedOn &lt;#AgeVD&gt;;
-    disco:question &lt;#QuestionAge&gt;.   
+    disco:basedOn ddi:AgeVD;
+    disco:question ddi:QuestionAge.   
 
-&lt;#AR80A407&gt; a disco:Variable;
+ddi:AR80A407 a disco:Variable;
     dcterms:identifier "AR80A407";
     dcterms:description "This variable indicates whether or not the person is
 		a naturalized citizen of Argentina."@en;
     skos:prefLabel "Citizenship"@en, "Citoyenneté"@fr;
-    disco:basedOn &lt;#CitizenshipVD&gt;;
-    disco:question &lt;#QuestionCitizenship&gt;.
+    disco:basedOn ddi:CitizenshipVD;
+    disco:question ddi:QuestionCitizenship.
 
 </pre>
 
@@ -722,82 +725,82 @@ Please note that the turtle example describes the variable labels from the scree
 
       <pre class="example">
 
-&lt;#SexVD&gt; a disco:RepresentedVariable;
-    disco:universe &lt;#UniversePerson&gt;;
-    disco:representation &lt;#SexRepr&gt;;
-    disco:concept &lt;#IpumsC1&gt;;
+ddi:SexVD a disco:RepresentedVariable;
+    disco:universe ddi:UniversePerson;
+    disco:representation ddi:SexRepr;
+    disco:concept ddi:IpumsC1;
     skos:prefLabel "Sex"@en, "Sexe"@fr;
     dcterms:description "Sex data element"@en.
 
-&lt;#SexRepr&gt; a skos:ConceptScheme, disco:Representation;
-    skos:hasTopConcept &lt;#SexM&gt;, &lt;#SexF&gt;.
+ddi:SexRepr a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept ddi:SexM, ddi:SexF.
 
-&lt;#SexM&gt; a skos:Concept;
+ddi:SexM a skos:Concept;
     skos:notation "1";
     skos:prefLabel "Male"@en, "Homme"@fr;
-    skos:inScheme &lt;#SexRepr&gt;.
+    skos:inScheme ddi:SexRepr.
 
-&lt;#SexF&gt; a skos:Concept;
+ddi:SexF a skos:Concept;
     skos:notation "2";
     skos:prefLabel "Female"@en, "Femme"@fr;
-    skos:inScheme &lt;#SexRepr&gt;.
+    skos:inScheme ddi:SexRepr.
     
-&lt;#ageVD&gt; a disco:RepresentedVariable;
-    disco:universe &lt;#UniversePerson&gt;;
-    disco:representation &lt;#AgeRepr&gt;;
-    disco:concept &lt;#IpumsC1&gt;;
+ddi:ageVD a disco:RepresentedVariable;
+    disco:universe ddi:UniversePerson;
+    disco:representation ddi:AgeRepr;
+    disco:concept ddi:IpumsC1;
     skos:prefLabel "Age"@en, "Âge"@fr;
     dcterms:description "Age data element"@en.
 
-&lt;#AgeRepr&gt; a skos:ConceptScheme, disco:Representation;
-    skos:hasTopConcept &lt;#Age0&gt;, &lt;#Age1&gt;, &lt;#Age99&gt;.
+ddi:AgeRepr a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept ddi:Age0, ddi:Age1, ddi:Age99.
 
-&lt;#Age0&gt; a skos:Concept;
+ddi:Age0 a skos:Concept;
     skos:notation "0";
     skos:prefLabel "0";
-    skos:inScheme &lt;#AgeRepr&gt;.
+    skos:inScheme ddi:AgeRepr.
 
-&lt;#Age1&gt; a skos:Concept;
+ddi:Age1 a skos:Concept;
     skos:notation "1";
     skos:prefLabel "1";
-    skos:inScheme &lt;#AgeRepr&gt;.
+    skos:inScheme ddi:AgeRepr.
 
 # ...
 
-&lt;#Age99&gt; a skos:Concept;
+ddi:Age99 a skos:Concept;
     skos:notation "99";
     skos:prefLabel "99";
-    skos:inScheme &lt;#AgeRepr&gt;.
+    skos:inScheme ddi:AgeRepr.
     
-&lt;#CitizenshipVD&gt; a disco:RepresentedVariable;
-    disco:universe &lt;#UniverseNonArgentines&gt;;
-    disco:representation &lt;#CitizenshipRepr&gt;;
-    disco:concept &lt;#IpumsC2&gt;;
+ddi:CitizenshipVD a disco:RepresentedVariable;
+    disco:universe ddi:UniverseNonArgentines;
+    disco:representation ddi:CitizenshipRepr;
+    disco:concept ddi:IpumsC2;
     skos:prefLabel "Citizenship"@en;
     dcterms:description "Citizenship data element"@en.
 
-&lt;#CitizenshipRepr&gt; a skos:ConceptScheme, disco:Representation;
-    skos:hasTopConcept &lt;#CYes&gt;, &lt;#CNo&gt;, &lt;#CUnknown&gt;, &lt;#CNIU&gt;.
+ddi:CitizenshipRepr a skos:ConceptScheme, disco:Representation;
+    skos:hasTopConcept ddi:CYes, ddi:CNo, ddi:CUnknown, ddi:CNIU.
 
-&lt;#CYes&gt; a skos:Concept;
+ddi:CYes a skos:Concept;
     skos:notation "1";
     skos:prefLabel "Yes";
-    skos:inScheme &lt;#CitizenshipRepr&gt;.
+    skos:inScheme ddi:CitizenshipRepr.
 
-&lt;#CNo&gt; a skos:Concept;
+ddi:CNo a skos:Concept;
     skos:notation "2";
     skos:prefLabel "No";
-    skos:inScheme &lt;#CitizenshipRepr&gt;.
+    skos:inScheme ddi:CitizenshipRepr.
 
-&lt;#CUnknown&gt; a skos:Concept;
+ddi:CUnknown a skos:Concept;
     skos:notation "8";
     skos:prefLabel "Unknown";
-    skos:inScheme &lt;#CitizenshipRepr&gt;.
+    skos:inScheme ddi:CitizenshipRepr.
 
-&lt;#CNIU&gt; a skos:Concept;
+ddi:CNIU a skos:Concept;
     skos:notation "9";
     skos:prefLabel "NIU (not in universe)";
-    skos:inScheme &lt;#CitizenshipRepr&gt;.
+    skos:inScheme ddi:CitizenshipRepr.
     
 </pre>
 
@@ -808,14 +811,14 @@ Please note that the turtle example describes the variable labels from the scree
 
       <pre class="example">
 
-&lt;#UniversePerson&gt; a disco:Universe;
+ddi:UniversePerson a disco:Universe;
     skos:definition "All persons."@en ;
-    skos:narrower &lt;#Universe&gt;.
+    skos:narrower ddi:Universe_1.
 
-&lt;#UniverseNonArgentines&gt; a disco:Universe;
+ddi:UniverseNonArgentines a disco:Universe;
     skos:definition "Foreign-born persons who reside in Argentina."@en ;
-    skos:narrower &lt;#Universe&gt;; 
-    skos:narrower &lt;#UniversePerson&gt;.
+    skos:narrower ddi:Universe_1; 
+    skos:narrower ddi:UniversePerson.
 
 </pre>
 	
@@ -832,16 +835,16 @@ Please note that the turtle example describes the variable labels from the scree
 	
       <pre class="example">
 
-&lt;#IpumsCS&gt; a skos:ConceptScheme;
-    skos:hasTopConcept &lt;#IpumsC1&gt;.
+ddi:IpumsCS a skos:ConceptScheme;
+    skos:hasTopConcept ddi:IpumsC1.
 
-&lt;#IpumsC1&gt; a skos:Concept;
+ddi:IpumsC1 a skos:Concept;
     skos:prefLabel "Demographic Variables - PERSON"@en, "Variables démographiques - PERSONNE"@fr;
-    skos:inScheme &lt;#IpumsCS&gt;.
+    skos:inScheme ddi:IpumsCS.
 
-&lt;#IpumsC2&gt; a skos:Concept;
+ddi:IpumsC2 a skos:Concept;
     skos:prefLabel "Nativity and Birthplace Variables -- PERSON"@en;
-    skos:inScheme &lt;#IpumsCS&gt;.
+    skos:inScheme ddi:IpumsCS.
 
 </pre>
 
@@ -851,18 +854,18 @@ Please note that the turtle example describes the variable labels from the scree
 	
       <pre class="example">
 
-&lt;#Dstat1&gt; a disco:CategoryStatistics;
+ddi:CatStatistics_1 a disco:CategoryStatistics;
     disco:frequency 13314444;
     disco:percentage 49.97;
-    disco:statisticsVariable &lt;#AR80A401&gt;;
-    disco:statisticsCategory &lt;#SexM&gt;;
-    disco:statisticsDataFile &lt;#Datafile&gt;.
+    disco:statisticsVariable ddi:AR80A401;
+    disco:statisticsCategory ddi:SexM;
+    disco:statisticsDataFile ddi:Datafile_1.
 
-&lt;#Dstat2&gt; a disco:CategoryStatistics;
+ddi:CatStatistics_2 a disco:CategoryStatistics;
     disco:frequency 1336270;
-    disco:statisticsVariable &lt;#AR80A401&gt;;
-    disco:statisticsCategory &lt;#SexF&gt;;
-    disco:statisticsDataFile &lt;#Datafile&gt;.
+    disco:statisticsVariable ddi:AR80A401;
+    disco:statisticsCategory ddi:SexF;
+    disco:statisticsDataFile ddi:Datafile_1.
 
 </pre>
 
@@ -878,7 +881,7 @@ Please note that the turtle example describes the variable labels from the scree
 	
       <pre class="example">
 
-&lt;#Datafile&gt; a disco:Datafile;
+ddi:Datafile_1 a disco:Datafile;
     dcterms:identifier "ARG1900-P-H.dat";
     dcterms:description "Person records"@en;
     disco:caseQuantity 2667714;
@@ -1050,7 +1053,7 @@ Please note that the turtle example describes the variable labels from the scree
 			</div>
 			
 		  <pre class="example">
-&lt;#Study&gt; a disco:Study;
+ddi:Study_1 a disco:Study;
   dcterms:title "National Population and Housing Census, 1980"@en;
   adms:identifier [ a adms:Identifier; 
     skos:notation "us:ddi:us.mpc:ARG_1980_PHC_v01_A_IPUMS:1"; 
@@ -1134,17 +1137,19 @@ Please note that the turtle example describes the variable labels from the scree
 		For <code>dcterms:RightsStatements</code> descriptions (<code>dcterms:description</code>) and labels (<code>skos:prefLabel</code>) can be assigned: 
 	  </p>
 	    <pre class="example">
-ex:Dataset1 a disco:LogicalDataSet ;
+ddi:Dataset_1 a disco:LogicalDataSet ;
   dcterms:accessRights ex:AccessRights1 .
-ex:AccessRights1 a dcterms:RightStatement ;
+  
+ddi:AccessRights_1 a dcterms:RightStatement ;
   dcterms:description "Everybody may see access this document." ;
   rdfs:seeAlso &lt;http://www.example.org/access.html&gt; . 
 	  </pre>
 	  <p>License information is captured in a <b><code>dcterms:LicenseDocument</code></b>, which is a subtype of <code>dcterms:RightsStatements</code>:</p>
 	    <pre class="example">
-ex:Dataset1 a disco:LogicalDataSet ;
-  dcterms:license ex:License1 .
-ex:License1 a dcterms:LicenseDocument ;
+ddi:Dataset_1 a disco:LogicalDataSet ;
+  dcterms:license ddi:License_1 .
+  
+ddi:License_1 a dcterms:LicenseDocument ;
   dcterms:description "Published under Open Content License." ;
   skos:prefLabel "OCL 1.0" ;
   rdfs:seeAlso &lt;http://opencontent.org/opl.shtml&gt; .	  
@@ -1170,7 +1175,7 @@ ex:License1 a dcterms:LicenseDocument ;
 		Unlike in DDI-XML, there is no dedicated Coverage type in DDI-RDF. The comprehensive description by spatial, temporal, and topical coverage is directly attached to the respective study, logical dataset, and datafile (using DCMI terms).</p>
 		<p>For spatial coverage, <b><code>dcterms:spatial</code></b> is used, pointing to any geographic location (<code>dcterms:Location</code>):</p>
 	    <pre class="example">
-ex:Study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .		
+ddi:Study_1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .		
 		</pre>
 		<p>In this example, <a href="http://www.geonames.org/">Geonames</a> is used to refer to a spatial region, in this case, the country Germany. Geonames provides URIs for continents, countries, regions, and cities, among others, and is therefore a possible option to use for describing spatial coverage.</p>
         
@@ -1187,7 +1192,7 @@ ex:Study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .
 		</p>
 		
 	    <pre class="example">
-ex:Study1 dcterms:temporal [
+ddi:Study_1 dcterms:temporal [
   a time:Interval ;
   time:hasBeginning [ time:inXSDDateTime
     "2012-01-01T00:00:00+01:00"^^xsd:dateTime ];
@@ -1202,7 +1207,7 @@ ex:Study1 dcterms:temporal [
 		
 		<p>Topical coverage can be expressed using <b><code>dcterms:subject</code></b>. DDI-RDF foresees the use <code>skos:Concept</code> for the description of topical coverage:</p>
 	    <pre class="example">
-ex:Study1 dcterms:subject [
+ddi:Study_1 dcterms:subject [
   a skos:Concept ;
   skos:prefLabel "Alcohol consumption" ] .
 		</pre>
@@ -1317,11 +1322,11 @@ ex:Study1 dcterms:subject [
       </p>
       
       <pre class="example">
-&lt;#Dataset&gt; a LogicalDataSet;
-    dcterms:accessRights &lt;AccessRights&gt;;
-    disco:dataFile &lt;#Datafile&gt;;
-    disco:instrument &lt;#Questionnaire&gt;;
-    disco:variable &lt;#AR80A401&gt;, &lt;#AR80A402&gt;, &lt;#AR80A404&gt;, &lt;#AR80A407&gt;, &lt;#AR80A411&gt;.
+ddi:Dataset_1 a LogicalDataSet;
+    dcterms:accessRights ddi:AccessRights_1;
+    disco:dataFile ddi:Datafile_1;
+    disco:instrument ddi:Questionnaire_1;
+    disco:variable ddi:AR80A401, ddi:AR80A402, ddi:AR80A404, ddi:AR80A407, ddi:AR80A411.
       </pre>
 	  
     </section>
@@ -1344,7 +1349,7 @@ ex:Study1 dcterms:subject [
 	  </div>
       
       <pre class="example">
-      &lt;#Datafile&gt; a disco:Datafile;
+      ddi:Datafile_1 a disco:Datafile;
         dcterms:identifier "ARG1900-P-H.dat";
         dcterms:description "Person records"@en;
         disco:caseQuantity 2667714;
@@ -1429,18 +1434,18 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	  </p>
 	  
       <pre class="example">
-      &lt;#Dstat1&gt; a disco:CategoryStatistics;
+      ddi:CatStatistics_1 a disco:CategoryStatistics;
         disco:frequency 13314444;
         disco:percentage 49.97;
-        disco:statisticsVariable &lt;#AR80A401&gt;;
-        disco:statisticsCategory &lt;#SexM&gt;;
-        disco:statisticsDataFile &lt;#Datafile&gt;.
+        disco:statisticsVariable ddi:AR80A401;
+        disco:statisticsCategory ddi:SexM;
+        disco:statisticsDataFile ddi:Datafile_1.
               
-      &lt;#Dstat2&gt; a disco:CategoryStatistics;
+      ddi:CatStatistics_2 a disco:CategoryStatistics;
         disco:frequency 1336270;
-        disco:statisticsVariable &lt;#AR80A401&gt;;
-        disco:statisticsCategory &lt;#SexF&gt;;
-        disco:statisticsDataFile &lt;#Datafile&gt;.
+        disco:statisticsVariable ddi:AR80A401;
+        disco:statisticsCategory ddi:SexF;
+        disco:statisticsDataFile ddi:Datafile_1.
 </pre>	  
 	  
 	    <p>
@@ -1448,7 +1453,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		  Available summary statistics types are organized in the controlled vocabulary SummaryStatisticsType. Each summary statistics type is a skos:Concept. Particular summary statistics types are included into a disco:SummaryStatistics class with the property disco:summaryStatisticType. The particular value is modelled with rdf:value. More information on the SKOS representation of the controlled vocabulary SummaryStatisticsType can be found at the <a href="http://www.ddialliance.org/Specification/DDI-CV/">DDI-controlled-vocabularies project page</a>.
 		  There are two possibilities to define new types of summary statistics.
 		  First, the term 'other' with a new value can be used in association with the existing vocabulary. 
-		  Second, a new vocabulary can be defined. In the ISSP example below, the term 'other' is used in class &lt;issp:XYZ_17&gt;, though not included in the following tables.
+		  Second, a new vocabulary can be defined. In the ISSP example below, the term 'other' is used in class issp:XYZ_17, though not included in the following tables.
 		</p>
 		<p>
 		  There are two properties which describe details of a category or summary statistic value, <code><a href="#dfn-disco-computationbase" class="internalDFN">computationBase</a></code> and <code><a href="#dfn-disco-weightedby" class="internalDFN">weightedBy</a></code>.
@@ -1560,13 +1565,13 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		
       <p>
         The following example shows different categories of an ISSP data set and the values of the related summary and category statistics.
-        Each category is defined as a skos:Concept and the used name is &lt;issp:category_X&gt;, which is the corresponding category value in the 
+        Each category is defined as a skos:Concept and the used name is issp:category_X, which is the corresponding category value in the 
         frequency table above (see Figure 23, second column).
       </p>
       <p>
-        The category &lt;issp:category_1&gt; is the category with the code 1 (skos:notation '1'), the category label ‘Yes, have partner; live 
+        The category issp:category_1 is the category with the code 1 (skos:notation '1'), the category label ‘Yes, have partner; live 
         in same household’ (skos:prefLabel 'Yes, have partner; live in same household') and which is valid (<code>disco:isValid</code> true). Please note that the property <code>isValid</code> is a feature at risk, since the domain is not Disco. Maintainers of the domain ontology may introduce their own property for this or a similar purpose.
-        &lt;issp:XYZ_1&gt; defines the frequency (disco:frequency '15893') of the category &lt;issp:category_1&gt; ( disco:statisticsCategory &lt;issp:category_1&gt;).  
+        issp:XYZ_1 defines the frequency (disco:frequency '15893') of the category issp:category_1 ( disco:statisticsCategory issp:category_1).  
       </p>
 		
 		<div class="example">
@@ -1589,171 +1594,172 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
           </div>
 		  
 		  <pre>
-@prefix issp: &lt;http://www.issp.org/&gt;	  
+@prefix issp: &lt;http://www.issp.org/&gt;
+@prefix ddi-cv: &lt;http://rdf-vocabulary.ddialliance.org/DDICV#&gt;
 		  
-&lt;issp:Category_1&gt;
+issp:Category_1
   a skos:Concept;
   skos:notation '1';
   skos:prefLabel 'Yes, have partner; live in same household';
   disco:isValid true.
   
-&lt;issp:Category_3&gt;
+issp:Category_3
   a skos:Concept;
   skos:prefLabel 'valid total';
   disco:isValid true.
 
-&lt;issp:Category_2&gt;
+issp:Category_2
   a skos:Concept;
   skos:notation '0';
   skos:prefLabel 'Not available (GB))';
   disco:isValid false.
 
-&lt;issp:Category_4&gt;
+issp:Category_4
   a skos:Concept;
   skos:prefLabel 'missing total';
   disco:isValid false.
 
-&lt;issp:XYZ_1&gt;
+issp:XYZ_1
   a disco:CategoryStatistics;
-  disco:statisticsCategory &lt;issp:Category_1&gt;;
+  disco:statisticsCategory issp:Category_1;
   disco:frequency 15893.
 
-&lt;issp:XYZ_2&gt;
+issp:XYZ_2
   a disco:CategoryStatistics;
-  disco:statisticsCategory &lt;issp:Category_2&gt;;
+  disco:statisticsCategory issp:Category_2;
   disco:frequency 936.
   
-&lt;issp:XYZ_3&gt;
+issp:XYZ_3
   a disco:CategoryStatistics;
-  disco:statisticsCategory &lt;issp:Category_1&gt;;
+  disco:statisticsCategory issp:Category_1;
   disco:percentage 60.6.
   disco:computationBase 'total'.
 
-&lt;issp:XYZ_4&gt;
+issp:XYZ_4
   a disco:CategoryStatistics;
-  disco:statisticsCategory &lt;issp:Category_2&gt;;
+  disco:statisticsCategory issp:Category_2;
   disco:percentage 3.6;
   disco:computationBase 'total';
-  disco:weightedBy &lt;issp:WeightVariable_1&gt;.
+  disco:weightedBy issp:WeightVariable_1.
   
-&lt;issp:XYZ_5&gt;
+issp:XYZ_5
   a disco:CategoryStatistics;
-  disco:statisticsCategory &lt;issp:Category_1&gt;;
+  disco:statisticsCategory issp:Category_1;
   disco:percentage 63.7;
   disco:computationBase 'validOnly'.
   
-&lt;issp:XYZ_6&gt;
+issp:XYZ_6
   a disco:CategoryStatistics;
-  disco:statisticsCategory &lt;issp:Category_1&gt;;
+  disco:statisticsCategory issp:Category_1;
   disco:cumulativePercentage 63.7;
   disco:computationBase 'validOnly'.
   
 # optional: harmonized CategoryStatistics resource if computationBase and category is the same
-&lt;issp:XYZ_7&gt;
+issp:XYZ_7
   a disco:CategoryStatistics;
-  disco:statisticsCategory &lt;issp:Category_1&gt;;
+  disco:statisticsCategory issp:Category_1;
   disco:percentage 63.7;
   disco:cumulativePercentage 63.7;
   disco:computationBase 'validOnly'.
 
 # SummaryStatistics of variable PARTLIV
-&lt;issp:XYZ_8&gt;
+issp:XYZ_8
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
-  disco:summaryStatisticType &lt;ddicv-sumstats:ValidCases&gt;;
+  disco:statisticsVariable issp:PARTLIV;
+  disco:summaryStatisticType ddicv-sumstats:ValidCases;
   rdf:value "24965".
 
-&lt;issp:XYZ_9&gt;
+issp:XYZ_9
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
-  disco:summaryStatisticType &lt;ddicv-sumstats:PercentOfValidCases&gt;;
+  disco:statisticsVariable issp:PARTLIV;
+  disco:summaryStatisticType ddicv-sumstats:PercentOfValidCases;
   rdf:value "95.2".
 
-&lt;issp:XYZ_10&gt;
+issp:XYZ_10
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
-  disco:summaryStatisticType &lt;ddicv-sumstats:InvalidCases&gt;;
+  disco:statisticsVariable issp:PARTLIV;
+  disco:summaryStatisticType ddicv-sumstats:InvalidCases;
   rdf:value "1251".
   
-&lt;issp:XYZ_11&gt;
+issp:XYZ_11
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
-  disco:summaryStatisticType &lt;ddicv-sumstats:PercentOfInvalidCases&gt;;
+  disco:statisticsVariable issp:PARTLIV;
+  disco:summaryStatisticType ddicv-sumstats:PercentOfInvalidCases;
   rdf:value "4.8".
   
 # SummaryStatistics of variable WRKHS
-&lt;issp:XYZ_12&gt;
+issp:XYZ_12
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:WRKHRS&gt;;
-  disco:summaryStatisticType &lt;ddicv-sumstats:ValidCases&gt;;
+  disco:statisticsVariable issp:WRKHRS;
+  disco:summaryStatisticType ddicv-sumstats:ValidCases;
   rdf:value "14237".
 
-&lt;issp:XYZ_13&gt;
+issp:XYZ_13
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:WRKHRS&gt;;
-  disco:summaryStatisticType &lt;ddicv-sumstats:Minimum&gt;;
+  disco:statisticsVariable issp:WRKHRS;
+  disco:summaryStatisticType ddicv-sumstats:Minimum;
   rdf:value "1".
 
-&lt;issp:XYZ_14&gt;
+issp:XYZ_14
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:WRKHRS&gt;;
-  disco:summaryStatisticType &lt;ddicv-sumstats:Maximum&gt;;
+  disco:statisticsVariable issp:WRKHRS;
+  disco:summaryStatisticType ddicv-sumstats:Maximum;
   rdf:value "96".
 
-&lt;issp:XYZ_15&gt;
+issp:XYZ_15
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:WRKHRS&gt;;
-  disco:summaryStatisticType &lt;ddicv-sumstats:ArithmeticMean&gt;;
+  disco:statisticsVariable issp:WRKHRS;
+  disco:summaryStatisticType ddicv-sumstats:ArithmeticMean;
   rdf:value "41.74".
 
-&lt;issp:XYZ_16&gt;
+issp:XYZ_16
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:WRKHRS&gt;;
-  disco:summaryStatisticType &lt;ddicv-sumstats:StandardDeviation&gt;;
+  disco:statisticsVariable issp:WRKHRS;
+  disco:summaryStatisticType ddicv-sumstats:StandardDeviation;
   rdf:value "14.265".
 
 # SummaryStatistics of variable WRKHS not included in the tables
-&lt;issp:XYZ_17&gt;
+issp:XYZ_17
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:WRKHRS&gt;;
-  disco:summaryStatisticType &lt;ddicv-sumstats:Other&gt;;
+  disco:statisticsVariable issp:WRKHRS;
+  disco:summaryStatisticType ddicv-sumstats:Other;
   rdfs:label "Gini Coefficient";
   rdf:value "0.63".
 
 <!-- old example
-&lt;issp:XYZ_7&gt;
+issp:XYZ_7
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:statisticsVariable issp:PARTLIV;
   disco:numberOfcases 24965;
   disco:computationBase 'validOnly'.
 
-&lt;issp:XYZ_8&gt;
+issp:XYZ_8
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:statisticsVariable issp:PARTLIV;
   disco:percentage 95.2;
   disco:computationBase 'total'.
 
-&lt;issp:XYZ_9&gt;
+issp:XYZ_9
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:statisticsVariable issp:PARTLIV;
   disco:numberOfcases 1251;
   disco:computationBase 'missingOnly'.
   
-&lt;issp:XYZ_10&gt;
+issp:XYZ_10
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:statisticsVariable issp:PARTLIV;
   disco:percentage 4.8;
   disco:computationBase 'missingOnly'.
   
-&lt;issp:XYZ_11&gt;
+issp:XYZ_11
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:PARTLIV&gt;;
+  disco:statisticsVariable issp:PARTLIV;
   disco:numberOfCases 26216;
   disco:computationBase 'total'.
   
-&lt;issp:XYZ_12&gt;
+issp:XYZ_12
   a disco:SummaryStatistics;
-  disco:statisticsVariable &lt;issp:WRKHRS&gt;;
+  disco:statisticsVariable issp:WRKHRS;
   disco:numberOfCases 14237;
   disco:minimum 1;
   disco:maximum 96;
@@ -1837,50 +1843,50 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 	  <p>The following example illustrates the three variables Sex, Age and Citizenship.</p>
 	  
       <pre class="example">
-      &lt;#AR80A401&gt; a disco:Variable;
+      ddi:AR80A401 a disco:Variable;
         dcterms:identifier "AR80A401";
         skos:prefLabel "Sex"@en, "Sexe"@fr;
         dcterms:description "This variable indicates the person's gender."@en;
-        disco:basedOn &lt;#SexVD&gt;;
-        disco:question &lt;#QuestionGender&gt;.
+        disco:basedOn ddi:SexVD;
+        disco:question ddi:QuestionGender.
             
-      &lt;#AR80A402&gt; a disco:Variable;
+      ddi:AR80A402 a disco:Variable;
         dcterms:identifier "AR80A402";
         dcterms:description "This variable indicates the person's age in years."@en;
         skos:prefLabel "Age"@en, "Âge"@fr.
-        disco:basedOn &lt;#AgeVD&gt;;
-        disco:question &lt;#QuestionAge&gt;.
+        disco:basedOn ddi:AgeVD;
+        disco:question ddi:QuestionAge.
                   
-      &lt;#AR80A407&gt; a disco:Variable;
+      ddi:AR80A407 a disco:Variable;
         dcterms:identifier "AR80A407";
         dcterms:description "This variable indicates whether or not the person
 			is a naturalized citizen of Argentina."@en;
         skos:prefLabel "Citizenship"@en, "Citoyenneté"@fr;
-        disco:basedOn &lt;#CitizenshipVD&gt;;
-        disco:question &lt;#QuestionCitizenship&gt;.
+        disco:basedOn ddi:CitizenshipVD;
+        disco:question ddi:QuestionCitizenship.
       </pre>
       
       <p>The three variables refer to universe, representations and concepts in their <code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>.</p>
       
       <pre class="example">
-      &lt;#SexVD&gt; a disco:RepresentedVariable;
-        disco:universe &lt;#UniversePerson&gt;;
-        disco:representation &lt;#SexRepr&gt;;
-        disco:concept &lt;#IpumsC1&gt;;
+      ddi:SexVD a disco:RepresentedVariable;
+        disco:universe ddi:UniversePerson;
+        disco:representation ddi:SexRepr;
+        disco:concept ddi:IpumsC1;
         skos:prefLabel "Sex"@en, "Sexe"@fr;
         dcterms:description "Sex data element"@en.
                                 
-	    &lt;#AgeVD&gt; a disco:RepresentedVariable;
-        disco:universe &lt;#UniversePerson&gt;;
-        disco:representation &lt;#AgeRepr&gt;;
-        disco:concept &lt;#IpumsC1&gt;;
+	    ddi:AgeVD a disco:RepresentedVariable;
+        disco:universe ddi:UniversePerson;
+        disco:representation ddi:AgeRepr;
+        disco:concept ddi:IpumsC1;
         skos:prefLabel "Age"@en, "Sexe"@fr;
         dcterms:description "Age data element"@en.
     
-      &lt;#CitizenshipVD&gt; a disco:RepresentedVariable;
-        disco:universe &lt;#UniverseNonArgentines&gt;;
-        disco:representation &lt;#CitizenshipRepr&gt;;
-        disco:concept &lt;#IpumsC2&gt;;
+      ddi:CitizenshipVD a disco:RepresentedVariable;
+        disco:universe ddi:UniverseNonArgentines;
+        disco:representation ddi:CitizenshipRepr;
+        disco:concept ddi:IpumsC2;
         skos:prefLabel "Citizenship"@en;
         dcterms:description "Citizenship data element"@en.
 	  </pre>
@@ -1931,14 +1937,14 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
       <p>The following example shows the representations of the three previously introduced variables Sex, Age and Citizenship. All of them refer to the particular concepts.</p>
       
       <pre class="example">
-        &lt;#SexRepr&gt; a skos:ConceptScheme, disco:Representation;
-          skos:hasTopConcept &lt;#SexM&gt;, &lt;#SexF&gt;.
+        ddi:SexRepr a skos:ConceptScheme, disco:Representation;
+          skos:hasTopConcept ddi:SexM, ddi:SexF.
             
-      &lt;#AgeRepr&gt; a skos:ConceptScheme, disco:Representation;
-        skos:hasTopConcept &lt;#Age0&gt;, &lt;#Age1&gt;, &lt;#Age99&gt;.
+      ddi:AgeRepr a skos:ConceptScheme, disco:Representation;
+        skos:hasTopConcept ddi:Age0, ddi:Age1, ddi:Age99.
           
-      &lt;#CitizenshipRepr&gt; a skos:ConceptScheme, disco:Representation;
-        skos:hasTopConcept &lt;#CYes&gt;, &lt;#CNo&gt;, &lt;#CUnknown&gt;, &lt;#CNIU&gt;.    
+      ddi:CitizenshipRepr a skos:ConceptScheme, disco:Representation;
+        skos:hasTopConcept ddi:CYes, ddi:CNo, ddi:CUnknown, ddi:CNIU.    
 	  </pre>
 
     </section>
@@ -1977,18 +1983,18 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 	  </p>
 	  
       <pre class="example">
-        &lt;#SexRepr&gt; a skos:ConceptScheme, disco:Representation;
-          skos:hasTopConcept &lt;#SexM&gt;, &lt;#SexF&gt;.
+        ddi:SexRepr a skos:ConceptScheme, disco:Representation;
+          skos:hasTopConcept ddi:SexM, ddi:SexF.
           
-        &lt;#SexM&gt; a skos:Concept;
+        ddi:SexM a skos:Concept;
           skos:notation "1";
           skos:prefLabel "Male"@en, "Homme"@fr;
-          skos:inScheme &lt;#SexRepr&gt;.
+          skos:inScheme ddi:SexRepr.
               
-        &lt;#SexF&gt; a skos:Concept;
+        ddi:SexF a skos:Concept;
           skos:notation "2";
           skos:prefLabel "Female"@en, "Femme"@fr;
-          skos:inScheme &lt;#SexRepr&gt;.
+          skos:inScheme ddi:SexRepr.
 	  </pre>
 
 	  <div class="example">
@@ -2003,47 +2009,47 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		<pre>
 @prefix issp: &lt;http://www.issp.org/&gt;	  
 		  
-&lt;issp:Category_1&gt;
+issp:Category_1
   a skos:Concept;
   skos:notation '1';
   skos:prefLabel 'Yes, have partner; live in same household';
   disco:isValid true.
   
-&lt;issp:Category_2&gt;
+issp:Category_2
   a skos:Concept;
   skos:notation '2';
   skos:prefLabel 'Yes, have partner; don't live in same household';
   disco:isValid true.
   
-&lt;issp:Category_3&gt;
+issp:Category_3
   a skos:Concept;
   skos:notation '3';
   skos:prefLabel 'No partner';
   disco:isValid true.
   
-&lt;issp:Category_4&gt;
+issp:Category_4
   a skos:Concept;
   disco:isValid true.
 
-&lt;issp:Category_5&gt;
+issp:Category_5
   a skos:Concept;
   skos:notation '0';
   skos:prefLabel 'Not available (GB))';
   disco:isValid false.
   
-&lt;issp:Category_6&gt;
+issp:Category_6
   a skos:Concept;
   skos:notation '7';
   skos:prefLabel 'Refused';
   disco:isValid false.
   
-&lt;issp:Category_7&gt;
+issp:Category_7
   a skos:Concept;
   skos:notation '9';
   skos:prefLabel 'No answer';
   disco:isValid false.
 
-&lt;issp:Category_8&gt;
+issp:Category_8
   a skos:Concept;
   disco:isValid false.
 	    </pre>
@@ -2082,37 +2088,37 @@ Please note that only code and categories are part of the turtle example.</li>
 		<pre>
 @prefix issp: &lt;http://www.issp.org/&gt;	  
 
-&lt;issp:XYZ_1&gt;
+issp:XYZ_1
   a disco:Variable;
   skos:notation 'PARTLIV';
   skos:prefLabel 'Living in steady partnership';
-  disco:representation &lt;issp:OrderedCollection1&gt;.
+  disco:representation issp:OrderedCollection_1.
 
 # abbreviated syntax:
-&lt;issp:XYZ_2&gt;
+issp:OrderedCollection_1
   rdf:type skos:OrderedCollection;
   skos:memberList (
-    &lt;issp:Category_1&gt;
-    &lt;issp:Category_2&gt;
-    &lt;issp:Category_3&gt;
-    &lt;issp:Category_4&gt;
-    &lt;issp:Category_5&gt;
-    &lt;issp:Category_6&gt;
-    &lt;issp:Category_7&gt;
-    &lt;issp:Category_8&gt; ).
+    issp:Category_1
+    issp:Category_2
+    issp:Category_3
+    issp:Category_4
+    issp:Category_5
+    issp:Category_6
+    issp:Category_7
+    issp:Category_8 ).
 	
 # complete syntax:
-&lt;issp:XYZ_2&gt;
+issp:OrderedCollection_1
   rdf:type skos:OrderedCollection;
   skos:memberList [
-    rdf:first &lt;issp:Category_1&gt;; rdf:rest [
-    rdf:first &lt;issp:Category_2&gt;; rdf:rest [
-    rdf:first &lt;issp:Category_3&gt;; rdf:rest [
-    rdf:first &lt;issp:Category_4&gt;; rdf:rest [
-    rdf:first &lt;issp:Category_5&gt;; rdf:rest [
-    rdf:first &lt;issp:Category_6&gt;; rdf:rest [
-    rdf:first &lt;issp:Category_7&gt;; rdf:rest [
-    rdf:first &lt;issp:Category_8&gt;;
+    rdf:first issp:Category_1; rdf:rest [
+    rdf:first issp:Category_2; rdf:rest [
+    rdf:first issp:Category_3; rdf:rest [
+    rdf:first issp:Category_4; rdf:rest [
+    rdf:first issp:Category_5; rdf:rest [
+    rdf:first issp:Category_6; rdf:rest [
+    rdf:first issp:Category_7; rdf:rest [
+    rdf:first issp:Category_8;
     rdf:rest rdf:nil.] ] ] ] ] ] ] ].
 	    </pre>
 		
@@ -2175,10 +2181,10 @@ A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is
 <p>The following example illustrates a questionnaire with three example questions. The questions are defined the next section.</p>
 
       <pre class="example">
-        &lt;#Questionnaire&gt; a disco:Questionnaire;
-          disco:question &lt;#QuestionGender&gt;;
-          disco:question &lt;#QuestionAge&gt;;
-          disco:question &lt;#QuestionCitizenship&gt;.
+        ddi:Questionnaire_1 a disco:Questionnaire;
+          disco:question ddi:QuestionGender;
+          disco:question ddi:QuestionAge;
+          disco:question ddi:QuestionCitizenship.
 	  </pre>
     </section>
 
@@ -2201,16 +2207,16 @@ A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is
       </p>
 	  
       <pre class="example">
-      &lt;#QuestionGender&gt; a disco:Question;
+      ddi:QuestionGender a disco:Question;
         disco:questionText "2. Is the person a man or a woman? [] Man, [] Woman"@en.
         
-      &lt;#questionAge&gt; a disco:Question;
+      ddi:questionAge a disco:Question;
         disco:QuestionText "3. What is his or her age? _ _ Mark the age in
 			completed years at the date of the census for those younger than
 			one year old mark 00. For those younger than 10 years old, mark 01,
 			02, 03, etc. For those older than 99 years old, mark 99."@en.
           
-      &lt;#questionCitizenship&gt; a disco:Question;
+      ddi:questionCitizenship a disco:Question;
         disco:QuestionText "6. [Immigration status] Only for persons who have
 			usual residence in Argentina and were born in another country.
 			[Questions 6A and 6B asked only of persons born outside Argentina
@@ -2356,22 +2362,22 @@ A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is
         </p>
         
         <pre class="example">
-:DataCatalog
+ddi:DataCatalog_1
 a dcat:Catalog;
-dcat:record :EuropeanStudy;
-dcat:dataset :EuropeanDataset;
+dcat:record ddi:EuropeanStudy;
+dcat:dataset ddi:EuropeanDataset;
           
-:EuropeanStudy
+ddi:EuropeanStudy
 a dcat:CatalogRecord;
 a disco:Study;
-foaf:primaryTopic :EuropeanDataset;
-disco:product :EuropeanDataset.
+foaf:primaryTopic ddi:EuropeanDataset;
+disco:product ddi:EuropeanDataset.
           
-:EuropeanDataset
+ddi:EuropeanDataset
 a dcat:Dataset;
 a disco:LogicalDataSet;
-dcat:theme :topics#WellBeing;
-dcat:theme :topics#PoliticalAttitudes;
+dcat:theme ddi:topics/WellBeing;
+dcat:theme ddi:topics/PoliticalAttitudes;
 dcat:keyword "Europe"@en;
 dcat:keyword "Politics"@en.
 </pre>
@@ -2457,11 +2463,11 @@ dcat:keyword "Politics"@en.
                 <pre>
 @prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
 							
-:AggregatedDataSet
+ddi:AggregatedDataSet
     a prov:Entity;
-    prov:wasDerivedFrom :MicrodataDataSet.
+    prov:wasDerivedFrom ddi:MicrodataDataSet.
 
-:MicrodataDataSet a prov:Entity .
+ddi:MicrodataDataSet a prov:Entity .
 						</pre>
               </div>
             </div>
@@ -2476,19 +2482,19 @@ dcat:keyword "Politics"@en.
                 <pre>
 @prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
 							
-:AggregatedDataSet
+ddi:AggregatedDataSet
     a prov:Entity;
-    prov:wasDerivedFrom :MicrodataDataSet;
-    prov:wasGeneratedBy :AggregationActivity;
+    prov:wasDerivedFrom ddi:MicrodataDataSet;
+    prov:wasGeneratedBy ddi:AggregationActivity;
     prov:qualifiedDerivation [
         a prov:Derivation;
-        prov:entity :MicrodataDataSet;
-        prov:hadActivity :AggregationActivity ].
+        prov:entity ddi:MicrodataDataSet;
+        prov:hadActivity ddi:AggregationActivity ].
 
-:AggregationActivity
+ddi:AggregationActivity
     a prov:Activity .
 
-:MicrodataDataSet
+ddi:MicrodataDataSet
     a prov:Entity;
 						</pre>
               </div>
@@ -6751,39 +6757,39 @@ WHERE {
 		  
 		<pre class="example">
 		
-:EuropeanStudy
+ddi:EuropeanStudy
   a disco:Study;
-  disco:product :EuropeanDataSet;
-  disco:fundedBy :GESIS;
+  disco:product ddi:EuropeanDataSet;
+  disco:fundedBy ddi:GESIS;
 
-:John 
+ddi:John 
   a foaf:Person;
   a prov:Agent;
   adms:identifier [ a adms:Identifier ];
-  prov:wasAssociatedWith :AggregationActivity;
-  prov:actedOnBehalfOf :DERI;
-  org:memberOf :GESIS.
+  prov:wasAssociatedWith ddi:AggregationActivity;
+  prov:actedOnBehalfOf ddi:DERI;
+  org:memberOf ddi:GESIS.
   
-:EuropeanDataSet
+ddi:EuropeanDataSet
   a disco:LogicalDataSet;
   a prov:Entity;
-  disco:aggregation :AggregatedEuropeanDataSet.
+  disco:aggregation ddi:AggregatedEuropeanDataSet.
   
-:AggregatedEuropeanDataSet
+ddi:AggregatedEuropeanDataSet
   a qb:DataSet;
   a prov:Entity.
   
-:AggregationActivity
+ddi:AggregationActivity
   a prov:Activity;
-  prov:used :EuropeanDataSet;
-  prov:wasGeneratedBy :AggregatedEuropeanDataSet;
+  prov:used ddi:EuropeanDataSet;
+  prov:wasGeneratedBy ddi:AggregatedEuropeanDataSet;
   
-:DERI
+ddi:DERI
   a prov:Agent;
   a org:Organization;
   adms:identifier [ a adms:Identifier ].
   
-:GESIS
+ddi:GESIS
   a org:Organization;
   adms:identifier [ a adms:Identifier ].
   
@@ -6910,38 +6916,38 @@ WHERE
 
  
       <pre class="example">
-:DataCatalog
+ddi:DataCatalog_1
 a dcat:Catalog;
-dcat:record :EuropeanStudy;
-dcat:record :AggregatedEuropeanData;
-dcat:dataset :EuropeanDataset;
-dcat:dataset :AggregatedEuropeanDataset.
+dcat:record ddi:EuropeanStudy;
+dcat:record ddi:AggregatedEuropeanData;
+dcat:dataset ddi:EuropeanDataset;
+dcat:dataset ddi:AggregatedEuropeanDataset.
           
-:EuropeanStudy
+ddi:EuropeanStudy
 a dcat:CatalogRecord;
 a disco:Study;
-foaf:primaryTopic :EuropeanDataset;
-disco:product :EuropeanDataset.
+foaf:primaryTopic ddi:EuropeanDataset;
+disco:product ddi:EuropeanDataset.
           
-:AggregatedEuropeanData;
+ddi:AggregatedEuropeanData;
 a dcat:CatalogRecord;
-foaf:primaryTopic :AggregatedEuropeanDataset.
+foaf:primaryTopic ddi:AggregatedEuropeanDataset.
           
-:EuropeanDataset
+ddi:EuropeanDataset
 a dcat:Dataset;
 a disco:LogicalDataSet;
-dcat:theme :topics#WellBeing;
-dcat:theme :topics#PoliticalAttitudes;
+dcat:theme ddi:topics/WellBeing;
+dcat:theme ddi:topics/PoliticalAttitudes;
 dcat:keyword "Europe"@en;
 dcat:keyword "Politics"@en.
           
-:AggregatedEuropeanDataset
+ddi:AggregatedEuropeanDataset
 a dcat:Dataset;
 a qb:DataSet;
-dcat:theme :topics#PoliticalDissatisfaction;
+dcat:theme ddi:topics/PoliticalDissatisfaction;
 dcat:keyword "Europe"@en;
 dcat:keyword "Politics"@en;
-prov:wasDerivedFrom :EuropeanStudy.
+prov:wasDerivedFrom ddi:EuropeanStudy.
 </pre>
         
 	
