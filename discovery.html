@@ -1181,7 +1181,7 @@ ex:Study1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .
 		<p>
 		  For temporal coverage, <b><code>dcterms:temporal</code></b> is used pointing to <code>dcterms:PeriodOfTime</code>.
           For time periods, labels can be attachted ( <code>skos:prefLabel</code>). It is also possible to define 
-		  start (<code><a href="#dfn-disco-startdate" class="internalDFN">startDate</a></code>) and end dates (<code><a href="#dfn-disco-enddate" class="internalDFN">endDate</a></code>).  
+		  start (<code><a href="#dfn-disco-startdate" class="internalDFN">startDate</a></code>) and end dates (<code><a href="#dfn-disco-enddate" class="internalDFN">endDate</a></code>). Please note that these properties are a feature at risk, since the domain is not Disco. Maintainers of the domain ontology may introduce their own properties for this purpose. 
 		  
 		  A possible way to describe temporal coverage is the use of the <a href="http://www.w3.org/TR/owl-time/">W3C time ontology</a>:
 		</p>
@@ -1303,7 +1303,7 @@ ex:Study1 dcterms:subject [
 		data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) and data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) may be linked to 0 to n logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>).
 		The class <code>qb:DataSet</code> is defined in the RDF Data Cube
         Vocabulary. 0 to n data sets (<code>qb:DataSet</code>) may point to multiple (0 - n) variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>)
-        (<code><a href="#dfn-disco-inputvariable" class="internalDFN">inputVariable</a></code>).
+        (<code><a href="#dfn-disco-inputvariable" class="internalDFN">inputVariable</a></code>). Please note that this property is a feature at risk, since the domain is not Disco. Maintainers of the domain ontology may introduce their own property for this purpose. 
 		Just like there is the <code><a href="#dfn-disco-casequantity" class="internalDFN">caseQuantity</a></code> data property on 
 		<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>, 
 		there is also the data property <code><a href="#dfn-disco-variablequantity" class="internalDFN">variableQuantity</a></code> 
@@ -1565,7 +1565,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
       </p>
       <p>
         The category &lt;issp:category_1&gt; is the category with the code 1 (skos:notation '1'), the category label ‘Yes, have partner; live 
-        in same household’ (skos:prefLabel 'Yes, have partner; live in same household') and which is valid (disco:isValid true). 
+        in same household’ (skos:prefLabel 'Yes, have partner; live in same household') and which is valid (<code>disco:isValid</code> true). Please note that the property <code>isValid</code> is a feature at risk, since the domain is not Disco. Maintainers of the domain ontology may introduce their own property for this or a similar purpose.
         &lt;issp:XYZ_1&gt; defines the frequency (disco:frequency '15893') of the category &lt;issp:category_1&gt; ( disco:statisticsCategory &lt;issp:category_1&gt;).  
       </p>
 		
