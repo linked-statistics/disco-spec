@@ -1599,24 +1599,24 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		  
 issp:Category_1
   a skos:Concept;
-  skos:notation '1';
-  skos:prefLabel 'Yes, have partner; live in same household';
+  skos:notation "1";
+  skos:prefLabel "Yes, have partner; live in same household";
   disco:isValid true.
   
 issp:Category_3
   a skos:Concept;
-  skos:prefLabel 'valid total';
+  skos:prefLabel "valid total";
   disco:isValid true.
 
 issp:Category_2
   a skos:Concept;
-  skos:notation '0';
-  skos:prefLabel 'Not available (GB))';
+  skos:notation "0";
+  skos:prefLabel "Not available (GB))";
   disco:isValid false.
 
 issp:Category_4
   a skos:Concept;
-  skos:prefLabel 'missing total';
+  skos:prefLabel "missing total";
   disco:isValid false.
 
 issp:XYZ_1
@@ -1633,26 +1633,26 @@ issp:XYZ_3
   a disco:CategoryStatistics;
   disco:statisticsCategory issp:Category_1;
   disco:percentage 60.6.
-  disco:computationBase 'total'.
+  disco:computationBase "total".
 
 issp:XYZ_4
   a disco:CategoryStatistics;
   disco:statisticsCategory issp:Category_2;
   disco:percentage 3.6;
-  disco:computationBase 'total';
+  disco:computationBase "total";
   disco:weightedBy issp:WeightVariable_1.
   
 issp:XYZ_5
   a disco:CategoryStatistics;
   disco:statisticsCategory issp:Category_1;
   disco:percentage 63.7;
-  disco:computationBase 'validOnly'.
+  disco:computationBase "validOnly".
   
 issp:XYZ_6
   a disco:CategoryStatistics;
   disco:statisticsCategory issp:Category_1;
   disco:cumulativePercentage 63.7;
-  disco:computationBase 'validOnly'.
+  disco:computationBase "validOnly".
   
 # optional: harmonized CategoryStatistics resource if computationBase and category is the same
 issp:XYZ_7
@@ -1660,7 +1660,7 @@ issp:XYZ_7
   disco:statisticsCategory issp:Category_1;
   disco:percentage 63.7;
   disco:cumulativePercentage 63.7;
-  disco:computationBase 'validOnly'.
+  disco:computationBase "validOnly".
 
 # SummaryStatistics of variable PARTLIV
 issp:XYZ_8
@@ -1731,31 +1731,31 @@ issp:XYZ_7
   a disco:SummaryStatistics;
   disco:statisticsVariable issp:PARTLIV;
   disco:numberOfcases 24965;
-  disco:computationBase 'validOnly'.
+  disco:computationBase "validOnly".
 
 issp:XYZ_8
   a disco:SummaryStatistics;
   disco:statisticsVariable issp:PARTLIV;
   disco:percentage 95.2;
-  disco:computationBase 'total'.
+  disco:computationBase "total".
 
 issp:XYZ_9
   a disco:SummaryStatistics;
   disco:statisticsVariable issp:PARTLIV;
   disco:numberOfcases 1251;
-  disco:computationBase 'missingOnly'.
+  disco:computationBase "missingOnly".
   
 issp:XYZ_10
   a disco:SummaryStatistics;
   disco:statisticsVariable issp:PARTLIV;
   disco:percentage 4.8;
-  disco:computationBase 'missingOnly'.
+  disco:computationBase "missingOnly".
   
 issp:XYZ_11
   a disco:SummaryStatistics;
   disco:statisticsVariable issp:PARTLIV;
   disco:numberOfCases 26216;
-  disco:computationBase 'total'.
+  disco:computationBase "total".
   
 issp:XYZ_12
   a disco:SummaryStatistics;
@@ -1765,7 +1765,7 @@ issp:XYZ_12
   disco:maximum 96;
   disco:mean 41.74;
   disco:standardDeviation 14.265;
-  disco:computationBase 'validOnly'.  -->
+  disco:computationBase "validOnly".  -->
 	      </pre>
 		
 		</div>
@@ -2011,20 +2011,20 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		  
 issp:Category_1
   a skos:Concept;
-  skos:notation '1';
-  skos:prefLabel 'Yes, have partner; live in same household';
+  skos:notation "1";
+  skos:prefLabel "Yes, have partner; live in same household";
   disco:isValid true.
   
 issp:Category_2
   a skos:Concept;
-  skos:notation '2';
-  skos:prefLabel 'Yes, have partner; don't live in same household';
+  skos:notation "2";
+  skos:prefLabel "Yes, have partner; don't live in same household";
   disco:isValid true.
   
 issp:Category_3
   a skos:Concept;
-  skos:notation '3';
-  skos:prefLabel 'No partner';
+  skos:notation "3";
+  skos:prefLabel "No partner";
   disco:isValid true.
   
 issp:Category_4
@@ -2033,20 +2033,20 @@ issp:Category_4
 
 issp:Category_5
   a skos:Concept;
-  skos:notation '0';
-  skos:prefLabel 'Not available (GB))';
+  skos:notation "0";
+  skos:prefLabel "Not available (GB))";
   disco:isValid false.
   
 issp:Category_6
   a skos:Concept;
-  skos:notation '7';
-  skos:prefLabel 'Refused';
+  skos:notation "7";
+  skos:prefLabel "Refused";
   disco:isValid false.
   
 issp:Category_7
   a skos:Concept;
-  skos:notation '9';
-  skos:prefLabel 'No answer';
+  skos:notation "9";
+  skos:prefLabel "No answer";
   disco:isValid false.
 
 issp:Category_8
@@ -2090,8 +2090,8 @@ Please note that only code and categories are part of the turtle example.</li>
 
 issp:XYZ_1
   a disco:Variable;
-  skos:notation 'PARTLIV';
-  skos:prefLabel 'Living in steady partnership';
+  skos:notation "PARTLIV";
+  skos:prefLabel "Living in steady partnership";
   disco:representation issp:OrderedCollection_1.
 
 # abbreviated syntax:
