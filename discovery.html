@@ -2275,13 +2275,18 @@ A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is
 		  available (dcterms:available). 
 	    </p>
 	  
+<ul>
+  <li>Required classes DCMI are: dcterms:PeriodOfTime, dcterms:Location, dcterms:RightsStatement, dcterms:LicenseDocument, dcterms:Dataset, dcterms:MediaTypeOrEvent</li>
+  <li>Required properties DCMI are: dcterms:abstract, dcterms:alternative, dcterms:available, dcterms:title, dcterms:subject, dcterms:spatial, dcterms:temporal, dcterms:creator, dcterms:contributor, dcterms:publisher, dcterms:relation, dcterms:license, dcterms:accessRights, dcterms:description, dcterms:format</li>
+</ul>
+	  
 	  </section>
 	  
       <section>
         <h3>Simple Knowledge Organization System (SKOS)</h3>
         
         <p>
-          Skos:Concept is reused to a large extent to represent DDI concepts, codes, and categories. 
+          <code>skos:Concept</code> is reused to a large extent to represent DDI concepts, codes, and categories. 
           SKOS defines the term skos:Concept, which is a unit of knowledge created by a unique combination of characteristics. 
           In context of statistical (meta)data, concepts are abstract summaries, general notions, knowledge of a whole set of behaviours, 
           attitudes or characteristics which are seen as having something in common. Skos:Concepts may be associated with variables, 
@@ -2294,6 +2299,11 @@ A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is
           KindOfData, pointing to a skos:Concept , describes, with a string or a term from a controlled vocabulary, the kind of data documented 
           in the logical product(s) of a Study. Using dcterms:format, DataFiles formats can be defined.
         </p>
+        
+        <ul>
+          <li>Required classes of SKOS are: skos:Concept, skos:ConceptScheme, skos:OrderedCollection</li>
+          <li>Required properties of SKOS are: skos:prefLabel, skos:definition, skos:notation, skos:hasTopConcept, skos:inScheme, skos:broader, skos:narrower, skos:memberList</li>
+        </ul>
         
         <section>
           <h4>Uses of skos:Concept</h4>
@@ -2346,9 +2356,29 @@ A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is
         </p>
         
         <pre class="example">
-	      Example for the usage of DCAT vocabulary
-	    </pre>
+:DataCatalog
+a dcat:Catalog;
+dcat:record :EuropeanStudy;
+dcat:dataset :EuropeanDataset;
+          
+:EuropeanStudy
+a dcat:CatalogRecord;
+a disco:Study;
+foaf:primaryTopic :EuropeanDataset;
+disco:product :EuropeanDataset.
+          
+:EuropeanDataset
+a dcat:Dataset;
+a disco:LogicalDataSet;
+dcat:theme :topics#WellBeing;
+dcat:theme :topics#PoliticalAttitudes;
+dcat:keyword "Europe"@en;
+dcat:keyword "Politics"@en.
+</pre>
         
+        <ul>
+          <li>Required classes of DCAT are: dcat:DataSet, dcat:Distribution</li>
+        </ul>
         
       </section>
 	  
@@ -2362,6 +2392,10 @@ A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is
 		The object property disco:fundedBy is defined as sub-property of dcterms:contributor.
 	  </p>
 	  
+	    <ul>
+	      <li>Recommende classes of FOAF are: foaf:Agent, foaf:Person, foaf:Document</li>
+	        <li>Recommende classes and properties of ORG are: org:Organization, org:memberOf</li>
+	  </ul>
 	  </section>
 	  
 	  <section id="adms">
