@@ -23,10 +23,7 @@ do
 		echo "    disco:ddi-L-XPath '$ddi_l';"
 		if [ -n "${ddi_l_documentation-}" ]; then
 			echo "    disco:ddi-L-Documentation  '$ddi_l_documentation';"
-		fi		
-		#if [ -n "${ddi_c-}" ]; then
-			#echo "  disco:DDI2.1XPath '$ddi_c';"
-		#fi
+		fi
 		if [ -n "${context-}" ]; then
 			echo "    disco:context '$context';"
 		fi
