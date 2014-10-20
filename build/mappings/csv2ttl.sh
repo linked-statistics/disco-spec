@@ -7,10 +7,6 @@ INPUT=$1
 OLDIFS=$IFS
 IFS=,
 [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
-echo ""
-echo "#################"
-echo "# mappings from ${INPUT%.*}"
-echo ""
 
 sed 1d $INPUT | while read entity ddi_c ddi_l context sparql ddi_l_documentation
 do
@@ -37,7 +33,7 @@ do
 		if [ -n "${sparql-}" ]; then
 			echo "    disco:context '$sparql';"
 		fi
-		echo "  ]"
+		echo "  ] ."
 		echo ""
 	fi
 done

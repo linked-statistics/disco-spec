@@ -1,6 +1,13 @@
 ﻿#! /bin/bash
 #get latest csv-files from google drive
-sh getcsv.sh
+KEY="0AnXXOuMQghwxdG1wU1EzLVJybHp6SDI5ZHJOTUlzOVE"
+wget --no-check-certificate --output-document=disco-classes.csv 'https://docs.google.com/spreadsheet/pub?key=0AnXXOuMQghwxdG1wU1EzLVJybHp6SDI5ZHJOTUlzOVE&single=true&gid=0&output=csv'
+wget --no-check-certificate --output-document=external-classes.csv 'https://docs.google.com/spreadsheet/pub?key=0AnXXOuMQghwxdG1wU1EzLVJybHp6SDI5ZHJOTUlzOVE&single=true&gid=6&output=csv'
+wget --no-check-certificate --output-document=disco-object-properties.csv 'https://docs.google.com/spreadsheet/pub?key=0AnXXOuMQghwxdG1wU1EzLVJybHp6SDI5ZHJOTUlzOVE&single=true&gid=2&output=csv'
+wget --no-check-certificate --output-document=external-object-properties.csv 'https://docs.google.com/spreadsheet/pub?key=0AnXXOuMQghwxdG1wU1EzLVJybHp6SDI5ZHJOTUlzOVE&single=true&gid=5&output=csv'
+wget --no-check-certificate --output-document=disco-datatype-properties.csv 'https://docs.google.com/spreadsheet/pub?key=0AnXXOuMQghwxdG1wU1EzLVJybHp6SDI5ZHJOTUlzOVE&single=true&gid=3&output=csv'
+wget --no-check-certificate --output-document=external-datatype-properties.csv 'https://docs.google.com/spreadsheet/pub?key=0AnXXOuMQghwxdG1wU1EzLVJybHp6SDI5ZHJOTUlzOVE&single=true&gid=4&output=csv'
+
 #prepare turtle mapping file
 rm -f mapping.ttl
 touch mapping.ttl
@@ -22,59 +29,96 @@ echo "@prefix schema: <http://schema.org/>." >> mapping.ttl
 echo "@prefix swrc: <http://swrc.ontoware.org/ontology#>." >> mapping.ttl
 echo "@prefix xkos: <http://purl.org/linked-data/xkos#>." >> mapping.ttl
 
-EXT=csv
-for i in $(ls);do
-    if [ "${i}" != "${i%.${EXT}}" ];then
-        echo "Converting $i to turtle-file"
-		sh csv2ttl.sh $i >> mapping.ttl
-		echo "Converting $i to html-file"
-		html=$(sh csv2html.sh $i)
-		l="${i%.*}"
-		echo "label: $l"
-		#command="/<!--begin-${l}-->/{p=1;print;print \"${html}\"}/<!--end-${l}-->/{p=0}!p"
-		#echo $command
-		rm "${l}.html"
-		sh csv2html.sh $i >> "${l}.html"
-		
-		rm $i
-    fi
-done
-
+#Populate documents
 rm -f mapping.html
 touch mapping.html
 
+HEADING="Classes ( disco )"
+PROCESS="disco-classes"
 echo "<section>"  >> mapping.html
-echo "	<h4>Classes ( disco )</h4>"  >> mapping.html
-cat disco-classes.html  >> mapping.html
+echo "	<h4>$HEADING</h4>"  >> mapping.html
+sh csv2html.sh "${PROCESS}.csv"  >> mapping.html
 echo "</section>"  >> mapping.html
-rm disco-classes.html
 
-echo "<section>"  >> mapping.html
-echo "	<h4>Object properties ( disco )</h4>"  >> mapping.html
-cat disco-object-properties.html  >> mapping.html
-echo "</section>"  >> mapping.html
-rm disco-object-properties.html
+echo "" >> mapping.ttl
+echo "#################################################################" >> mapping.ttl
+echo "# ${HEADING}" >> mapping.ttl
+echo "#################################################################" >> mapping.ttl
+echo "" >> mapping.ttl
+sh csv2ttl.sh "${PROCESS}.csv" >> mapping.ttl
+rm "${PROCESS}.csv"
 
+HEADING="Object properties ( disco )"
+PROCESS="disco-object-properties"
 echo "<section>"  >> mapping.html
-echo "	<h4>Datatype properties ( disco )</h4>"  >> mapping.html
-cat disco-datatype-properties.html  >> mapping.html
+echo "	<h4>$HEADING</h4>"  >> mapping.html
+sh csv2html.sh "${PROCESS}.csv"  >> mapping.html
 echo "</section>"  >> mapping.html
-rm disco-datatype-properties.html
 
-echo "<section>"  >> mapping.html
-echo "	<h4>Classes ( external vocabularies )</h4>"  >> mapping.html
-cat external-classes.html  >> mapping.html
-echo "</section>"  >> mapping.html
-rm external-classes.html
+echo "" >> mapping.ttl
+echo "#################################################################" >> mapping.ttl
+echo "# ${HEADING}" >> mapping.ttl
+echo "#################################################################" >> mapping.ttl
+echo "" >> mapping.ttl
+sh csv2ttl.sh "${PROCESS}.csv" >> mapping.ttl
+rm "${PROCESS}.csv"
 
+HEADING="Datatype properties ( disco )"
+PROCESS="disco-datatype-properties"
 echo "<section>"  >> mapping.html
-echo "	<h4>Object properties ( external vocabularies )</h4>"  >> mapping.html
-cat external-object-properties.html  >> mapping.html
+echo "	<h4>$HEADING</h4>"  >> mapping.html
+sh csv2html.sh "${PROCESS}.csv"  >> mapping.html
 echo "</section>"  >> mapping.html
-rm external-object-properties.html
 
+echo "" >> mapping.ttl
+echo "#################################################################" >> mapping.ttl
+echo "# ${HEADING}" >> mapping.ttl
+echo "#################################################################" >> mapping.ttl
+echo "" >> mapping.ttl
+sh csv2ttl.sh "${PROCESS}.csv" >> mapping.ttl
+rm "${PROCESS}.csv"
+
+HEADING="Classes ( external vocabularies )"
+PROCESS="external-classes"
 echo "<section>"  >> mapping.html
-echo "	<h4>Datatype properties ( external vocabularies )</h4>"  >> mapping.html
-cat external-datatype-properties.html  >> mapping.html
+echo "	<h4>$HEADING</h4>"  >> mapping.html
+sh csv2html.sh "${PROCESS}.csv"  >> mapping.html
 echo "</section>"  >> mapping.html
-rm external-datatype-properties.html
+
+echo "" >> mapping.ttl
+echo "#################################################################" >> mapping.ttl
+echo "# ${HEADING}" >> mapping.ttl
+echo "#################################################################" >> mapping.ttl
+echo "" >> mapping.ttl
+sh csv2ttl.sh "${PROCESS}.csv" >> mapping.ttl
+rm "${PROCESS}.csv"
+
+HEADING="Object properties ( external vocabularies )"
+PROCESS="external-object-properties"
+echo "<section>"  >> mapping.html
+echo "	<h4>$HEADING</h4>"  >> mapping.html
+sh csv2html.sh "${PROCESS}.csv"  >> mapping.html
+echo "</section>"  >> mapping.html
+
+echo "" >> mapping.ttl
+echo "#################################################################" >> mapping.ttl
+echo "# ${HEADING}" >> mapping.ttl
+echo "#################################################################" >> mapping.ttl
+echo "" >> mapping.ttl
+sh csv2ttl.sh "${PROCESS}.csv" >> mapping.ttl
+rm "${PROCESS}.csv"
+
+HEADING="Datatype properties ( external vocabularies )"
+PROCESS="external-datatype-properties"
+echo "<section>"  >> mapping.html
+echo "	<h4>$HEADING</h4>"  >> mapping.html
+sh csv2html.sh "${PROCESS}.csv"  >> mapping.html
+echo "</section>"  >> mapping.html
+
+echo "" >> mapping.ttl
+echo "#################################################################" >> mapping.ttl
+echo "# ${HEADING}" >> mapping.ttl
+echo "#################################################################" >> mapping.ttl
+echo "" >> mapping.ttl
+sh csv2ttl.sh "${PROCESS}.csv" >> mapping.ttl
+rm "${PROCESS}.csv"
