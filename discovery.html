@@ -1769,6 +1769,127 @@ issp:XYZ_12
 	      </pre>
 		
 		</div>
+
+<div class="example">
+    <div class="example-title">
+	    <span>Microdata Information System (MISSY)</span>
+    </div>
+		
+		<div class="figure">
+			<img src="images/missy-summaryStatistics.jpg" alt="Summary Statistics"/>
+		</div>
+		
+		<div class="figure">
+			<img src="images/missy-categoryStatistics.jpg" alt="Category Statistics"/>
+		</div>
+	
+		<pre>
+# minimum
+# -------
+missy:Minimum
+  a disco:SummaryStatistics;
+  disco:statisticsVariable missy:PB100;
+  disco:summaryStatisticType ddicv-sumstats:Minimum;
+  rdf:value "1".
+
+# maximum
+# -------
+missy:Maximum
+  a disco:SummaryStatistics;
+  disco:statisticsVariable missy:PB100;
+  disco:summaryStatisticType ddicv-sumstats:Maximum;
+  rdf:value "4".
+
+# arithmentic mean
+# ----------------
+missy:Mean
+  a disco:SummaryStatistics;
+  disco:statisticsVariable missy:PB100;
+  disco:summaryStatisticType ddicv-sumstats:ArithmeticMean;
+  rdf:value "2.17".
+
+# standard deviation
+# ------------------
+missy:StandardDeviation
+  a disco:SummaryStatistics;
+  disco:statisticsVariable missy:PB100;
+  disco:summaryStatisticType ddicv-sumstats:StandardDeviation;	
+  rdf:value "0.9061".
+  
+# valid cases
+# -----------
+missy:ValidCases
+  a disco:SummaryStatistics ;
+  disco:statisticsVariable missy:PB100 ;
+  disco:summaryStatisticType ddicv-sumstats:ValidCases;
+  rdf:value "470950".
+
+# percent of valid cases
+# ----------------------
+missy:PercentOfValidCases
+  a disco:SummaryStatistics;
+  disco:statisticsVariable missy:PB100;
+  disco:summaryStatisticType ddicv-sumstats:PercentOfValidCases;
+  rdf:value "99.1".
+
+# invalid cases
+# -------------
+missy:InvalidCases
+  a disco:SummaryStatistics;
+  disco:statisticsVariable missy:PB100;
+  disco:summaryStatisticType ddicv-sumstats:InvalidCases;
+  rdf:value "4195".
+
+# percent of invalid cases  
+# ------------------------
+missy:PercentOfInvalidCases
+  a disco:SummaryStatistics ;
+  disco:statisticsVariable missy:PB100 ;
+  disco:summaryStatisticType ddicv-sumstats:PercentOfInvalidCases ;
+  rdf:value "0.9" .
+  
+# total cases
+# -----------
+missy:TotalCases
+  a disco:SummaryStatistics;
+  disco:statisticsVariable missy:PB100;
+  disco:summaryStatisticType ddicv-sumstats:NumberOfCases;
+  rdf:value "475145".
+
+# codes and categories
+# --------------------
+missy:1
+  a skos:Concept ;
+  skos:notation "1" ;
+  skos:prefLabel "January,February,March" ;
+  disco:isValid true .
+
+missy:Missing
+  a skos:Concept ;
+  skos:notation "M" ;
+  skos:prefLabel "Missing" ;
+  disco:isValid false .
+
+# valid cases
+# -----------
+missy:CS1
+  a disco:CategoryStatistics ;
+  disco:statisticsCategory missy:1 ;
+  disco:frequency 102710 ;
+  disco:percentage 21.6 ;
+  disco:cumulativePercentage 21.8 ;
+  disco:computationBase "valid" .
+
+# invalid cases 
+# -------------
+missy:CS2
+  a disco:CategoryStatistics ;
+  disco:statisticsCategory missy:Missing ;
+  disco:frequency 4195 ;
+  disco:percentage 0.9 ;
+  disco:computationBase "invalid" . 
+		</pre>
+	</div>
 	  
     </section>
 	
