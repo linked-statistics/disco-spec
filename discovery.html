@@ -6466,7 +6466,62 @@ disco:mapping [
         <h3>Schema.org</h3>
       </section>
     </section>
+	
+	<section id='implementations'>
+		<h2>Reference Implementations</h2>
+	  
+		<section>
+			<h3>Microdata Information System (MISSY)</h3>
 
+<p>			
+The <a href="http://www.gesis.org/missy">Microdata Information System (MISSY)</a> is an online service platform 
+that provides systematically structured metadata for official statistics. 
+This includes data documentation at the study and variable level (6 series, 73 studies, 121 data sets, 22,719 variables, and 6,481 questions) 
+as well as documentation materials, tools, and further information. 
+We developed
+<ol>
+<li>an <a href="http://www.gesis.org/missy/editor/">editor</a> in compliance with DDI-Codebook, DDI-Lifecycle, and Disco 
+to improve and simplify the process of documentation and
+</li>
+<li>
+a <a href="http://www.gesis.org/missy">web information system</a> to provide the end user with various views on the metadata.
+</li>
+</ol>
+</p>
+			<section>
+				<h4>Data Models</h4>
+<p>
+We use Disco as core data model and extend it with a project-specific data model as Disco does not meet all of our project requirements. 
+We provide <a href="https://github.com/missy-project">open-source reference implementations</a> of the Disco and the project-specific data model in Java.
+As instances of these data models may be physically stored in multiple formats such as DDI-XML, Disco, relational databases, and Java,
+we offer persistence implementations for each of these models according to their individual persistence APIs.
+Diverse export routines (e.g., Disco and DDI-Lifecycle) are available to enable the reuse of metadata in other systems.
+</p>				
+			</section>
+
+			<section>
+				<h4>Publications</h4>
+<ul>
+<li> Bohr, J. (2007). <a href="http://www.gesis.org/fileadmin/upload/forschung/publikationen/gesis_reihen/gesis_methodenberichte/2007/07_01_Bohr.pdf">Final Report MISSY User Survey.</a> ZUMA Methodenbericht 01, Gesis - Leibniz Institute for the Social Sciences, Mannheim, Germany.</li>
+<li>Bohr, J., Hopt, O., Lengerer, A., Schroedter, J., & Wira-Alam, A. (2010). <a href="http://www.gesis.org/fileadmin/upload/forschung/publikationen/gesis_reihen/gesis_methodenberichte/2010/TechnicalReport_10-7.pdf">Microdata Information System MISSY: Metadata for the Microcensus Scientific Use Files (Final Report MISSY II).</a> Gesis Technical Report 07, Gesis - Leibniz Institute for the Social Sciences, Mannheim, Germany. 
+</li>
+<li>
+Bohr, J., Janßen, A., Lengerer, A., Lüttinger, P., Schroedter, J., & Wolf, C. (2007). <a href="http://www.gesis.org/fileadmin/upload/forschung/publikationen/gesis_reihen/gesis_methodenberichte/2007/07_05_bohr_www.pdf">Improvement of Access to Microdata for Research. Pilot Project for the Construction of a Service Center for Microdata of GESIS at ZUMA.</a> ZUMA Methodenbericht 05, Gesis - Leibniz Institute for the Social Sciences, Mannheim, Germany. 
+</li>
+<li>
+Bohr, J., Janßen, A., & Wackerow, J. (2006). <a href="http://www.iassistdata.org/sites/default/files/iq/iqvol301bohr.pdf">Problems of Comparability in the German Microcensus over Time and the New DDI Version 3.0.</a> IASSIST Quarterly, 30(2), 13–19. 
+</li>
+<li>
+Janßen, A. & Bohr, J. (2006). <a href="http://www.iassistdata.org/sites/default/files/iq/iqvol302bohr.pdf">Microdata Information System – MISSY.</a> IASSIST Quarterly, 30(2), 5–11. 
+</li>
+<li>
+Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/default/files/iq/iqvol3312hopt.pdf">Implementing DDI 3: The German Microcensus Case Study.</a> IASSIST Quarterly, 33(1), 16–22. 
+</li>
+</ul>
+			</section>
+		</section>
+	</section>
+	  
     <section class="appendix">
       <h2>Vocabulary Reference</h2>
       <!-- Vocabulary Reference start-->
