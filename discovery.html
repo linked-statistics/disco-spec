@@ -852,19 +852,17 @@ ddi:IpumsC2 a skos:Concept;
 	The variable within a data file can be described using category statistics. 
 	In the following example, absolute and relative frequencies of the variable categories are described.
 	This variable represents the sex of the respondent. 
-	
+	A variable is represented by a code list containing the code, the category statistics resource is pointing to.
       <pre class="example">
 
 ddi:CatStatistics_1 a disco:CategoryStatistics;
     disco:frequency 13314444;
     disco:percentage 49.97;
-    disco:statisticsVariable ddi:AR80A401;
     disco:statisticsCategory ddi:SexM;
     disco:statisticsDataFile ddi:Datafile_1.
 
 ddi:CatStatistics_2 a disco:CategoryStatistics;
     disco:frequency 1336270;
-    disco:statisticsVariable ddi:AR80A401;
     disco:statisticsCategory ddi:SexF;
     disco:statisticsDataFile ddi:Datafile_1.
 
@@ -1438,13 +1436,11 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
       ddi:CatStatistics_1 a disco:CategoryStatistics;
         disco:frequency 13314444;
         disco:percentage 49.97;
-        disco:statisticsVariable ddi:AR80A401;
         disco:statisticsCategory ddi:SexM;
         disco:statisticsDataFile ddi:Datafile_1.
               
       ddi:CatStatistics_2 a disco:CategoryStatistics;
         disco:frequency 1336270;
-        disco:statisticsVariable ddi:AR80A401;
         disco:statisticsCategory ddi:SexF;
         disco:statisticsDataFile ddi:Datafile_1.
 </pre>	  
