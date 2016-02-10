@@ -2181,11 +2181,13 @@ Please note that only code and categories are part of the turtle example.</li>
 </p>
 
 </div>
-	  
+	  	  
+	</section>
+
 	  <section>
-        <h4>Representing the Order of Codes and Categories</h4>
+        <h4>Ordering</h4>
 		<p>
-		  In DDI, variables, questions, and categories are typically organized themselves in a particular order. For obtaining this order, <code>skos:OrderedCollection</code>s are used. For example, a collection of variables is represented as being of the type <code>skos:OrderedCollection</code> containing multiple variables (each represented as <code>skos:Concept</code>) in a <code>skos:memberList</code>.
+		  In DDI, variables, logical data sets, questions, and categories are typically organized themselves in a particular order. For obtaining this order, <code>skos:OrderedCollection</code>s are used. For example, a collection of variables is represented as being of the type <code>skos:OrderedCollection</code> containing multiple variables (each represented as <code>skos:Concept</code>) in a <code>skos:memberList</code>.
 		</p>
 		
 
@@ -2244,13 +2246,11 @@ issp:OrderedCollection_1
 	  
 	  <p>
 	    If no order inside a collection of variables and questions is necessary, they are represented as unordered <code>skos:ConceptSchemes</code>.
-	    The classes Variable and Question are defined as sub-classes of <code>skos:Concept</code>.
+	    The classes Variable, LogicalDataSet, and Question are defined as sub-classes of <code>skos:Concept</code>.
       </p>
 	  
 	  </section>
-	  
-	</section>
-
+	
     </section>
 
     <section id='collection'>

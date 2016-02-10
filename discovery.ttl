@@ -108,7 +108,7 @@ rdfs:label "Instrument de collecte"@fr;
 disco:LogicalDataSet a rdfs:Class, owl:Class;
     rdfs:label "LogicalDataSet"@en, "Ensemble de données"@fr;
     rdfs:comment "Each study has a set of logical metadata associated with the processing of data, at the time of collection or later during cleaning, and re-coding. LogicalDataSet represents the microdata dataset."@en;
-    rdfs:subClassOf dcat:Dataset;
+    rdfs:subClassOf dcat:Dataset, skos:Concept;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # Question class
@@ -117,6 +117,7 @@ disco:LogicalDataSet a rdfs:Class, owl:Class;
 disco:Question a rdfs:Class, owl:Class;
     rdfs:label "Question"@en, "Question"@fr;
     rdfs:comment "A Question is designed to get information upon a subject, or sequence of subjects, from a respondent."@en;
+	rdfs:subClassOf skos:Concept;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # disco:responseDomain
@@ -154,7 +155,8 @@ disco:StudyGroup a rdfs:Class, owl:Class;
 disco:Variable a rdfs:Class, owl:Class;
     rdfs:label "Variable"@en, "Variable"@fr;
     rdfs:comment "Variables provide a definition of the column in a rectangular data file. Variable is a characteristic of a unit being observed. A variable might be the answer of a question, have an administrative source, or be derived from other variables."@en;
-    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+    rdfs:subClassOf skos:Concept;
+	rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # Universe class
 # skos:Concept/skos:notation represents universe name
