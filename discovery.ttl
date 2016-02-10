@@ -27,7 +27,9 @@
         "DDI-RDF Discovery Vocabulary"@en;
     rdfs:comment
         "This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats."@en;
-    dc:contributor
+    dc:description
+	    "This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats."@en;
+	dc:contributor
         "Thomas Bosch",
         "Richard Cyganiak",
         "Joachim Wackerow",
@@ -44,7 +46,7 @@
         "Joachim Wackerow",
         "Benjamin Zapilko";
     owl:versionInfo "Version 0.6 - 2013-09-30".
-
+	
 #################################################################
 # Classes
 # 
@@ -69,7 +71,7 @@ disco:RepresentedVariable a rdfs:Class, owl:Class;
 disco:DataFile a rdfs:Class, owl:Class;
     rdfs:label "Data file"@en, "Fichier de données"@fr;
     rdfs:comment "The class DataFile, which is also a dcterms:Dataset, represents all the data files containing the microdata datasets."@en ;
-    rdfs:subClassOf dcat:Distribution;
+    rdfs:subClassOf dcat:Distribution, dcterms:Dataset;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # DescriptiveStatistics class
