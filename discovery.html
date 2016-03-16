@@ -430,7 +430,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       more data sets. This is typical for longitudinal studies, panel
       studies, and other types of "series" (to use the DDI term). In
       this case, a number of <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> objects would be collected into a
-      single <code><a href="#dfn-disco-StudyGroup" class="internalDFN">StudyGroup</a></code>.</p>
+      single <code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code>.</p>
  
       <p>Data sets have two representations in our model: a logical
       representation, which describes the contents of the data set,
@@ -1252,7 +1252,7 @@ ddi:Study_1 dcterms:subject [
 				<li><code>dcterms:alternative</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>): an alternative name for the study</li>
 				<li><code>dcterms:available</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>): the date (or date range) at which this study has or will become available</li>
 				<li><code>dcterms:title</code> (used with <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>, <code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>): the element’s title</li>
-				<li><code>dcterms:description</code> (used with <code><a href="#dfn-disco-representedVariable" class="internalDFN">RepresentedVariable</a></code>, <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>, <code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>, <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>, <code>dcterms:RightsStatement</code>): a human readable description of the element</li>
+				<li><code>dcterms:description</code> (used with <code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>, <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>, <code><a href="#dfn-disco-instrument" class="internalDFN">Instrument</a></code>, <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>, <code>dcterms:RightsStatement</code>): a human readable description of the element</li>
 				<li><code>dcterms:provenance</code> (used with <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>): defines the provenance information for the data file. The object is a <code>dcterms:ProvenanceStatement</code>.</li>
 			</ul>
 			
@@ -1936,7 +1936,7 @@ missy:CS2
         related to a <b><code><a href="#dfn-disco-representation" class="internalDFN">Representation</a></code></b> of some form, which may be a set of
         codes and categories (a "codelist") or may be one of other
         normal data types (dateTime, numeric, textual, etc.) Codes and
-        Categories are represented using skos:Concept and skos:ConceptScheme. Variable definitions (<b><code><a href="#dfn-disco-representedVariable" class="internalDFN">RepresentedVariable</a></code></b>) encompasse study-independent, 
+        Categories are represented using skos:Concept and skos:ConceptScheme. Variable definitions (<b><code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code></b>) encompasse study-independent, 
 		re-usable parts of variables like occupation classification. 
 	  </p>
 	  
@@ -6573,13 +6573,13 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
             
          </dt>
          <dd class="classProperties">Indicates the Variable of a Study.</dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:inGroup"></a><em>Object Property: </em><code><dfn>disco:inGroup</dfn></code>
+        <dt class="classProperties"><a id="dfn-disco-disco:inGroup"></a><em>Object Property: </em><code><dfn>disco:inGroup</dfn></code>
             (<em>Domain:</em><code>disco:Study</code><em> -&gt; Range: </em><code>disco:StudyGroup</code>
             )
             
          </dt>
          <dd class="classProperties">points from a Study to the StudyGroup which contains the Study.</dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:product"></a><em>Object Property: </em><code><dfn>disco:product</dfn></code>
+        <dt class="classProperties"><a id="dfn-disco-disco:product"></a><em>Object Property: </em><code><dfn>disco:product</dfn></code>
             (<em>Domain:</em><code>disco:Study</code><em> -&gt; Range: </em><code>http://purl.org/linked-data/cube#LogicalDataSet</code>
             )
             
