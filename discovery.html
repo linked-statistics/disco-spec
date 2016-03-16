@@ -408,9 +408,15 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
     <section>
       <h2>Overview</h2>
 
-      <div class="figure">
+<!--    <div class="figure">
         <img class="uml-diagram" src="diagrams/overview.png" alt="Vocabulary Overview"/>
-      </div>
+      </div> 
+      -->
+      
+      <figure>
+        <img class="uml-diagram" src="diagrams/overview.png"/>
+        <figcaption>Vocabulary Overview</figcaption>
+      </figure>
 
       <p>To understand the DDI Discovery Vocabulary, there are a few
       central classes, which can serve as entry points. The first of
@@ -482,9 +488,10 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       <a href="http://www.openmetadata.org/surveycatalog/index.php/catalog/996">link</a>
        for the information about this DDI file at the OpenMetadata Survey Catalog.</p>
 
-      <div class="figure">
-        <img src="images/example-overview.png" alt="Overview"/>
-      </div>
+      <figure>
+        <img src="images/example-overview.png"/>
+        <figcaption>Overview</figcaption>
+      </figure>
 
       <p>Figure 2 shows us the overview page for this study, giving us
       some basic information - title, identifier for the study, data producers, year, country, and
@@ -586,9 +593,10 @@ ddi:Study_1 a disco:Study;
         the “universe”, that is, the population being studied. Figure 3
         gives us an example of this information.</p>
         
-      <div class="figure">
-        <img src="images/example-universe.png" alt="Coverage and Universe"/>
-      </div>
+      <figure>
+        <img src="images/example-universe.png"/>
+        <figcaption>Coverage and Universe</figcaption>
+      </figure>
         
       <p>Thus, the study refers to a specific universe.</p>
 	
@@ -618,9 +626,10 @@ ddi:AccessRights_1 a dctermsRightsStatement;
       <p>Figure 4 shows us the information about access policies,
         which typically is of interest to those searching for data.</p>
 
-      <div class="figure">
-        <img src="images/example-access-policy.png" alt="Access Policy"/>
-      </div>
+      <figure>
+        <img src="images/example-access-policy.png"/>
+        <figcaption>Access Policy</figcaption>
+      </figure>
       
       <p>The Unit of Analysis and Kind of Data further describe the study.</p>
 
@@ -642,9 +651,10 @@ ddi:KindOfData_1 a skos:Concept ;
         case, we have only a textual description of the set of forms
         used in the census (Figure 5).</p>
       
-      <div class="figure">
-        <img src="images/example-questionnaires.png" alt="Questionnaires"/>
-      </div>
+      <figure>
+        <img src="images/example-questionnaires.png"/>
+        <figcaption>Questionnaires</figcaption>
+      </figure>
 	
 	<p>The following example illustrates three questions. Each question does have a text.</p>
 
@@ -676,13 +686,15 @@ ddi:QuestionCitizenship a disco:Question;
         showing the codes and categories used to encode the actual
         responses in the variables (Figure 7).</p>
       
-      <div class="figure">
-        <img src="images/example-variable-list.png" alt="Variables List"/>
-      </div>
+      <figure>
+        <img src="images/example-variable-list.png"/>
+        <figcaption>Variables List</figcaption>
+      </figure>
       
-      <div class="figure">
-        <img src="images/example-variable-detail.png" alt="Variable Details"/>
-      </div>
+      <figure>
+        <img src="images/example-variable-detail.png"/>
+        <figcaption>Variable Details</figcaption>
+      </figure>
       
       <p>Any variable has a text and is based on a variable definition.</p>
 	  
@@ -828,9 +840,10 @@ ddi:UniverseNonArgentines a disco:Universe;
         with a high-level concept, “Dwelling characteristics variables.”
         (Figure 8.)</p>
       
-      <div class="figure">
-        <img src="images/example-concept.png" alt="Concept-Variable Link"/>
-      </div>
+      <figure>
+        <img src="images/example-concept.png"/>
+        <figcaption>Concept-Variable Link</figcaption>
+      </figure>
 	
       <p>In Disco, DDI concepts can be hierarchically structured</p>
 	
@@ -872,9 +885,10 @@ ddi:CatStatistics_2 a disco:CategoryStatistics;
       <p>Next we find some general information about the data files
         produced by this study (Figure 9).</p>
       
-      <div class="figure">
-        <img src="images/example-general-data-file-info.png" alt="General Data Set Information"/>
-      </div>
+      <figure>
+        <img src="images/example-general-data-file-info.png"/>
+        <figcaption>General Data Set Information</figcaption>
+      </figure>
 
       <p>Finally, the data file more concretely describes the actual physical file.</p>
 	
@@ -939,48 +953,50 @@ ddi:Datafile_1 a disco:Datafile;
       <h3>Coverage, References to DDI-XML Files, and Kind of Data</h3>
 	</section>
 
-      <div class="figure">
-        <img class="uml-diagram" src="diagrams/study-metadata.png" alt="Coverage, References to DDI-XML Files, and Kind of Data"/>
-      </div>
+      <figure>
+        <img class="uml-diagram" src="diagrams/study-metadata.png"/>
+        <figcaption>Coverage, References to DDI-XML Files, and Kind of Data</figcaption>
+      </figure>
 	  
 	  <p>
 	    Studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>) or groups of studies (<code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code>) (the <b>union of <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> and groups of studies (<code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code></b>)) 
 	    may have different datatype properties. 
 	    Studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>) or groups of studies (<code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code>) may have an abstract (<code>dcterms:abstract</code>), a title
-        (<code>dcterms:title</code>), a subtitle (<code><a href="#dfn-disco-subtitle" class="internalDFN">subtitle</a></code>), an alternative title
-        (<code>dcterms:alternative</code>), a purpose (<code><a href="#dfn-disco-purpose" class="internalDFN">purpose</a></code>), and information about
+        (<code>dcterms:title</code>), a subtitle (<code>subtitle</code>), an alternative title
+        (<code>dcterms:alternative</code>), a purpose (<code>purpose</code>), and information about
         the date and the time since when the <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> is publicly available
         (<code>dcterms:available</code>). Studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>) or groups of studies (<code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code>) may have multiple object properties.
-	    The object properties <code><a href="#dfn-disco-kindofdata" class="internalDFN">kindOfData</a></code> and
+	    The object properties <code>kindOfData</code> and
         <code>dcterms:subject</code> guide to <code>skos:Concepts</code>. 
-	    <code><a href="#dfn-disco-kindofdata" class="internalDFN">kindOfData</a></code> describes, with a string or a term from a controlled vocabulary, 
+	    <code>kindOfData</code> describes, with a string or a term from a controlled vocabulary, 
 	    the kind of data documented in the logical product(s) of a  <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>. 
 	    Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc.
 	    You can use <code>dcterms:subject</code> to describe the topical coverage of studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>) and groups of studies (<code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code>).
-	    <code><a href="#dfn-disco-ddifile" class="internalDFN">ddiFile</a></code> to <code>foaf:Documents</code> which are the DDI-XML files 
+	    <code>ddiFile</code> to <code>foaf:Documents</code> which are the DDI-XML files 
 	    containing further descriptions of the <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> or the <code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code>.
 	    Use <code>dcterms:temporal</code> for temporal coverages related to the union of studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>)  and groups of studies (<code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroups</a></code>).
 		For the spatial coverage use <code>dcterms:spatial</code>.
 		The cardinalities of all the object properties are in both directions 0 to n.
 		The only exception is that  studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>)  and groups of studies (<code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code>) may have 0 or 1 
-		 <code><a href="#dfn-disco-kindofdata" class="internalDFN">kindOfData</a></code> relationships to <code>skos:Concepts</code>.
+		 <code>kindOfData</code> relationships to <code>skos:Concepts</code>.
 	  </p>
 	  
 	<section>
       <h3>Relationships to Agents</h3>
 	</section>
 	  
-      <div class="figure">
-        <img class="uml-diagram" src="diagrams/study-agent.png" alt="Relationships to Agents"/>
-      </div>
+      <figure>
+        <img class="uml-diagram" src="diagrams/study-agent.png"/>
+        <figcaption>Relationships to Agents</figcaption>
+      </figure>
 	  
 	  <p>
 	    Creators (<code>dcterms:creator</code>), contributors (<code>dcterms:contributor</code>),
         and publishers (<code>dcterms:publisher</code>) of Studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>) and groups of studies (<code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code>) are <code>foaf:Agents</code>
         which are either <code>foaf:Persons</code> or <code>org:Organizations</code> whose members
         are <code>foaf:Persons</code>. Studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>) or groups of studies (<code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code>) may be funded by 
-	(<code><a href="#dfn-disco-fundedby" class="internalDFN">fundedBy</a></code>) 
-	    <code>foaf:Agents</code>. The object property <code><a href="#dfn-disco-fundedby" class="internalDFN">fundedBy</a></code> is defined as sub-property of 
+	(<code>fundedBy</code>) 
+	    <code>foaf:Agents</code>. The object property <code>fundedBy</code> is defined as sub-property of 
 	    <code>dcterms:contributor</code>. The cardinalities of these object properties are in both
         directions always 0 to n.
 		<code>foaf:Agents</code> may have roles such as analyst, data modeler, programmer, and co-investigator. 
@@ -1004,9 +1020,10 @@ ddi:Datafile_1 a disco:Datafile;
 		of Finland is being studied, the <code><a href="#dfn-disco-analysisunit" class="internalDFN">AnalysisUnit</a></code> would be individuals or persons.
 	  </p>
 	  
-      <div class="figure">
-        <img class="uml-diagram" src="diagrams/study-universe.png" alt="Study, Universe and AnalysisUnit"/>
-      </div>
+      <figure>
+        <img class="uml-diagram" src="diagrams/study-universe.png"/>
+        <figcaption>Study, Universe and AnalysisUnit</figcaption>
+      </figure>
 	  
 	  <p>
 		Studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>) and groups of studies (<code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code>) must have 1 to n universes (<code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code>) and 1 particular 
@@ -1047,9 +1064,10 @@ ddi:Datafile_1 a disco:Datafile;
 			  The class adms:Identifier can include the actual identifier itself and information on identifier scheme, its version, and its agency.
 			  </p>
 			
-			<div class="figure">
-			  <img class="uml-diagram" src="diagrams/identification-versioning.png" alt="Identification"/>
-			</div>
+        <figure >
+          <img class="uml-diagram" src="diagrams/identification-versioning.png"/>
+          <figcaption>Identification</figcaption>
+			</figure>
 			
 		  <pre class="example">
 ddi:Study_1 a disco:Study;
@@ -1087,18 +1105,20 @@ ddi:Study_1 a disco:Study;
 			<li>Version of the data files, where the subject is a <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>.</li>
 		</ul>
 		
-		<div class="figure">
-          <img class="uml-diagram" src="diagrams/identification-versioning.png" alt="Versioning Information"/>
-        </div>
+	    <figure>
+	      <img class="uml-diagram" src="diagrams/identification-versioning.png"/>
+	      <figcaption>Versioning Information</figcaption>
+        </figure>
 		
 	  </section>
 	  
     <section>
 	  <h3>Links to Related Files</h3>
 	  
-	  <div class="figure">
-	    <img class="uml-diagram" src="diagrams/Relations-DDI-XML.png" alt="Links to Related Files"/>
-	  </div>
+      <figure>
+        <img class="uml-diagram" src="diagrams/Relations-DDI-XML.png"/>
+        <figcaption>Links to Related Files</figcaption>
+	  </figure>
 	  
 	  <section>
 	  
@@ -1154,9 +1174,10 @@ ddi:License_1 a dcterms:LicenseDocument ;
   rdfs:seeAlso &lt;http://opencontent.org/opl.shtml&gt; .	  
 	  </pre>
 	  
-	  <div class="figure">
-        <img class="uml-diagram" src="diagrams/access-rights-statements-and-licenses.png" alt="Access Rights Statements and Licenses"/>
-      </div>
+	    <figure>
+	      <img class="uml-diagram" src="diagrams/access-rights-statements-and-licenses.png"/>
+	      <figcaption>Access Rights Statements and Licenses</figcaption>
+      </figure>
 	  
 	  <p>
 	    Logical data sets (<code><a href="#dfn-disco-LogicalDataSet" class="internalDFN">LogicalDataSet</a></code>) may have <code>dcterms:accessRights</code> relationships to <code>dcterms:RightsStatements</code>
@@ -1178,14 +1199,15 @@ ddi:Study_1 dcterms:spatial &lt;http://sws.geonames.org/2921044/&gt; .
 		</pre>
 		<p>In this example, <a href="http://www.geonames.org/">Geonames</a> is used to refer to a spatial region, in this case, the country Germany. Geonames provides URIs for continents, countries, regions, and cities, among others, and is therefore a possible option to use for describing spatial coverage.</p>
         
-		<div class="figure">
-          <img class="uml-diagram" src="diagrams/study-coverage.png" alt="Study Coverage"/>
-        </div>
+	    <figure>
+	      <img class="uml-diagram" src="diagrams/study-coverage.png"/>
+	      <figcaption>Study Coverage</figcaption>
+        </figure>
 		
 		<p>
 		  For temporal coverage, <b><code>dcterms:temporal</code></b> is used pointing to <code>dcterms:PeriodOfTime</code>.
           For time periods, labels can be attachted ( <code>skos:prefLabel</code>). It is also possible to define 
-		  start (<code><a href="#dfn-disco-startdate" class="internalDFN">startDate</a></code>) and end dates (<code><a href="#dfn-disco-enddate" class="internalDFN">endDate</a></code>). Please note that these properties are a feature at risk, since the domain is not Disco. Maintainers of the domain ontology may introduce their own properties for this purpose. 
+		  start (<code>startDate</code>) and end dates (<code>endDate</code>). Please note that these properties are a feature at risk, since the domain is not Disco. Maintainers of the domain ontology may introduce their own properties for this purpose. 
 		  
 		  A possible way to describe temporal coverage is the use of the <a href="http://www.w3.org/TR/owl-time/">W3C time ontology</a>:
 		</p>
@@ -1200,9 +1222,10 @@ ddi:Study_1 dcterms:temporal [
 		</pre>
 		<p>This example describes a study that has been conducted between January 1st and January 31st.</p>
 		
-		<div class="figure">
-          <img class="uml-diagram" src="diagrams/logical-data-set-coverage.png" alt="LogicalDataSet Coverage"/>
-        </div>
+	    <figure>
+	      <img class="uml-diagram" src="diagrams/logical-data-set-coverage.png"/>
+	      <figcaption>LogicalDataSet Coverage</figcaption>
+        </figure>
 		
 		<p>Topical coverage can be expressed using <b><code>dcterms:subject</code></b>. DDI-RDF foresees the use <code>skos:Concept</code> for the description of topical coverage:</p>
 	    <pre class="example">
@@ -1211,9 +1234,10 @@ ddi:Study_1 dcterms:subject [
   skos:prefLabel "Alcohol consumption" ] .
 		</pre>
 		
-		<div class="figure">
-          <img class="uml-diagram" src="diagrams/data-file-coverage.png" alt="DataFile Coverage"/>
-        </div>
+	    <figure>
+	      <img class="uml-diagram" src="diagrams/data-file-coverage.png"/>
+	      <figcaption>DataFile Coverage</figcaption>
+        </figure>
 		
 		<p>
 		  The multiplicities for each of the three object properties <code>dcterms:subject</code>, <code>dcterms:temporal</code>, and <code>dcterms:spatial</code> are in any case 0 to n.
@@ -1252,9 +1276,10 @@ ddi:Study_1 dcterms:subject [
 	  , i.e. <code><a href="#dfn-disco-summarystatistics" class="internalDFN">SummaryStatistics</a></code> as well as <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code>, are associated with data files (
 	  <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) by the object property <code><a href="#dfn-disco-statisticsdatafile" class="internalDFN">statisticsDataFile</a></code>. </p>
 	  
-      <div class="figure">
-        <img class="uml-diagram" src="diagrams/overview-data-set.png" alt="Overview: Data Sets, Data Files, Descriptive Statistics"/>
-      </div>
+      <figure>
+        <img class="uml-diagram" src="diagrams/overview-data-set.png"/>
+        <figcaption>Overview: Data Sets, Data Files, Descriptive Statistics</figcaption>
+      </figure>
 	  
 	  <p>
 	    Logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>) and data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) are 
@@ -1277,9 +1302,10 @@ ddi:Study_1 dcterms:subject [
 	    <code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code> represents the microdata dataset. 
 	  </p>
 
-      <div class="figure">
-        <img class="uml-diagram" src="diagrams/logical-data-set.png" alt="LogicalDataSet"/>
-      </div>
+      <figure>
+        <img class="uml-diagram" src="diagrams/logical-data-set.png"/>
+        <figcaption>LogicalDataSet</figcaption>
+      </figure>
 
       <p>
 	    <code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code> is defined as a sub-class of <code>dcat:Dataset</code>.
@@ -1343,9 +1369,10 @@ ddi:Dataset_1 a LogicalDataSet;
         represents all the physical distributed data files containing the microdata datasets.
       </p>
 	  
-	  <div class="figure">
-        <img class="uml-diagram" src="diagrams/data-file.png" alt="DataFile"/>
-	  </div>
+      <figure>
+        <img class="uml-diagram" src="diagrams/data-file.png"/>
+        <figcaption>DataFile</figcaption>
+	  </figure>
       
       <pre class="example">
       ddi:Datafile_1 a disco:Datafile;
@@ -1407,9 +1434,10 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
         descriptive statistics.
        </p>
 	   
-	   <div class="figure">
-        <img class="uml-diagram" src="diagrams/descriptive-statistics.png" alt="DescriptiveStatistics"/>
-      </div>
+      <figure>
+        <img class="uml-diagram" src="diagrams/descriptive-statistics.png"/>
+        <figcaption>DescriptiveStatistics</figcaption>
+      </figure>
 	   
        <p>	   
 		<code><a href="#dfn-disco-descriptivestatistics" class="internalDFN">DescriptiveStatistics</a></code>
@@ -1578,17 +1606,20 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		  
 
 		  
-		  <div class="figure">
-            <img width="35%" src="images/Example_ISSP2011_PARTLIV_Frequencies.png" alt="Example Category Statistics: Frequency Table of Variable PARTLIV (ISSP 2011)"/>
-          </div>
+		  <figure>
+            <img width="35%" src="images/Example_ISSP2011_PARTLIV_Frequencies.png"/>
+		    <figcaption>Example Category Statistics: Frequency Table of Variable PARTLIV (ISSP 2011)</figcaption>
+          </figure>
 		  
-		  <div class="figure">
-            <img width="35%" src="images/Example_ISSP2011_WRKHRS_Frequencies.png" alt="Example Category Statistics: Frequency Table of Variable WRKHRS (ISSP 2011)"/>
-          </div>
+		  <figure>
+            <img width="35%" src="images/Example_ISSP2011_WRKHRS_Frequencies.png"/>
+		    <figcaption>Example Category Statistics: Frequency Table of Variable WRKHRS (ISSP 2011)</figcaption>
+          </figure>
 		  
-		  <div class="figure">
-            <img width="35%" src="images/Example_ISSP2011_WRKHRS_SummaryStatistics.png" alt="Example Summary Statistics: Descriptive Statistics of Variable WRKHRS (ISSP 2011)"/>
-          </div>
+		  <figure>
+            <img width="35%" src="images/Example_ISSP2011_WRKHRS_SummaryStatistics.png"/>
+		    <figcaption>Example Summary Statistics: Descriptive Statistics of Variable WRKHRS (ISSP 2011)</figcaption>
+          </figure>
 		  
 		  <pre>
 @prefix issp: &lt;http://www.issp.org/&gt;
@@ -1772,13 +1803,15 @@ issp:XYZ_12
 	    <span>Microdata Information System (MISSY)</span>
     </div>
 		
-		<div class="figure">
-			<img src="images/missy-summaryStatistics.jpg" alt="Summary Statistics"/>
-		</div>
+  <figure>
+			<img src="images/missy-summaryStatistics.jpg"/>
+    <figcaption>Summary Statistics</figcaption>
+		</figure>
 		
-		<div class="figure">
-			<img src="images/missy-categoryStatistics.jpg" alt="Category Statistics"/>
-		</div>
+  <figure>
+			<img src="images/missy-categoryStatistics.jpg"/>
+    <figcaption>Category Statistics</figcaption>
+		</figure>
 	
 		<pre>
 # minimum
@@ -1907,9 +1940,10 @@ missy:CS2
 		re-usable parts of variables like occupation classification. 
 	  </p>
 	  
-	  <div class="figure">
-        <img class="uml-diagram" src="diagrams/variable.png" alt="Variables, Variable Definitions, Representations, and Concepts"/>
-      </div>
+      <figure>
+        <img class="uml-diagram" src="diagrams/variable.png"/>
+        <figcaption>Variables, Variable Definitions, Representations, and Concepts</figcaption>
+      </figure>
 	  
 	  <p>
 	    Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) may be based on (<code><a href="#dfn-disco-basedon" class="internalDFN">basedOn</a></code>) 0 or 1 variable definitions (<code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code>)
@@ -1937,9 +1971,10 @@ missy:CS2
 	    <b><code><a href="#dfn-disco-representedvariable" class="internalDFN">RepresentedVariable</a></code></b>s encompasse study-independent, re-usable parts of variables like occupation classification. 
 	  </p>
 	 
-	  <div class="figure">
-        <img class="uml-diagram" src="diagrams/variable-and-variable-definition.png" alt="Variables and RepresentedVariables"/>
-      </div>
+      <figure>
+        <img class="uml-diagram" src="diagrams/variable-and-variable-definition.png"/>
+        <figcaption>Variables and RepresentedVariables</figcaption>
+      </figure>
 	  
 	  <p>
 	  Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>) can be described (<code>dcterms:description</code>), 
@@ -2027,9 +2062,10 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		an unordered code response domain (<code>skos:ConceptScheme</code>) as well as an ordered code response domain (<code>skos:OrderedCollection</code>).
 	  </p>
 
-      <div class="figure">
-        <img class="uml-diagram" src="diagrams/representation.png" alt="Representation"/>
-      </div>
+      <figure>
+        <img class="uml-diagram" src="diagrams/representation.png"/>
+        <figcaption>Representation</figcaption>
+      </figure>
 	  
 	  <p>
 	    Questions (<code><a href="#dfn-disco-question" class="internalDFN">Question</a></code>) 
@@ -2082,9 +2118,10 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
 		<code>Skos:Concept</code> is reused to a large extent to represent DDI concepts, codes, and categories.
 	  </p>
 
-      <div class="figure">
-        <img class="uml-diagram" src="diagrams/concept.png" alt="skos:Concept and skos:ConceptScheme"/>
-      </div>
+	  <figure>
+        <img class="uml-diagram" src="diagrams/concept.png"/>
+	    <figcaption>skos:Concept and skos:ConceptScheme</figcaption>
+      </figure>
 	  
 	  <p>
 		DDI concepts can be described using <code>skos:definition</code>.
@@ -2120,9 +2157,10 @@ Variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a><
           <span>EXAMPLE: ISSP 2011 (International Social Survey Programme)</span>
 	    </div>
 		
-		<div class="figure">
-          <img width="35%" src="images/Example_ISSP2011_PARTLIV_Frequencies.png" alt="Example Category Statistics: Frequency Table of Variable PARTLIV (ISSP 2011)"/>
-        </div>
+	    <figure>
+          <img width="35%" src="images/Example_ISSP2011_PARTLIV_Frequencies.png"/>
+	      <figcaption>Example Category Statistics: Frequency Table of Variable PARTLIV (ISSP 2011)</figcaption>
+        </figure>
 		  
 		<pre>
 @prefix issp: &lt;http://www.issp.org/&gt;	  
@@ -2197,9 +2235,10 @@ Please note that only code and categories are part of the turtle example.</li>
           <span>EXAMPLE: ISSP 2011 (International Social Survey Programme)</span>
 	    </div>
 		
-		<div class="figure">
-          <img width="35%" src="images/Example_ISSP2011_PARTLIV_Frequencies.png" alt="Example Category Statistics: Frequency Table of Variable PARTLIV (ISSP 2011)"/>
-        </div>
+	    <figure>
+          <img width="35%" src="images/Example_ISSP2011_PARTLIV_Frequencies.png"/>
+	      <figcaption>Example Category Statistics: Frequency Table of Variable PARTLIV (ISSP 2011)</figcaption>
+        </figure>
 		  
 		  <p>
 		    The following example shows an ordered collection of categories represented using abbreviated and complete syntax forms.
@@ -2268,9 +2307,10 @@ A questionnaire contains a flow of questions.
 A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is designed to get information upon a subject, or sequence of subjects, from a respondent.
 </p>
 
-	  <div class="figure">
-        <img class="uml-diagram" src="diagrams/data-collection.png" alt="DataCollection"/>
-      </div>
+      <figure>
+        <img class="uml-diagram" src="diagrams/data-collection.png"/>
+        <figcaption>DataCollection</figcaption>
+      </figure>
 	  
     <section>
       <h3>Instrument</h3>
@@ -2754,9 +2794,10 @@ The mappings are defined within a separate turtle file
 	<li>We also give an example of a concrete mapping between disco and DDI-L</li>
 </ul>
 
-<div class="figure">
-	<img class="uml-diagram" src="diagrams/mappings.png" alt="Representation of Mappings in RDF"/>
-</div>
+		  <figure>
+	<img class="uml-diagram" src="diagrams/mappings.png"/>
+		    <figcaption>Representation of Mappings in RDF</figcaption>
+</figure>
 			
 	  <div class="example">
 		<div class="example-title">
@@ -6571,7 +6612,7 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
             the time of collection or later during cleaning, and re-coding. LogicalDataSet represents
             the microdata dataset.
          </dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:variable"></a><em>Object Property: </em><code><dfn>disco:variable</dfn></code>
+         <dt class="classProperties"><a id="dfn-disco-disco:variable"></a><em>Object Property: </em><code>disco:variable</code>
             (<em>Domain:</em><code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Variable</code>
             )
             
@@ -6669,7 +6710,7 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
       </dl>
       <h3>3. Variables, Variable Definitions, Representations, and Concepts</h3>
       <dl class="classDefinitions">
-         <dt><a id="dfn-disco-Variable"></a><em>Class: </em><code><dfn>disco:Variable</dfn></code></dt>
+         <dt><a id="dfn-disco-Variable"></a><em>Class: </em><code>disco:Variable</code></dt>
          <dd>Variables provide a definition of the column in a rectangular data file. Variable
             is a characteristic of a unit being observed. A variable might be the answer of a
             question, have an administrative source, or be derived from other variables.
@@ -6725,11 +6766,11 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
       </dl>
       <h3>5. Other properties</h3>
       <dl>
-         <dt><a name="dfn-disco-Question"></a><em>Class: </em><code><dfn>disco:Question</dfn></code></dt>
+         <dt><a name="dfn-disco-Question"></a><em>Class: </em><code>disco:Question</code></dt>
          <dd>A Question is designed to get information upon a subject, or sequence of subjects,
             from a respondent.
          </dd>
-         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:universe</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code>disco:universe</code>
             (<em>Domain:</em><code></code><code>disco:Study</code>, <code>disco:StudyGroup</code>, <code>disco:RepresentedVariable</code>, <code>disco:Variable</code>, <code>disco:Question</code>, <code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Universe</code>
             )
             
@@ -6743,19 +6784,19 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
             
          </dt>
          <dd class="classProperties">points to the DDI concept of a RepresentedVariable, a Variable, or a Question</dd>
-         <dt class="classProperties"><em>Datatype Property: </em><code><dfn>disco:questionText</dfn></code>
+         <dt class="classProperties"><em>Datatype Property: </em><code>disco:questionText</code>
             (<em>Domain:</em><code>disco:Question</code><em> -&gt; Range: </em><code>rdf:langString</code>
             )
             
          </dt>
          <dd class="classProperties">question text</dd>
-         <dt><a name="dfn-disco-Instrument"></a><em>Class: </em><code><dfn>disco:Instrument</dfn></code></dt>
+         <dt><a name="dfn-disco-Instrument"></a><em>Class: </em><code>disco:Instrument</code></dt>
          <dd>The data for the study are collected by an Instrument. The purpose of an Instrument,
             i.e. an interview, a questionnaire or another entity used as a means of data collection,
             is in the case of a survey to record the flow of a questionnaire, its use of questions,
             and additional component parts. A questionnaire contains a flow of questions. 
          </dd>
-         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:externalDocumentation</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code>disco:externalDocumentation</code>
             (<em>Domain:</em><code>disco:Instrument</code><em> -&gt; Range: </em><code>foaf:Document</code>
             )
             
@@ -6763,16 +6804,16 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
          <dd class="classProperties">points from an Instrument to a foaf:Document which is the external documentation of
             the Instrument.
          </dd>
-         <dt><a name="dfn-disco-Questionnaire"></a><em>Class: </em><code><dfn>disco:Questionnaire</dfn></code>
+         <dt><a name="dfn-disco-Questionnaire"></a><em>Class: </em><code>disco:Questionnaire</code>
             Sub Class of: <code>disco:Instrument</code></dt>
          <dd>A questionnaire contains a flow of questions. </dd>
-         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:collectionMode</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code>disco:collectionMode</code>
             (<em>Domain:</em><code>disco:Questionnaire</code><em> -&gt; Range: </em><code>skos:Concept</code>
             )
             
          </dt>
          <dd class="classProperties">mode of collection of a Questionnaire</dd>
-         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:question</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code>disco:question</code>
             (<em>Domain:</em><code></code><code>disco:Variable</code>, <code>disco:Questionnaire</code><em> -&gt; Range: </em><code>disco:Question</code>
             )
             
@@ -6791,10 +6832,11 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
         Additionally, the cardinalities of these object properties and class hierarchies are visualized.
       </p>
       
-      <div class="figure" style="page-break-before:always">
+      <figure style="page-break-before:always">
 	    <img width="100%" class="print-hidden uml-diagram" src="diagrams/object-properties.png" alt="Combined UML Diagram (object properties only)"/>
-	    <img id="combined-uml-diagram-object-properties-only" class="screen-hidden" src="diagrams/object-properties_HiRes_vertical.png" alt="Combined UML Diagram (object properties only)"/>
-      </div>
+	    <img id="combined-uml-diagram-object-properties-only" class="screen-hidden" src="diagrams/object-properties_HiRes_vertical.png"/>
+        <figcaption>Combined UML Diagram (object properties only)</figcaption>
+      </figure>
       <p>A scalable version of this diagram can be found <a target="_blank" href="diagrams/object-properties.svg">here</a>.</p>
     </section>
 
@@ -7050,9 +7092,10 @@ WHERE
 			For clarity, the properties of the classification items (code, labels, notes) have not been included in the figure.
 		</p>
 		
-		<div class="figure">
-			<img src="images/example-anzsic.png" alt="Statistical classification – ANZSIC"/>
-		</div>
+      <figure>
+			<img src="images/example-anzsic.png"/>
+        <figcaption>Statistical classification – ANZSIC</figcaption>
+		</figure>
 		
 		<p>
 			On the left of the figure is the skos:ConceptScheme instance that corresponds to the ANZIC 2006 classification scheme, 
