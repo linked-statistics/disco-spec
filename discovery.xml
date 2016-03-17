@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:dc11="http://purl.org/dc/elements/1.1/"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+  <owl:Ontology rdf:about="http://rdf-vocabulary.ddialliance.org/discovery">
+    <dc11:title xml:lang="en">DDI-RDF Discovery Vocabulary</dc11:title>
+    <rdfs:comment xml:lang="en">This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats.</rdfs:comment>
+    <dc11:description xml:lang="en">This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats.</dc11:description>
+    <dc11:contributor>Thomas Bosch</dc11:contributor>
+    <dc11:contributor>Richard Cyganiak</dc11:contributor>
+    <dc11:contributor>Joachim Wackerow</dc11:contributor>
+    <dc11:contributor>Benjamin Zapilko</dc11:contributor>
+    <dc11:creator>Thomas Bosch</dc11:creator>
+    <dc11:creator>Sarven Capadisli</dc11:creator>
+    <dc11:creator>Franck Cotton</dc11:creator>
+    <dc11:creator>Richard Cyganiak</dc11:creator>
+    <dc11:creator>Arofan Gregory</dc11:creator>
+    <dc11:creator>Benedikt Kämpgen</dc11:creator>
+    <dc11:creator>Olof Olsson</dc11:creator>
+    <dc11:creator>Heiko Paulheim</dc11:creator>
+    <dc11:creator>Joachim Wackerow</dc11:creator>
+    <dc11:creator>Benjamin Zapilko</dc11:creator>
+    <owl:versionInfo>Version 0.6 - 2013-09-30</owl:versionInfo>
+  </owl:Ontology>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#AnalysisUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Analysis Unit</rdfs:label>
+    <rdfs:label xml:lang="de">Analyseeinheit</rdfs:label>
+    <rdfs:comment xml:lang="en">The process collecting data is focusing on the analysis of a particular type of subject. If, for example, the adult population of Finland is being studied, the AnalysisUnit would be individuals or persons.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#RepresentedVariable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Data element</rdfs:label>
+    <rdfs:label xml:lang="fr">Élément de donnée</rdfs:label>
+    <rdfs:comment xml:lang="en">RepresentedVariables encompasse study-independent, re-usable parts of variables like occupation classification.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#DataFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Data file</rdfs:label>
+    <rdfs:label xml:lang="fr">Fichier de données</rdfs:label>
+    <rdfs:comment xml:lang="en">The class DataFile, which is also a dcterms:Dataset, represents all the data files containing the microdata datasets.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Dataset"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#DescriptiveStatistics">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Descriptive statistics</rdfs:label>
+    <rdfs:label xml:lang="fr">Statistique descriptive</rdfs:label>
+    <rdfs:comment xml:lang="en">SummaryStatistics pointing to variables and CategoryStatistics pointing to categories and codes are both DescriptiveStatistics.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#SummaryStatistics">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Summary statistics</rdfs:label>
+    <rdfs:comment xml:lang="en">For SummaryStatistics, maximum values, minimum values, and standard deviations can be defined.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#DescriptiveStatistics"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#CategoryStatistics">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Category statistics</rdfs:label>
+    <rdfs:comment xml:lang="en">For CategoryStatistics, frequencies, percentages, and weighted percentages can be defined.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#DescriptiveStatistics"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#Instrument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Instrument</rdfs:label>
+    <rdfs:label xml:lang="fr">Instrument de collecte</rdfs:label>
+    <rdfs:comment xml:lang="en">The data for the study are collected by an Instrument. The purpose of an Instrument, i.e. an interview, a questionnaire or another entity used as a means of data collection, is in the case of a survey to record the flow of a questionnaire, its use of questions, and additional component parts. A questionnaire contains a flow of questions.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#LogicalDataSet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">LogicalDataSet</rdfs:label>
+    <rdfs:label xml:lang="fr">Ensemble de données</rdfs:label>
+    <rdfs:comment xml:lang="en">Each study has a set of logical metadata associated with the processing of data, at the time of collection or later during cleaning, and re-coding. LogicalDataSet represents the microdata dataset.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#Question">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Question</rdfs:label>
+    <rdfs:label xml:lang="fr">Question</rdfs:label>
+    <rdfs:comment xml:lang="en">A Question is designed to get information upon a subject, or sequence of subjects, from a respondent.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdfs:Class>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#responseDomain">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">responseDomain</rdfs:label>
+    <rdfs:comment xml:lang="en">The response domain of questions. The response domain has to be an instance of the class Representation.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Question"/>
+    <rdfs:range rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Representation"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#Questionnaire">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Questionnaire</rdfs:label>
+    <rdfs:label xml:lang="de">Fragebogen</rdfs:label>
+    <rdfs:comment xml:lang="en">A questionnaire contains a flow of questions. Questionnaires must contain 1 to n questions using the object property question. Particular questions may be contained in 0 to n questionnaires.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+    <rdfs:subClassOf rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Instrument"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#Study">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Study</rdfs:label>
+    <rdfs:label xml:lang="fr">Étude</rdfs:label>
+    <rdfs:comment xml:lang="en">A Study represents the process by which a data set was generated or collected.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#StudyGroup">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Study Group</rdfs:label>
+    <rdfs:label xml:lang="de">Studiengruppe</rdfs:label>
+    <rdfs:comment xml:lang="en">In some cases, where data collection is cyclic or on-going, data sets may be released as a StudyGroup, where each cycle or wave of the data collection activity produces one or more data sets. This is typical for longitudinal studies, panel studies, and other types of series (to use the DDI term). In this case, a number of Study objects would be collected into a single StudyGroup.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#Variable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Variable</rdfs:label>
+    <rdfs:label xml:lang="fr">Variable</rdfs:label>
+    <rdfs:comment xml:lang="en">Variables provide a definition of the column in a rectangular data file. Variable is a characteristic of a unit being observed. A variable might be the answer of a question, have an administrative source, or be derived from other variables.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+    <owl:equivalentClass rdf:resource="http://semanticscience.org/resource/SIO_000367"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#Universe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Universe</rdfs:label>
+    <rdfs:label xml:lang="fr">Univers</rdfs:label>
+    <rdfs:comment xml:lang="en">A Universe is the total membership or population of a defined class of people, objects or events.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#Mapping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Mapping</rdfs:label>
+    <rdfs:comment xml:lang="en">This class is for representing mappings betwenn DDI-RDF and DDI-XML. See Section 10 in the specification for more details and examples.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdfs:Class>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#caseQuantity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">number of cases</rdfs:label>
+    <rdfs:label xml:lang="fr">nombre d'observations</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is used for representing the case quantity of a DataFile.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#DataFile"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#frequency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">frequency</rdfs:label>
+    <rdfs:label xml:lang="fr">fréquence</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is used to describe the frequencies within category statistics. See Sections 6 and 7 more more details and examples.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#CategoryStatistics"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#isPublic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">is public</rdfs:label>
+    <rdfs:label xml:lang="de">ist öffentlich</rdfs:label>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#LogicalDataSet"/>
+    <rdfs:comment xml:lang="en">This property is used as a flag indicating if the microdata dataset is publicly available. The value true indicates that the dataset can be accessed (usually downloaded) by anyone.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#isValid">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">is valid</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:comment xml:lang="en">Indicates if the code (represented by skos:Concept) is valid or missing. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#questionText">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">question text</rdfs:label>
+    <rdfs:label xml:lang="de">Fragetext</rdfs:label>
+    <rdfs:comment xml:lang="en">This property contains the actual text of a question as string. See Section 8.2 for examples.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Question"/>
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#percentage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">percentage</rdfs:label>
+    <rdfs:label xml:lang="fr">pourcentage</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is used to describe the percentages within category statistics. See Sections 6 and 7 more more details and examples.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#CategoryStatistics"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#computationBase">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">computation base</rdfs:label>
+    <rdfs:label xml:lang="fr">pourcentage</rdfs:label>
+    <rdfs:comment xml:lang="en">computationBase expresses if the cases - which are the basis of the computation of a statistics value - are valid, invalid or the total of both. The usage of computationBase for frequency differs from the usage for the percentage statistics and the summary statistics. A distinction regarding computationBase doesn’t apply to frequency as category statistic. Please find more details in Section 6.3 of the specification.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#CategoryStatistics"/>
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#cumulativePercentage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">cumulative percentage</rdfs:label>
+    <rdfs:comment xml:lang="en">This property is used to describe the cumulative percentages within category statistics. See Sections 6 and 7 more more details and examples.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#CategoryStatistics"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#purpose">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">purpose</rdfs:label>
+    <rdfs:label xml:lang="de">Grund</rdfs:label>
+    <rdfs:comment xml:lang="en">The purpose of a Study of a StudyGroup.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#StudyGroup"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#subtitle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">subtitle</rdfs:label>
+    <rdfs:label xml:lang="de">Untertitel</rdfs:label>
+    <rdfs:comment xml:lang="en">The sub-title of a Study of a StudyGroup.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#StudyGroup"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#startDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">start date</rdfs:label>
+    <rdfs:comment xml:lang="en">Defines the start date of a period of time. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/dc/terms/PeriodOfTime"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#endDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">end date</rdfs:label>
+    <rdfs:comment xml:lang="en">Defines the end date of a period of time. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/dc/terms/PeriodOfTime"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#mappingDDI-L">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">Mapping from and to DDI-L</rdfs:label>
+    <rdfs:comment xml:lang="en">Mapping from and to DDI-L. See Section 10 in the specification for more details and examples.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Mapping"/>
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#mappingDDI-C">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">Mapping from and to DDI-C</rdfs:label>
+    <rdfs:comment xml:lang="en">Mapping from and to DDI-C. See Section 10 in the specification for more details and examples.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Mapping"/>
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#context">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">context specifies conditions which have to be fulfilled for specific mappings</rdfs:label>
+    <rdfs:comment xml:lang="en">context specifies conditions which have to be fulfilled for particular mappings. Context information can be either a SPARQL query or an informal description as plain literal.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Mapping"/>
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#variableQuantity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">variable quantity</rdfs:label>
+    <rdfs:comment xml:lang="en">This property can be used when (1) no variable level information is available and when (2) only a stub of the RDF is requested e.g when returning basic information on a study of file, no information on potentially hundreds or thousands of variables references or metadata has to be returned.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#LogicalDataSet"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#DataFile"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#analysisUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">analysis unit</rdfs:label>
+    <rdfs:label xml:lang="de">Analyseeinheit</rdfs:label>
+    <rdfs:comment xml:lang="en">This property links to the analysis unit of a Study, a StudyGroup, or a Variable.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#StudyGroup"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Variable"/>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                  </rdf:Description>
+                </rdf:rest>
+
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#AnalysisUnit"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#basedOn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">based on</rdfs:label>
+    <rdfs:label xml:lang="fr">utilise l'élément de donnée</rdfs:label>
+    <rdfs:comment xml:lang="en">This property points to the RepresentedVariable the Variable is based on.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Variable"/>
+    <rdfs:range rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#RepresentedVariable"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#collectionMode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">collection mode</rdfs:label>
+    <rdfs:label xml:lang="de">Datenerfassungsmodus</rdfs:label>
+    <rdfs:comment xml:lang="en">This property points to the mode of collection of a Questionnaire which is a skos:Concept.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Questionnaire"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#concept">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">concept</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour concept</rdfs:label>
+    <rdfs:comment xml:lang="en">This property points to the DDI concept of a RepresentedVariable, a Variable, or a Question</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#RepresentedVariable"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Question"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Variable"/>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                  </rdf:Description>
+                </rdf:rest>
+
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#aggregation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">aggregation</rdfs:label>
+    <rdfs:comment xml:lang="en">This property points to the aggregated data set of a microdata data set. The aggregated data set is a qb:DataSet of the RDF Data Cube Vocabulary.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#LogicalDataSet"/>
+    <rdfs:range rdf:resource="http://purl.org/linked-data/cube#DataSet"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#dataFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">data file</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour fichier de données</rdfs:label>
+    <rdfs:comment xml:lang="en">This property points to the DataFile of a Study or a LogicalDataSet.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#LogicalDataSet"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#DataFile"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#ddifile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">DDI file</rdfs:label>
+    <rdfs:label xml:lang="de">DDI-Datei</rdfs:label>
+    <rdfs:comment xml:lang="en">This property points from a Study or a StudyGroup to the original DDI file which is a foaf:Document.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#StudyGroup"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#externalDocumentation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">external documentation</rdfs:label>
+    <rdfs:label xml:lang="de">externe Dokumentation</rdfs:label>
+    <rdfs:comment xml:lang="en">This property points from an Instrument to a foaf:Document which is the external documentation of the Instrument.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Instrument"/>
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#fundedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">funded by</rdfs:label>
+    <rdfs:comment xml:lang="en">This property points from a Study or a StudyGroup to the funding foaf:Agent which is either a foaf:Person or a org:Organization.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#StudyGroup"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/contributor"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#inGroup">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">in group</rdfs:label>
+    <rdfs:comment xml:lang="en">This property points from a Study to the StudyGroup which contains the Study.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study"/>
+    <rdfs:range rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#StudyGroup"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#inputVariable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">input variable</rdfs:label>
+    <rdfs:label xml:lang="fr">variable en entrée</rdfs:label>
+    <rdfs:comment xml:lang="en">This property indicates the original Variable of an aggregated qb:DataSet. Please note that this property is a feature at risk, since the domain is not a class of Disco. Maintainers of the domain ontology may define their own property.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/linked-data/cube#DataSet"/>
+    <rdfs:range rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Variable"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#instrument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">instrument</rdfs:label>
+    <rdfs:label xml:lang="fr">a comme instrument</rdfs:label>
+    <rdfs:comment xml:lang="en">This property indicates the Instrument of a Study or a LogicalDataSet.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#LogicalDataSet"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Instrument"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#kindOfData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">kind of data</rdfs:label>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#StudyGroup"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:comment>The general kind of data (e.g. geospatial, register, survey) collected in this study, given either as a skos:Concept, or as a blank node with attached free-text rdfs:label.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#product">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">product</rdfs:label>
+    <rdfs:label xml:lang="de">Produkt</rdfs:label>
+    <rdfs:comment xml:lang="en">This property indicates the LogicalDataSets of a Study.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study"/>
+    <rdfs:range rdf:resource="http://purl.org/linked-data/cube#LogicalDataSet"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#question">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">question</rdfs:label>
+    <rdfs:label xml:lang="fr">a comme question</rdfs:label>
+    <rdfs:comment xml:lang="en">This property indicates the Questions associated to Variables or contained in Questionnaires.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Variable"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Questionnaire"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Question"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#representation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">representation</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour représentation</rdfs:label>
+    <rdfs:comment xml:lang="en">RepresentedVariables and Variables can have a Representation whose individuals are either of the class rdfs:Datatype (to represent values) or skos:ConceptScheme (to represent code lists).</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#RepresentedVariable"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Variable"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Question"/>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                  </rdf:Description>
+                </rdf:rest>
+
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:range>
+
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#statisticsCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">statistics category</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour concept statistique</rdfs:label>
+    <rdfs:comment xml:lang="en">This property points to the skos:Concept (representing codes and categories) of a specific CategoryStatistics individual.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#CategoryStatistics"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#statisticsDataFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">statistics data file</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour fichier statistique</rdfs:label>
+    <rdfs:comment xml:lang="en">This property indicates the DataFile of a specific DesciptiveStatistics individual. DescriptiveStatistics may have statisticsDataFile relations to 0 to n data files (DataFile) and data files (DataFile) may be in 0 to n statisticsDataFile relations to DescriptiveStatistics individuals.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#DescriptiveStatistics"/>
+    <rdfs:range rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#DataFile"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#statisticsVariable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">statistics variable</rdfs:label>
+    <rdfs:label xml:lang="fr">a pour variable statistique</rdfs:label>
+    <rdfs:comment xml:lang="en">This property indicates the Variable of a specific SummaryStatistics individual. SummaryStatistics point to 0 to n variables (Variable) using the object property statisticsVariable.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#SummaryStatistics"/>
+    <rdfs:range rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Variable"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#weightedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">weighted by</rdfs:label>
+    <rdfs:label xml:lang="fr"></rdfs:label>
+    <rdfs:comment xml:lang="en">SummaryStatistics or CategoryStatistics resources may be weighted by a specific Variable.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#SummaryStatistics"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#CategoryStatistics"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Variable"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#universe">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">universe</rdfs:label>
+    <rdfs:label xml:lang="fr">a comme univers</rdfs:label>
+    <rdfs:comment xml:lang="en">This property indicates the Universe(s) of Studies, StudyGrous, RepresentedVariables, Variables, Questions, and LogicalDataSets.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#StudyGroup"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#RepresentedVariable"/>
+                    <rdf:rest>
+                      <rdf:Description>
+                        <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Variable"/>
+                        <rdf:rest>
+                          <rdf:Description>
+                            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Question"/>
+                            <rdf:rest>
+                              <rdf:Description>
+                                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#LogicalDataSet"/>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                              </rdf:Description>
+                            </rdf:rest>
+
+                          </rdf:Description>
+                        </rdf:rest>
+
+                      </rdf:Description>
+                    </rdf:rest>
+
+                  </rdf:Description>
+                </rdf:rest>
+
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Universe"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#variable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">variable</rdfs:label>
+    <rdfs:label xml:lang="de">Variable</rdfs:label>
+    <rdfs:comment xml:lang="en">This property indicates the Variable of a Study and points to Variable contained in the LogicalDataSet.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#LogicalDataSet"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </owl:unionOf>
+
+      </owl:Class>
+    </rdfs:domain>
+
+    <rdfs:range rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Variable"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#summaryStatisticsType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">summary statistics type</rdfs:label>
+    <rdfs:comment xml:lang="en">This property points to the summary statistics type of a Questionnaire which is a skos:Concept.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#SummaryStatistics"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+</rdf:RDF>
+
+
