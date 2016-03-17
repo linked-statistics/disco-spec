@@ -6565,40 +6565,40 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
       <!-- Vocabulary Reference start-->
       <h3>1. Studies and StudyGroups</h3>
       <dl class="classDefinitions">
-         <dt><a id="dfn-disco-Study"></a><em>Class: </em><code><dfn>disco:Study</dfn></code></dt>
+         <dt><em>Class: </em><code><dfn>disco:Study</dfn></code></dt>
          <dd>A Study represents the process by which a data set was generated or collected.</dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:variable"></a><em>Object Property: </em><code><dfn>disco:variable</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:variable</dfn></code>
             (<em>Domain:</em><code>disco:Study</code><em> -&gt; Range: </em><code>disco:Variable</code>
             )
             
          </dt>
          <dd class="classProperties">Indicates the Variable of a Study.</dd>
-        <dt class="classProperties"><a id="dfn-disco-disco:inGroup"></a><em>Object Property: </em><code><dfn>disco:inGroup</dfn></code>
+        <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:inGroup</dfn></code>
             (<em>Domain:</em><code>disco:Study</code><em> -&gt; Range: </em><code>disco:StudyGroup</code>
             )
             
          </dt>
          <dd class="classProperties">points from a Study to the StudyGroup which contains the Study.</dd>
-        <dt class="classProperties"><a id="dfn-disco-disco:product"></a><em>Object Property: </em><code><dfn>disco:product</dfn></code>
+        <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:product</dfn></code>
             (<em>Domain:</em><code>disco:Study</code><em> -&gt; Range: </em><code>http://purl.org/linked-data/cube#LogicalDataSet</code>
             )
             
          </dt>
          <dd class="classProperties">Indicates the LogicalDataSets of a Studies.</dd>
-         <dt><a id="dfn-disco-StudyGroup"></a><em>Class: </em><code><dfn>disco:StudyGroup</dfn></code></dt>
+         <dt><em>Class: </em><code><dfn>disco:StudyGroup</dfn></code></dt>
          <dd>In some cases, where data collection is cyclic or on-going, data sets may be released
             as a StudyGroup, where each cycle or wave of the data collection activity produces
             one or more data sets. This is typical for longitudinal studies, panel studies, and
             other types of series (to use the DDI term). In this case, a number of Study objects
             would be collected into a single StudyGroup.
          </dd>
-         <dt><a id="dfn-disco-AnalysisUnit"></a><em>Class: </em><code><dfn>disco:AnalysisUnit</dfn></code>
+         <dt><em>Class: </em><code><dfn>disco:AnalysisUnit</dfn></code>
             Sub Class of: <code>skos:Concept</code></dt>
          <dd>The process collecting data is focusing on the analysis of a particular type of subject.
             If, for example, the adult population of Finland is being studied, the AnalysisUnit
             would be individuals or persons.
          </dd>
-         <dt><a id="dfn-disco-Universe"></a><em>Class: </em><code><dfn>disco:Universe</dfn></code>
+         <dt><em>Class: </em><code><dfn>disco:Universe</dfn></code>
             Sub Class of: <code>skos:Concept</code></dt>
          <dd>A Universe is the total membership or population of a defined class of people, objects
             or events.
@@ -6606,25 +6606,25 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
       </dl>
       <h3>2. Data Sets, Data Files, and Descriptive Statistics</h3>
       <dl class="classDefinitions">
-         <dt><a id="dfn-disco-LogicalDataSet"></a><em>Class: </em><code><dfn>disco:LogicalDataSet</dfn></code>
+         <dt><em>Class: </em><code><dfn>disco:LogicalDataSet</dfn></code>
             Sub Class of: <code>http://www.w3.org/ns/dcat#Dataset</code></dt>
          <dd>Each study has a set of logical metadata associated with the processing of data, at
             the time of collection or later during cleaning, and re-coding. LogicalDataSet represents
             the microdata dataset.
          </dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:variable"></a><em>Object Property: </em><code>disco:variable</code>
+         <dt class="classProperties"><em>Object Property: </em><code>disco:variable</code>
             (<em>Domain:</em><code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>disco:Variable</code>
             )
             
          </dt>
          <dd class="classProperties">points to Variable contained in the LogicalDataSet</dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:aggregation"></a><em>Object Property: </em><code><dfn>disco:aggregation</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:aggregation</dfn></code>
             (<em>Domain:</em><code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>http://purl.org/linked-data/cube#DataSet</code>
             )
             
          </dt>
          <dd class="classProperties">points to the aggregated data set of a microdata data set.</dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:isPublic"></a><em>Datatype Property: </em><code><dfn>disco:isPublic</dfn></code>
+         <dt class="classProperties"><em>Datatype Property: </em><code><dfn>disco:isPublic</dfn></code>
             (<em>Domain:</em><code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>xsd:boolean</code>
             )
             
@@ -6632,50 +6632,50 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
          <dd class="classProperties">The value true indicates that the dataset can be accessed (usually downloaded) by
             anyone.
          </dd>
-         <dt><a id="dfn-disco-DataFile"></a><em>Class: </em><code><dfn>disco:DataFile</dfn></code>
+         <dt><em>Class: </em><code><dfn>disco:DataFile</dfn></code>
             Sub Class of: <code>http://www.w3.org/ns/dcat#Distribution</code></dt>
          <dd>The class DataFile, which is also a dcterms:Dataset, represents all the data files
             containing the microdata datasets.
          </dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:caseQuantity"></a><em>Datatype Property: </em><code><dfn>disco:caseQuantity</dfn></code>
+         <dt class="classProperties"><em>Datatype Property: </em><code><dfn>disco:caseQuantity</dfn></code>
             (<em>Domain:</em><code>disco:DataFile</code><em> -&gt; Range: </em><code>xsd:nonNegativeInteger</code>
             )
             
          </dt>
          <dd class="classProperties">case quantity of a DataFile.</dd>
-         <dt><a id="dfn-disco-DescriptiveStatistics"></a><em>Class: </em><code><dfn>disco:DescriptiveStatistics</dfn></code></dt>
+         <dt><em>Class: </em><code><dfn>disco:DescriptiveStatistics</dfn></code></dt>
          <dd>SummaryStatistics pointing to variables and CategoryStatistics pointing to categories
             and codes are both DescriptiveStatistics.
          </dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:statisticsDataFile"></a><em>Object Property: </em><code><dfn>disco:statisticsDataFile</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:statisticsDataFile</dfn></code>
             (<em>Domain:</em><code>disco:DescriptiveStatistics</code><em> -&gt; Range: </em><code>disco:DataFile</code>
             )
             
          </dt>
          <dd class="classProperties">Indicates the DataFile of a specific DesciptiveStatistics individual.</dd>
-         <dt><a id="dfn-disco-SummaryStatistics"></a><em>Class: </em><code><dfn>disco:SummaryStatistics</dfn></code>
+         <dt><em>Class: </em><code><dfn>disco:SummaryStatistics</dfn></code>
             Sub Class of: <code>disco:DescriptiveStatistics</code></dt>
          <dd>For SummaryStatistics, maximum values, minimum values, and standard deviations can
             be defined.
          </dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:statisticsVariable"></a><em>Object Property: </em><code><dfn>disco:statisticsVariable</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:statisticsVariable</dfn></code>
             (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>disco:Variable</code>
             )
             
          </dt>
          <dd class="classProperties">Indicates the Variable of a specific SummaryStatistics individual.</dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:summaryStatisticsType"></a><em>Object Property: </em><code><dfn>disco:summaryStatisticsType</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:summaryStatisticsType</dfn></code>
             (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>skos:Concept</code>
             )
             
          </dt>
          <dd class="classProperties">summary statistics type</dd>
-         <dt><a id="dfn-disco-CategoryStatistics"></a><em>Class: </em><code><dfn>disco:CategoryStatistics</dfn></code>
+         <dt><em>Class: </em><code><dfn>disco:CategoryStatistics</dfn></code>
             Sub Class of: <code>disco:DescriptiveStatistics</code></dt>
          <dd>For CategoryStatistics, frequencies, percentages, and weighted percentages can be
             defined.
          </dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:statisticsCategory"></a><em>Object Property: </em><code><dfn>disco:statisticsCategory</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:statisticsCategory</dfn></code>
             (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>skos:Concept</code>
             )
             
@@ -6683,25 +6683,25 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
          <dd class="classProperties">Indicates the skos:Concept (representing codes and categories) of a specific CategoryStatistics
             individual.
          </dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:frequency"></a><em>Datatype Property: </em><code><dfn>disco:frequency</dfn></code>
+         <dt class="classProperties"><em>Datatype Property: </em><code><dfn>disco:frequency</dfn></code>
             (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>xsd:nonNegativeInteger</code>
             )
             
          </dt>
          <dd class="classProperties">frequency</dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:percentage"></a><em>Datatype Property: </em><code><dfn>disco:percentage</dfn></code>
+         <dt class="classProperties"><em>Datatype Property: </em><code><dfn>disco:percentage</dfn></code>
             (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>xsd:decimal</code>
             )
             
          </dt>
          <dd class="classProperties">percentage</dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:computationBase"></a><em>Datatype Property: </em><code><dfn>disco:computationBase</dfn></code>
+         <dt class="classProperties"><em>Datatype Property: </em><code><dfn>disco:computationBase</dfn></code>
             (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>rdf:langString</code>
             )
             
          </dt>
          <dd class="classProperties">computation base</dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:cumulativePercentage"></a><em>Datatype Property: </em><code><dfn>disco:cumulativePercentage</dfn></code>
+         <dt class="classProperties"><em>Datatype Property: </em><code><dfn>disco:cumulativePercentage</dfn></code>
             (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>xsd:decimal</code>
             )
             
@@ -6710,12 +6710,12 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
       </dl>
       <h3>3. Variables, Variable Definitions, Representations, and Concepts</h3>
       <dl class="classDefinitions">
-         <dt><a id="dfn-disco-Variable"></a><em>Class: </em><code>disco:Variable</code></dt>
+         <dt><em>Class: </em><code>disco:Variable</code></dt>
          <dd>Variables provide a definition of the column in a rectangular data file. Variable
             is a characteristic of a unit being observed. A variable might be the answer of a
             question, have an administrative source, or be derived from other variables.
          </dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:basedOn"></a><em>Object Property: </em><code><dfn>disco:basedOn</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:basedOn</dfn></code>
             (<em>Domain:</em><code>disco:Variable</code><em> -&gt; Range: </em><code>disco:RepresentedVariable</code>
             )
             
@@ -6724,29 +6724,29 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
       </dl>
       <h3>4. Data Collection</h3>
       <dl class="classDefinitions">
-         <dt><a id="dfn-disco-Question"></a><em>Class: </em><code><dfn>disco:Question</dfn></code></dt>
+         <dt><em>Class: </em><code><dfn>disco:Question</dfn></code></dt>
          <dd>A Question is designed to get information upon a subject, or sequence of subjects,
             from a respondent.
          </dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:responseDomain"></a><em>Object Property: </em><code><dfn>disco:responseDomain</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:responseDomain</dfn></code>
             (<em>Domain:</em><code>disco:Question</code><em> -&gt; Range: </em><code>disco:Representation</code>
             )
             
          </dt>
          <dd class="classProperties">The response domain of questions.</dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:questionText"></a><em>Datatype Property: </em><code><dfn>disco:questionText</dfn></code>
+         <dt class="classProperties"><em>Datatype Property: </em><code><dfn>disco:questionText</dfn></code>
             (<em>Domain:</em><code>disco:Question</code><em> -&gt; Range: </em><code>rdf:langString</code>
             )
             
          </dt>
          <dd class="classProperties">question text</dd>
-         <dt><a id="dfn-disco-Instrument"></a><em>Class: </em><code><dfn>disco:Instrument</dfn></code></dt>
+         <dt><em>Class: </em><code><dfn>disco:Instrument</dfn></code></dt>
          <dd>The data for the study are collected by an Instrument. The purpose of an Instrument,
             i.e. an interview, a questionnaire or another entity used as a means of data collection,
             is in the case of a survey to record the flow of a questionnaire, its use of questions,
             and additional component parts. A questionnaire contains a flow of questions.
          </dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:externalDocumentation"></a><em>Object Property: </em><code><dfn>disco:externalDocumentation</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:externalDocumentation</dfn></code>
             (<em>Domain:</em><code>disco:Instrument</code><em> -&gt; Range: </em><code>foaf:Document</code>
             )
             
@@ -6754,10 +6754,10 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
          <dd class="classProperties">points from an Instrument to a foaf:Document which is the external documentation of
             the Instrument.
          </dd>
-         <dt><a id="dfn-disco-Questionnaire"></a><em>Class: </em><code><dfn>disco:Questionnaire</dfn></code>
+         <dt><em>Class: </em><code><dfn>disco:Questionnaire</dfn></code>
             Sub Class of: <code>disco:Instrument</code></dt>
          <dd>A questionnaire contains a flow of questions. </dd>
-         <dt class="classProperties"><a id="dfn-disco-disco:collectionMode"></a><em>Object Property: </em><code><dfn>disco:collectionMode</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:collectionMode</dfn></code>
             (<em>Domain:</em><code>disco:Questionnaire</code><em> -&gt; Range: </em><code>skos:Concept</code>
             )
             
@@ -6766,7 +6766,7 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
       </dl>
       <h3>5. Other properties</h3>
       <dl>
-         <dt><a name="dfn-disco-Question"></a><em>Class: </em><code>disco:Question</code></dt>
+         <dt><em>Class: </em><code>disco:Question</code></dt>
          <dd>A Question is designed to get information upon a subject, or sequence of subjects,
             from a respondent.
          </dd>
@@ -6790,7 +6790,7 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
             
          </dt>
          <dd class="classProperties">question text</dd>
-         <dt><a name="dfn-disco-Instrument"></a><em>Class: </em><code>disco:Instrument</code></dt>
+         <dt><em>Class: </em><code>disco:Instrument</code></dt>
          <dd>The data for the study are collected by an Instrument. The purpose of an Instrument,
             i.e. an interview, a questionnaire or another entity used as a means of data collection,
             is in the case of a survey to record the flow of a questionnaire, its use of questions,
@@ -6804,7 +6804,7 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
          <dd class="classProperties">points from an Instrument to a foaf:Document which is the external documentation of
             the Instrument.
          </dd>
-         <dt><a name="dfn-disco-Questionnaire"></a><em>Class: </em><code>disco:Questionnaire</code>
+         <dt><em>Class: </em><code>disco:Questionnaire</code>
             Sub Class of: <code>disco:Instrument</code></dt>
          <dd>A questionnaire contains a flow of questions. </dd>
          <dt class="classProperties"><em>Object Property: </em><code>disco:collectionMode</code>
