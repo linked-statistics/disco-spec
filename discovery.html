@@ -63,7 +63,7 @@ function adjustWidthOfImages() {
 	}
 }
 //]]></script>
-    <script type="text/javascript" src='respec/respec-w3c-common.js' class='remove'></script>
+    <script type="text/javascript" src='https://www.w3.org/Tools/respec/respec-w3c-common' class='remove'></script>
     <script type="text/javascript" class='remove'>
       var respecConfig = {
           // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
@@ -81,7 +81,7 @@ function adjustWidthOfImages() {
 
           // if the specification's copyright date is a range of years, specify
           // the start date here:
-          copyrightStart: "2013",
+          copyrightStart: "2016",
 
           // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
           // and its maturity status
@@ -89,7 +89,7 @@ function adjustWidthOfImages() {
           // previousMaturity:  "WD",
 
           // if there a publicly available Editor's Draft, this is the link
-          edDraftURI:           "https://raw.github.com/linked-statistics/disco-spec/master/discovery.html",
+          // edDraftURI:           "https://raw.github.com/linked-statistics/disco-spec/master/discovery.html",
 
           // if this is a LCWD, uncomment and set the end of its review period
           // lcEnd: "2009-08-05",
@@ -97,13 +97,12 @@ function adjustWidthOfImages() {
           // editors, add as many as you like
           // only "name" is required
           editors:  [
-              { name: "Thomas Bosch", url: "http://boschthomas.blogspot.ie/",
+              { name: "Thomas Hartmann (formerly Bosch)", url: "http://www.dr-thomashartmann.de/"},
+              { name: "Richard Cyganiak", url: "https://www.linkedin.com/in/cygri",
+                company: "TopQuadrant", companyURL: "http://www.topquadrant.com/" },
+			  { name: "Joachim Wackerow", url: "http://www.gesis.org/en/institute/staff/?alpha=W&name=joachim%2Cwackerow",
                 company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
-              { name: "Richard Cyganiak", url: "http://richard.cyganiak.de/",
-                company: "DERI - Digital Enterprise Research Institute, National University of Ireland", companyURL: "http://www.deri.ie/" },
-			  { name: "Joachim Wackerow",
-                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
-              { name: "Benjamin Zapilko",
+              { name: "Benjamin Zapilko", url: "http://www.gesis.org/en/institute/staff/?alpha=Z&name=benjamin%2Czapilko",
                 company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
           ],
 
@@ -112,26 +111,25 @@ function adjustWidthOfImages() {
           // only "name" is required. Same format as editors.
 
           authors:  [ 
-              { name: "Thomas Bosch", url: "http://boschthomas.blogspot.ie/",
-                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
-                { name: "Sarven Capadisli", url: "http://csarven.ca/#i",
-                company: "Bern University of Applied Sciences", companyURL: "http://bfh.ch/" },
+              { name: "Thomas Hartmann (formerly Bosch)", url: "http://www.dr-thomashartmann.de/"},
+              { name: "Sarven Capadisli", url: "http://csarven.ca/",
+                company: "Enterprise Information Systems (EIS)", companyURL: "http://eis.iai.uni-bonn.de/" },
               { name: "Franck Cotton", //url: "http://example.org/",
                 company: "INSEE - Institut National de la Statistique et des Études Économiques, France", companyURL: "http://www.insee.fr/en/default.asp" },
-              { name: "Richard Cyganiak", url: "http://richard.cyganiak.de/",
-                company: "DERI - Digital Enterprise Research Institute, National University of Ireland", companyURL: "http://www.deri.ie/" },
+              { name: "Richard Cyganiak", url: "https://www.linkedin.com/in/cygri",
+                company: "TopQuadrant", companyURL: "http://www.topquadrant.com/" },
               { name: "Arofan Gregory", //url: "http://example.org/",
                 company: "ODaF - Open Data Foundation, USA", companyURL: "http://www.opendatafoundation.org/" },
-              { name: "Benedikt Kämpgen", //url: "http://example.org/",
-                company: "KIT - Karlsruhe Institute of Technology, Germany", companyURL: "http://www.kit.edu/index.php" },
+              { name: "Benedikt Kämpgen", url: "http://www.aifb.kit.edu/web/Benedikt_K%C3%A4mpgen/en",
+                company: "Institute of Applied Informatics and Formal Description Methods (AIFB), Germany", companyURL: "http://www.aifb.kit.edu/web/Hauptseite/en" },
               { name: "Olof Olsson", //url: "http://example.org/",
                 company: "SND - Swedish National Data Service", companyURL: "http://snd.gu.se/en" },
               { name: "Heiko Paulheim", url: "http://www.heikopaulheim.com/",
-                company: "University of Mannheim, Germany", companyURL: "http://dws.informatik.uni-mannheim.de/" },
-              { name: "Joachim Wackerow", //url: "http://example.org/",
+                company: "Data and Web Science Group, University of Mannheim, Germany", companyURL: "http://dws.informatik.uni-mannheim.de/" },
+			  { name: "Joachim Wackerow", url: "http://www.gesis.org/en/institute/staff/?alpha=W&name=joachim%2Cwackerow",
                 company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
-              { name: "Benjamin Zapilko",
-                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" }
+              { name: "Benjamin Zapilko", url: "http://www.gesis.org/en/institute/staff/?alpha=Z&name=benjamin%2Czapilko",
+                company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
           ],
           
           // If specified, defines an array of alternate formats in which document is available (e.g., XML, Postscript). The format of the array is:
@@ -152,19 +150,20 @@ function adjustWidthOfImages() {
           
           // URI of the public WG page
 		  // Apparently, not used.
-          wgURI:        "http://www.ddialliance.org/alliance/working-groups#RDF",
+          wgURI:        "http://www.ddialliance.org/community/working-groups",
           
           // name (without the @w3c.org) of the public mailing to which comments are due
 		  // Apparently, this has to be a W3C address.
 		  // Apparently, not used.
           wgPublicList: "ddi-rdf-vocabulary@googlegroups.com",
-          
-          // URI of the patent status for this WG, for Rec-track documents
-          // !!!! IMPORTANT !!!!
-          // This is important for Rec-track documents, do not copy a patent URI from a random
-          // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-          // Team Contact.
-//          wgPatentURI:  "",
+			  
+		  // URI of the patent status for this WG, for Rec-track documents
+		  // !!!! IMPORTANT !!!!
+		  // This is important for Rec-track documents, do not copy a patent URI from a random
+		  // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+		  // Team Contact.
+		  wgPatentURI:  "http://creativecommons.org/licenses/by/4.0/",
+	  
           maxTocLevel: "2",
       };
     </script>
