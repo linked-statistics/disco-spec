@@ -173,6 +173,14 @@ disco:Mapping
     rdfs:label "Mapping"@en;
     rdfs:comment "This class is for representing mappings betwenn DDI-RDF and DDI-XML. See Section 10 in the specification for more details and examples."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+
+disco:Representation 
+    a rdfs:Class, owl:Class;
+    rdfs:subClassOf [ a owl:Class; owl:unionOf (rdfs:Datatype skos:ConceptScheme skos:OrderedCollection)];
+    rdfs:label "Representation of a variable, question, or variable definition."@en;
+    rdfs:comment "Representation of a variable, question, or variable definition."@en;
+    rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
+
 	
 #################################################################
 # Datatype properties
