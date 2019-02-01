@@ -42,7 +42,7 @@ a disco:Mapping ;
 disco:Questionnaire a rdfs:Class, owl:Class;
 disco:mapping [
 a disco:Mapping ;
-  disco:ddi-L-XPath 'd:QuestionItem | d:MultipleQuestionItem' ;
+  disco:ddi-L-XPath 'd:Instrument' ;
   disco:context 'The instument of the study';
 ]
 disco:Study a rdfs:Class, owl:Class;
