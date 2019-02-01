@@ -4,6 +4,7 @@
 @prefix qb:      <http://purl.org/linked-data/cube#> .
 @prefix org:     <http://www.w3.org/ns/org#> .
 @prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix dcmitype: <http://purl.org/dc/terms/DCMIType> .
 @prefix adms:    <http://www.w3.org/ns/adms#> .
 @prefix xkos:    <http://purl.org/linked-data/xkos#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
@@ -63,7 +64,7 @@ disco:Universe
 
 disco:DataFile
       a       owl:Class , rdfs:Class ;
-      rdfs:comment "The class DataFile, which is also a dcterms:Dataset, represents all the data files containing the microdata datasets."@en ;
+      rdfs:comment "The class DataFile, which is also a /, represents all the data files containing the microdata datasets."@en ;
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "Fichier de données"@fr , "Data file"@en ;
       rdfs:subClassOf dcat:Distribution .

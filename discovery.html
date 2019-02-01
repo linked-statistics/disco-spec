@@ -1367,7 +1367,7 @@ ddi:Dataset_1 a LogicalDataSet;
         and a physical representation, which is a distributed file
         holding that data. It is possible to format data files in many
         different ways, even if the logical content is the same. 
-        data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>), which are also <code>dcterms:Datasets</code> as well as <code>dcat:Distributions</code>,
+        data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>), which are also <code>dcmitype:Datasets</code> as well as <code>dcat:Distributions</code>,
         represents all the physical distributed data files containing the microdata datasets.
       </p>
 	  
@@ -2442,7 +2442,7 @@ A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is
 	    </p>
 	  
 <ul>
-  <li>Required classes DCMI are: dcterms:PeriodOfTime, dcterms:Location, dcterms:RightsStatement, dcterms:LicenseDocument, dcterms:Dataset, dcterms:MediaTypeOrEvent</li>
+  <li>Required classes DCMI are: dcterms:PeriodOfTime, dcterms:Location, dcterms:RightsStatement, dcterms:LicenseDocument, dcmitype:Dataset, dcterms:MediaTypeOrEvent</li>
   <li>Required properties DCMI are: dcterms:abstract, dcterms:alternative, dcterms:available, dcterms:title, dcterms:subject, dcterms:spatial, dcterms:temporal, dcterms:creator, dcterms:contributor, dcterms:publisher, dcterms:relation, dcterms:license, dcterms:accessRights, dcterms:description, dcterms:format</li>
 </ul>
 	  
@@ -6630,7 +6630,7 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
          </dd>
          <dt><em>Class: </em><code><dfn>disco:DataFile</dfn></code>
             Sub Class of: <code>http://www.w3.org/ns/dcat#Distribution</code></dt>
-         <dd>The class DataFile, which is also a dcterms:Dataset, represents all the data files
+        <dd>The class DataFile, which is also a dcmitype:Dataset, represents all the data files
             containing the microdata datasets.
          </dd>
          <dt class="classProperties"><em>Datatype Property: </em><code><dfn>disco:caseQuantity</dfn></code>

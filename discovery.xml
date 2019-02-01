@@ -46,9 +46,9 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:label xml:lang="en">Data file</rdfs:label>
     <rdfs:label xml:lang="fr">Fichier de données</rdfs:label>
-    <rdfs:comment xml:lang="en">The class DataFile, which is also a dcterms:Dataset, represents all the data files containing the microdata datasets.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The class DataFile, which is also a dcmitype:Dataset, represents all the data files containing the microdata datasets.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Dataset"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/DCMIType/Dataset"/>
     <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
   </rdfs:Class>
 

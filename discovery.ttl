@@ -3,6 +3,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix dc: <http://purl.org/dc/elements/1.1/>.
 @prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix dcmitype: <http://purl.org/dc/terms/DCMIType> .
 @prefix dcat: <http://www.w3.org/ns/dcat#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix qb: <http://purl.org/linked-data/cube#>.
@@ -70,8 +71,8 @@ disco:RepresentedVariable a rdfs:Class, owl:Class;
 # DataFile class
 disco:DataFile a rdfs:Class, owl:Class;
     rdfs:label "Data file"@en, "Fichier de données"@fr;
-    rdfs:comment "The class DataFile, which is also a dcterms:Dataset, represents all the data files containing the microdata datasets."@en ;
-    rdfs:subClassOf dcat:Distribution, dcterms:Dataset;
+    rdfs:comment "The class DataFile, which is also a dcmitype:Dataset, represents all the data files containing the microdata datasets."@en ;
+    rdfs:subClassOf dcat:Distribution, dcmitype:Dataset;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 # DescriptiveStatistics class

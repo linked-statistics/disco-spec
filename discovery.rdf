@@ -9,6 +9,7 @@
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:adms="http://www.w3.org/ns/adms#"
     xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:dcmitype="http://purl.org/dc/terms/DCMIType"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:prov="http://www.w3.org/ns/prov#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
@@ -88,7 +89,7 @@
   <rdf:Description rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#DataFile">
     <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
-    <rdfs:comment xml:lang="en">The class DataFile, which is also a dcterms:Dataset, represents all the data files containing the microdata datasets.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The class DataFile, which is also a dcmitype:Dataset, represents all the data files containing the microdata datasets.</rdfs:comment>
     <rdfs:label xml:lang="fr">Fichier de données</rdfs:label>
     <rdfs:label xml:lang="en">Data file</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
