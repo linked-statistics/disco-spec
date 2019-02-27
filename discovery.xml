@@ -8,11 +8,11 @@
     <dc11:title xml:lang="en">DDI-RDF Discovery Vocabulary</dc11:title>
     <rdfs:comment xml:lang="en">This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats.</rdfs:comment>
     <dc11:description xml:lang="en">This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats.</dc11:description>
-    <dc11:contributor>Thomas Bosch</dc11:contributor>
+    <dc11:contributor>Thomas Hartmann</dc11:contributor>
     <dc11:contributor>Richard Cyganiak</dc11:contributor>
     <dc11:contributor>Joachim Wackerow</dc11:contributor>
     <dc11:contributor>Benjamin Zapilko</dc11:contributor>
-    <dc11:creator>Thomas Bosch</dc11:creator>
+    <dc11:creator>Thomas Hartmann</dc11:creator>
     <dc11:creator>Sarven Capadisli</dc11:creator>
     <dc11:creator>Franck Cotton</dc11:creator>
     <dc11:creator>Richard Cyganiak</dc11:creator>
