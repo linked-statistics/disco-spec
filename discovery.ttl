@@ -178,8 +178,8 @@ disco:Mapping
 disco:Representation 
     a rdfs:Class, owl:Class;
     rdfs:subClassOf [ a owl:Class; owl:unionOf (rdfs:Datatype skos:ConceptScheme skos:OrderedCollection)];
-    rdfs:label "Representation of a variable, question, or variable definition."@en;
-    rdfs:comment "Representation of a variable, question, or variable definition."@en;
+    rdfs:label "Representation of a variable or question definition."@en;
+    rdfs:comment "Representation of a variable or question definition."@en;
     rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery>.
 
 	
