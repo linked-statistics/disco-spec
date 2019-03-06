@@ -482,3 +482,11 @@ disco:statisticsDataFile
       rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
       rdfs:label "statistics data file"@en , "a pour fichier statistique"@fr ;
       rdfs:range disco:DataFile .
+
+disco:hadRole
+      a       rdf:Property , owl:ObjectProperty ;
+      rdfs:comment "This property indicates the role of an Agent, e.g. analyst, data modeler, programmer, co-investigator or others."@en ;
+      rdfs:domain foaf:Agent ;
+      rdfs:isDefinedBy <http://rdf-vocabulary.ddialliance.org/discovery> ;
+      rdfs:label "had role"@en ;
+      rdfs:range skos:Concept .

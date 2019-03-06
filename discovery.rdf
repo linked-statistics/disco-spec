@@ -742,4 +742,13 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
   </rdf:Description>
+    <rdf:Description rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#hadRole">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">had role</rdfs:label>
+    <rdfs:comment xml:lang="en">This property indicates the role of an Agent, e.g. analyst, data modeler, programmer, co-investigator or others.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Description>
 </rdf:RDF>

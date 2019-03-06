@@ -8,11 +8,11 @@
     <dc11:title xml:lang="en">DDI-RDF Discovery Vocabulary</dc11:title>
     <rdfs:comment xml:lang="en">This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats.</rdfs:comment>
     <dc11:description xml:lang="en">This specification defines the DDI Discovery Vocabulary, an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on DDI (Data Documentation Initiative) XML formats.</dc11:description>
-    <dc11:contributor>Thomas Bosch</dc11:contributor>
+    <dc11:contributor>Thomas Hartmann</dc11:contributor>
     <dc11:contributor>Richard Cyganiak</dc11:contributor>
     <dc11:contributor>Joachim Wackerow</dc11:contributor>
     <dc11:contributor>Benjamin Zapilko</dc11:contributor>
-    <dc11:creator>Thomas Bosch</dc11:creator>
+    <dc11:creator>Thomas Hartmann</dc11:creator>
     <dc11:creator>Sarven Capadisli</dc11:creator>
     <dc11:creator>Franck Cotton</dc11:creator>
     <dc11:creator>Richard Cyganiak</dc11:creator>
@@ -549,6 +549,15 @@
 
     <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
     <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/contributor"/>
+    <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://rdf-vocabulary.ddialliance.org/discovery#hadRole">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">had role</rdfs:label>
+    <rdfs:comment xml:lang="en">This property indicates the role of an Agent, e.g. analyst, data modeler, programmer, co-investigator or others.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
     <rdfs:isDefinedBy rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery"/>
   </rdf:Property>
 
