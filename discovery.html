@@ -67,7 +67,8 @@ function adjustWidthOfImages() {
     <script type="text/javascript" class='remove'>
       var respecConfig = {
           // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
-          specStatus:           "unofficial",
+          // was unofficial. see https://github.com/w3c/respec/wiki/specStatus
+          specStatus:           "base",
           
           // the specification's short name, as in http://www.w3.org/TR/short-name/
           shortName:            "Disco",
@@ -81,7 +82,7 @@ function adjustWidthOfImages() {
 
           // if the specification's copyright date is a range of years, specify
           // the start date here:
-          copyrightStart: "2016",
+          copyrightStart: "2019",
 
           // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
           // and its maturity status
@@ -213,7 +214,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 		Open issues are discussed on the issue tracker: <a href="https://github.com/linked-statistics/disco-spec/issues">open issues</a>.
 	  </p>
       <p>
-        A detailed overview of the disco vocabulary is available as <a href="http://www.essepuntato.it/lode/owlapi/https://raw.github.com/linked-statistics/disco-spec/master/discovery.ttl">LODE view</a>
+        A detailed overview of the Disco vocabulary is available as <a href="http://www.essepuntato.it/lode/owlapi/https://raw.github.com/linked-statistics/disco-spec/master/discovery.ttl">LODE view</a>
 		or a <a href="http://vowl.visualdataweb.org/webvowl/index.html#iri=http://rdf-vocabulary.ddialliance.org/discovery.ttl">web view</a> using the web application <a href="http://vowl.visualdataweb.org/webvowl.html">Web-based Visualization of Ontologies</a>.
 	  </p>
 	  <p>
@@ -263,7 +264,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
 	  
 	  <p>
 		Disco could be used to discover datasets by searching for specific questions, topics, and geographical coverage.
-		Depending on the complexity of the search respectively of the data portal, parts of disco could be used, the complete disco, or disco together with related vocabularies. 
+		Depending on the complexity of the search respectively of the data portal, parts of Disco could be used, the complete Disco, or Disco together with related vocabularies. 
 		The document [<cite><a class="bibref" href="#bib-Scenarios">Scenarios</a></cite>] by Vompras, Gregory, Bosch, Capadisli, and Wackerow describes typical use cases for the applicability of the DDI-RDF Discovery vocabulary. In the Section <a class="bibref" href="#use-cases-and-example-queries">Use Cases and Example Queries</a> of the Appendix additional discovery use cases are illustrated by several SPARQL queries.</p>
     </section>
 
@@ -347,8 +348,8 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       <ul>
         <li>Describing collections (catalogs) of research datasets (DCAT)</li>
         <li>Providing additional information about physical aspects (file size, file formats) of research data files (DCAT)</li>
-        <li>Providing information about the data collection that produced the datasets in a data catalog (disco)</li>
-        <li>Providing information about the logical structure (variables, concepts, etc.) of tabular datasets in a data catalog (disco)</li>
+        <li>Providing information about the data collection that produced the datasets in a data catalog (Disco)</li>
+        <li>Providing information about the logical structure (variables, concepts, etc.) of tabular datasets in a data catalog (Disco)</li>
       </ul>
 
       <p>DCAT is richer for the description of collections and catalogue. Disco supports richer descriptions of groups of datasets or individual datasets. In this spec, some of our examples are partially based on DCAT (and we will indicate when this is the case).</p>
@@ -361,7 +362,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       the population of a certain age group in a certain region is
       12345, then this fact was obtained by aggregating that number of
       individual records from a record-level (or “microdata”) dataset.
-      The Discovery Vocabulary contains a property “aggregation” (pointing from a disco data set to a Data Cube dataset) that
+      The Discovery Vocabulary contains a property “aggregation” (pointing from a Disco data set to a Data Cube dataset) that
       indicates that a Cube dataset was derived by tabulating a
       record-level dataset.</p>
 
@@ -973,7 +974,8 @@ ddi:Datafile_1 a disco:Datafile;
 	    <code>kindOfData</code> describes, with a string or a term from a controlled vocabulary, 
 	    the kind of data documented in the logical product(s) of a  <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>. 
 	    Examples include survey data, census/enumeration data, administrative data, measurement data, assessment data, demographic data, voting data, etc.
-	    You can use <code>dcterms:subject</code> to describe the topical coverage of studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>) and groups of studies (<code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code>).
+	    Coverage describes the temporal, spatial and topical coverage of a study. <a href="https://stats.oecd.org/glossary/detail.asp?ID=464">Coverage</a> specifies the population from which observations for a particular topic can be drawn.
+      You can use <code>dcterms:subject</code> to describe the topical coverage of studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>) and groups of studies (<code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code>).
 	    <code>ddiFile</code> to <code>foaf:Documents</code> which are the DDI-XML files 
 	    containing further descriptions of the <code><a href="#dfn-disco-study" class="internalDFN">Study</a></code> or the <code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroup</a></code>.
 	    Use <code>dcterms:temporal</code> for temporal coverages related to the union of studies (<code><a href="#dfn-disco-study" class="internalDFN">Study</a></code>)  and groups of studies (<code><a href="#dfn-disco-studygroup" class="internalDFN">StudyGroups</a></code>).
@@ -1011,7 +1013,9 @@ ddi:Datafile_1 a disco:Datafile;
 
 	  <p>
 		<b><code><a href="#dfn-disco-universe" class="internalDFN">Universe</a></code></b> is the total membership or population of a defined class of people, 
-		objects or events. There are two types of population, target population and 
+		objects or events.
+    A <a href="https://www.statista.com/statistics-glossary/definition/311/population/">population</a> is the number of statistical units sharing at least one common property which is of interest in a statistical analysis.
+    There are two types of population, target population and 
 		survey population. A target population is the population outlined in the survey 
 		objects about which information is to be sought. A survey population (also known
 		as the coverage of the survey) is the population from which information can be 
@@ -1182,7 +1186,7 @@ ddi:License_1 a dcterms:LicenseDocument ;
       </figure>
 	  
 	  <p>
-	    Logical data sets (<code><a href="#dfn-disco-LogicalDataSet" class="internalDFN">LogicalDataSet</a></code>) may have <code>dcterms:accessRights</code> relationships to <code>dcterms:RightsStatements</code>
+	    Logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>) may have <code>dcterms:accessRights</code> relationships to <code>dcterms:RightsStatements</code>
 		and <code>dcterms:license</code> connections with <code>dcterms:LicenseDocument</code>.
 		<code>dcterms:RightsStatements</code> is associated with <code>foaf:Documents</code> using the object property <code>rdfs:seeAlso</code>. 
 		The multiplicities for these object properties are in any case 0 to n.
@@ -1276,7 +1280,8 @@ ddi:Study_1 dcterms:subject [
       files are represented by the class <b><code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code></b>, which is itself an
       extension of the <code>dcat:Distribution</code>. <b><code><a href="#dfn-disco-descriptivestatistics" class="internalDFN">DescriptiveStatistics</a></code></b>
 	  , i.e. <code><a href="#dfn-disco-summarystatistics" class="internalDFN">SummaryStatistics</a></code> as well as <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code>, are associated with data files (
-	  <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) by the object property <code><a href="#dfn-disco-statisticsdatafile" class="internalDFN">statisticsDataFile</a></code>. </p>
+	  <code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) by the object property <code><a href="#dfn-disco-statisticsdatafile" class="internalDFN">statisticsDataFile</a></code>. Descriptive statistics simply describe what the data shows. See also the entry on <a href="https://stats.oecd.org/glossary/detail.asp?ID=3632">descriptive statistics</a> in the OECD glossary of statistical terms.
+    </p>
 	  
       <figure>
         <img class="uml-diagram" src="diagrams/overview-data-set.png"/>
@@ -1335,7 +1340,7 @@ ddi:Study_1 dcterms:subject [
 		data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) and data files (<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>) may be linked to 0 to n logical data sets (<code><a href="#dfn-disco-logicaldataset" class="internalDFN">LogicalDataSet</a></code>).
 		The class <code>qb:DataSet</code> is defined in the RDF Data Cube
         Vocabulary. 0 to n data sets (<code>qb:DataSet</code>) may point to multiple (0 - n) variables (<code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>)
-        (<code><a href="#dfn-disco-inputvariable" class="internalDFN">inputVariable</a></code>). Please note that this property is a feature at risk, since the domain is not Disco. Maintainers of the domain ontology may introduce their own property for this purpose. 
+        (<code>inputVariable</code>). Please note that this property is a feature at risk, since the domain is not Disco. Maintainers of the domain ontology may introduce their own property for this purpose. 
 		Just like there is the <code><a href="#dfn-disco-casequantity" class="internalDFN">caseQuantity</a></code> data property on 
 		<code><a href="#dfn-disco-datafile" class="internalDFN">DataFile</a></code>, 
 		there is also the data property <code><a href="#dfn-disco-variablequantity" class="internalDFN">variableQuantity</a></code> 
@@ -1460,6 +1465,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 		 <code><a href="#dfn-disco-categorystatistics" class="internalDFN">CategoryStatistics</a></code> may have a 
 		 <code><a href="#dfn-disco-weightedby" class="internalDFN">weightedBy</a></code> relation to a
 		 <code><a href="#dfn-disco-variable" class="internalDFN">Variable</a></code>.
+     A <a href="https://www.statisticshowto.datasciencecentral.com/weighting-factor/">statistical weight</a> is an amount given to increase or decreased the importance of an item.
 	  </p>
 	  
       <pre class="example">
@@ -1488,7 +1494,9 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
 	  
         <p>		
           <code><a href="#dfn-disco-computationbase" class="internalDFN">computationBase</a></code> expresses if the cases - which are the basis of the computation of a statistics value - 
-          are valid, invalid or the total of both. The usage of <code><a href="#dfn-disco-computationbase" class="internalDFN">computationBase</a></code> for frequency differs from the usage for the 
+          are valid, invalid or the total of both.
+          In statistics, missing data (i.e. invalid data), or missing values, occur when no data value is stored for the variable in an observation. <a href="https://en.wikipedia.org/wiki/Missing_data">Missing data</a> are a common occurrence and can have a significant effect on the conclusions that can be drawn from the data.
+          The usage of <code><a href="#dfn-disco-computationbase" class="internalDFN">computationBase</a></code> for frequency differs from the usage for the 
           percentage statistics and the summary statistics. A distinction regarding <code><a href="#dfn-disco-computationbase" class="internalDFN">computationBase</a></code> doesn’t apply to frequency as category statistic. 
           The following table describes the details of usage of <code><a href="#dfn-disco-computationbase" class="internalDFN">computationBase</a></code> in dependency of the respective statistics type.
 		</p>
@@ -2404,7 +2412,7 @@ A <code><a href="#dfn-disco-question" class="internalDFN">Question</a></code> is
 		and delineating code lists, category schemes, mappings between them, and concepts like topics 
 		using the Simple Knowledge Organization System (SKOS) [<cite><a class="bibref" href="#bib-SKOS">SKOS</a></cite>]. Furthermore, the external vocabularies Friend of a Friend (FOAF) [<cite><a class="bibref" href="#bib-FOAF">FOAF</a></cite>], 
 		the Organization Ontology (ORG) [<cite><a class="bibref" href="#bib-ORG">ORG</a></cite>], the Asset Description Metadata Schema (ADMS) [<cite><a class="bibref" href="#bib-ADMS">ADMS</a></cite>], and the PROV Ontology (PROV-O) [<cite><a class="bibref" href="#bib-PROV-O">PROV-O</a></cite>] are used.
-		Whenever terms from other vocabularies are used within the disco context, these terms are not re-defined but only applied for the purposes of disco.
+		Whenever terms from other vocabularies are used within the Disco context, these terms are not re-defined but only applied for the purposes of disco.
 	  </p>
 	  <p>
 	    It is distinguished between required, recommended and optional vocabularies that are reused. Required vocabularies contain classes and properties that are required in order to represent particular aspects of Disco completely. Recommended vocabularies hold classes and properties that are recommended to be used for representing particular aspects of Disco. Finally, optional vocabularies contain classes and properties that may support the modelling of particular aspects of Disco. This strongly depends on in which extent and for which purpose data is represented in Disco. Terms of optional vocabularies are not necessarily required for representing DDI metadata in Disco.
@@ -2730,7 +2738,7 @@ and positions of concepts in lists (xkos:previous, xkos:next).
     <section id='mapping-from-DDI-XML-to-DDI-RDF'><h2>DDI-XML Bidirectional Mappings</h2>
 
 <p>
-In this section, bidirectional mappings between disco and DDI Lifecycle (DDI-L) is provided. 
+In this section, bidirectional mappings between Disco and DDI Lifecycle (DDI-L) is provided. 
 It allows an easy adoption of the DDI Discovery Vocabulary for existing DDI metadata. 
 XSLTs for converting any XML output of DDI Codebook (DDI-C) and DDI-L are available at the 
 <a href="https://github.com/linked-statistics/DDI-RDF-tools">DDI-RDF-tools project page</a>.
@@ -2738,19 +2746,19 @@ XSLTs for converting any XML output of DDI Codebook (DDI-C) and DDI-L are availa
 
 <b>Official Mapping Document</b>
 <p>
-There is also an official document containing all bidirectional mappings between disco and DDI-L: 
+There is also an official document containing all bidirectional mappings between Disco and DDI-L: 
 <a href="https://docs.google.com/spreadsheet/ccc?key=0AnXXOuMQghwxdG1wU1EzLVJybHp6SDI5ZHJOTUlzOVE&usp=sharing">official mapping document</a>
 These mapping tables will be transformed to the official specification in form of a turtle file and in form of html tables in this html specification.
 </p>
 
 <b>Bidirectional Mappings between Disco and DDI-L</b>
 <ul>
-	<li>DDI-L &#10513; disco. This should be a straight-forward mapping for all items used in disco.</li>
-    <li>disco &#10513; DDI-L. This should be a straight-forward mapping for all items in the disco namespace.</li>
+	<li>DDI-L &#10513; Disco. This should be a straight-forward mapping for all items used in Disco.</li>
+    <li>Disco &#10513; DDI-L. This should be a straight-forward mapping for all items in the Disco namespace.</li>
 	<li>Only the standard XPath expression is defined as mapping (although there are several other XPath expressions for each mapping)</li>
 	<li>Context:</li>
 	<ul>
-		<li>The items from other vocabularies - used in disco - need a context; then there could be a clear mapping path.</li>
+		<li>The items from other vocabularies - used in Disco - need a context; then there could be a clear mapping path.</li>
 		<li>We need context information for mappings, as for example skos:notation can be mapped to variable labels and to codes.</li>
 		<li>Context information can be either a SPARQL query or an informal description as plain literal.</li>
 		</li>
@@ -2759,7 +2767,7 @@ These mapping tables will be transformed to the official specification in form o
 
 <b>Mappings between Disco and other Versions of DDI-XML</b>
 <p>
-In order to avoid inconsistencies (as mapping tables may changes over time), we only offer mappings between disco and the concrete version DDI 3.1 of DDI-L.
+In order to avoid inconsistencies (as mapping tables may changes over time), we only offer mappings between Disco and the concrete version DDI 3.1 of DDI-L.
 There are various mapping documents between DDI 3.1 and other DDI versions (like DDI 3.2 and DDI 2.1) on the <a href="http://www.ddialliance.org/">DDI Alliance website</a>.
 </p>
 
@@ -2767,7 +2775,7 @@ There are various mapping documents between DDI 3.1 and other DDI versions (like
 <p>
 DDI 4 will be the next model-driven specification of DDI including mappings to multiple representations such as RDF, XML, relational databases, and Java. 
 DDI 4 should have a clear mapping from DDI-XML 3.2. 
-We assume that all items used in disco will have a clear mapping to DDI-XML 3.2, 
+We assume that all items used in Disco will have a clear mapping to DDI-XML 3.2, 
 and these items in DDI-XML 3.2 will have a clear mapping to items in the DDI 4 model (therefore to a representation in OWL/RDF as well). 
 If the latter should not be possible, then a mapping of items in DDI-XML 3.2 to DDI 4 XML and DDI 4 RDF should be possible.
 </p>
@@ -2778,7 +2786,7 @@ The mappings are defined within a separate turtle file
 <ul>
 <li>in order to execute SPARQL queries on the turtle file</li>
 <li>in order to generate mapping tables for the HTML spec out of the turtle file</li>
-<li>there is 1 turtle file containing mappings for disco axioms and axioms of reused external vocabularies</li>
+<li>there is 1 turtle file containing mappings for Disco axioms and axioms of reused external vocabularies</li>
 </ul>
 </p>
 
@@ -2786,7 +2794,7 @@ The mappings are defined within a separate turtle file
 <ul>
 	<li>The following mapping tables are generated out of the official mapping document completely automatically to avoid inconsistencies.</li>
 	<li>The mapping tables are structured in classes, object, and data properties.</li>
-	<li>There can be classes and properties specified within the disco namespace or within any other namespace which are then used by disco.</li> 
+	<li>There can be classes and properties specified within the Disco namespace or within any other namespace which are then used by Disco.</li> 
 </ul>
 		
 		<section><h3>Representation of Mappings in RDF</h3>
@@ -2794,8 +2802,8 @@ The mappings are defined within a separate turtle file
 <ul>
 	<li>There is an ontology (in Turtle syntax) containing all mapping triples: <a href="https://github.com/linked-statistics/disco-spec/blob/master/mapping.ttl">mappings.ttl</a></li>
 	<li>This Turtle file is generated out of the official mapping document automatically</li>
-	<li>The next figure shows how the mappings between disco and DDI-L is represented in RDF</li>
-	<li>We also give an example of a concrete mapping between disco and DDI-L</li>
+	<li>The next figure shows how the mappings between Disco and DDI-L is represented in RDF</li>
+	<li>We also give an example of a concrete mapping between Disco and DDI-L</li>
 </ul>
 
 		  <figure>
@@ -6565,7 +6573,7 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
       <dl class="classDefinitions">
          <dt><em>Class: </em><code><dfn>disco:Study</dfn></code></dt>
          <dd>A Study represents the process by which a data set was generated or collected.</dd>
-         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:variable</dfn></code>
+         <dt class="classProperties"><em>Object Property: </em><code>disco:variable</code>
             (<em>Domain:</em><code>disco:Study</code><em> -&gt; Range: </em><code>disco:Variable</code>
             )
             
@@ -6630,6 +6638,13 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
          <dd class="classProperties">The value true indicates that the dataset can be accessed (usually downloaded) by
             anyone.
          </dd>
+         <dt class="classProperties"><em>Datatype Property: </em><code><dfn>disco:variableQuantity</dfn></code>
+            (<em>Domain:</em><code>disco:LogicalDataSet</code><em> -&gt; Range: </em><code>xsd:nonNegativeInteger</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">This property can be used when (1) no variable level information is available and when (2) only a stub of the RDF is requested e.g when returning basic information on a study of file, no information on potentially hundreds or thousands of variables references or metadata has to be returned.
+         </dd>
          <dt><em>Class: </em><code><dfn>disco:DataFile</dfn></code>
             Sub Class of: <code>http://www.w3.org/ns/dcat#Distribution</code></dt>
         <dd>The class DataFile, which is also a dcmitype:Dataset, represents all the data files
@@ -6641,9 +6656,17 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
             
          </dt>
          <dd class="classProperties">case quantity of a DataFile.</dd>
+         <dt class="classProperties"><em>Datatype Property: </em><code>disco:variableQuantity</code>
+            (<em>Domain:</em><code>disco:DataFile</code><em> -&gt; Range: </em><code>xsd:nonNegativeInteger</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">This property can be used when (1) no variable level information is available and when (2) only a stub of the RDF is requested e.g when returning basic information on a study of file, no information on potentially hundreds or thousands of variables references or metadata has to be returned.
+         </dd>
          <dt><em>Class: </em><code><dfn>disco:DescriptiveStatistics</dfn></code></dt>
          <dd>SummaryStatistics pointing to variables and CategoryStatistics pointing to categories
-            and codes are both DescriptiveStatistics.
+            and codes are both DescriptiveStatistics. <a href="https://en.wikipedia.org/wiki/Summary_statistics">Summary statistics</a> are used to summarize a set of observations, in order to communicate the largest amount of information as simply as possible. A category statistic or frequency is the value of a statistic associated with a category value (even it can be applied to numeric values of metric variables). A <a href="https://www.statisticshowto.datasciencecentral.com/how-to-make-a-frequency-chart-and-determine-frequency/">frequency</a> is the number of times a data value occurs. There are frequency counts (absolute) and percentages (relative) of the values of individual variables. See also the Wikipedia entry on <a href="https://en.wikipedia.org/wiki/Frequency_(statistics)">frequency in statistics</a>.
+
          </dd>
          <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:statisticsDataFile</dfn></code>
             (<em>Domain:</em><code>disco:DescriptiveStatistics</code><em> -&gt; Range: </em><code>disco:DataFile</code>
@@ -6668,6 +6691,12 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
             
          </dt>
          <dd class="classProperties">summary statistics type</dd>
+         <dt class="classProperties"><em>Object Property: </em><code><dfn>disco:weightedBy</dfn></code>
+            (<em>Domain:</em><code>disco:SummaryStatistics</code><em> -&gt; Range: </em><code>disco:Variable</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">Defines the weight variable of a category or summary statistic computation respectively value. It can also be used to indicate if a weight variable is used but the related variable is not known. weightedBy may be assigned to a category statistic value or to a summary statistic value.</dd>
          <dt><em>Class: </em><code><dfn>disco:CategoryStatistics</dfn></code>
             Sub Class of: <code>disco:DescriptiveStatistics</code></dt>
          <dd>For CategoryStatistics, frequencies, percentages, and weighted percentages can be
@@ -6681,6 +6710,12 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
          <dd class="classProperties">Indicates the skos:Concept (representing codes and categories) of a specific CategoryStatistics
             individual.
          </dd>
+         <dt class="classProperties"><em>Object Property: </em><code>disco:weightedBy</code>
+            (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>disco:Variable</code>
+            )
+            
+         </dt>
+         <dd class="classProperties">Defines the weight variable of a category or summary statistic computation respectively value. It can also be used to indicate if a weight variable is used but the related variable is not known. weightedBy may be assigned to a category statistic value or to a summary statistic value.</dd>
          <dt class="classProperties"><em>Datatype Property: </em><code><dfn>disco:frequency</dfn></code>
             (<em>Domain:</em><code>disco:CategoryStatistics</code><em> -&gt; Range: </em><code>xsd:nonNegativeInteger</code>
             )
@@ -6708,7 +6743,13 @@ Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/defau
       </dl>
       <h3>3. Variables, Variable Definitions, Representations, and Concepts</h3>
       <dl class="classDefinitions">
-         <dt><em>Class: </em><code>disco:Variable</code></dt>
+         <dt><em>Class: </em><code><dfn>disco:Representation</dfn></code></dt>
+         <dd>The Representation of a variable is the combination of a value domain, datatype, and, if necessary, a unit of measure or a character set. Representation is one of a set of values to which a numerical measure or a category from a classification can be assigned (e.g. income, age, and sex: male coded as 1).
+         </dd>
+         <dt><em>Class: </em><code><dfn>disco:RepresentedVariable</dfn></code></dt>
+         <dd>RepresentedVariables encompasse study-independent, re-usable parts of variables like occupation classification. The Representation of a variable is the combination of a value domain, datatype, and, if necessary, a unit of measure or a character set. Representation is one of a set of values to which a numerical measure or a category from a classification can be assigned (e.g. income, age, and sex: male coded as 1).
+         </dd>
+         <dt><em>Class: </em><code><dfn>disco:Variable</dfn></code></dt>
          <dd>Variables provide a definition of the column in a rectangular data file. Variable
             is a characteristic of a unit being observed. A variable might be the answer of a
             question, have an administrative source, or be derived from other variables.
