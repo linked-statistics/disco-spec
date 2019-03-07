@@ -101,9 +101,9 @@ function adjustWidthOfImages() {
               { name: "Thomas Hartmann (formerly Bosch)", url: "http://www.dr-thomashartmann.de/"},
               { name: "Richard Cyganiak", url: "https://www.linkedin.com/in/cygri",
                 company: "TopQuadrant", companyURL: "http://www.topquadrant.com/" },
-			  { name: "Joachim Wackerow", url: "http://www.gesis.org/en/institute/staff/?alpha=W&name=joachim%2Cwackerow",
+			  { name: "Joachim Wackerow", url: "https://www.gesis.org/institut/mitarbeiterverzeichnis/person/?tx_gextstaffdir_staffdirectory%5bemail%5d=joachim.wackerow@gesis.org",
                 company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
-              { name: "Benjamin Zapilko", url: "http://www.gesis.org/en/institute/staff/?alpha=Z&name=benjamin%2Czapilko",
+              { name: "Benjamin Zapilko", url: "https://www.gesis.org/institut/mitarbeiterverzeichnis/person/?tx_gextstaffdir_staffdirectory%5bemail%5d=benjamin.zapilko@gesis.org",
                 company: "GESIS - Leibniz Institute for the Social Sciences, Germany", companyURL: "http://www.gesis.org/" },
           ],
 
@@ -123,7 +123,7 @@ function adjustWidthOfImages() {
                 company: "ODaF - Open Data Foundation, USA", companyURL: "http://www.opendatafoundation.org/" },
               { name: "Benedikt Kämpgen", url: "http://www.aifb.kit.edu/web/Benedikt_K%C3%A4mpgen/en",
                 company: "Institute of Applied Informatics and Formal Description Methods (AIFB), Germany", companyURL: "http://www.aifb.kit.edu/web/Hauptseite/en" },
-              { name: "Olof Olsson", //url: "http://example.org/",
+              { name: "Olof Olsson", url: "https://www.gu.se/english/about_the_university/staff/?languageId=100001&userId=xoolof&departmentId=169030", 
                 company: "SND - Swedish National Data Service", companyURL: "http://snd.gu.se/en" },
               { name: "Heiko Paulheim", url: "http://www.heikopaulheim.com/",
                 company: "Data and Web Science Group, University of Mannheim, Germany", companyURL: "http://dws.informatik.uni-mannheim.de/" },
@@ -400,11 +400,6 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
       
     </section>
     
-     <section>
-        <h2>Limitations</h2>
-       <div class="issue">See Issue #43</div>
-       
-      </section>
 
     </section>
 
@@ -6536,7 +6531,7 @@ a <a href="http://www.gesis.org/missy">web information system</a> to provide the
 				<h4>Data Models</h4>
 <p>
 We use Disco as core data model and extend it with a project-specific data model as Disco does not meet all of our project requirements. 
-We provide <a href="https://github.com/missy-project">open-source reference implementations</a> of the Disco and the project-specific data model in Java.
+We provide open-source reference implementations of the Disco and the project-specific data model in Java, see Software Resources below.
 As instances of these data models may be physically stored in multiple formats such as DDI-XML, Disco, relational databases, and Java,
 we offer persistence implementations for each of these models according to their individual persistence APIs.
 Diverse export routines (e.g., Disco and DDI-Lifecycle) are available to enable the reuse of metadata in other systems.
@@ -6560,6 +6555,20 @@ Janßen, A. & Bohr, J. (2006). <a href="http://www.iassistdata.org/sites/default
 </li>
 <li>
 Wira-Alam, A. & Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/default/files/iq/iqvol3312hopt.pdf">Implementing DDI 3: The German Microcensus Case Study.</a> IASSIST Quarterly, 33(1), 16–22. 
+</li>
+</ul>
+			</section>
+			<section>
+				<h4>Software Resources</h4>
+<ul>
+<li>
+<a href="https://git.gesis.org/ddi/disco-model">disco-model</a> - A Java implementation of the DDI-RDF Discovery Vocabulary
+</li>
+<li>
+<a href="http://ddi.git.gesis.org/disco-model/">Documentation of the Java implementation</a> of the Disco model
+</li>
+<li>
+<a href="https://git.gesis.org/missy/missy-model">missy-model</a> - Extension of the Disco model for MISSY
 </li>
 </ul>
 			</section>
