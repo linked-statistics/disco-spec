@@ -1,0 +1,1 @@
+java -jar wmf2svg-0.9.8.jar -compatible object-properties.wmf object-properties.svg
