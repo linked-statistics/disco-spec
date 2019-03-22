@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" dir="ltr"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="generator" content="ReSpec 24.4.5"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style>/* --- EXAMPLES --- */
+<!DOCTYPE html><html lang="en" dir="ltr"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="generator" content="ReSpec 24.5.2"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style>/* --- EXAMPLES --- */
 span.example-title {
     text-transform: none;
 }
@@ -594,12 +594,16 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   "wgPublicList": "ddi-rdf-vocabulary@googlegroups.com",
   "wgPatentURI": "http://creativecommons.org/licenses/by/4.0/",
   "maxTocLevel": "2",
-  "publishISODate": "2019-03-14T00:00:00.000Z",
-  "generatedSubtitle": "Document 14 March 2019"
+  "publishISODate": "2019-03-21T00:00:00.000Z",
+  "generatedSubtitle": "Document 21 March 2019"
 }</script><link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css"></head>
   <body onload="adjustWidthOfImages()" class="h-entry informative"><div class="head">
-       <h1 id="title" class="title p-name">DDI-RDF Discovery Vocabulary</h1>
+      <a href="https://www.w3.org/" class="logo"><img alt="W3C" width="72" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C"></a> <h1 id="title" class="title p-name">DDI-RDF Discovery Vocabulary</h1>
       <h2 id="subtitle" class="subtitle">A vocabulary for publishing metadata about data sets (research and survey data) into the Web of Linked Data</h2>
+      <h2>
+        <abbr title="World Wide Web Consortium">W3C</abbr> Document
+        <time class="dt-published" datetime="2019-03-21">21 March 2019</time>
+      </h2>
       <dl>
         
         
@@ -648,7 +652,16 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
               <a rel="alternate" href="DDI-RDF_Discovery_Vocabulary.pdf">PDF</a>
             </p>
       <p class="copyright">
-      Copyright © 2019 <a href="http://www.ddialliance.org/">DDI Alliance</a>
+      <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+      ©
+      2019
+      
+      <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+      <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>,
+      <a href="https://ev.buaa.edu.cn/">Beihang</a>). 
+      <abbr title="World Wide Web Consortium">W3C</abbr> <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+      <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a rel="license" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">permissive document license</a> rules
+      apply.
     </p>
       <hr title="Separator for header">
     </div>
@@ -656,7 +669,12 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Schema vocabulary that enables discovery of research and survey data on the Web. It is based on <a href="http://www.ddialliance.org/what">DDI (Data Documentation Initiative)</a> XML formats.
     </section>
     
-    <section id="sotd" class="introductory"><h2>Status of This Document</h2>
+    <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>
+            This document is merely a <abbr title="World Wide Web Consortium">W3C</abbr>-internal
+             document. It has no
+            official standing of any kind and does not represent consensus of
+            the <abbr title="World Wide Web Consortium">W3C</abbr> Membership.
+          </p>
 		<p>
 			The DDI-RDF Discovery Vocabulary is a draft specification of the DDI Alliance.
 		</p>
@@ -672,7 +690,7 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
         <li><a href="https://github.com/linked-statistics/disco-spec/issues">Issue tracker</a></li>
         <li><a href="https://github.com/linked-statistics/disco-spec/">GitHub repository</a></li>
       </ul>
-    </section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#tof"><span class="secno">1. </span>Table of Figures</a></li><li class="tocline"><a class="tocxref" href="#introduction"><span class="secno">2. </span>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#scope-and-purpose"><span class="secno">2.1 </span>Scope and Purpose</a></li><li class="tocline"><a class="tocxref" href="#about-ddi"><span class="secno">2.2 </span>About DDI</a></li><li class="tocline"><a class="tocxref" href="#relationship-to-data-cube-dcat-and-xkos"><span class="secno">2.3 </span>Relationship to Data Cube, DCAT and XKOS</a></li></ol></li><li class="tocline"><a class="tocxref" href="#overview"><span class="secno">3. </span>Overview</a></li><li class="tocline"><a class="tocxref" href="#example"><span class="secno">4. </span>Real-life Example</a></li><li class="tocline"><a class="tocxref" href="#study"><span class="secno">5. </span>Studies and StudyGroups</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#coverage-references-to-ddi-xml-files-and-kind-of-data"><span class="secno">5.1 </span>Coverage, References to DDI-XML Files, and Kind of Data</a></li><li class="tocline"><a class="tocxref" href="#relationships-to-agents"><span class="secno">5.2 </span>Relationships to Agents</a></li><li class="tocline"><a class="tocxref" href="#analysis-units-and-universes"><span class="secno">5.3 </span>Analysis Units and Universes</a></li></ol></li><li class="tocline"><a class="tocxref" href="#metadata"><span class="secno">6. </span>General Metadata</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#identification"><span class="secno">6.1 </span>Identification</a></li><li class="tocline"><a class="tocxref" href="#versioning-information"><span class="secno">6.2 </span>Versioning Information</a></li><li class="tocline"><a class="tocxref" href="#links-to-related-files"><span class="secno">6.3 </span>Links to Related Files</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#access-rights-statements-and-licenses"><span class="secno">6.4 </span>Access Rights Statements and Licenses</a></li><li class="tocline"><a class="tocxref" href="#coverage-of-studies-logical-datasets-and-data-files"><span class="secno">6.5 </span>Coverage of Studies, Logical Datasets, and Data Files</a></li><li class="tocline"><a class="tocxref" href="#other-general-dublin-core-metadata-properties"><span class="secno">6.6 </span>Other General Dublin Core Metadata Properties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#dataset"><span class="secno">7. </span>Data Sets, Data Files, and Descriptive Statistics</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#logicaldataset"><span class="secno">7.1 </span>LogicalDataSet</a></li><li class="tocline"><a class="tocxref" href="#datafile"><span class="secno">7.2 </span>DataFile</a></li><li class="tocline"><a class="tocxref" href="#descriptivestatistics"><span class="secno">7.3 </span>DescriptiveStatistics</a></li></ol></li><li class="tocline"><a class="tocxref" href="#variable"><span class="secno">8. </span>Variables, Variable Definitions, Representations, and Concepts</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#variable-and-variable-definition"><span class="secno">8.1 </span>Variable and Variable Definition</a></li><li class="tocline"><a class="tocxref" href="#representation"><span class="secno">8.2 </span>Representation</a></li><li class="tocline"><a class="tocxref" href="#codes-and-categories"><span class="secno">8.3 </span>Codes and Categories</a></li><li class="tocline"><a class="tocxref" href="#ordering"><span class="secno">8.4 </span>Ordering</a></li></ol></li><li class="tocline"><a class="tocxref" href="#collection"><span class="secno">9. </span>Data Collection</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#instrument"><span class="secno">9.1 </span>Instrument</a></li><li class="tocline"><a class="tocxref" href="#question"><span class="secno">9.2 </span>Question</a></li></ol></li><li class="tocline"><a class="tocxref" href="#useOfOtherVocabularies"><span class="secno">10. </span>Use of Other Vocabularies</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#dcmi-metadata-terms-dcmi"><span class="secno">10.1 </span>DCMI Metadata Terms (DCMI)</a></li><li class="tocline"><a class="tocxref" href="#simple-knowledge-organization-system-skos"><span class="secno">10.2 </span>Simple Knowledge Organization System (SKOS)</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#data-catalog-vocabulary-dcat"><span class="secno">10.3 </span>Data Catalog Vocabulary (DCAT)</a></li><li class="tocline"><a class="tocxref" href="#friend-of-a-friend-foaf-and-organization-ontology-org"><span class="secno">10.4 </span>Friend of a Friend (FOAF) and Organization Ontology (ORG)</a></li><li class="tocline"><a class="tocxref" href="#adms"><span class="secno">10.5 </span>Asset Description Metadata Schema (ADMS)</a></li><li class="tocline"><a class="tocxref" href="#prov-ontology-prov-o"><span class="secno">10.6 </span>PROV Ontology (PROV-O)</a></li><li class="tocline"><a class="tocxref" href="#rdf-data-cube-vocabulary-qb"><span class="secno">10.7 </span>RDF Data Cube Vocabulary (QB)</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#skos-extension-for-statistics-xkos"><span class="secno">10.8 </span>SKOS Extension for Statistics (XKOS)</a></li><li class="tocline"><a class="tocxref" href="#semanticscience-integrated-ontology-sio"><span class="secno">10.9 </span>Semanticscience Integrated Ontology (SIO)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#mapping-from-DDI-XML-to-DDI-RDF"><span class="secno">11. </span>DDI-XML Bidirectional Mappings</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#representation-of-mappings-in-rdf"><span class="secno">11.1 </span>Representation of Mappings in RDF</a></li><li class="tocline"><a class="tocxref" href="#classes"><span class="secno">11.2 </span>Classes</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#object-properties"><span class="secno">11.3 </span>Object Properties</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#data-properties"><span class="secno">11.4 </span>Data Properties</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#overview-of-the-mapping-from-ddi-c-and-ddi-l-to-ddi-rdf"><span class="secno">11.5 </span>Overview of the Mapping from DDI-C and DDI-L to DDI-RDF</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#mapping-from-ddi-c-to-ddi-rdf"><span class="secno">11.6 </span>Mapping from DDI-C to DDI-RDF</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#mapping-from-ddi-l-to-ddi-rdf"><span class="secno">11.7 </span>Mapping from DDI-L to DDI-RDF</a><ol class="toc"></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#mappings"><span class="secno">12. </span>Mappings to other Models</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#gsim"><span class="secno">12.1 </span>GSIM</a></li><li class="tocline"><a class="tocxref" href="#schema-org"><span class="secno">12.2 </span>Schema.org</a></li></ol></li><li class="tocline"><a class="tocxref" href="#implementations"><span class="secno">13. </span>Reference Implementations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#microdata-information-system-missy"><span class="secno">13.1 </span>Microdata Information System (MISSY)</a><ol class="toc"></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#vocabulary-reference"><span class="secno">A. </span>Vocabulary Reference</a></li><li class="tocline"><a class="tocxref" href="#combined-uml-diagram"><span class="secno">B. </span>Combined UML Diagram</a></li><li class="tocline"><a class="tocxref" href="#use-cases-and-example-queries"><span class="secno">C. </span>Use Cases and Example Queries</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><span class="secno">D. </span>Acknowledgements</a></li><li class="tocline"><a class="tocxref" href="#references"><span class="secno">E. </span>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><span class="secno">E.1 </span>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><span class="secno">E.2 </span>Informative references</a></li></ol></li></ol></nav>
+    </section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#tof"><span class="secno">1. </span>Table of Figures</a></li><li class="tocline"><a class="tocxref" href="#introduction"><span class="secno">2. </span>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#scope-and-purpose"><span class="secno">2.1 </span>Scope and Purpose</a></li><li class="tocline"><a class="tocxref" href="#about-ddi"><span class="secno">2.2 </span>About DDI</a></li><li class="tocline"><a class="tocxref" href="#relationship-to-data-cube-dcat-and-xkos"><span class="secno">2.3 </span>Relationship to Data Cube, DCAT and XKOS</a></li></ol></li><li class="tocline"><a class="tocxref" href="#overview"><span class="secno">3. </span>Overview</a></li><li class="tocline"><a class="tocxref" href="#example"><span class="secno">4. </span>Real-life Example</a></li><li class="tocline"><a class="tocxref" href="#study"><span class="secno">5. </span>Studies and StudyGroups</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#coverage-references-to-ddi-xml-files-and-kind-of-data"><span class="secno">5.1 </span>Coverage, References to DDI-XML Files, and Kind of Data</a></li><li class="tocline"><a class="tocxref" href="#relationships-to-agents"><span class="secno">5.2 </span>Relationships to Agents</a></li><li class="tocline"><a class="tocxref" href="#analysis-units-and-universes"><span class="secno">5.3 </span>Analysis Units and Universes</a></li></ol></li><li class="tocline"><a class="tocxref" href="#metadata"><span class="secno">6. </span>General Metadata</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#identification"><span class="secno">6.1 </span>Identification</a></li><li class="tocline"><a class="tocxref" href="#versioning-information"><span class="secno">6.2 </span>Versioning Information</a></li><li class="tocline"><a class="tocxref" href="#links-to-related-files"><span class="secno">6.3 </span>Links to Related Files</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#access-rights-statements-and-licenses"><span class="secno">6.4 </span>Access Rights Statements and Licenses</a></li><li class="tocline"><a class="tocxref" href="#coverage-of-studies-logical-datasets-and-data-files"><span class="secno">6.5 </span>Coverage of Studies, Logical Datasets, and Data Files</a></li><li class="tocline"><a class="tocxref" href="#other-general-dublin-core-metadata-properties"><span class="secno">6.6 </span>Other General Dublin Core Metadata Properties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#dataset"><span class="secno">7. </span>Data Sets, Data Files, and Descriptive Statistics</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#logicaldataset"><span class="secno">7.1 </span>LogicalDataSet</a></li><li class="tocline"><a class="tocxref" href="#datafile"><span class="secno">7.2 </span>DataFile</a></li><li class="tocline"><a class="tocxref" href="#descriptivestatistics"><span class="secno">7.3 </span>DescriptiveStatistics</a></li></ol></li><li class="tocline"><a class="tocxref" href="#variable"><span class="secno">8. </span>Variables, Variable Definitions, Representations, and Concepts</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#variable-and-variable-definition"><span class="secno">8.1 </span>Variable and Variable Definition</a></li><li class="tocline"><a class="tocxref" href="#representation"><span class="secno">8.2 </span>Representation</a></li><li class="tocline"><a class="tocxref" href="#codes-and-categories"><span class="secno">8.3 </span>Codes and Categories</a></li><li class="tocline"><a class="tocxref" href="#ordering"><span class="secno">8.4 </span>Ordering</a></li></ol></li><li class="tocline"><a class="tocxref" href="#collection"><span class="secno">9. </span>Data Collection</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#instrument"><span class="secno">9.1 </span>Instrument</a></li><li class="tocline"><a class="tocxref" href="#question"><span class="secno">9.2 </span>Question</a></li></ol></li><li class="tocline"><a class="tocxref" href="#useOfOtherVocabularies"><span class="secno">10. </span>Use of Other Vocabularies</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#dcmi-metadata-terms-dcmi"><span class="secno">10.1 </span>DCMI Metadata Terms (DCMI)</a></li><li class="tocline"><a class="tocxref" href="#simple-knowledge-organization-system-skos"><span class="secno">10.2 </span>Simple Knowledge Organization System (SKOS)</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#data-catalog-vocabulary-dcat"><span class="secno">10.3 </span>Data Catalog Vocabulary (DCAT)</a></li><li class="tocline"><a class="tocxref" href="#friend-of-a-friend-foaf-and-organization-ontology-org"><span class="secno">10.4 </span>Friend of a Friend (FOAF) and Organization Ontology (ORG)</a></li><li class="tocline"><a class="tocxref" href="#adms"><span class="secno">10.5 </span>Asset Description Metadata Schema (ADMS)</a></li><li class="tocline"><a class="tocxref" href="#prov-ontology-prov-o"><span class="secno">10.6 </span>PROV Ontology (PROV-O)</a></li><li class="tocline"><a class="tocxref" href="#rdf-data-cube-vocabulary-qb"><span class="secno">10.7 </span>RDF Data Cube Vocabulary (QB)</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#skos-extension-for-statistics-xkos"><span class="secno">10.8 </span>SKOS Extension for Statistics (XKOS)</a></li><li class="tocline"><a class="tocxref" href="#semanticscience-integrated-ontology-sio"><span class="secno">10.9 </span>Semanticscience Integrated Ontology (SIO)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#mapping-from-DDI-XML-to-DDI-RDF"><span class="secno">11. </span>DDI-XML Bidirectional Mappings</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#representation-of-mappings-in-rdf"><span class="secno">11.1 </span>Representation of Mappings in RDF</a></li><li class="tocline"><a class="tocxref" href="#classes"><span class="secno">11.2 </span>Classes</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#object-properties"><span class="secno">11.3 </span>Object Properties</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#data-properties"><span class="secno">11.4 </span>Data Properties</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#overview-of-the-mapping-from-ddi-c-and-ddi-l-to-ddi-rdf"><span class="secno">11.5 </span>Overview of the Mapping from DDI-C and DDI-L to DDI-RDF</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#mapping-from-ddi-c-to-ddi-rdf"><span class="secno">11.6 </span>Mapping from DDI-C to DDI-RDF</a><ol class="toc"></ol></li><li class="tocline"><a class="tocxref" href="#mapping-from-ddi-l-to-ddi-rdf"><span class="secno">11.7 </span>Mapping from DDI-L to DDI-RDF</a><ol class="toc"></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#implementations"><span class="secno">12. </span>Reference Implementations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#microdata-information-system-missy"><span class="secno">12.1 </span>Microdata Information System (MISSY)</a><ol class="toc"></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#limitations"><span class="secno">13. </span>Limitations</a></li><li class="tocline"><a class="tocxref" href="#vocabulary-reference"><span class="secno">A. </span>Vocabulary Reference</a></li><li class="tocline"><a class="tocxref" href="#combined-uml-diagram"><span class="secno">B. </span>Combined UML Diagram</a></li><li class="tocline"><a class="tocxref" href="#use-cases-and-example-queries"><span class="secno">C. </span>Use Cases and Example Queries</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><span class="secno">D. </span>Acknowledgements</a></li><li class="tocline"><a class="tocxref" href="#references"><span class="secno">E. </span>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><span class="secno">E.1 </span>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><span class="secno">E.2 </span>Informative references</a></li></ol></li></ol></nav>
     <section id="tof">
 	  <!-- placeholder for generated table of diagrams -->
     <!--OddPage--><h2 id="x1-table-of-figures"><span class="secno">1. </span>Table of Figures<a class="self-link" aria-label="§" href="#tof"></a></h2><ul class="tof"><li class="tofline">
@@ -1082,69 +1100,69 @@ This specification defines the DDI-RDF Discovery Vocabulary (Disco), an RDF Sche
           <div class="marker">
       <a class="self-link" href="#example-1">Example 1</a>
     </div>
-          <pre aria-busy="false"><code class="hljs markdown"><span class="hljs-section"># We will use the namespace 'ddi' in all of our examples.</span>
+          <pre aria-busy="false"><code class="hljs"># We will use the namespace 'ddi' in all of our examples.
 
 ddi:Study_1 a disco:Study;
-<span class="hljs-code">    dcterms:title "National Population and Housing Census, 1980"@en;</span>
-<span class="hljs-code">    dcterms:identifier "ARG_1980_PHC_v01_A_IPUMS";</span>
-<span class="hljs-code">    dcterms:creator [</span>
-<span class="hljs-code">        rdfs:label "Minnesota Population Center"@en;</span>
-<span class="hljs-code">        skos:notation "MPC";</span>
-<span class="hljs-code">        org:memberOf [</span>
-<span class="hljs-code">            rdfs:label "University of Minnesota"@en;</span>
-<span class="hljs-code">        ];</span>
-<span class="hljs-code">    ];</span>
-<span class="hljs-code">    dcterms:creator [</span>
-<span class="hljs-code">        rdfs:label "Argentine National institute of Statistics and Censuses"@en;</span>
-<span class="hljs-code">    ]</span>
-<span class="hljs-code">	dcterms:temporal [</span>
-<span class="hljs-code">		a dcterms:PeriodOfTime ;</span>
-<span class="hljs-code">		disco:startDate "1980-10-22"^^xsd:date;</span>
-<span class="hljs-code">		disco:endDate "1980-10-22"^^xsd:date;</span>
-<span class="hljs-code">		rdfs:comment "The interviews take place on the expected census day. In</span>
-<span class="hljs-code">		  	      some areas the enumeration took place the following day because of</span>
-<span class="hljs-code">		  	      access problems due to heavy rains.";</span>
-<span class="hljs-code">    ];</span>
-<span class="hljs-code">    dcterms:spatial [</span>
-<span class="hljs-code">      # This is the DC-strictly compatible way to do it</span>
-<span class="hljs-code">      a dcterms:Location;</span>
-<span class="hljs-code">      rdfs:label "Argentina, national coverage"@en;</span>
-<span class="hljs-code">    ];</span>
-<span class="hljs-code">    # Only a subset of subjects mentioned in the original file</span>
-<span class="hljs-code">    dcterms:subject [</span>
-<span class="hljs-code">		skos:definition "Technical Variables -- HOUSEHOLD"@en ;</span>
-<span class="hljs-code">    ] ;</span>
-<span class="hljs-code">    dcterms:subject [</span>
-<span class="hljs-code">		skos:definition "Group Quarters Variables -- HOUSEHOLD"@en ;</span>
-<span class="hljs-code">    ] ;</span>
-<span class="hljs-code">	dcterms:abstract "IPUMS-International is an effort to inventory, preserve,</span>
-<span class="hljs-code">		         harmonize, and disseminate census microdata from around the world. The</span>
-<span class="hljs-code">		         project has collected the world's largest archive of publicly available</span>
-<span class="hljs-code">         		 census samples. The data are coded and documented consistently across</span>
-<span class="hljs-code">		         countries and over time to facilitate comparative research. IPUMS-</span>
-<span class="hljs-code">		         International makes these data available to qualified researchers free</span>
-<span class="hljs-code">		         of charge through a web dissemination system. The IPUMS project is a</span>
-<span class="hljs-code">		         collaboration of the Minnesota Population Center, National Statistical</span>
-<span class="hljs-code">		         Offices, and international data archives. Major funding is provided by</span>
-<span class="hljs-code">		         the U.S. National Science Foundation and the Demographic and Behavioral</span>
-<span class="hljs-code">		         Sciences Branch of the National Institute of Child Health and Human</span>
-<span class="hljs-code">		         Development. Additional support is provided by the University of</span>
-<span class="hljs-code">		         Minnesota Office of the Vice President for Research, the Minnesota</span>
-<span class="hljs-code">		         Population Center, and Sun Microsystems.";    </span>
+    dcterms:title "National Population and Housing Census, 1980"@en;
+    dcterms:identifier "ARG_1980_PHC_v01_A_IPUMS";
+    dcterms:creator [
+        rdfs:label "Minnesota Population Center"@en;
+        skos:notation "MPC";
+        org:memberOf [
+            rdfs:label "University of Minnesota"@en;
+        ];
+    ];
+    dcterms:creator [
+        rdfs:label "Argentine National institute of Statistics and Censuses"@en;
+    ]
+	dcterms:temporal [
+		a dcterms:PeriodOfTime ;
+		disco:startDate "1980-10-22"^^xsd:date;
+		disco:endDate "1980-10-22"^^xsd:date;
+		rdfs:comment "The interviews take place on the expected census day. In
+		  	      some areas the enumeration took place the following day because of
+		  	      access problems due to heavy rains.";
+    ];
+    dcterms:spatial [
+      # This is the DC-strictly compatible way to do it
+      a dcterms:Location;
+      rdfs:label "Argentina, national coverage"@en;
+    ];
+    # Only a subset of subjects mentioned in the original file
+    dcterms:subject [
+		skos:definition "Technical Variables -- HOUSEHOLD"@en ;
+    ] ;
+    dcterms:subject [
+		skos:definition "Group Quarters Variables -- HOUSEHOLD"@en ;
+    ] ;
+	dcterms:abstract "IPUMS-International is an effort to inventory, preserve,
+		         harmonize, and disseminate census microdata from around the world. The
+		         project has collected the world's largest archive of publicly available
+         		 census samples. The data are coded and documented consistently across
+		         countries and over time to facilitate comparative research. IPUMS-
+		         International makes these data available to qualified researchers free
+		         of charge through a web dissemination system. The IPUMS project is a
+		         collaboration of the Minnesota Population Center, National Statistical
+		         Offices, and international data archives. Major funding is provided by
+		         the U.S. National Science Foundation and the Demographic and Behavioral
+		         Sciences Branch of the National Institute of Child Health and Human
+		         Development. Additional support is provided by the University of
+		         Minnesota Office of the Vice President for Research, the Minnesota
+		         Population Center, and Sun Microsystems.";    
 
-<span class="hljs-code">    owl:versionInfo "Version 1.0. This version contains selected variables from</span>
-<span class="hljs-code">		    the original census microdata plus harmonized variables from the IPUMS</span>
-<span class="hljs-code">		    International data base."@en; </span>
+    owl:versionInfo "Version 1.0. This version contains selected variables from
+		    the original census microdata plus harmonized variables from the IPUMS
+		    International data base."@en; 
 
-<span class="hljs-code">    disco:universe ddi:Universe_1;</span>
-<span class="hljs-code">    disco:instrument ddi:Questionnaire_1;</span>
-<span class="hljs-code">    disco:product ddi:Dataset_1;</span>
-<span class="hljs-code">    </span>
-<span class="hljs-code">    disco:analysisUnit ddi:AnalysisUnit_1;</span>
-<span class="hljs-code">    disco:kindOfData ddi:KindOfData_1;</span>
+    disco:universe ddi:Universe_1;
+    disco:instrument ddi:Questionnaire_1;
+    disco:product ddi:Dataset_1;
+    
+    disco:analysisUnit ddi:AnalysisUnit_1;
+    disco:kindOfData ddi:KindOfData_1;
 
-<span class="hljs-code">    # stdyInfo/notes currently not represented. </span>
-<span class="hljs-code">    disco:variable ddi:AR80A401, ddi:AR80A402, ddi:AR80A404, ddi:AR80A407, ddi:AR80A411.</span></code></pre>
+    # stdyInfo/notes currently not represented. 
+    disco:variable ddi:AR80A401, ddi:AR80A402, ddi:AR80A404, ddi:AR80A407, ddi:AR80A411.</code></pre>
         </div>
 	  
       <p>While the sampling methodology may not be of great interest
@@ -1561,7 +1579,7 @@ ddi:CitizenshipRepr a skos:ConceptScheme, disco:Representation;
 	</section>
 	  
       <figure id="fig-relationships-to-agents">
-        <img class="uml-diagram" src="diagrams/study-agent.png" style="width: 950px;">
+        <img class="uml-diagram" src="diagrams/study-agent.png" height="1084" width="1728" style="width: 950px;">
         <figcaption>Figure <span class="figno">11</span> <span class="fig-title">Relationships to Agents</span></figcaption>
       </figure>
 	  
@@ -2037,7 +2055,7 @@ Specific formats can be assigned to multiple (0 - n) data files (<code><a href="
        </p>
 	   
       <figure id="fig-descriptivestatistics">
-        <img class="uml-diagram" src="diagrams/descriptive-statistics.png" style="width: 838px;">
+        <img class="uml-diagram" src="diagrams/descriptive-statistics.png" height="1596" width="1524" style="width: 838px;">
         <figcaption>Figure <span class="figno">23</span> <span class="fig-title">DescriptiveStatistics</span></figcaption>
       </figure>
 	   
@@ -2821,7 +2839,7 @@ Please note that only code and categories are part of the turtle example.
 		    The following example shows an ordered collection of categories represented using abbreviated and complete syntax forms.
 		  </p>
 		  
-		<pre aria-busy="false"><code class="hljs markdown">@prefix issp: <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">http:</span>//<span class="hljs-attr">www.issp.org</span>/&gt;</span></span>	  
+		<pre aria-busy="false"><code class="hljs xml">@prefix issp: <span class="hljs-tag">&lt;<span class="hljs-name">http:</span>//<span class="hljs-attr">www.issp.org</span>/&gt;</span>	  
 
 issp:XYZ_1
   a disco:Variable;
@@ -2829,32 +2847,32 @@ issp:XYZ_1
   skos:prefLabel "Living in steady partnership";
   disco:representation issp:OrderedCollection_1.
 
-<span class="hljs-section"># abbreviated syntax:</span>
+# abbreviated syntax:
 issp:OrderedCollection_1
   rdf:type skos:OrderedCollection;
   skos:memberList (
-<span class="hljs-code">    issp:Category_1</span>
-<span class="hljs-code">    issp:Category_2</span>
-<span class="hljs-code">    issp:Category_3</span>
-<span class="hljs-code">    issp:Category_4</span>
-<span class="hljs-code">    issp:Category_5</span>
-<span class="hljs-code">    issp:Category_6</span>
-<span class="hljs-code">    issp:Category_7</span>
-<span class="hljs-code">    issp:Category_8 ).</span>
-<span class="hljs-code">	</span>
-<span class="hljs-section"># complete syntax:</span>
+    issp:Category_1
+    issp:Category_2
+    issp:Category_3
+    issp:Category_4
+    issp:Category_5
+    issp:Category_6
+    issp:Category_7
+    issp:Category_8 ).
+	
+# complete syntax:
 issp:OrderedCollection_1
   rdf:type skos:OrderedCollection;
   skos:memberList [
-<span class="hljs-code">    rdf:first issp:Category_1; rdf:rest [</span>
-<span class="hljs-code">    rdf:first issp:Category_2; rdf:rest [</span>
-<span class="hljs-code">    rdf:first issp:Category_3; rdf:rest [</span>
-<span class="hljs-code">    rdf:first issp:Category_4; rdf:rest [</span>
-<span class="hljs-code">    rdf:first issp:Category_5; rdf:rest [</span>
-<span class="hljs-code">    rdf:first issp:Category_6; rdf:rest [</span>
-<span class="hljs-code">    rdf:first issp:Category_7; rdf:rest [</span>
-<span class="hljs-code">    rdf:first issp:Category_8;</span>
-<span class="hljs-code">    rdf:rest rdf:nil.] ] ] ] ] ] ] ].</span></code></pre>
+    rdf:first issp:Category_1; rdf:rest [
+    rdf:first issp:Category_2; rdf:rest [
+    rdf:first issp:Category_3; rdf:rest [
+    rdf:first issp:Category_4; rdf:rest [
+    rdf:first issp:Category_5; rdf:rest [
+    rdf:first issp:Category_6; rdf:rest [
+    rdf:first issp:Category_7; rdf:rest [
+    rdf:first issp:Category_8;
+    rdf:rest rdf:nil.] ] ] ] ] ] ] ].</code></pre>
 		
       </div>
 	  
@@ -7064,23 +7082,11 @@ disco:mapping [
 
     </section>
 
-    <section id="mappings">
-      <!--OddPage--><h2 id="x12-mappings-to-other-models"><span class="secno">12. </span>Mappings to other Models<a class="self-link" aria-label="§" href="#mappings"></a></h2>
-	  
-      <section id="gsim">
-        <h3 id="x12-1-gsim"><span class="secno">12.1 </span>GSIM<a class="self-link" aria-label="§" href="#gsim"></a></h3>
-      </section>
-	  
-      <section id="schema-org">
-        <h3 id="x12-2-schema-org"><span class="secno">12.2 </span>Schema.org<a class="self-link" aria-label="§" href="#schema-org"></a></h3>
-      </section>
-    </section>
-	
 	<section id="implementations">
-		<!--OddPage--><h2 id="x13-reference-implementations"><span class="secno">13. </span>Reference Implementations<a class="self-link" aria-label="§" href="#implementations"></a></h2>
+		<!--OddPage--><h2 id="x12-reference-implementations"><span class="secno">12. </span>Reference Implementations<a class="self-link" aria-label="§" href="#implementations"></a></h2>
 	  
 		<section id="microdata-information-system-missy">
-			<h3 id="x13-1-microdata-information-system-missy"><span class="secno">13.1 </span>Microdata Information System (MISSY)<a class="self-link" aria-label="§" href="#microdata-information-system-missy"></a></h3>
+			<h3 id="x12-1-microdata-information-system-missy"><span class="secno">12.1 </span>Microdata Information System (MISSY)<a class="self-link" aria-label="§" href="#microdata-information-system-missy"></a></h3>
 
 <p>			
 The <a href="http://www.gesis.org/missy">Microdata Information System (MISSY)</a> is an online service platform 
@@ -7098,7 +7104,7 @@ a <a href="http://www.gesis.org/missy">web information system</a> to provide the
 </ol>
 <p></p>
 			<section id="data-models">
-				<h4 id="x13-1-1-data-models"><span class="secno">13.1.1 </span>Data Models<a class="self-link" aria-label="§" href="#data-models"></a></h4>
+				<h4 id="x12-1-1-data-models"><span class="secno">12.1.1 </span>Data Models<a class="self-link" aria-label="§" href="#data-models"></a></h4>
 <p>
 We use Disco as core data model and extend it with a project-specific data model as Disco does not meet all of our project requirements. 
 We provide open-source reference implementations of the Disco and the project-specific data model in Java, see Software Resources below.
@@ -7109,7 +7115,7 @@ Diverse export routines (e.g., Disco and DDI-Lifecycle) are available to enable 
 			</section>
 
 			<section id="publications">
-				<h4 id="x13-1-2-publications"><span class="secno">13.1.2 </span>Publications<a class="self-link" aria-label="§" href="#publications"></a></h4>
+				<h4 id="x12-1-2-publications"><span class="secno">12.1.2 </span>Publications<a class="self-link" aria-label="§" href="#publications"></a></h4>
 <ul>
 <li> Bohr, J. (2007). <a href="http://www.gesis.org/fileadmin/upload/forschung/publikationen/gesis_reihen/gesis_methodenberichte/2007/07_01_Bohr.pdf">Final Report MISSY User Survey.</a> ZUMA Methodenbericht 01, Gesis - Leibniz Institute for the Social Sciences, Mannheim, Germany.</li>
 <li>Bohr, J., Hopt, O., Lengerer, A., Schroedter, J., &amp; Wira-Alam, A. (2010). <a href="http://www.gesis.org/fileadmin/upload/forschung/publikationen/gesis_reihen/gesis_methodenberichte/2010/TechnicalReport_10-7.pdf">Microdata Information System MISSY: Metadata for the Microcensus Scientific Use Files (Final Report MISSY II).</a> Gesis Technical Report 07, Gesis - Leibniz Institute for the Social Sciences, Mannheim, Germany. 
@@ -7129,7 +7135,7 @@ Wira-Alam, A. &amp; Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/d
 </ul>
 			</section>
 			<section id="software-resources">
-				<h4 id="x13-1-3-software-resources"><span class="secno">13.1.3 </span>Software Resources<a class="self-link" aria-label="§" href="#software-resources"></a></h4>
+				<h4 id="x12-1-3-software-resources"><span class="secno">12.1.3 </span>Software Resources<a class="self-link" aria-label="§" href="#software-resources"></a></h4>
 <ul>
 <li>
 <a href="https://git.gesis.org/ddi/disco-model">disco-model</a> - A Java implementation of the DDI-RDF Discovery Vocabulary
@@ -7145,6 +7151,13 @@ Wira-Alam, A. &amp; Hopt, O. (2009). <a href="http://www.iassistdata.org/sites/d
 		</section>
 	</section>
 	  
+    <section id="limitations">
+      <!--OddPage--><h2 id="x13-limitations"><span class="secno">13. </span>Limitations<a class="self-link" aria-label="§" href="#limitations"></a></h2>
+<p>
+Disco provides a detailed structure to describe data for discovery purposes in the Semantic Web. This way, DDI XML repositories can be transformed to Disco and provided to the Linked Data Web. For other purposes like preservation, exchange, replication or metadata-driven approach, the DDI XML specifications Lifecycle and also Codebook provide a richer structure. Examples are advanced missing value description and the notion of a conceptual variable (derived from <a href="https://statswiki.unece.org/display/gsim">GSIM – Generic Statistical Information Model</a>).
+</p>
+    </section>
+	
     <section class="appendix" id="vocabulary-reference">
       <!--OddPage--><h2 id="a-vocabulary-reference"><span class="secno">A. </span>Vocabulary Reference<a class="self-link" aria-label="§" href="#vocabulary-reference"></a></h2>
       <!-- Vocabulary Reference start-->
@@ -7604,7 +7617,7 @@ WHERE {
           <div class="marker">
       <a class="self-link" href="#example-32">Example 32</a>
     </div>
-          <pre aria-busy="false"><code class="hljs markdown">ddi:EuropeanStudy
+          <pre aria-busy="false"><code class="hljs">ddi:EuropeanStudy
   a disco:Study;
   disco:product ddi:EuropeanDataSet;
   disco:fundedBy ddi:GESIS;
@@ -7639,8 +7652,8 @@ ddi:DERI
 ddi:GESIS
   a org:Organization;
   adms:identifier [ a adms:Identifier ].
-<span class="hljs-section">  
------</span>
+  
+-----
 
 SELECT 
   ?person
@@ -7989,10 +8002,7 @@ prov:wasDerivedFrom ddi:EuropeanStudy.</code></pre>
                 <dt id="bib-Linked-Statistical-Data">[Linked-Statistical-Data]</dt>
                 <dd>Bosch, T., Cyganiak, R., Wackerow, J., and Zapilko, B. <a href="http://dcpapers.dublincore.org/pubs/article/view/3654"><cite>Leveraging the DDI Model for Linked Statistical Data in the Social, Behavioural, and Economic Sciences.</cite></a> 2012. International Conference on Dublin Core and Metadata Applications. URL: <a href="http://dcpapers.dublincore.org/pubs/article/view/3654">http://dcpapers.dublincore.org/pubs/article/view/3654</a></dd>
                 
-                <dt id="bib-Scenarios">[Scenarios]</dt><dd>Vompras, J., Gregory, A., Bosch, T., Capadisli, and Wackerow, J.<a href="http://dx.doi.org/10.3886/DDISemanticWeb02"><cite>Scenarios for the DDI-RDF Discovery Vocabulary.</cite></a> May 2013. DDI Working Paper Series – Semantic Web 2. DOI: in preparation</dd>
-                <!--
-                  <dt id="bib-Scenarios">[Scenarios]</dt><dd>Vompras, J., Gregory, A., Bosch, T., Capadisli, and Wackerow, J.<a href="http://dx.doi.org/10.3886/DDISemanticWeb02"><cite>Scenarios for the DDI-RDF Discovery Vocabulary.</cite></a> May 2013. DDI Working Paper Series – Semantic Web 2. DOI: <a href="http://dx.doi.org/10.3886/DDISemanticWeb02">http://dx.doi.org/10.3886/DDISemanticWeb02</a></dd>
-                -->
+                <dt id="bib-Scenarios">[Scenarios]</dt><dd>Vompras, J., Gregory, A., Bosch, T., Capadisli, and Wackerow, J.<a href="http://dx.doi.org/10.3886/DDISemanticWeb02"><cite>Scenarios for the DDI-RDF Discovery Vocabulary.</cite></a> May 2013. DDI Working Paper Series – Semantic Web 2. DOI: <a href="http://dx.doi.org/10.3886/DDISemanticWeb02">10.3886/DDISemanticWeb02</a></dd>
 
                 <dt id="bib-Semantic-Statistics">[Semantic Statistics]</dt>
                 <dd>
